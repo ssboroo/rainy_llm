@@ -191,7 +191,7 @@ Do not commit credentials, private data, raw corpora without redistribution righ
 
 ### License and release status
 
-A repository-wide software license has **not yet been selected**. Public visibility alone does not grant an open-source license.
+Original project materials are subject to the ownership notice below. No general open-source license is granted; explicitly licensed files retain their own terms.
 
 The single project-authored format example in `data/examples.jsonl` is designated CC0-1.0 in [the data specification](docs/DATA.md). That designation does not apply to the repository's code, third-party datasets, or model weights. Upstream models and datasets retain their own terms.
 
@@ -362,7 +362,7 @@ ChatGPT-ийн гадаад scheduled task-ийг **Улаанбаатарын �
 
 ### Лиценз ба хувилбарын төлөв
 
-Repository-ийн программын нийтлэг лицензийг **хараахан сонгоогүй**. Public repository байх нь өөрөө open-source лиценз олгож байгаа гэсэн үг биш.
+Төслийн өөрийн бүтээсэн материалд доорх эрхийн мэдэгдэл үйлчилнэ. Нийтлэг open-source лиценз олгоогүй; тусгай лицензтэй файлын нөхцөл хэвээр байна.
 
 `data/examples.jsonl` дахь төслийн бичсэн ганц жишээг [өгөгдлийн дүрэмд](docs/DATA.md) CC0-1.0 гэж тэмдэглэсэн. Энэ нөхцөл код, бусад dataset, модель жинд хамаарахгүй. Ашиглах суурь загвар болон өгөгдөл тус бүрийн өөрийн лицензийг мөрдөнө.
 
@@ -370,3 +370,27 @@ Repository-ийн программын нийтлэг лицензийг **ха�
 
 **Project / Төсөл:** [ssboroo/rainy_llm](https://github.com/ssboroo/rainy_llm)  
 **Documentation snapshot / Баримтжуулалтын огноо:** 2026-09-29
+
+---
+
+## Author and project ownership / Зохиогч ба төслийн эзэмшил
+
+**Founded, directed, and developed by [ssboroo](https://github.com/ssboroo).**
+
+RAINY LLM is an independent project created and maintained by ssboroo. Development uses AI-assisted research and coding tools under the project owner's direction.
+
+**Copyright © 2026 ssboroo. All rights reserved, except where a file explicitly specifies otherwise.**
+
+This notice applies to original RAINY LLM project materials to the extent that copyright protection applies. No general license to use, modify, or redistribute those materials is granted by this notice. For permission or commercial licensing inquiries, contact the project owner through their [GitHub profile](https://github.com/ssboroo).
+
+Third-party models, weights, datasets, libraries, and other upstream materials remain subject to their respective owners' rights and licenses. RAINY LLM does not claim authorship or ownership of those upstream materials. The explicitly designated CC0-1.0 format example retains its stated terms. This notice does not assert that every AI-assisted output is independently copyrightable.
+
+**Төслийг үүсгэн байгуулж, чиглүүлэн хөгжүүлэгч: [ssboroo](https://github.com/ssboroo).**
+
+RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүлж буй бие даасан төсөл. Судалгаа, код боловсруулах ажилд төслийн эзэмшигчийн чиглүүлгээр AI туслах хэрэгсэл ашигладаг.
+
+**Зохиогчийн эрх © 2026 ssboroo. Тухайн файлд өөрөөр заагаагүй бол бүх эрхийг хадгална.**
+
+Энэ тэмдэглэгээ нь зохиогчийн эрхээр хамгаалагдах хэмжээнд RAINY LLM төслийн өөрийн бүтээсэн материалд хамаарна. Энэ мэдэгдлээр тэдгээр материалыг ашиглах, өөрчлөх, дахин түгээх нийтлэг лиценз олгохгүй. Ашиглах зөвшөөрөл болон арилжааны лицензийн асуудлаар төслийн эзэмшигчийн [GitHub профайлаар](https://github.com/ssboroo) холбогдоно уу.
+
+Гуравдагч талын суурь загвар, модель жин, өгөгдөл, сан болон бусад эх материалын эрх нь холбогдох эзэмшигчиддээ хэвээр үлдэнэ. Тэдгээрийн лицензийг тусад нь мөрдөнө. RAINY LLM тэдгээр эх материалыг өөрөө бүтээсэн, эзэмшдэг гэж мэдэгдэхгүй. CC0-1.0 гэж тусгайлан заасан форматын жишээний нөхцөл хэвээр байна. AI-ийн оролцоотой бүх үр дүн автоматаар зохиогчийн эрхтэй гэж энэ мэдэгдлээр батлахгүй.
