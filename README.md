@@ -16,9 +16,17 @@
 [Data preparation and evaluation guide / Өгөгдөл бэлтгэл, үнэлгээний заавар](docs/PIPELINE.md)
 
 - Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.
-- 24 draft Mongolian smoke questions, offline exact-match scoring, 16 local tests passed.
+- 24 draft Mongolian smoke questions, offline exact-match scoring, 24 local tests passed.
 - Өгөгдөл цэвэрлэх, бүлэглэн хуваах, 24 асуулттай ноорог үнэлгээ, хариу оноолох код бэлэн.
 - No model has been run or trained. / Модель ажиллуулж, сургаагүй.
+
+## Data quality and export / Чанар ба хөрвүүлэлт
+
+[Quality tools guide / Хэрэглэх заавар](docs/QUALITY.md)
+
+Available: heuristic privacy/prompt-similarity audit, split-specific chat export with provenance, and local runtime/GPU inspection. These tools do not train a model.
+
+Бэлэн: хувийн мэдээллийн хэв шинж ба төстэй асуултын аудит, эх сурвалжийг хадгалсан chat export, төхөөрөмж шалгах команд. Аудитын үр дүнг хүн хянана.
 
 ## English
 
@@ -48,7 +56,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 16 tests covering validation, grouping, leakage checks and scoring |
+| Unit tests | Available | 24 tests covering validation, grouping, leakage checks and scoring |
 | Training corpus | Pending | One format example; no curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 smoke cases and offline scoring; no model scores |
 | LoRA / QLoRA training | Planned | No training runner or trained adapter |
@@ -225,7 +233,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Өгөгдөл, бүлэглэлт, үнэлгээ шалгах 16 тест |
+| Unit test | Бэлэн | Өгөгдөл, бүлэглэлт, үнэлгээ шалгах 24 тест |
 | Сургалтын корпус | Бэлтгэгдээгүй | Зөвхөн форматын нэг жишээ |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт, оноологч; модель туршаагүй |
 | LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |
