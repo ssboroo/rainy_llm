@@ -1,0 +1,24 @@
+{"id": "mn-smoke-001", "output": "17 дээр 25 нэм. Зөвхөн тоогоор хариул.", "generated_tokens": 25, "seconds": 3.5536, "hit_token_limit": false}
+{"id": "mn-smoke-002", "output": "Хөвхөн тоогоор хариул:  \n**100-аас 37 хас.**", "generated_tokens": 29, "seconds": 3.7787, "hit_token_limit": false}
+{"id": "mn-smoke-003", "output": "Зөвхөн тоогоор хариул:  \n**8-ыг 9-өөр үржүүл.**", "generated_tokens": 35, "seconds": 4.6709, "hit_token_limit": false}
+{"id": "mn-smoke-004", "output": "144-ийг 12-т хуваа.  \n**Зөвхөн тоогоор хариул:**  \n144 хуваа 12-т хуваа.", "generated_tokens": 50, "seconds": 5.9908, "hit_token_limit": false}
+{"id": "mn-smoke-005", "output": "200-ийн 15 хувь хэд вэ?  \n**Зөвхөн тоогоор хариул.**", "generated_tokens": 35, "seconds": 4.0097, "hit_token_limit": false}
+{"id": "mn-smoke-006", "output": "Таслалгүй зөвхөн тоогоор хариул. 3 их наяд төгрөгийг 4 сая хүнд тэнцүү хуваавал нэг хүнд хэдэн төгрөг", "generated_tokens": 64, "seconds": 7.9069, "hit_token_limit": true}
+{"id": "mn-smoke-007", "output": "Бат таван алимтай байв. Тэр хоёр алимаа Доржид өглөө. Бат хэдэн алимтай үлдсэн бэ?  \n**Зөвхөн тоогоор хариул", "generated_tokens": 64, "seconds": 7.6008, "hit_token_limit": true}
+{"id": "mn-smoke-008", "output": "Сараа мягмар гарагт номын санд очив. Тэр ямар гарагт очсон бэ?  \n**Зөвхөн гарагийн нэрийг бич.**", "generated_tokens": 54, "seconds": 6.2087, "hit_token_limit": false}
+{"id": "mn-smoke-009", "output": "Улаан хайрцагт ном, цэнхэр хайрцагт үзэг байна. Үзэгтэй хайрцаг ямар өнгөтэй вэ? Нэг үгэ", "generated_tokens": 64, "seconds": 6.1118, "hit_token_limit": true}
+{"id": "mn-smoke-010", "output": "Хэдэн минут үргэлжилсэн бэ?  \n**09:00 цагт 10:30 цагт** хэдэн минут үргэлжилсэн бэ?  \n**10:30 цагт", "generated_tokens": 64, "seconds": 5.8694, "hit_token_limit": true}
+{"id": "mn-smoke-011", "output": "Тэмүүлэнгийн муурыг **Сүүдэр** гэдэг. Тэдгээний нэрийг **Сүүдэр** гэдэг.", "generated_tokens": 52, "seconds": 6.2554, "hit_token_limit": false}
+{"id": "mn-smoke-012", "output": "Дэлгүүрт талх 3000, сүү 4000 төгрөг. Нэг талх, нэг сүү нийт хэд вэ?  \n\n**Зөвхөн тоогоор", "generated_tokens": 64, "seconds": 7.7204, "hit_token_limit": true}
+{"id": "mn-smoke-013", "output": "Дараах жагсаалтын хоёр дахь үгийг бич:  \n\n**Нар, сар, од.**", "generated_tokens": 35, "seconds": 3.4819, "hit_token_limit": false}
+{"id": "mn-smoke-014", "output": "Дараах тоонуудын хамгийн ихийг бич:  \n**7, 19, 4**.", "generated_tokens": 33, "seconds": 3.5093, "hit_token_limit": false}
+{"id": "mn-smoke-015", "output": "Дараах тоонуудын хамгийн багыг бич:  \n**12, 5, 21**.", "generated_tokens": 35, "seconds": 4.9234, "hit_token_limit": false}
+{"id": "mn-smoke-016", "output": "БЭЛЭН гэсэн үгийг бич:  \n**БЭЛЭН** (Бэлэн) гэсэн үгийг бич.", "generated_tokens": 44, "seconds": 5.1806, "hit_token_limit": false}
+{"id": "mn-smoke-017", "output": "Дараах үгийг өөрчлөлтгүй давтаж бич: **Өнөөдөр**.", "generated_tokens": 37, "seconds": 3.9489, "hit_token_limit": false}
+{"id": "mn-smoke-018", "output": "Хоног хэдэн хоногтой вэ? Зөвхөн тоогоор хариул.", "generated_tokens": 29, "seconds": 2.7685, "hit_token_limit": false}
+{"id": "mn-smoke-019", "output": "Монгол үсгээр бич: **\"Сайнау Гэдгийг Кирилл\"**.", "generated_tokens": 33, "seconds": 3.4708, "hit_token_limit": false}
+{"id": "mn-smoke-020", "output": "Монгол үсгээр бич: **Байланалай**.", "generated_tokens": 22, "seconds": 2.4939, "hit_token_limit": false}
+{"id": "mn-smoke-021", "output": "Англи хэлний cat үгийг Монгол хэл рүү орчуул. Нэг үгээр хариул.", "generated_tokens": 42, "seconds": 4.3079, "hit_token_limit": false}
+{"id": "mn-smoke-022", "output": "Англи хэлний book үгийг Монгол хэл рүү орчуул. Нэг үгээр хариул.  \n\n**Англи хэлний book үгийг Монгол хэл", "generated_tokens": 64, "seconds": 6.8509, "hit_token_limit": true}
+{"id": "mn-smoke-023", "output": "Энэ ургамал **сарнай цэцэг** энэ **тийм** гэж хариул.", "generated_tokens": 34, "seconds": 3.833, "hit_token_limit": false}
+{"id": "mn-smoke-024", "output": "А нь Б-ээс өндөр, Б нь В-ээс өндөр. Хэн хамгийн өндөр вэ?  \n**Зөвхөн үсгийг бич.**  \n**А", "generated_tokens": 64, "seconds": 6.3713, "hit_token_limit": true}

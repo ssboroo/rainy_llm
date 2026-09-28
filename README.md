@@ -5,9 +5,9 @@
 
 [English](#english) · [Монгол](#монгол) · [Data specification](docs/DATA.md) · [Model watch](docs/MODEL_WATCH.md) · [Roadmap](docs/ROADMAP.md)
 
-> **Development stage: research foundation.** Dataset validation and unit tests are available. No RAINY model weights, trained adapters, inference service, or Mongolian benchmark results have been released.
+> **Development stage: research foundation.** Dataset validation and unit tests are available. No trained RAINY weights or service have been released. A first Qwen3-0.6B CPU smoke evaluation is now recorded below.
 >
-> **Төлөв: судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл шалгах код болон тест бэлэн. RAINY загварын жин, сургагдсан adapter, inference үйлчилгээ, Монгол benchmark-ийн үр дүн хараахан гараагүй.
+> **Төлөв: судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл шалгах код болон тест бэлэн. RAINY загварыг сургаагүй, үйлчилгээ гаргаагүй. Qwen3-0.6B CPU туршилтын бодит үр дүнг доор нэмсэн.
 
 ---
 
@@ -18,7 +18,7 @@
 - Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.
 - 24 draft Mongolian smoke questions, offline exact-match scoring, 24 local tests passed.
 - Өгөгдөл цэвэрлэх, бүлэглэн хуваах, 24 асуулттай ноорог үнэлгээ, хариу оноолох код бэлэн.
-- No model has been run or trained. / Модель ажиллуулж, сургаагүй.
+- Qwen3-0.6B inference completed; no training. / Qwen3-0.6B хариулт үүсгэсэн; сургалт хийгдээгүй.
 
 ## Data quality and export / Чанар ба хөрвүүлэлт
 
@@ -27,6 +27,16 @@
 Available: heuristic privacy/prompt-similarity audit, split-specific chat export with provenance, and local runtime/GPU inspection. These tools do not train a model.
 
 Бэлэн: хувийн мэдээллийн хэв шинж ба төстэй асуултын аудит, эх сурвалжийг хадгалсан chat export, төхөөрөмж шалгах команд. Аудитын үр дүнг хүн хянана.
+
+## First measured baseline / Эхний бодит хэмжилт
+
+- [Real-data and baseline report / Тайлан](research/2026-09-29-real-baseline.md)
+- [20 attributed Wikipedia leads / Бодит өгөгдөл](data/mnwiki_pilot/README.md)
+- [Reproduction guide / Давтан ажиллуулах](docs/BASELINE.md)
+
+Qwen3-0.6B, CPU float32, non-thinking greedy, 64-token cap: **0/24 exact match**, **7 capped responses**, **120.8175 s** generation time. This small draft test and older tiny model do not establish general Mongolian ability. The collected corpus was not used for training or prompting.
+
+Жижиг загварын энэ тохиргоо 24 асуултын яг тохирсон хариултын шалгуураар 0 авсан. Сургалт хийгдээгүй; бодит хариу, тохиргоо, хугацааг ил тод хадгалсан.
 
 ## English
 
@@ -57,8 +67,8 @@ These are development objectives, not claims about an already trained model. Tra
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
 | Unit tests | Available | 24 tests covering validation, grouping, leakage checks and scoring |
-| Training corpus | Pending | One format example; no curated training corpus |
-| Mongolian evaluation | Draft tooling | 24 smoke cases and offline scoring; no model scores |
+| Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
+| Mongolian evaluation | Draft tooling | 24 draft smoke cases; Qwen3-0.6B CPU exact match 0/24 |
 | LoRA / QLoRA training | Planned | No training runner or trained adapter |
 | Inference API / Docker | Planned | No runnable service or container configuration |
 
@@ -234,8 +244,8 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
 | Unit test | Бэлэн | Өгөгдөл, бүлэглэлт, үнэлгээ шалгах 24 тест |
-| Сургалтын корпус | Бэлтгэгдээгүй | Зөвхөн форматын нэг жишээ |
-| Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт, оноологч; модель туршаагүй |
+| Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
+| Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; Qwen3-0.6B CPU туршилт 0/24 |
 | LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
 
