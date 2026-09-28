@@ -11,6 +11,15 @@
 
 ---
 
+## New: CPU pipeline / CPU дээр ажиллах шинэ хэрэгслүүд
+
+[Data preparation and evaluation guide / Өгөгдөл бэлтгэл, үнэлгээний заавар](docs/PIPELINE.md)
+
+- Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.
+- 24 draft Mongolian smoke questions, offline exact-match scoring, 16 local tests passed.
+- Өгөгдөл цэвэрлэх, бүлэглэн хуваах, 24 асуулттай ноорог үнэлгээ, хариу оноолох код бэлэн.
+- No model has been run or trained. / Модель ажиллуулж, сургаагүй.
+
 ## English
 
 ### Overview
@@ -39,9 +48,9 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | Six tests covering valid records and validation failures |
+| Unit tests | Available | 16 tests covering validation, grouping, leakage checks and scoring |
 | Training corpus | Pending | One format example; no curated training corpus |
-| Mongolian evaluation | Planned | No baseline scores published |
+| Mongolian evaluation | Draft tooling | 24 smoke cases and offline scoring; no model scores |
 | LoRA / QLoRA training | Planned | No training runner or trained adapter |
 | Inference API / Docker | Planned | No runnable service or container configuration |
 
@@ -134,7 +143,7 @@ Open weights do not automatically imply that all training data and code are open
 | Reliability | Appropriate uncertainty and unsupported-claim analysis |
 | Efficiency | Latency, throughput, peak VRAM, documented hardware |
 
-Evaluation data must remain separate from training. Source-level split design and near-duplicate checks are planned to reduce leakage. Human judgments and automated scores will be reported separately.
+Evaluation data must remain separate from training. Source/prompt grouping is available in the preparation tool. Near-duplicate checks remain planned. Human judgments and automated scores will be reported separately.
 
 A lower training loss is not sufficient evidence of better assistant behavior. No numeric quality target or hardware requirement is claimed until measurements are available.
 
@@ -216,9 +225,9 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Зөв болон алдаатай өгөгдөл шалгах зургаан тест |
+| Unit test | Бэлэн | Өгөгдөл, бүлэглэлт, үнэлгээ шалгах 16 тест |
 | Сургалтын корпус | Бэлтгэгдээгүй | Зөвхөн форматын нэг жишээ |
-| Монгол үнэлгээ | Төлөвлөсөн | Суурь оноо хараахан гараагүй |
+| Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт, оноологч; модель туршаагүй |
 | LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
 
@@ -305,7 +314,7 @@ python scripts/validate_data.py path/to/dataset.jsonl
 | Найдвартай байдал | Мэдэхгүйгээ илэрхийлэх, баримтгүй мэдэгдэл |
 | Нөөцийн үр ашиг | Хугацаа, хурд, VRAM, төхөөрөмжийн мэдээлэл |
 
-Үнэлгээний асуултуудыг сургалтад оруулахгүй. Эх баримтаар нь бүлэглэн хуваах, ойролцоо давхардлыг илрүүлэх шалгалт цаашид нэмэгдэнэ. Хүний үнэлгээ, автомат оноог тусад нь тайлагнана.
+Үнэлгээний асуултуудыг сургалтад оруулахгүй. Эх сурвалж, ижил асуултаар бүлэглэн хуваах код бэлэн. Утгын ойролцоо давхардлыг илрүүлэх шалгалт цаашид нэмэгдэнэ. Хүний үнэлгээ, автомат оноог тусад нь тайлагнана.
 
 Сургалтын loss буурсан нь хэрэглээний чанар сайжирсны хангалттай баталгаа биш. Бодит хэмжилтгүй үед чанарын оноо, GPU шаардлага зохиож зарлахгүй.
 
