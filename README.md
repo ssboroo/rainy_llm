@@ -3,7 +3,7 @@
 **Building a reproducible foundation for Mongolian language models.**  
 **Монгол хэлний загварыг хэмжиж, сайжруулж, давтан турших боломжтой суурь төсөл.**
 
-[English](#english) · [Монгол](#монгол) · [Data specification](docs/DATA.md) · [Model watch](docs/MODEL_WATCH.md) · [Roadmap](docs/ROADMAP.md)
+[English](#english) · [Монгол](#монгол) · [Data specification](docs/DATA.md) · [Dataset registry](data/source_registry.json) · [Model watch](docs/MODEL_WATCH.md) · [Roadmap](docs/ROADMAP.md)
 
 > **Development stage: research foundation.** Dataset validation and unit tests are available. No trained RAINY weights or service have been released. A first Qwen3-0.6B CPU smoke evaluation is now recorded below.
 >
