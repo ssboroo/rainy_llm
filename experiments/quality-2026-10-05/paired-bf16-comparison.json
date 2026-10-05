@@ -1,0 +1,30 @@
+{
+  "comparable": true,
+  "validation_errors": [],
+  "comparability_mismatches": [],
+  "baseline": {
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "accuracy": 0.0,
+    "seconds_per_case": 3.2300541666666667
+  },
+  "candidate": {
+    "model": "Qwen/Qwen3-1.7B",
+    "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "accuracy": 0.0,
+    "seconds_per_case": 7.972783333333333
+  },
+  "accuracy_delta": 0.0,
+  "seconds_per_case_delta": 4.742729166666667,
+  "missing_resource_measurements": [
+    "baseline.hardware",
+    "baseline.peak_vram_gb",
+    "baseline.estimated_cost_usd",
+    "candidate.hardware",
+    "candidate.peak_vram_gb",
+    "candidate.estimated_cost_usd"
+  ],
+  "quality_improved": false,
+  "promotion_eligible": false,
+  "note": "Promotion requires comparable settings, higher measured accuracy, no missing predictions, and recorded hardware/VRAM/cost. Human review is separate."
+}

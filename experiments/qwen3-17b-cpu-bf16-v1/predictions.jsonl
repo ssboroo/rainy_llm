@@ -1,0 +1,24 @@
+{"id": "mn-smoke-001", "output": "17 + 25 = 42\n\nЗөвхөн тоогоор хариул: **42**", "generated_tokens": 29, "seconds": 5.4197, "hit_token_limit": false}
+{"id": "mn-smoke-002", "output": "100 - 37 = 63\n\nХариул: **63**", "generated_tokens": 21, "seconds": 3.8517, "hit_token_limit": false}
+{"id": "mn-smoke-003", "output": "8 × 9 = 72", "generated_tokens": 9, "seconds": 1.6974, "hit_token_limit": false}
+{"id": "mn-smoke-004", "output": "144 ÷ 12 = 12.", "generated_tokens": 14, "seconds": 2.4895, "hit_token_limit": false}
+{"id": "mn-smoke-005", "output": "200-ийн 15 хувь хэд вэ?  \nЗөвхөн тоогоор хариул.\n\n**Хариул:** 12  \n\n**Тайлбар:**  \n15 хувь 200-д хуваадаг:", "generated_tokens": 64, "seconds": 13.1255, "hit_token_limit": true}
+{"id": "mn-smoke-006", "output": "3 төгрөгийг 4 сая хүнд тэнцүү хуваавал нэг хүнд хэдэн төгрөг ногдох вэ?\n\n**Хариул:**  \n1500 төгрөг\n\n**Т", "generated_tokens": 64, "seconds": 12.5917, "hit_token_limit": true}
+{"id": "mn-smoke-007", "output": "Бат хэдэн алимтай үлдсэн бэ?  \n**Зөвхөн тоогоор хариул:**  \n**1**", "generated_tokens": 38, "seconds": 6.8745, "hit_token_limit": false}
+{"id": "mn-smoke-008", "output": "Сараа мягмар гарагт номын санд очив. Тэр ямар гарагт очсон бэ?  \n\n**Зөвхөн гарагийн нэрийг бич:**  \n**Сараа мягмар гарагт н", "generated_tokens": 64, "seconds": 11.1426, "hit_token_limit": true}
+{"id": "mn-smoke-009", "output": "үзэг", "generated_tokens": 5, "seconds": 1.2592, "hit_token_limit": false}
+{"id": "mn-smoke-010", "output": "Номин 09:00 цагт гарч, 10:30 цагт ирэв.  \n\nТэгэв 10:30 – 09:00 = 1.5 гурвалжин.  \n\nГурвалж", "generated_tokens": 64, "seconds": 11.3099, "hit_token_limit": true}
+{"id": "mn-smoke-011", "output": "Тэмүүлэнгийн муурыг **Сүүдэр** гэдэг. Муурын нэрийг **Сүүдэр нэрийн** гэдэг.", "generated_tokens": 55, "seconds": 10.2132, "hit_token_limit": false}
+{"id": "mn-smoke-012", "output": "Дэлгүүрт талх 3000, сүү 4000 төгрөг. Нэг талх, нэг сүү нийт хэд вэ?\n\n**Хариул:**  \n3000 +", "generated_tokens": 64, "seconds": 11.9322, "hit_token_limit": true}
+{"id": "mn-smoke-013", "output": "Дараах жагсаалтын хоёр дахь үгийг бич:\n\n**нар, сар, од**  \n\nХоёр дахь үг: **сар**.", "generated_tokens": 49, "seconds": 9.5568, "hit_token_limit": false}
+{"id": "mn-smoke-014", "output": "Дараах тоонуудын хамгийн ихийг бич:\n\n- 7  \n- 19  \n- 4  \n\nХамгийн их тоо — **19**.  \n\n**Отворт:** 19.", "generated_tokens": 58, "seconds": 10.4919, "hit_token_limit": false}
+{"id": "mn-smoke-015", "output": "Дараах тоонуудын хамгийн багыг бич:\n\n**5** — хамгийн бага тоо.", "generated_tokens": 37, "seconds": 7.3223, "hit_token_limit": false}
+{"id": "mn-smoke-016", "output": "Зөвхөн БЭЛЭН гэсэн үгийг бич:  \n**БЭЛЭН**  \n\nБЭЛЭН — энгэ үг үзүүлэхдээ үзүүлэх", "generated_tokens": 64, "seconds": 10.5014, "hit_token_limit": true}
+{"id": "mn-smoke-017", "output": "Өнөөдөр — өнөөдөр.", "generated_tokens": 18, "seconds": 2.9599, "hit_token_limit": false}
+{"id": "mn-smoke-018", "output": "10", "generated_tokens": 3, "seconds": 0.6539, "hit_token_limit": false}
+{"id": "mn-smoke-019", "output": "Сайн байна уу гэдгийг кирил Монгол үсгээр бичихэд:\n\n**Сайн байна уу**  \n\nЦэг тэмдэг:  \n- **С** (с)  \n- **а", "generated_tokens": 64, "seconds": 11.278, "hit_token_limit": true}
+{"id": "mn-smoke-020", "output": "Байрлалыг кирил Монгол үсгээр бичээд, цэг тэмдэг нэмэхэд:\n\n**Байрлалыг кирил Монгол үсгээр", "generated_tokens": 64, "seconds": 11.1819, "hit_token_limit": true}
+{"id": "mn-smoke-021", "output": "кот", "generated_tokens": 3, "seconds": 0.6785, "hit_token_limit": false}
+{"id": "mn-smoke-022", "output": "Бүтээгдэхүүн: \"Angli xelni book ugi\"  \nХариул: \"Англи хэлний үг\"  \nМонгол хэл рүү орчуулал: \"Англи х", "generated_tokens": 64, "seconds": 11.0479, "hit_token_limit": true}
+{"id": "mn-smoke-023", "output": "Зөвхөн тийм.  \n\nЭнэ ургамал сарнай, энэ ургамал цэцэг. Үүнд үгүй, үгүй гэж хариулгын төрө", "generated_tokens": 64, "seconds": 11.5157, "hit_token_limit": true}
+{"id": "mn-smoke-024", "output": "А нь Б-ээс өндөр, Б нь В-ээс өндөр.  \n\nБ нь В-ээс өндөр, А нь Б-ээс өндөр.  \n\nБ нь А-э", "generated_tokens": 64, "seconds": 12.2515, "hit_token_limit": true}
