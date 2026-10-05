@@ -9,6 +9,7 @@ def main():
  p.add_argument('--cases',default='evaluation/mn_smoke.jsonl'); p.add_argument('--output-dir',required=True)
  p.add_argument('--revision',required=True);p.add_argument('--model',default='Qwen/Qwen3-0.6B')
  p.add_argument('--threads',type=int,default=4);p.add_argument('--max-new-tokens',type=int,default=64)
+ p.add_argument('--dtype',choices=('float32','bfloat16'),default='float32')
  a=p.parse_args()
  import torch, transformers
  from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -16,13 +17,13 @@ def main():
  target=Path(a.output_dir);target.mkdir(parents=True,exist_ok=False)
  cases=read_rows(a.cases)
  tokenizer=AutoTokenizer.from_pretrained(a.model,revision=a.revision,trust_remote_code=False)
- model=AutoModelForCausalLM.from_pretrained(a.model,revision=a.revision,trust_remote_code=False,torch_dtype=torch.float32)
+ model=AutoModelForCausalLM.from_pretrained(a.model,revision=a.revision,trust_remote_code=False,torch_dtype=getattr(torch,a.dtype),low_cpu_mem_usage=True)
  model.eval(); predictions=[]
- metadata=dict(model=a.model,revision=a.revision,device='cpu',dtype='float32',threads=a.threads,seed=42,
+ metadata=dict(model=a.model,revision=a.revision,device='cpu',dtype=a.dtype,threads=a.threads,seed=42,
   torch=torch.__version__,transformers=transformers.__version__,python=platform.python_version(),
   thinking=False,do_sample=False,max_new_tokens=a.max_new_tokens,
   cases_sha256=hashlib.sha256(Path(a.cases).read_bytes()).hexdigest(),status='running',
-  note='Small older model used for feasible CPU baseline; not a latest-model quality claim. Greedy non-thinking run.')
+  note='CPU feasibility experiment, not a latest-model or production-quality claim. Greedy non-thinking run.')
  (target/'metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
  with (target/'predictions.jsonl').open('w',encoding='utf-8') as out:
   for case in cases:
@@ -34,5 +35,11 @@ def main():
    predictions.append(row);out.write(json.dumps(row,ensure_ascii=False)+'\n');out.flush();print(row['id'],repr(row['output']),flush=True)
  report=score(cases,predictions);(target/'scores.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  metadata['status']='completed';metadata['total_generation_seconds']=sum(r['seconds'] for r in predictions)
+ if platform.system() == 'Linux':
+  import resource
+  metadata['peak_rss_kib_linux']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+ metadata['machine']=platform.machine()
+ metadata['generated_tokens']=sum(r['generated_tokens'] for r in predictions)
+ metadata['token_limit_hits']=sum(r['hit_token_limit'] for r in predictions)
  (target/'metadata.json').write_text(json.dumps(metadata,indent=2)+'\n');print('SCORE',report['correct'],report['total'],flush=True)
 if __name__=='__main__':main()

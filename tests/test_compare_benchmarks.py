@@ -43,6 +43,16 @@ class CompareBenchmarkTests(unittest.TestCase):
         candidate[0]["max_new_tokens"] = 128
         self.assertIn("max_new_tokens", compare_runs(baseline, candidate)["comparability_mismatches"])
 
+    def test_changed_runtime_blocks_comparison(self):
+        for key, value in (("dtype", "bfloat16"), ("device", "cuda"),
+                           ("threads", 8), ("torch", "different"),
+                           ("transformers", "different")):
+            with self.subTest(key=key):
+                baseline, candidate = run(), run(0.5)
+                candidate[0][key] = value
+                self.assertFalse(compare_runs(baseline, candidate)["comparable"])
+                self.assertIn(key, compare_runs(baseline, candidate)["comparability_mismatches"])
+
     def test_missing_resources_blocks_promotion_not_comparison(self):
         baseline, candidate = run(), run(0.5)
         del candidate[0]["peak_vram_gb"]

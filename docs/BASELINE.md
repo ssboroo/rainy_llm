@@ -1,5 +1,7 @@
 # Reproduce the CPU baseline
 
+For the three newly executed CPU experiments, raw answer analysis and an experimental local question CLI, see [the 2026-10-05 quality report](QUALITY_EXPERIMENT_2026-10-05.md). The 4B Q4_K_M system scored 7/24; it has not replaced the baseline. Runtime/device/dtype/thread/library differences now also block matched comparisons.
+
 This baseline deliberately uses the small older Qwen/Qwen3-0.6B model because it can run on the available CPU. It is not the newest candidate and is not the final RAINY base model.
 
 Model card: https://huggingface.co/Qwen/Qwen3-0.6B
@@ -27,7 +29,7 @@ python -m venv .venv-baseline
 # Linux/macOS: source .venv-baseline/bin/activate
 # Windows PowerShell: .venv-baseline\Scripts\Activate.ps1
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
-python -m pip install transformers==4.51.3
+python -m pip install transformers==4.51.3 accelerate
 python scripts/run_baseline.py --revision c1899de289a04d12100db370d81485cdf75e47ca --output-dir experiments/my-baseline
 ```
 
