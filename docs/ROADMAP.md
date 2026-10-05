@@ -8,7 +8,7 @@
 - [x] Монгол датасетуудын эх сурвалж, лицензийн машин унших анхны shortlist ба validator (хэмжээ/lineage review үргэлжилнэ)
 - [ ] Монгол хэлний хүний хянасан 100 асуулттай анхны evaluation багц
 - [x] Held-out evaluation schema, exact training-overlap check, hash report ба human-review release gate
-- [ ] Суурь загварын inference benchmark runner; model revision, seed, decoding settings хадгалах
+- [x] Суурь inference runner ба benchmark comparison gate; revision, eval hash, decoding, latency/resource completeness шалгана
 - [ ] Qwen3-4B, Gemma 3-4B Монгол чанар, tokenizer үр ашиг, лиценз, нөөц харьцуулах
 - [ ] GPU нэр, VRAM, төсөв тогтоох
 - [ ] Dataset normalization, source-based split, near-duplicate detection
