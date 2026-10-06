@@ -1,5 +1,7 @@
 import json
 import tempfile
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -25,6 +27,62 @@ def run(accuracy=0.25, seconds=24.0, model="org/model"):
 
 
 class CompareBenchmarkTests(unittest.TestCase):
+    def test_nonfinite_measurements_never_qualify(self):
+        for value in (float('nan'), float('inf'), float('-inf'), True):
+            for key in ('total_generation_seconds', 'peak_vram_gb', 'estimated_cost_usd', 'accuracy'):
+                with self.subTest(value=value, key=key):
+                    baseline, candidate = run(), run(0.5)
+                    candidate[1 if key == 'accuracy' else 0][key] = value
+                    report = compare_runs(baseline, candidate)
+                    self.assertFalse(report['promotion_eligible'])
+                    json.dumps(report, allow_nan=False)
+
+    def test_bad_count_and_timing_types_do_not_crash(self):
+        for key in ('total', 'correct', 'missing', 'accuracy', 'total_generation_seconds'):
+            for value in (None, '4', [], {}, True):
+                with self.subTest(key=key, value=value):
+                    baseline, candidate = run(), run(0.5)
+                    candidate[0 if key == 'total_generation_seconds' else 1][key] = value
+                    report = compare_runs(baseline, candidate)
+                    self.assertFalse(report['comparable'])
+                    self.assertTrue(report['validation_errors'])
+
+    def test_nonobject_input_is_reported(self):
+        for invalid in (([], {}), ({}, None), (None, 3)):
+            report = compare_runs(run(), invalid)
+            self.assertFalse(report['comparable'])
+            self.assertTrue(report['validation_errors'])
+
+    def test_missing_baseline_answers_block_eligibility(self):
+        baseline, candidate = run(), run(0.5)
+        baseline[1]['missing'] = 1
+        report = compare_runs(baseline, candidate)
+        self.assertTrue(report['comparable'])
+        self.assertFalse(report['promotion_eligible'])
+
+    def test_impossible_missing_counts_rejected(self):
+        for value in (-1, 5, 4):
+            metadata, scores = run()
+            scores['missing'] = value
+            self.assertTrue(validate_run(metadata, scores))
+
+    def test_cli_invalid_numeric_emits_strict_json_and_failure(self):
+        with tempfile.TemporaryDirectory() as folder:
+            for side, pair in (('base', run()), ('candidate', run(0.5))):
+                path = Path(folder) / side
+                path.mkdir()
+                if side == 'candidate':
+                    pair[0]['total_generation_seconds'] = 'bad'
+                    pair[1]['accuracy'] = float('nan')
+                (path / 'metadata.json').write_text(json.dumps(pair[0]))
+                (path / 'scores.json').write_text(json.dumps(pair[1]))
+            result = subprocess.run([sys.executable, str(Path(__file__).resolve().parents[1] / 'scripts/compare_benchmarks.py'),
+                str(Path(folder) / 'base'), str(Path(folder) / 'candidate')], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1)
+            self.assertNotIn('Traceback', result.stderr)
+            report = json.loads(result.stdout, parse_constant=lambda value: self.fail(value))
+            self.assertFalse(report['comparable'])
+
     def test_higher_comparable_score_is_promotion_eligible(self):
         report = compare_runs(run(0.25), run(0.5, 20, "org/new"))
         self.assertTrue(report["comparable"])
