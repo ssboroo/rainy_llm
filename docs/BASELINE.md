@@ -20,6 +20,8 @@ The comparison refuses apples-to-oranges claims when evaluation SHA-256, metric,
 
 The legacy CPU baseline is a valid rollback artifact, but it predates those three resource fields. Therefore it can be compared for score and measured wall time, but the automated gate will not approve a production/base-model promotion from it until a fully instrumented baseline rerun exists.
 
+As of 2026-10-06, numeric measurements must be finite: NaN/Infinity, booleans and invalid count types are rejected. Missing predictions in either run block technical eligibility. Invalid numeric input produces a validation report and CLI exit 1 rather than a division traceback. `promotion_eligible` is only a technical prerequisite; it is not release approval and does not independently verify human review, prediction-file integrity or held-out provenance.
+
 ## Setup
 
 Use a separate Python 3.12 virtual environment. Install CPU PyTorch first, then the tested Transformers version. The exact resolved environment for the recorded run is in requirements/baseline-cpu-lock.txt (Linux CPU snapshot, not a universal cross-platform lock).
