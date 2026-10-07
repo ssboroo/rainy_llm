@@ -1,6 +1,6 @@
 # Reproduce the CPU baseline
 
-For the three newly executed CPU experiments, raw answer analysis and an experimental local question CLI, see [the 2026-10-05 quality report](QUALITY_EXPERIMENT_2026-10-05.md). The 4B Q4_K_M system scored 7/24; it has not replaced the baseline. Runtime/device/dtype/thread/library differences now also block matched comparisons.
+For the first three CPU experiments and experimental local question CLI, see [the 2026-10-05 quality report](QUALITY_EXPERIMENT_2026-10-05.md). A later [matched Qwen3.5-4B Q4_K_M experiment](QUALITY_EXPERIMENT_2026-10-07.md) scored 12/24 versus 7/24 for the retained Qwen3-4B-Instruct-2507 run. The gate still blocked promotion because the public smoke set is not human-reviewed and resource/cost metadata are incomplete. No baseline has been replaced.
 
 This baseline deliberately uses the small older Qwen/Qwen3-0.6B model because it can run on the available CPU. It is not the newest candidate and is not the final RAINY base model.
 

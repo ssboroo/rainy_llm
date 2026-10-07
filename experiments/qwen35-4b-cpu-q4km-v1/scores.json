@@ -1,0 +1,155 @@
+{
+  "metric": "normalized_exact_match",
+  "correct": 12,
+  "total": 24,
+  "accuracy": 0.5,
+  "missing": 0,
+  "categories": {
+    "arithmetic": {
+      "correct": 4,
+      "total": 6
+    },
+    "comprehension": {
+      "correct": 3,
+      "total": 6
+    },
+    "instruction": {
+      "correct": 2,
+      "total": 6
+    },
+    "transliteration": {
+      "correct": 1,
+      "total": 2
+    },
+    "translation": {
+      "correct": 0,
+      "total": 2
+    },
+    "logic": {
+      "correct": 2,
+      "total": 2
+    }
+  },
+  "details": [
+    {
+      "id": "mn-smoke-001",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-002",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-003",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-004",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-005",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-006",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-007",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-008",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-009",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-010",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-011",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-012",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-013",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-014",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-015",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-016",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-017",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-018",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-019",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-020",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-021",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-022",
+      "correct": false,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-023",
+      "correct": true,
+      "missing": false
+    },
+    {
+      "id": "mn-smoke-024",
+      "correct": true,
+      "missing": false
+    }
+  ]
+}
