@@ -1,0 +1,30 @@
+{
+  "comparable": true,
+  "validation_errors": [],
+  "comparability_mismatches": [],
+  "baseline": {
+    "model": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+    "revision": "a06e946bb6b655725eafa393f4a9745d460374c9",
+    "accuracy": 0.2916666666666667,
+    "seconds_per_case": 2.729075
+  },
+  "candidate": {
+    "model": "unsloth/Qwen3.5-4B-GGUF",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "accuracy": 0.5,
+    "seconds_per_case": 2.2059458333333333
+  },
+  "accuracy_delta": 0.20833333333333331,
+  "seconds_per_case_delta": -0.5231291666666666,
+  "missing_resource_measurements": [
+    "baseline.hardware",
+    "baseline.peak_vram_gb",
+    "baseline.estimated_cost_usd",
+    "candidate.hardware",
+    "candidate.peak_vram_gb",
+    "candidate.estimated_cost_usd"
+  ],
+  "quality_improved": true,
+  "promotion_eligible": false,
+  "note": "Technical eligibility requires comparable settings, higher measured accuracy, no missing predictions in either run, and finite hardware/VRAM/cost records. It is not release approval; human review and held-out validation remain separate."
+}
