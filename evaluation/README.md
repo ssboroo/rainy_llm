@@ -17,4 +17,22 @@ The validator reports a SHA-256 of the exact evaluation file. Store that hash wi
 
 Two separate roles are recommended: an author and a reviewer. A reviewer checks Mongolian wording, answer completeness, ambiguity, category, source independence, safety, and whether a short exact-match answer is appropriate. Change `review_status` only after actual human review. Keep revisions in Git; do not add reviewer personal information.
 
+Create a review packet without changing the source cases:
+
+```bash
+python scripts/review_evaluation.py export \
+  --cases evaluation/mn_smoke.jsonl --output review-packet.jsonl
+```
+
+The reviewer changes every required check to `true` and the decision to `accept`, or leaves/rejects cases that need revision. After an actual human finishes the packet, apply it to a **new** output file:
+
+```bash
+python scripts/review_evaluation.py apply \
+  --cases evaluation/mn_smoke.jsonl --reviews review-packet.jsonl \
+  --reviewed-at YYYY-MM-DD --reviewer-role independent-human-reviewer \
+  --output evaluation/mn_reviewed_candidate.jsonl
+```
+
+Each review is bound to the exact ID, category, prompt, answers and source with SHA-256. Applying a stale packet, missing/rejected case, incomplete checklist or unknown case fails. Output files are created exclusively and never silently overwritten. `human-reviewed` rows without matching review evidence fail validation. The role is generic by design; do not put a reviewer's name, email or other personal information in the public dataset.
+
 Freeze a version before comparing models. Use identical case hash, prompt template, chat template, decoding budget and answer normalization. Report exact-match as a format-sensitive smoke metric alongside latency, generated tokens and qualitative/human assessment—not as complete Mongolian capability.
