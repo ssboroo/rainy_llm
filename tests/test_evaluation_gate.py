@@ -1,13 +1,20 @@
 import unittest
 
-from scripts.validate_evaluation import read_jsonl, validate_cases
+from scripts.validate_evaluation import REVIEW_CHECKS, case_fingerprint, read_jsonl, validate_cases
 
 
 def case(i="1", prompt="Асуулт", status="draft-needs-human-review"):
-    return {
+    row = {
         "id": i, "category": "test", "prompt": prompt, "answers": ["Хариу"],
         "review_status": status, "source": "project-authored-evaluation-draft",
     }
+    if status == "human-reviewed":
+        row["review_evidence"] = {
+            "case_sha256": case_fingerprint(row), "reviewed_at": "2026-10-08",
+            "reviewer_role": "independent-human-reviewer", "decision": "accept",
+            "checks": {key: True for key in REVIEW_CHECKS},
+        }
+    return row
 
 
 class EvaluationGateTests(unittest.TestCase):
@@ -43,6 +50,14 @@ class EvaluationGateTests(unittest.TestCase):
         errors, _ = validate_cases([row])
         self.assertTrue(any("answers" in error for error in errors))
         self.assertTrue(any("review_status" in error for error in errors))
+
+    def test_human_review_requires_matching_evidence(self):
+        row = case(status="human-reviewed")
+        row["prompt"] = "Хяналтын дараа нууцаар өөрчилсөн"
+
+        errors, _ = validate_cases([row])
+
+        self.assertTrue(any("case_sha256" in error for error in errors))
 
     def test_empty_set_is_rejected(self):
         errors, _ = validate_cases([])

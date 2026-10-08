@@ -67,3 +67,15 @@ The previous 4B Q4_K_M result remains 7/24 on public draft smoke questions, not 
 Pinned upstream `Qwen/Qwen3.5-4B` at `851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a` and the separate third-party `unsloth/Qwen3.5-4B-GGUF` conversion at `e87f176479d0855a907a41277aca2f8ee7a09523`. The executed `Qwen3.5-4B-Q4_K_M.gguf` is 2,740,937,888 bytes with SHA-256 `00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4`. Both repositories report Apache-2.0; the conversion is not an official Qwen artifact and open weights do not prove open training data.
 
 Real CPU inference completed with llama-cpp-python 0.3.36 and Transformers 4.51.3: **12/24 (50%)**, 52.9427 generation seconds, 4.241 GiB peak process RSS, two token-limit hits. Against the retained Qwen3-4B-Instruct-2507 Q4_K_M run, the gate found matched settings, +5 exact matches and -0.5231 seconds/case. It still returned `promotion_eligible=false`: resource/cost metadata are incomplete and the 24 public draft cases are not a human-reviewed held-out benchmark. No training, adapter compatibility claim or base-model replacement occurred. See [the full experiment report](QUALITY_EXPERIMENT_2026-10-07.md).
+
+## 2026-10-08: official-source verification
+
+No candidate was integrated or promoted today. Official sources were rechecked; dates below are publisher release dates, not repository-update dates.
+
+| Candidate | Verified identity and release | Classification | RAINY decision |
+| --- | --- | --- | --- |
+| `mistralai/Mistral-Small-4-119B-2603` | HF revision `a11f36bebf709121056b1dbcc943d1c6afbe494d`; Mistral announcement 2026-03-16; Apache-2.0 | Open weights; publisher calls the release open source. 119B total, 6B active/token, official repository 242 GB | Vendor minimum is 4x H100, 2x H200 or 1x B200. Not feasible in the measured 8 GiB CPU environment; no download or Mongolian run. |
+| `deepseek-ai/DeepSeek-V4.1-Flash` | HF revision `2cba9e42aa026125f3ed06c6d98c1db82f7ca027`; MIT; official repository 510 GB | Open weights; Transformers/vLLM/SGLang recipes are published | Not feasible locally; no download, latency/VRAM/cost measurement or adapter claim. |
+| Qwen3.8 / Gemma 4 / Meta Llama 4 families | Official producer pages rechecked 2026-10-08 | Open-weight families with artifact-specific licenses; API availability is not weight availability | No newly verified small candidate displaced the executed Qwen3.5-4B. Existing pinned entries and rollback artifacts remain unchanged. |
+
+Vendor benchmark and efficiency claims are not Mongolian evidence. Mistral Small 4's active parameter count does not reduce the need to store its full MoE weights. DeepSeek's published runtime recipes do not imply compatibility with RAINY's existing adapters. The next model experiment remains a resource-feasible, pinned Gemma 4 quantization after the human-review evaluation workflow.

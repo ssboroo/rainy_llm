@@ -17,7 +17,7 @@ Next data work: editorial review, remove template/disambiguation remnants, docum
 `data/source_registry.json` is the source-of-truth shortlist and `python scripts/validate_source_registry.py` checks its policy invariants. It distinguishes a licensed pilot, an evaluation-only candidate, and held sources. A public download page is not enough to set `training_allowed`.
 
 - **Mongolian Wikipedia pilot:** approved only at its current 20-article, revision-pinned research scope; still unreviewed.
-- **FLORES+ `khk_Cyrl`:** CC-BY-SA-4.0 evaluation candidate. Its official card says it should not be used as training data, access conditions must be accepted, and version 4.6 is current. Pin an immutable Hub commit before acquisition and keep it held out.
+- **FLORES+ `khk_Cyrl`:** CC-BY-SA-4.0 evaluation candidate. Its official card says it should not be used as training data, access conditions must be accepted, and version 4.6 is current. Public metadata was pinned on 2026-10-08 to Hub commit `e707e62e762a9e2faca3933aa315f4665cc3cd8f`; gated content was not downloaded. Keep it held out and do not acquire it until the project owner accepts the terms.
 - **Eduge and CulturaX Mongolian:** held. Neither is approved for training by this registry while content-license/provenance questions remain unresolved.
 
 The validator is a reproducibility guard, not legal advice. A source may be technically valid in the registry and still require human license, privacy, quality and contamination review.
