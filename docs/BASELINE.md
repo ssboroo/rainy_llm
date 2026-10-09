@@ -22,6 +22,17 @@ The legacy CPU baseline is a valid rollback artifact, but it predates those thre
 
 As of 2026-10-06, numeric measurements must be finite: NaN/Infinity, booleans and invalid count types are rejected. Missing predictions in either run block technical eligibility. Invalid numeric input produces a validation report and CLI exit 1 rather than a division traceback. `promotion_eligible` is only a technical prerequisite; it is not release approval and does not independently verify human review, prediction-file integrity or held-out provenance.
 
+## Verify a stored experiment
+
+Do not trust a copied aggregate without its raw predictions. Recompute exact-match scores and verify the case-file hash, completion status, per-row measurement types, total generation time, generated-token total and token-limit count:
+
+```bash
+python scripts/verify_experiment.py experiments/qwen35-4b-cpu-q4km-v1 \
+  --cases evaluation/mn_smoke.jsonl
+```
+
+Add `--output experiments/<run>/integrity.json` only once when recording a new report; the command refuses to overwrite an existing file. On 2026-10-09, all five retained CPU experiments passed this verification against their raw predictions. The oldest float32 Qwen3-0.6B metadata predates token aggregates, so its otherwise valid report retains two explicit legacy warnings. This verification proves internal artifact consistency, not model quality, held-out provenance or human approval.
+
 ## Setup
 
 Use a separate Python 3.12 virtual environment. Install CPU PyTorch first, then the tested Transformers version. The exact resolved environment for the recorded run is in requirements/baseline-cpu-lock.txt (Linux CPU snapshot, not a universal cross-platform lock).

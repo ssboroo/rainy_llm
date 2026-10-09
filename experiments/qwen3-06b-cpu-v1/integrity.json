@@ -1,0 +1,23 @@
+{
+  "valid": true,
+  "experiment": "qwen3-06b-cpu-v1",
+  "errors": [],
+  "warnings": [
+    "legacy metadata missing aggregate: generated_tokens",
+    "legacy metadata missing aggregate: token_limit_hits"
+  ],
+  "files": {
+    "cases_sha256": "b45f694cc83a5ffd030bcbb02b5872e4ffe49133e3ee0cf6d35aa1c030955bb5",
+    "metadata_sha256": "db2cf670bdb2c5b330c549b96d9638fbef894813fbbf270ece890c6d53b361f3",
+    "predictions_sha256": "713c64b80b4a7dc09e9ea5d073f70329d2b3e9d40d821454c94d57da2cb74a1e",
+    "scores_sha256": "106dd6585216d7f2b8f67f6b2f24dab70f46db523c5084624deab77d7603a4d1"
+  },
+  "measurements": {
+    "cases": 24,
+    "predictions": 24,
+    "correct": 0,
+    "total_generation_seconds": 120.8175,
+    "generated_tokens": 1072,
+    "token_limit_hits": 7
+  }
+}
