@@ -13,6 +13,17 @@ The first command validates structure, normalized prompt uniqueness and exact ov
 
 The validator reports a SHA-256 of the exact evaluation file. Store that hash with every experiment. Exact normalized matching is only a first guard; it does not detect paraphrases, translations, semantic overlap, or contamination already present in a pretrained base model.
 
+Run the separate fuzzy audit against every proposed training file before freezing a release:
+
+```bash
+python scripts/audit_evaluation_overlap.py \
+  --training data/examples.jsonl \
+  --threshold 0.75 --ngram 3 \
+  --output evaluation/overlap-audit.json
+```
+
+The report uses normalized character n-gram Jaccard similarity and stores only evaluation case IDs, training file indexes, row numbers and scores—not prompt text. Repeat `--training` for multiple files. Use `--fail-on-match` in a release pipeline after a project threshold is chosen. The default one-million-pair limit fails closed instead of silently sampling a large corpus; shard or pre-filter large corpora and record every shard hash. Every candidate requires human review. This lexical heuristic can miss translations and semantic paraphrases and cannot detect contamination inside pretrained model weights.
+
 ## Human review protocol
 
 Two separate roles are recommended: an author and a reviewer. A reviewer checks Mongolian wording, answer completeness, ambiguity, category, source independence, safety, and whether a short exact-match answer is appropriate. Change `review_status` only after actual human review. Keep revisions in Git; do not add reviewer personal information.
