@@ -18,7 +18,26 @@ class SourceRegistryTests(unittest.TestCase):
 
     def test_unknown_license_cannot_be_verified(self):
         self.registry["sources"][0]["license_id"] = "UNKNOWN"
-        self.assertIn("disagree", "\n".join(validate_registry(self.registry)))
+        self.assertIn("concrete license_id", "\n".join(validate_registry(self.registry)))
+
+    def test_conflicting_license_cannot_be_verified(self):
+        source = self.registry["sources"][-1]
+        source["license_status"] = "conflict"
+        source["license_verified"] = True
+        self.assertIn("license_status and license_verified disagree",
+                      "\n".join(validate_registry(self.registry)))
+
+    def test_unresolved_license_cannot_be_training_candidate(self):
+        source = self.registry["sources"][-1]
+        source["decision"] = "pilot-approved"
+        source["training_allowed"] = True
+        self.assertIn("unresolved license must be held and training-blocked",
+                      "\n".join(validate_registry(self.registry)))
+
+    def test_bad_license_status_type_is_reported(self):
+        self.registry["sources"][-1]["license_status"] = []
+        self.assertIn("license_status is invalid",
+                      "\n".join(validate_registry(self.registry)))
 
     def test_approved_source_requires_immutable_ref(self):
         self.registry["sources"][0]["immutable_ref"] = False

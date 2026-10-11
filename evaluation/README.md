@@ -47,3 +47,7 @@ python scripts/review_evaluation.py apply \
 Each review is bound to the exact ID, category, prompt, answers and source with SHA-256. Applying a stale packet, missing/rejected case, incomplete checklist or unknown case fails. Output files are created exclusively and never silently overwritten. `human-reviewed` rows without matching review evidence fail validation. The role is generic by design; do not put a reviewer's name, email or other personal information in the public dataset.
 
 Freeze a version before comparing models. Use identical case hash, prompt template, chat template, decoding budget and answer normalization. Report exact-match as a format-sensitive smoke metric alongside latency, generated tokens and qualitative/human assessment—not as complete Mongolian capability.
+
+## 100-case v2 development draft
+
+See [Монгол/English review guide](MN_V2_REVIEW.md), [100 draft cases](mn_v2_draft.jsonl) and [pending review packet](mn_v2_review_packet.jsonl). The original 24-case smoke set remains unchanged. All v2 cases need human review; public availability and AI authorship are recorded explicitly.
