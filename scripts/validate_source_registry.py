@@ -7,11 +7,12 @@ from urllib.parse import urlparse
 
 REQUIRED = {
     "id", "name", "languages", "purpose", "decision", "source_url",
-    "license_id", "license_evidence_url", "license_verified", "snapshot_ref",
+    "license_id", "license_evidence_url", "license_status", "license_verified", "snapshot_ref",
     "immutable_ref", "training_allowed", "evaluation_only",
     "attribution_required", "notes",
 }
 DECISIONS = {"pilot-approved", "evaluation-candidate", "hold"}
+LICENSE_STATUSES = {"verified", "conflict", "unknown"}
 
 
 def _https(value):
@@ -21,8 +22,8 @@ def _https(value):
 
 def validate_registry(document):
     errors = []
-    if not isinstance(document, dict) or document.get("schema_version") != 1:
-        return ["schema_version must be 1"]
+    if not isinstance(document, dict) or document.get("schema_version") != 2:
+        return ["schema_version must be 2"]
     sources = document.get("sources")
     if not isinstance(sources, list) or not sources:
         return ["sources must be a non-empty list"]
@@ -44,6 +45,8 @@ def validate_registry(document):
         seen.add(source_id)
         if source["decision"] not in DECISIONS:
             errors.append(f"{label}.decision is invalid")
+        if not isinstance(source["license_status"], str) or source["license_status"] not in LICENSE_STATUSES:
+            errors.append(f"{label}.license_status is invalid")
         for key in ("languages", "purpose"):
             if not isinstance(source[key], list) or not source[key] or not all(
                     isinstance(item, str) and item.strip() for item in source[key]):
@@ -55,10 +58,16 @@ def validate_registry(document):
                     "evaluation_only", "attribution_required"):
             if not isinstance(source[key], bool):
                 errors.append(f"{label}.{key} must be boolean")
-        if source["license_verified"] != (source["license_id"] != "UNKNOWN"):
-            errors.append(f"{label} license_id and license_verified disagree")
+        verified_license = source["license_status"] == "verified"
+        if source["license_verified"] != verified_license:
+            errors.append(f"{label} license_status and license_verified disagree")
+        if verified_license != (source["license_id"] != "UNKNOWN"):
+            errors.append(f"{label} verified license needs a concrete license_id")
+        if source["license_status"] in ("conflict", "unknown") and (
+                source["decision"] != "hold" or source["training_allowed"]):
+            errors.append(f"{label} unresolved license must be held and training-blocked")
         if source["decision"] == "pilot-approved" and not (
-                source["license_verified"] and source["immutable_ref"]):
+                verified_license and source["immutable_ref"]):
             errors.append(f"{label} approved sources need verified license and immutable ref")
         if source["decision"] == "hold" and source["training_allowed"]:
             errors.append(f"{label} held sources cannot allow training")
