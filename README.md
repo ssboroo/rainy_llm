@@ -67,7 +67,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 72 tests covering validation, grouping, fuzzy leakage audit, human-review evidence, artifact integrity and scoring |
+| Unit tests | Available | 75 tests covering validation, grouping, fuzzy leakage audit, human-review evidence, artifact integrity and scoring |
 | Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Planned | No training runner or trained adapter |
@@ -247,7 +247,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Өгөгдөл, fuzzy leakage audit, human-review evidence, artifact integrity, үнэлгээ шалгах 72 тест |
+| Unit test | Бэлэн | Өгөгдөл, fuzzy leakage audit, human-review evidence, artifact integrity, үнэлгээ шалгах 75 тест |
 | Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |
@@ -419,3 +419,9 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 Энэ тэмдэглэгээ нь зохиогчийн эрхээр хамгаалагдах хэмжээнд RAINY LLM төслийн өөрийн бүтээсэн материалд хамаарна. Энэ мэдэгдлээр тэдгээр материалыг ашиглах, өөрчлөх, дахин түгээх нийтлэг лиценз олгохгүй. Ашиглах зөвшөөрөл болон арилжааны лицензийн асуудлаар төслийн эзэмшигчийн [GitHub профайлаар](https://github.com/ssboroo) холбогдоно уу.
 
 Гуравдагч талын суурь загвар, модель жин, өгөгдөл, сан болон бусад эх материалын эрх нь холбогдох эзэмшигчиддээ хэвээр үлдэнэ. Тэдгээрийн лицензийг тусад нь мөрдөнө. RAINY LLM тэдгээр эх материалыг өөрөө бүтээсэн, эзэмшдэг гэж мэдэгдэхгүй. CC0-1.0 гэж тусгайлан заасан форматын жишээний нөхцөл хэвээр байна. AI-ийн оролцоотой бүх үр дүн автоматаар зохиогчийн эрхтэй гэж энэ мэдэгдлээр батлахгүй.
+
+### Evaluation expansion — 2026-10-11
+
+A separate [100-case Mongolian development draft](evaluation/MN_V2_REVIEW.md) and content-bound pending review packet are ready. Ten categories have ten cases each. No human review or v2 model inference has occurred. The existing 24-case results remain unchanged.
+
+Монгол үнэлгээний шинэ 100 асуулт, 10 ангилалтай ноорог болон хүн хянах packet бэлэн. Бүгд draft; хүний review болон шинэ багцын модель хэмжилт хийгдээгүй. Өмнөх 24 асуултын үр дүн хэвээр.

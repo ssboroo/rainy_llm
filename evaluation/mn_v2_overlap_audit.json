@@ -1,0 +1,19 @@
+{
+  "method": "normalized_character_ngram_jaccard",
+  "ngram": 3,
+  "threshold": 0.75,
+  "evaluation_cases": 100,
+  "training_records": 1,
+  "pairs_checked": 100,
+  "candidate_count": 0,
+  "findings": [],
+  "warning": "Heuristic candidate list only; human review is required. This does not detect all paraphrases, translations, semantic overlap or base-model contamination.",
+  "cases_sha256": "51b419433e30477b9a96b467bba5f88ee6b214352e1db912bba678c5d46f2318",
+  "training_files": [
+    {
+      "file_index": 1,
+      "records": 1,
+      "sha256": "020cbaa4432530ff6f8ae8cc32aaf41fd72915666da77e298ce4c8dd6a921501"
+    }
+  ]
+}
