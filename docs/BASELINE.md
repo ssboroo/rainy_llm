@@ -61,3 +61,13 @@ The Wikipedia pilot in data/mnwiki_pilot is retrieved source material. It was NO
 ## Монгол
 
 Энэ туршилт жижиг Qwen3-0.6B загварыг CPU дээр ажиллуулна. Хамгийн шинэ загвар биш, эцсийн сонголт биш. 24 ноорог асуултын бодит хариу, хугацаа, тохиргоо, оноог хадгална. Wikipedia-ийн цуглуулсан эхүүдийг загварт сургаагүй, тестийн prompt-д нэмж өгөөгүй. Оноо нь форматад мэдрэмтгий анхны шалгалт бөгөөд Монгол хэлний нийт чадварын баталгаа биш.
+
+## Runtime and latency comparison guard — 2026-10-12
+
+`compare_benchmarks.py` now compares backend, llama-cpp-python/Python versions, context size, temperature and repetition penalty alongside the existing evaluation, precision and decoding fields. GGUF metadata must contain valid runtime settings; matching missing fields do not count as valid GGUF configuration. Model artifact, tokenizer revision and chat-template hashes are model-specific identities, not required to be equal across different models.
+
+`comparable` describes matched recorded evaluation/runtime settings. `latency_comparable` additionally requires matching non-empty hardware descriptions; otherwise `seconds_per_case_delta` is null and promotion is blocked. Individual measured times remain visible. This is a necessary guard, not proof of identical CPU load, build flags, warmup or throughput. Seconds per case depend on generated answer length and must not be called tokens/second.
+
+The retained Qwen3-4B/Qwen3.5-4B reports lack hardware fields. Their 7/24 and 12/24 scores remain unchanged, but a newly computed [comparison audit](../experiments/comparison-audit-2026-10-12.json) blocks a controlled latency claim. Earlier reports are historical and remain intact for rollback. No inference was repeated.
+
+Монгол: GGUF runtime/context/decoding зөрүүтэй бол харьцуулалт блоклоно. Hardware дутуу/өөр бол latency delta гаргахгүй. Өмнөх 7/24, 12/24 оноо хэвээр; хуучин metadata-д hardware байхгүй тул хурдны давуу тал батлагдсан гэж дүгнэхгүй.

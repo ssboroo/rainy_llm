@@ -1,0 +1,41 @@
+{
+  "comparable": true,
+  "validation_errors": [],
+  "comparability_mismatches": [],
+  "baseline": {
+    "model": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+    "revision": "a06e946bb6b655725eafa393f4a9745d460374c9",
+    "accuracy": 0.2916666666666667,
+    "seconds_per_case": 2.729075
+  },
+  "candidate": {
+    "model": "unsloth/Qwen3.5-4B-GGUF",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "accuracy": 0.5,
+    "seconds_per_case": 2.2059458333333333
+  },
+  "accuracy_delta": 0.20833333333333331,
+  "latency_comparable": false,
+  "latency_comparison_blockers": [
+    "baseline.hardware missing",
+    "candidate.hardware missing"
+  ],
+  "seconds_per_case_delta": null,
+  "missing_resource_measurements": [
+    "baseline.hardware",
+    "baseline.peak_vram_gb",
+    "baseline.estimated_cost_usd",
+    "candidate.hardware",
+    "candidate.peak_vram_gb",
+    "candidate.estimated_cost_usd"
+  ],
+  "quality_improved": true,
+  "promotion_eligible": false,
+  "note": "Technical eligibility requires comparable settings, higher measured accuracy, no missing predictions in either run, and finite hardware/VRAM/cost records. Latency deltas additionally require matching recorded hardware; per-case time is not tokens/second throughput. It is not release approval; human review and held-out validation remain separate.",
+  "input_sha256": {
+    "experiments/qwen3-4b-2507-cpu-q4km-v1/metadata.json": "38f3e7ba21d5a606a1db8b3127941423e08859d11d8628f50d6f08820b4e143b",
+    "experiments/qwen3-4b-2507-cpu-q4km-v1/scores.json": "97379e052852ae260430fccdd461726d01d4ccb48e8e6b70fe84294933287f45",
+    "experiments/qwen35-4b-cpu-q4km-v1/metadata.json": "6cc9647262072778f6e0623eea13e6a14f329b7950cfd04972e83f0c718ac92a",
+    "experiments/qwen35-4b-cpu-q4km-v1/scores.json": "3cadfb7c7698dfadec8fbd026bde8d79e8da3b3ccf999bf0adee3f551786b4f2"
+  }
+}
