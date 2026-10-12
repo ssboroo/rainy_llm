@@ -67,7 +67,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 75 tests covering validation, grouping, fuzzy leakage audit, human-review evidence, artifact integrity and scoring |
+| Unit tests | Available | 79 tests covering validation, grouping, fuzzy leakage audit, human-review evidence, artifact integrity and scoring |
 | Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Planned | No training runner or trained adapter |
@@ -247,7 +247,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Өгөгдөл, fuzzy leakage audit, human-review evidence, artifact integrity, үнэлгээ шалгах 75 тест |
+| Unit test | Бэлэн | Өгөгдөл, fuzzy leakage audit, human-review evidence, artifact integrity, үнэлгээ шалгах 79 тест |
 | Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |

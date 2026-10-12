@@ -27,6 +27,54 @@ def run(accuracy=0.25, seconds=24.0, model="org/model"):
 
 
 class CompareBenchmarkTests(unittest.TestCase):
+    def test_gguf_settings_mismatch_blocks_comparison(self):
+        for key, value in (("backend", "other"), ("llama_cpp", "0.4"),
+                           ("python", "3.13"), ("n_ctx", 4096),
+                           ("temperature", 0.7), ("repeat_penalty", 1.1)):
+            with self.subTest(key=key):
+                baseline, candidate = run(), run(0.5)
+                for meta, _ in (baseline, candidate):
+                    meta.update(backend="llama-cpp-python", llama_cpp="0.3.36",
+                                python="3.12", transformers="4.51.3", threads=4,
+                                n_ctx=2048, temperature=0.0, repeat_penalty=1.0)
+                candidate[0][key] = value
+                report = compare_runs(baseline, candidate)
+                self.assertIn(key, report["comparability_mismatches"])
+                self.assertFalse(report["promotion_eligible"])
+                self.assertIsNone(report["seconds_per_case_delta"])
+
+    def test_gguf_missing_or_invalid_settings_fail_closed(self):
+        for key, value in (("llama_cpp", None), ("python", ""),
+                           ("transformers", []), ("threads", True),
+                           ("n_ctx", 0), ("temperature", float("nan")),
+                           ("repeat_penalty", 0)):
+            with self.subTest(key=key):
+                baseline, candidate = run(), run(0.5)
+                for meta, _ in (baseline, candidate):
+                    meta.update(backend="llama-cpp-python", llama_cpp="0.3.36",
+                                python="3.12", transformers="4.51.3", threads=4,
+                                n_ctx=2048, temperature=0.0, repeat_penalty=1.0)
+                    meta[key] = value
+                report = compare_runs(baseline, candidate)
+                self.assertFalse(report["comparable"])
+                json.dumps(report, allow_nan=False)
+
+    def test_missing_or_changed_hardware_blocks_latency_and_promotion(self):
+        for hardware in (None, "different-cpu"):
+            baseline, candidate = run(), run(0.5)
+            candidate[0]["hardware"] = hardware
+            report = compare_runs(baseline, candidate)
+            self.assertTrue(report["comparable"])
+            self.assertTrue(report["quality_improved"])
+            self.assertFalse(report["latency_comparable"])
+            self.assertFalse(report["promotion_eligible"])
+            self.assertIsNone(report["seconds_per_case_delta"])
+
+    def test_matching_hardware_allows_latency_delta(self):
+        report = compare_runs(run(seconds=24), run(0.5, seconds=20))
+        self.assertTrue(report["latency_comparable"])
+        self.assertEqual(report["seconds_per_case_delta"], -1)
+
     def test_nonfinite_measurements_never_qualify(self):
         for value in (float('nan'), float('inf'), float('-inf'), True):
             for key in ('total_generation_seconds', 'peak_vram_gb', 'estimated_cost_usd', 'accuracy'):

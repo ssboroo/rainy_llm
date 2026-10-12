@@ -8,7 +8,9 @@ from pathlib import Path
 
 HEX40_64 = re.compile(r"^[0-9a-f]{40,64}$")
 DECODE_KEYS = ("seed", "do_sample", "max_new_tokens", "thinking")
-RUNTIME_KEYS = ("device", "dtype", "threads", "torch", "transformers")
+RUNTIME_KEYS = ("device", "dtype", "threads", "torch", "transformers",
+                "backend", "llama_cpp", "python", "n_ctx",
+                "temperature", "repeat_penalty")
 
 
 def finite_number(value):
@@ -67,6 +69,17 @@ def validate_run(metadata, scores):
         errors.append("scores.missing must be an integer between zero and total")
     elif integer(correct) and correct + missing > total:
         errors.append("correct plus missing cannot exceed total")
+    if metadata.get("backend") == "llama-cpp-python":
+        for key in ("llama_cpp", "python", "transformers"):
+            if not isinstance(metadata.get(key), str) or not metadata[key].strip():
+                errors.append(f"GGUF runtime requires non-empty {key}")
+        for key in ("threads", "n_ctx"):
+            if not integer(metadata.get(key), 1):
+                errors.append(f"GGUF runtime requires positive integer {key}")
+        for key in ("temperature", "repeat_penalty"):
+            value = metadata.get(key)
+            if not finite_number(value) or value < 0 or (key == "repeat_penalty" and value == 0):
+                errors.append(f"GGUF runtime requires valid {key}")
     adapter = metadata.get("adapter")
     if adapter is not None:
         if not isinstance(adapter, dict):
@@ -116,9 +129,20 @@ def compare_runs(baseline, candidate):
         for key in resource_fields if resource_missing(meta, key)
     ]
     comparable = not errors and not mismatches
+    latency_blockers = []
+    if not comparable:
+        latency_blockers.append("incomparable evaluation/runtime settings")
+    for side, meta in (("baseline", base_meta), ("candidate", cand_meta)):
+        if resource_missing(meta, "hardware"):
+            latency_blockers.append(f"{side}.hardware missing")
+    if (not resource_missing(base_meta, "hardware") and
+            not resource_missing(cand_meta, "hardware") and
+            base_meta["hardware"] != cand_meta["hardware"]):
+        latency_blockers.append("hardware mismatch")
+    latency_comparable = not latency_blockers
     quality_improved = comparable and cand_scores["accuracy"] > base_scores["accuracy"]
     promotion_eligible = bool(
-        quality_improved and not missing_resources and
+        quality_improved and latency_comparable and not missing_resources and
         base_scores.get("missing") == 0 and cand_scores.get("missing") == 0)
     return {
         "comparable": comparable,
@@ -133,11 +157,13 @@ def compare_runs(baseline, candidate):
             "accuracy": cand_scores.get("accuracy") if finite_number(cand_scores.get("accuracy")) else None, "seconds_per_case": cand_latency,
         },
         "accuracy_delta": (cand_scores.get("accuracy", 0) - base_scores.get("accuracy", 0)) if comparable else None,
-        "seconds_per_case_delta": (cand_latency - base_latency) if comparable else None,
+        "latency_comparable": latency_comparable,
+        "latency_comparison_blockers": latency_blockers,
+        "seconds_per_case_delta": (cand_latency - base_latency) if latency_comparable else None,
         "missing_resource_measurements": missing_resources,
         "quality_improved": quality_improved,
         "promotion_eligible": promotion_eligible,
-        "note": "Technical eligibility requires comparable settings, higher measured accuracy, no missing predictions in either run, and finite hardware/VRAM/cost records. It is not release approval; human review and held-out validation remain separate.",
+        "note": "Technical eligibility requires comparable settings, higher measured accuracy, no missing predictions in either run, and finite hardware/VRAM/cost records. Latency deltas additionally require matching recorded hardware; per-case time is not tokens/second throughput. It is not release approval; human review and held-out validation remain separate.",
     }
 
 
