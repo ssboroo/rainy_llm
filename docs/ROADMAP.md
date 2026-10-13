@@ -9,6 +9,7 @@
 - [ ] Монгол хэлний хүний хянасан 100 асуулттай анхны evaluation багц (100-case v2 draft ба pending packet бэлэн)
 - [x] Held-out evaluation schema, exact training-overlap check, hash report ба human-review release gate
 - [x] Human-review packet, case fingerprint, checklist/evidence validator; бодит хүний review хүлээгдэж байна
+- [x] Human-review progress summary; prompt задруулахгүй category/status count ба unready CI exit
 - [x] Суурь inference runner ба benchmark comparison gate; revision, eval hash, decoding, latency/resource completeness шалгана
 - [x] Benchmark numeric integrity: NaN/Infinity, буруу төрөл, нийцэхгүй counts болон baseline-ийн дутуу хариуг блоклох
 - [x] Хадгалсан experiment integrity: raw prediction-оос оноо/нийлбэрийг дахин тооцож, evaluation/file hash-тэй тайлан хадгалах

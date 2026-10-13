@@ -32,6 +32,9 @@ Prompt/answers/source өөрчлөгдвөл case fingerprint өөрчлөгдө
 
 ```bash
 python scripts/validate_evaluation.py evaluation/mn_v2_draft.jsonl --training data/examples.jsonl
+python scripts/review_evaluation.py summary \
+  --cases evaluation/mn_v2_draft.jsonl \
+  --reviews evaluation/mn_v2_review_packet.jsonl
 python scripts/review_evaluation.py apply \
   --cases evaluation/mn_v2_draft.jsonl \
   --reviews path/to/completed-reviews.jsonl \
@@ -39,5 +42,7 @@ python scripts/review_evaluation.py apply \
   --reviewed-at YYYY-MM-DD --reviewer-role human-reviewer
 python scripts/validate_evaluation.py evaluation/mn_v2_reviewed.jsonl --release --training data/examples.jsonl
 ```
+
+`summary` нь prompt/answer-ыг тайланд хуулахгүйгээр `pending`, `ready-accept`, `incomplete`, `rejected`, `missing`, `stale`, `invalid` төлвийг ангилал тус бүрээр тоолно. CI эсвэл review gate-д `--fail-unready` нэмбэл бүх мөр structurally ready биш үед exit 1 буцаана. `ready-accept` нь зөвхөн packet-ийн бүтэц бүрэн гэсэн үг; хүний хэн хянасныг батлахгүй, бодит human review-г орлохгүй. Одоогийн хэмжсэн тайлан [`mn_v2_review_progress.json`](mn_v2_review_progress.json)-д 100/100 `pending`, `ready_to_apply: false` байна.
 
 The pending packet must fail `apply`; all 100 cases must pass real review before release. Benchmark inference has not been run on this version. Freeze the reviewed file and its SHA-256 before comparing candidates under identical runtime/decoding settings.
