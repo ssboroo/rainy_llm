@@ -37,3 +37,24 @@ Preserve ssboroo ownership notices and third-party licenses. Do not upload custo
 - https://docs.openwebui.com/features/workspace/knowledge/
 - https://docs.onyx.app/overview/core_features/connectors
 These sources establish existing feature categories, not RAINY implementation or Mongolian performance.
+
+## Expanded integrated backlog / Нэгдсэн нэмэлт боломжууд
+Requested 2026-10-13. All rows below are planned, not shipped. Build against one shared model gateway, document store, organization identity and evaluation harness. Deliver vertical slices in dependency order rather than starting disconnected products.
+
+| Stage | Capability / Боломж | Completion evidence |
+| --- | --- | --- |
+| After document search | Document comparison / Хувилбарын ялгаа | Added/deleted/changed clauses link to both document versions; dates and amounts preserved. |
+| After ingestion | Spreadsheet questions / Хүснэгтээс тооцоо | Read-only table queries; calculations executed deterministically; source cells and formula shown; ambiguous columns require clarification. |
+| After grounding | Structured extraction / Мэдээлэл ялгах | Invoice/product/contact fields validated against schema; unknown values remain null; original source reference retained. |
+| After chat | Mongolian writing assistant / Найруулга | Formal letters, summaries, translation and terminology glossary; user can compare original and edits; factual additions marked for verification. |
+| After language evaluation | Traditional Mongolian script / Монгол бичиг | Separate OCR, conversion and generation benchmarks; dictionary/human review for ambiguous mappings; never assume lossless transliteration. |
+| After identity and consent | Voice input/output / Дуу хоолой | STT -> text review -> answer -> TTS; measure Mongolian word error, latency and cost; use existing RAINY Voice integration only after API contract verification. No unapproved paid calls or cloning. |
+| After document answers | Meeting assistant / Хурлын туслах | Consented recording -> speaker-attributed draft transcript -> summary/action items with timestamps; user verifies speaker labels and tasks. |
+| After access controls | Approved workflows / Ажлын урсгал | Draft lead/order/appointment operations; preview and explicit confirmation for external writes; idempotency, audit and error recovery. No sending messages without authorization. |
+| After quality telemetry | Feedback loop / Алдаанаас сайжруулах | User corrections recorded with consent; private feedback excluded from public repo; training opt-in, license and held-out separation enforced. |
+| After runtime measurement | Model routing / Загвар сонгох | Explicit offline/cloud policy; choose feasible model by measured task quality/cost; cloud use requires opt-in and approved budget; record exact model revision. |
+| Before business rollout | Admin and usage / Удирдлага | Team roles, quotas, document retention/deletion, usage accounting, backups and restore test; no customer content in ordinary logs. |
+| After pilot validation | Packaging / Борлуулалтын багц | Web widget, API key scope, self-host package and documentation; pricing based on observed usage/cost and pilot willingness to pay. |
+
+### Delivery discipline
+Continue the P0 local source-cited document search and working chat/API first. Then implement the extensions above as complete tested features. Do not repeatedly add roadmap-only commits when an executable slice is feasible. The four scheduled daily runs share the same backlog and remote branch history; each reports shipped code, executed tests, measured model results and remaining gaps separately.
