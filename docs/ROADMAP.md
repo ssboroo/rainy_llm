@@ -1,5 +1,7 @@
 # Хөгжүүлэлтийн дараалал
 
+**2026-10-13 priority change:** [Бие даасан Монгол загвар](STANDALONE_MODEL.md) нь үндсэн зорилго. Licensed corpus → multi-capability base comparison → SFT/LoRA → evaluated standalone export. Document assistant бол нэмэлт integration.
+
 ## Хийгдсэн
 - [x] Local TXT/Markdown lexical search: SQLite FTS5/BM25, source file/line/hash, bounded in-memory snapshot; [usage](DOCUMENT_SEARCH.md)
 - [x] Repository суурь, өгөгдлийн формат
