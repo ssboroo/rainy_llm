@@ -35,3 +35,6 @@
 
 - [x] Raw source/text connected-component partitions; pilot 17/1/2 with frozen hashes (not training approval).
 - [ ] Human-reviewed instruction conversion retaining parent split; audit URL aliases and semantic overlap.
+
+- [x] Source-linked extractive QA authoring template and draft exporter; inherited frozen splits, original provenance, no automatic approval.
+- [ ] Instruction-level human review and train-only release export; actual questions/answers remain unauthored.

@@ -131,3 +131,7 @@ Reopened the same official producer pages and PEFT release notes. No new immutab
 ### 2026-10-14 17:00 follow-up
 
 Reopened official Qwen, Google, DeepSeek, Meta, Mistral pages, PEFT releases and LoRA paper. No new immutable revision or tested runtime upgrade established; existing pins and baseline unchanged. Implemented source-grouped raw corpus splitting instead; no model inference/training claim. See today's research and [corpus partitions](CORPUS_SPLITS.md).
+
+### 2026-10-14 21:05 follow-up
+
+Rechecked official producer pages, PEFT releases, LoRA paper and TRL SFT dataset guidance. No new pinned artifact or tested runtime integration established; baseline unchanged. Selected work: explicit source-linked prompt/answer draft conversion, not a model upgrade. TRL format documentation does not validate this environment's absent training runtime. See [instruction drafts](INSTRUCTION_DRAFTS.md) and today's research.
