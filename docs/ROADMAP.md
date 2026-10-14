@@ -5,6 +5,7 @@
 ## Хийгдсэн
 - [x] Local TXT/Markdown lexical search: SQLite FTS5/BM25, source file/line/hash, bounded in-memory snapshot; [usage](DOCUMENT_SEARCH.md)
 - [x] Repository суурь, өгөгдлийн формат
+- [x] Offline corpus reading pack and hash-bound review export/apply; 20 existing documents remain pending, not training-ready. [Guide](CORPUS_REVIEW.md)
 - [x] JSONL шалгалт, basic duplicate detection, unit tests
 
 ## Дараагийн ажлууд
@@ -22,6 +23,7 @@
 - [ ] GPU нэр, VRAM, төсөв тогтоох
 - [x] Dataset normalization, source-based split, exact dedup болон evaluation/training character n-gram near-overlap audit (semantic detection үргэлжилнэ)
 - [x] Experimental local CPU LoRA runner with assistant-only masking and resume guards; [limits](CPU_TRAINING.md). Guard tests only, no backend training yet.
+- [x] Checkpoint completion manifest, SHA-256 integrity and interrupted-save fault tests; real Trainer save/resume still pending.
 - [ ] Баталгаажуулсан хувилбартай сургалтын dependencies, бодит CPU LoRA resume equivalence test ба QLoRA script
 - [ ] GPU smoke run, loss ба held-out evaluation; baseline-тай харьцуулах
 - [ ] Model card, adapter artifact, inference API, Docker
@@ -30,3 +32,9 @@
 Зөв бичих, заавар дагах, кирилл/латин галиг, орчуулга, Монгол мэдлэг, үндэслэл, мэдэхгүйгээ хэлэх чадварыг тус тус үнэлнэ. Хүний үнэлгээ болон автомат оноог салган тайлагнана. Сургалтын loss буурсан нь чат чанар сайжирсны баталгаа биш.
 
 - [x] GGUF runtime/context/decoding comparison guard; matching hardware required for latency delta
+
+- [x] Raw source/text connected-component partitions; pilot 17/1/2 with frozen hashes (not training approval).
+- [ ] Human-reviewed instruction conversion retaining parent split; audit URL aliases and semantic overlap.
+
+- [x] Source-linked extractive QA authoring template and draft exporter; inherited frozen splits, original provenance, no automatic approval.
+- [ ] Instruction-level human review and train-only release export; actual questions/answers remain unauthored.
