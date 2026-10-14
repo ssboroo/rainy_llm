@@ -127,3 +127,7 @@ Reopened the official Qwen3.8-27B card, Google releases, DeepSeek/Meta producer 
 ### 2026-10-14 13:03 follow-up
 
 Reopened the same official producer pages and PEFT release notes. No new immutable model/runtime integration or measured model upgrade was established. Existing rollback pins/results remain untouched. Work instead unblocks licensed real-source review with an offline 20-document reading pack; all decisions remain pending. See [corpus review](CORPUS_REVIEW.md) and today's research for executed tests and limitations.
+
+### 2026-10-14 17:00 follow-up
+
+Reopened official Qwen, Google, DeepSeek, Meta, Mistral pages, PEFT releases and LoRA paper. No new immutable revision or tested runtime upgrade established; existing pins and baseline unchanged. Implemented source-grouped raw corpus splitting instead; no model inference/training claim. See today's research and [corpus partitions](CORPUS_SPLITS.md).

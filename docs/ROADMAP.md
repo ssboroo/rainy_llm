@@ -32,3 +32,6 @@
 Зөв бичих, заавар дагах, кирилл/латин галиг, орчуулга, Монгол мэдлэг, үндэслэл, мэдэхгүйгээ хэлэх чадварыг тус тус үнэлнэ. Хүний үнэлгээ болон автомат оноог салган тайлагнана. Сургалтын loss буурсан нь чат чанар сайжирсны баталгаа биш.
 
 - [x] GGUF runtime/context/decoding comparison guard; matching hardware required for latency delta
+
+- [x] Raw source/text connected-component partitions; pilot 17/1/2 with frozen hashes (not training approval).
+- [ ] Human-reviewed instruction conversion retaining parent split; audit URL aliases and semantic overlap.

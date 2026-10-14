@@ -22,6 +22,8 @@
 
 ## Data quality and export / Чанар ба хөрвүүлэлт
 
+[Source-grouped partitions / Эхээр бүлэглэсэн хуваалт](docs/CORPUS_SPLITS.md): reproducible 17/1/2 raw pilot split; not training approval.
+
 [Offline corpus review pack / Бодит эхийг хүн хянах багц](docs/CORPUS_REVIEW.md): the existing 20 Wikipedia documents with provenance and license links; all decisions pending, none approved for training.
 
 [Quality tools guide / Хэрэглэх заавар](docs/QUALITY.md)
@@ -69,7 +71,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 107 tests, including real-corpus review export/apply, checkpoint fault handling, data/evaluation checks and offline loader wiring |
+| Unit tests | Available | 112 tests, including real-corpus review export/apply, checkpoint fault handling, data/evaluation checks and offline loader wiring |
 | Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
@@ -249,7 +251,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Корпусын review export/apply, checkpoint, өгөгдөл/үнэлгээ, offline loader-ийн 107 тест; бодит сургалтын баталгаа биш |
+| Unit test | Бэлэн | Корпусын review export/apply, checkpoint, өгөгдөл/үнэлгээ, offline loader-ийн 112 тест; бодит сургалтын баталгаа биш |
 | Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
