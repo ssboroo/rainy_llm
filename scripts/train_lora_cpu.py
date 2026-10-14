@@ -5,6 +5,7 @@ import importlib.metadata
 import json
 import os
 from pathlib import Path
+import re
 import time
 
 try:
@@ -89,18 +90,90 @@ def tokenize(rows, tokenizer, max_length):
     return items
 
 
+CHECKPOINT_MANIFEST = 'rainy-checkpoint.json'
+CHECKPOINT_REQUIRED = {'adapter_config.json', 'adapter_model.safetensors', 'optimizer.pt',
+                       'scheduler.pt', 'rng_state.pth', 'trainer_state.json'}
+
+
+def identity_digest(identity):
+    return hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(',', ':'),
+                                     allow_nan=False).encode()).hexdigest()
+
+
+def checkpoint_inventory(checkpoint):
+    """Hash inert bytes only; never deserialize optimizer/RNG pickle files."""
+    if checkpoint.is_symlink() or not checkpoint.is_dir():
+        raise ValueError('checkpoint must be a real directory')
+    files = {}
+    for path in sorted(checkpoint.rglob('*')):
+        if path.is_symlink():
+            raise ValueError('checkpoint symlinks are not accepted')
+        if path.is_dir():
+            continue
+        if not path.is_file():
+            raise ValueError('checkpoint must contain only regular files')
+        name = path.relative_to(checkpoint).as_posix()
+        if name == CHECKPOINT_MANIFEST:
+            continue
+        if name in ('checkpoint-is-incomplete.txt', CHECKPOINT_MANIFEST + '.tmp'):
+            raise ValueError('checkpoint save did not complete')
+        size = path.stat().st_size
+        if size == 0:
+            raise ValueError('empty checkpoint component: ' + name)
+        files[name] = {'bytes': size, 'sha256': digest(path)}
+    if not CHECKPOINT_REQUIRED.issubset(files):
+        raise ValueError('incomplete checkpoint: adapter/optimizer/scheduler/RNG/state required')
+    return files
+
+
+def checkpoint_step(checkpoint, identity):
+    state = json.loads((checkpoint / 'trainer_state.json').read_text(encoding='utf-8'))
+    step = state.get('global_step') if isinstance(state, dict) else None
+    if (type(step) is not int or step < 1 or checkpoint.name != f'checkpoint-{step}'
+            or step > identity['total_steps']):
+        raise ValueError('checkpoint directory/state step mismatch or invalid step')
+    return step
+
+
+def seal_checkpoint(checkpoint, identity):
+    """Called only after Trainer reports save complete; single writer per run."""
+    checkpoint = Path(checkpoint)
+    manifest = checkpoint / CHECKPOINT_MANIFEST
+    if manifest.exists():
+        raise ValueError('checkpoint already sealed; refusing to overwrite evidence')
+    files = checkpoint_inventory(checkpoint)
+    record = dict(schema=1, global_step=checkpoint_step(checkpoint, identity),
+                  run_identity_sha256=identity_digest(identity), files=files)
+    temporary = checkpoint / (CHECKPOINT_MANIFEST + '.tmp')
+    # A failed/crashed write leaves no accepted final marker. Do not auto-reseal it.
+    with temporary.open('x', encoding='utf-8') as stream:
+        json.dump(record, stream, sort_keys=True, indent=2, allow_nan=False)
+        stream.write('\n')
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(temporary, manifest)
+    return record
+
+
 def check_resume(output, checkpoint, identity):
+    output = Path(output).resolve(strict=True)
     if json.loads((output / 'run_identity.json').read_text()) != identity:
         raise ValueError('resume identity changed: model/data/review/eval/config/runtime must match')
-    checkpoint = Path(checkpoint).resolve(strict=True)
-    if checkpoint.parent != output or not checkpoint.name.startswith('checkpoint-'):
+    checkpoint = Path(checkpoint)
+    if checkpoint.is_symlink():
+        raise ValueError('checkpoint symlinks are not accepted')
+    checkpoint = checkpoint.resolve(strict=True)
+    if checkpoint.parent != output or not re.fullmatch(r'checkpoint-[1-9][0-9]*', checkpoint.name):
         raise ValueError('resume checkpoint must belong to this run directory')
-    required = ['adapter_config.json', 'adapter_model.safetensors', 'optimizer.pt',
-                'scheduler.pt', 'rng_state.pth', 'trainer_state.json']
-    if any(not (checkpoint / name).is_file() for name in required):
-        raise ValueError('incomplete checkpoint: adapter/optimizer/scheduler/RNG/state required')
-    if (checkpoint / 'checkpoint-is-incomplete.txt').exists():
-        raise ValueError('checkpoint save did not complete')
+    files = checkpoint_inventory(checkpoint)
+    marker = checkpoint / CHECKPOINT_MANIFEST
+    if not marker.is_file():
+        raise ValueError('unsealed checkpoint; save completion is not established')
+    recorded = json.loads(marker.read_text(encoding='utf-8'))
+    expected = dict(schema=1, global_step=checkpoint_step(checkpoint, identity),
+                    run_identity_sha256=identity_digest(identity), files=files)
+    if recorded != expected:
+        raise ValueError('checkpoint integrity mismatch; do not resume or reseal')
     return str(checkpoint)
 
 
@@ -167,6 +240,10 @@ def main():
             return {key: torch.tensor([batch[0][key]], dtype=torch.long) for key in batch[0]}
 
         class Budget(TrainerCallback):
+            def on_save(self, args, state, control, **kwargs):
+                seal_checkpoint(Path(args.output_dir) / f'checkpoint-{state.global_step}', identity)
+                return control
+
             def on_train_begin(self, args, state, control, **kwargs):
                 self.start_step, self.start_time = state.global_step, time.monotonic()
 

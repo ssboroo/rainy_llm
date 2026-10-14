@@ -67,7 +67,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 94 tests covering validation, review progress, artifact integrity, scoring, document search and offline loader wiring |
+| Unit tests | Available | 101 tests covering validation, review progress, artifact integrity, scoring, document search, offline loader wiring and checkpoint corruption/interruption |
 | Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
@@ -247,7 +247,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Өгөгдөл, review, үнэлгээ, баримтын хайлт, offline loader болон training guard-ийн 94 тест; шинэ loader-ийн тест mock ашигласан |
+| Unit test | Бэлэн | Өгөгдөл, review, үнэлгээ, хайлт, offline loader, training guard ба checkpoint эвдрэл/тасалдлын 101 тест; бодит сургалтын баталгаа биш |
 | Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |

@@ -22,6 +22,7 @@
 - [ ] GPU нэр, VRAM, төсөв тогтоох
 - [x] Dataset normalization, source-based split, exact dedup болон evaluation/training character n-gram near-overlap audit (semantic detection үргэлжилнэ)
 - [x] Experimental local CPU LoRA runner with assistant-only masking and resume guards; [limits](CPU_TRAINING.md). Guard tests only, no backend training yet.
+- [x] Checkpoint completion manifest, SHA-256 integrity and interrupted-save fault tests; real Trainer save/resume still pending.
 - [ ] Баталгаажуулсан хувилбартай сургалтын dependencies, бодит CPU LoRA resume equivalence test ба QLoRA script
 - [ ] GPU smoke run, loss ба held-out evaluation; baseline-тай харьцуулах
 - [ ] Model card, adapter artifact, inference API, Docker
