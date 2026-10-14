@@ -5,6 +5,7 @@
 ## Хийгдсэн
 - [x] Local TXT/Markdown lexical search: SQLite FTS5/BM25, source file/line/hash, bounded in-memory snapshot; [usage](DOCUMENT_SEARCH.md)
 - [x] Repository суурь, өгөгдлийн формат
+- [x] Offline corpus reading pack and hash-bound review export/apply; 20 existing documents remain pending, not training-ready. [Guide](CORPUS_REVIEW.md)
 - [x] JSONL шалгалт, basic duplicate detection, unit tests
 
 ## Дараагийн ажлууд

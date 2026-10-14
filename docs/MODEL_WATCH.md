@@ -123,3 +123,7 @@ Official producer pages above were reopened; no new model ID/revision or baselin
 ## 2026-10-14: checkpoint reliability and source check
 
 Reopened the official Qwen3.8-27B card, Google releases, DeepSeek/Meta producer pages and planned Mistral Large 4 weights page. No new immutable model revision, license change or locally tested model integration was established; retained baseline/config/results are unchanged. PEFT latest-release metadata remains v0.21.2 (2026-10-01), not a newly installed training dependency. Implemented checkpoint completion/integrity in the experimental CPU LoRA runner using the official Transformers `on_save` contract. Seven synthetic filesystem fault tests do not establish real backend training/resume or Mongolian quality. Details and sources: [2026-10-14 research](../research/2026-10-14.md).
+
+### 2026-10-14 13:03 follow-up
+
+Reopened the same official producer pages and PEFT release notes. No new immutable model/runtime integration or measured model upgrade was established. Existing rollback pins/results remain untouched. Work instead unblocks licensed real-source review with an offline 20-document reading pack; all decisions remain pending. See [corpus review](CORPUS_REVIEW.md) and today's research for executed tests and limitations.
