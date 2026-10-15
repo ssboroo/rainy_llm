@@ -135,3 +135,7 @@ Reopened official Qwen, Google, DeepSeek, Meta, Mistral pages, PEFT releases and
 ### 2026-10-14 21:05 follow-up
 
 Rechecked official producer pages, PEFT releases, LoRA paper and TRL SFT dataset guidance. No new pinned artifact or tested runtime integration established; baseline unchanged. Selected work: explicit source-linked prompt/answer draft conversion, not a model upgrade. TRL format documentation does not validate this environment's absent training runtime. See [instruction drafts](INSTRUCTION_DRAFTS.md) and today's research.
+
+## 2026-10-15 09:00 source and model recheck
+
+Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and Meta producer indexes, and planned Mistral Large 4 weights page. No new immutable small-model revision or locally tested runtime integration was established, so the retained baseline/config/results remain unchanged. The executable work was the first globally deduplicated 20-document daily corpus batch; it is raw unreviewed CC BY-SA 4.0 text, not model integration or measured quality gain. See [daily corpus batches](../data/mnwiki_daily/README.md) and the 2026-10-15 research note.

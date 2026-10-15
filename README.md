@@ -24,6 +24,8 @@
 
 [Instruction draft authoring / Сургалтын жишээний ноорог](docs/INSTRUCTION_DRAFTS.md): source-linked answer spans and frozen splits; all drafts require human review.
 
+[Daily raw-source batches / Өдөр тутмын бодит эх](data/mnwiki_daily/README.md): 20-document attributed batches with global exact deduplication and per-batch audit manifests.
+
 [Source-grouped partitions / Эхээр бүлэглэсэн хуваалт](docs/CORPUS_SPLITS.md): reproducible 17/1/2 raw pilot split; not training approval.
 
 [Offline corpus review pack / Бодит эхийг хүн хянах багц](docs/CORPUS_REVIEW.md): the existing 20 Wikipedia documents with provenance and license links; all decisions pending, none approved for training.
@@ -73,8 +75,8 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 117 tests, including instruction drafts, corpus review/splits, checkpoint fault handling, data/evaluation checks and offline loader wiring |
-| Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
+| Unit tests | Available | 121 tests, including bounded collection/dedup, instruction drafts, corpus review/splits, checkpoint fault handling and evaluation |
+| Training corpus | Pending | 40 real Wikipedia leads collected; all unreviewed raw documents, not a curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
 | Inference API / Docker | Planned | No runnable service or container configuration |
@@ -253,8 +255,8 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Instruction ноорог, корпусын review/split, checkpoint, өгөгдөл/үнэлгээ, offline loader-ийн 117 тест; бодит сургалтын баталгаа биш |
-| Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
+| Unit test | Бэлэн | Цуглуулалт/давхардал, instruction ноорог, корпусын review/split, checkpoint, үнэлгээний 121 тест; бодит сургалтын баталгаа биш |
+| Сургалтын корпус | Бэлтгэгдээгүй | 40 бодит Wikipedia эх; бүгд хүний хяналтгүй raw баримт |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |

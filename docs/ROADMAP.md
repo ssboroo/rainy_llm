@@ -38,3 +38,8 @@
 
 - [x] Source-linked extractive QA authoring template and draft exporter; inherited frozen splits, original provenance, no automatic approval.
 - [ ] Instruction-level human review and train-only release export; actual questions/answers remain unauthored.
+
+## 2026-10-15 daily corpus target
+- [x] Batch 01: 20 new attributed CC BY-SA 4.0 documents; 19,162 characters; global exact source/page/text dedup passed.
+- [ ] Batches 02–05: 80 more unique documents, each in a separate 20-document manifest.
+- [ ] Human privacy/quality/rights review and semantic near-duplicate audit. Current daily human-reviewed/training-ready counts: 0/0.
