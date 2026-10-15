@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "date": "2026-10-15",
+  "automated_only": true,
+  "documents_checked": 80,
+  "new_batch_documents": 20,
+  "new_batch_screening_flags": 0,
+  "historical_flags": [
+    {
+      "id": "mnwiki-37968-749588",
+      "reason": "quality-artifact",
+      "status": "quarantined-pending-human-review",
+      "location": "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl"
+    },
+    {
+      "id": "mnwiki-35455-804774",
+      "reason": "quality-artifact",
+      "status": "quarantined-pending-human-review",
+      "location": "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl"
+    },
+    {
+      "id": "mnwiki-98018-870441",
+      "reason": "quality-artifact",
+      "status": "quarantined-pending-human-review",
+      "location": "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl"
+    },
+    {
+      "id": "mnwiki-8742-847509",
+      "reason": "quality-artifact",
+      "status": "quarantined-pending-human-review",
+      "location": "data/mnwiki_pilot/corpus.jsonl"
+    },
+    {
+      "id": "mnwiki-9917-847353",
+      "reason": "quality-artifact",
+      "status": "quarantined-pending-human-review",
+      "location": "data/mnwiki_pilot/corpus.jsonl"
+    },
+    {
+      "id": "mnwiki-8743-810735",
+      "reason": "quality-artifact",
+      "status": "quarantined-pending-human-review",
+      "location": "data/mnwiki_pilot/corpus.jsonl"
+    }
+  ],
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "limitations": "Template/email and lexical 5-gram multiset Jaccard >=0.80 only; not comprehensive privacy/quality or semantic review. Existing frozen data unchanged. Quarantined IDs must not be exported for training without resolution."
+}

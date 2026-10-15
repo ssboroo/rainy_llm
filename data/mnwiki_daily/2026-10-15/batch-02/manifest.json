@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-15T05:06:09.138096+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 14493,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 3,
+    "duplicate-source": 2,
+    "short": 2,
+    "batch-limit": 13
+  },
+  "rejected_items": [
+    {
+      "title": "Говь гурван сайхан",
+      "reason": "missing"
+    },
+    {
+      "title": "Гэр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монгол бичиг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сүхбаатар аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Тэрхийн цагаан нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төв аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Увс аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уйгур улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Халх гол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хануй гол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хар-Ус нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хидан Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хоргын тогоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэнтий аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Хяргас нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөвсгөл аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөх Түрэгийн хаант улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шагай",
+      "reason": "missing"
+    },
+    {
+      "title": "Эрдэнэ Зуу хийд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгий нуур",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl"
+  ],
+  "sha256": "313b326d7213ab981b1136d71430f55311147c253006c120092e0bc9bdc5d010",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
