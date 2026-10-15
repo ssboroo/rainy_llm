@@ -20,8 +20,8 @@ python scripts/collect_wikipedia.py \
 ```
 
 For later batches, repeat `--existing` once for every earlier corpus. On
-2026-10-15, batches 01 and 02 contain 40 new daily documents; combined with the
-20-document pilot, the repository holds 60 raw documents. None is human-reviewed
+2026-10-15, batches 01–03 contain 60 new daily documents; combined with the
+20-document pilot, the repository holds 80 raw documents. None is human-reviewed
 or training-ready.
 
 The collection target is operational throughput, not training approval. New rows
@@ -36,5 +36,17 @@ Do not silently replace a frozen evaluation split when later batches are added.
 хувилбар, зохиогчдын түүх, CC BY-SA 4.0 лиценз, текстийн hash хадгалагдана.
 Өмнөх бүх багцыг `--existing`-ээр өгч давхардлыг хориглоно. Цуглуулсан тоо нь
 хүний хяналт, сургалтын зөвшөөрөл эсвэл загварын чанарын ахиц гэсэн үг биш.
-2026-10-15-ны эхний хоёр багцад 40 шинэ эх, pilot-той нийлээд 60 raw эх байна;
+2026-10-15-ны эхний гурван багцад 60 шинэ эх, pilot-той нийлээд 80 raw эх байна;
 хүний хяналттай болон training-ready эх одоогоор 0.
+
+## Automated screening (batch 03 onward)
+
+The collector rejects template markers, email-like contact strings, and lexical
+near-duplicates (casefolded NFC/whitespace-normalized character 5-gram multiset
+Jaccard >= 0.80) against supplied prior texts and accepted current texts.
+Rejections record titles/reasons, not suspect text or contact values. This is not
+comprehensive PII detection, semantic similarity, factual validation or human
+review. The batch-03 screening audit separately lists 6 historical template flags;
+those immutable earlier rows remain unchanged and must not be used for training
+without resolving review. Collection totals include raw flagged historical rows,
+not approved/clean training examples.

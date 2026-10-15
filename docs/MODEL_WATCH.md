@@ -143,3 +143,7 @@ Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and M
 ### 2026-10-15 13:00 follow-up
 
 Rechecked the official producer pages. Mistral Large 4 weights remain an upcoming 2026-10-31 artifact rather than a released immutable snapshot. No newly verified resource-feasible generative model, license change, runtime integration or baseline promotion was established. The executable work was daily corpus batch 02; no inference, training or measured model-quality improvement occurred.
+
+### 2026-10-15 17:00 follow-up
+
+Reopened official Qwen, Gemma, DeepSeek, Meta and Mistral pages plus the LoRA paper and PEFT releases. The PEFT latest-release API still reports v0.21.2 (2026-10-01T10:29:50Z), not an installed or tested training lock. No new immutable weight revision, compatible runtime integration or baseline promotion was established. Shipped batch 03 with conservative template/email and lexical near-duplicate screening; raw collection and automated screening do not demonstrate model-quality improvement. See today's research for actual tests, resource/storage blockers and remaining human-review gates.

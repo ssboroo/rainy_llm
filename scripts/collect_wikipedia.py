@@ -2,10 +2,12 @@
 import argparse
 import hashlib
 import json
+import re
 import unicodedata
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
+from collections import Counter
 from pathlib import Path
 
 DEFAULT_TITLES = ['Монгол улс', 'Улаанбаатар', 'Монгол хэл', 'Монгол бичиг', 'Кирилл үсэг',
@@ -27,6 +29,25 @@ def request(params):
 
 def normalized(text):
     return ' '.join(unicodedata.normalize('NFC', text).split())
+
+
+def shingles(text):
+    """Case-folded character 5-grams; lexical heuristic, not semantic review."""
+    text = normalized(text).casefold()
+    return Counter(text[i:i + 5] for i in range(max(0, len(text) - 4)))
+
+
+def screening_reason(text, prior_shingles):
+    if re.search(r'(?:Загвар|Template)\s*:|\{\{|\}\}', text, re.IGNORECASE):
+        return 'quality-artifact'
+    if re.search(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', text):
+        return 'contact-pattern'
+    current = shingles(text)
+    for previous in prior_shingles:
+        union = current | previous
+        if union and sum((current & previous).values()) / sum(union.values()) >= 0.80:
+            return 'near-duplicate-text'
+    return None
 
 
 def read_rows(paths):
@@ -59,6 +80,7 @@ def collect(titles, existing=(), limit=20):
     prior_pageids = {str(r.get('id', '')).split('-')[1] for r in existing
                      if str(r.get('id', '')).startswith('mnwiki-')}
     prior_text = {normalized(r.get('text', '')) for r in existing if r.get('text')}
+    prior_shingles = [shingles(t) for t in prior_text]
     rows, rejected = [], []
     seen_sources, seen_pageids, seen_text = set(), set(), set()
     pages = sorted(fetch_pages(titles), key=lambda p: p.get('title', ''))
@@ -76,6 +98,8 @@ def collect(titles, existing=(), limit=20):
             reason = 'duplicate-source'
         elif normalized(text) in prior_text or normalized(text) in seen_text:
             reason = 'duplicate-text'
+        elif (screen_reason := screening_reason(text, prior_shingles)):
+            reason = screen_reason
         elif len(rows) >= limit:
             reason = 'batch-limit'
         else:
@@ -92,6 +116,7 @@ def collect(titles, existing=(), limit=20):
             review_status='unreviewed-real-source-text',
             text_sha256=hashlib.sha256(text.encode('utf-8')).hexdigest()))
         seen_sources.add(source); seen_pageids.add(pageid); seen_text.add(normalized(text))
+        prior_shingles.append(shingles(text))
     return rows, rejected
 
 
@@ -124,6 +149,9 @@ def main():
             source_terms='https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use',
             license='CC-BY-SA-4.0', human_reviewed=0, privacy_reviewed=0,
             quality_reviewed=0, near_duplicate_reviewed=0, training_ready=0,
+            automated_screening={'version': 1, 'quality': 'template markers',
+                'privacy': 'email pattern only; not comprehensive PII detection',
+                'near_duplicate': 'casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80'},
             purpose='unreviewed real-text batch; not instruction data')
         args.output_dir.mkdir(parents=True)
         (args.output_dir / 'corpus.jsonl').write_text(payload, encoding='utf-8')

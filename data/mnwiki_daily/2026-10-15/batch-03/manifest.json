@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-15T09:06:08.333442+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 31389,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "batch-limit": 16,
+    "quality-artifact": 2,
+    "missing": 2
+  },
+  "rejected_items": [
+    {
+      "title": "Нарны аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Нүүрстөрөгч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Одон орон",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Програм хангамж",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Санчир",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төмөр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ургамал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ус",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Устөрөгч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уур амьсгал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Физик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Фотосинтез",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хувьсал",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүчилтөрөгч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан",
+      "reason": "missing"
+    },
+    {
+      "title": "Экологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энерги",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Эс",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl"
+  ],
+  "sha256": "35b3640968ce5f23b73f557cbfb474bbfdbfafb568bdb38ae68d8c7db7f83970",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
