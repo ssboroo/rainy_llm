@@ -41,5 +41,6 @@
 
 ## 2026-10-15 daily corpus target
 - [x] Batch 01: 20 new attributed CC BY-SA 4.0 documents; 19,162 characters; global exact source/page/text dedup passed.
-- [ ] Batches 02–05: 80 more unique documents, each in a separate 20-document manifest.
+- [x] Batch 02: 20 new attributed CC BY-SA 4.0 documents; 14,493 characters; 60/60 repository-wide exact source/page/text uniqueness passed.
+- [ ] Batches 03–05: 60 more unique documents, each in a separate 20-document manifest.
 - [ ] Human privacy/quality/rights review and semantic near-duplicate audit. Current daily human-reviewed/training-ready counts: 0/0.

@@ -19,6 +19,11 @@ python scripts/collect_wikipedia.py \
   --output-dir /tmp/rainy-batch-01 --limit 20
 ```
 
+For later batches, repeat `--existing` once for every earlier corpus. On
+2026-10-15, batches 01 and 02 contain 40 new daily documents; combined with the
+20-document pilot, the repository holds 60 raw documents. None is human-reviewed
+or training-ready.
+
 The collection target is operational throughput, not training approval. New rows
 remain `unreviewed-real-source-text`; human/privacy/quality/near-duplicate review
 and instruction conversion are separate gates. Wikipedia can overlap base-model
@@ -31,3 +36,5 @@ Do not silently replace a frozen evaluation split when later batches are added.
 хувилбар, зохиогчдын түүх, CC BY-SA 4.0 лиценз, текстийн hash хадгалагдана.
 Өмнөх бүх багцыг `--existing`-ээр өгч давхардлыг хориглоно. Цуглуулсан тоо нь
 хүний хяналт, сургалтын зөвшөөрөл эсвэл загварын чанарын ахиц гэсэн үг биш.
+2026-10-15-ны эхний хоёр багцад 40 шинэ эх, pilot-той нийлээд 60 raw эх байна;
+хүний хяналттай болон training-ready эх одоогоор 0.

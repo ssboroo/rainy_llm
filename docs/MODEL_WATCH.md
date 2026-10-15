@@ -139,3 +139,7 @@ Rechecked official producer pages, PEFT releases, LoRA paper and TRL SFT dataset
 ## 2026-10-15 09:00 source and model recheck
 
 Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and Meta producer indexes, and planned Mistral Large 4 weights page. No new immutable small-model revision or locally tested runtime integration was established, so the retained baseline/config/results remain unchanged. The executable work was the first globally deduplicated 20-document daily corpus batch; it is raw unreviewed CC BY-SA 4.0 text, not model integration or measured quality gain. See [daily corpus batches](../data/mnwiki_daily/README.md) and the 2026-10-15 research note.
+
+### 2026-10-15 13:00 follow-up
+
+Rechecked the official producer pages. Mistral Large 4 weights remain an upcoming 2026-10-31 artifact rather than a released immutable snapshot. No newly verified resource-feasible generative model, license change, runtime integration or baseline promotion was established. The executable work was daily corpus batch 02; no inference, training or measured model-quality improvement occurred.
