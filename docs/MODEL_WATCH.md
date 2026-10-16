@@ -1,5 +1,14 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-16 source recheck
+
+Official Qwen/Gemma/DeepSeek/Meta/Mistral pages below and PEFT releases/LoRA paper
+were reopened. PEFT latest API remains v0.21.2 (2026-10-01T10:29:50Z), an
+encoder-decoder fix for Transformers >=5.18.0, not a locally validated training
+lock. No new immutable model revision or runtime integration was established;
+baseline and rollback artifacts unchanged. Delivered a new 20-document raw batch,
+not inference/training or measured model improvement. See today's research.
+
 Шалгасан: 2026-09-29, Asia/Ulaanbaatar. Энэ нь бүрэн зах зээлийн жагсаалт биш, тухайн өдөр албан ёсны эх сурвалжаас баталгаажуулсан shortlist. Нийтэлсэн өдөр ба metadata шинэчилсэн өдрийг ялгана.
 
 | Загвар | Албан ёсны эх сурвалж | Одоогийн шийдвэр |
