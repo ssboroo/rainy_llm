@@ -2,6 +2,12 @@
 
 ## 2026-10-16 source recheck
 
+21:00 follow-up: reopened official producer pages, PEFT releases and LoRA paper.
+PEFT latest-release API still reports v0.21.2, published 2026-10-01T10:29:50Z;
+no dependency upgrade, new immutable weight pin or model promotion established.
+Completed two real-source batches, not model integration or quality improvement.
+Existing runtime/model pins and rollback results are unchanged.
+
 13:00 follow-up: reopened the same official producer pages, PEFT releases and LoRA
 paper. No new immutable revision, tested runtime or baseline promotion established.
 Executed daily raw-source batch 02; no inference/training or model-quality claim.
