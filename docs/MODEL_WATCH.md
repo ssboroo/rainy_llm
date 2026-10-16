@@ -2,6 +2,10 @@
 
 ## 2026-10-16 source recheck
 
+13:00 follow-up: reopened the same official producer pages, PEFT releases and LoRA
+paper. No new immutable revision, tested runtime or baseline promotion established.
+Executed daily raw-source batch 02; no inference/training or model-quality claim.
+
 Official Qwen/Gemma/DeepSeek/Meta/Mistral pages below and PEFT releases/LoRA paper
 were reopened. PEFT latest API remains v0.21.2 (2026-10-01T10:29:50Z), an
 encoder-decoder fix for Transformers >=5.18.0, not a locally validated training

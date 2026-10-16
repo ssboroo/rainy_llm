@@ -2,7 +2,8 @@
 
 ## 2026-10-16 daily corpus
 - [x] Batch 01: 20 new sources / 36,872 characters; 100 repository-wide unique raw records, all hashes checked.
-- [ ] Batches 02–05: 80 more new documents. Human-reviewed/training-ready: 0/0.
+- [x] Batch 02: 20 new sources / 13,522 characters; 120 repository-wide unique records, all hashes checked.
+- [ ] Batches 03–05: 60 more new documents. Human-reviewed/training-ready: 0/0.
 - 2026-10-15 remains 60/100 in the remote ledger; missing batches are not counted or backdated.
 
 **2026-10-13 priority change:** [Бие даасан Монгол загвар](STANDALONE_MODEL.md) нь үндсэн зорилго. Licensed corpus → multi-capability base comparison → SFT/LoRA → evaluated standalone export. Document assistant бол нэмэлт integration.
