@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "date": "2026-10-17",
+  "timezone": "Asia/Ulaanbaatar",
+  "target": 100,
+  "batch_size": 20,
+  "completed_batches": 1,
+  "unique_added": 20,
+  "rejected_candidates": 20,
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "batches": [
+    {"id": "batch-01", "articles": 20, "characters": 20622, "corpus_sha256": "891c78c743a8e49ab4c06c086d39d28d2b379d89f456d9f0f621ce300a737a99"}
+  ]
+}

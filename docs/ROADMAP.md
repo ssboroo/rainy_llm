@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-17 daily corpus
+- [x] Batch 01: 20 new sources / 20,622 characters; 200 repository-wide unique raw sources, all hashes checked.
+- [ ] Batches 02–05: 80 more unique sources. Human-reviewed/training-ready: 0/0.
+- [ ] Human rights/privacy/quality review and source-linked instruction authoring before training release.
+
 ## 2026-10-16 daily corpus
 - [x] Batch 01: 20 new sources / 36,872 characters; 100 repository-wide unique raw records, all hashes checked.
 - [x] Batch 02: 20 new sources / 13,522 characters; 120 repository-wide unique records, all hashes checked.

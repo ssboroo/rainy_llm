@@ -1,5 +1,14 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-17 source recheck
+
+Reopened official Qwen, Gemma, DeepSeek, Meta, Mistral pages, PEFT releases and
+LoRA paper. PEFT latest-release API still reports v0.21.2, published
+2026-10-01T10:29:50Z; no new immutable model pin, tested runtime upgrade or
+baseline promotion established. Delivered a 20-source raw corpus batch, not
+training/inference or measured quality improvement. Existing pins and results
+remain unchanged. See [today's research](../research/2026-10-17.md).
+
 ## 2026-10-16 source recheck
 
 21:00 follow-up: reopened official producer pages, PEFT releases and LoRA paper.
