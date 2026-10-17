@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-17T09:06:21.487308+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 26487,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "duplicate-source": 12,
+    "missing": 3,
+    "quality-artifact": 1,
+    "batch-limit": 4
+  },
+  "rejected_items": [
+    {
+      "title": "Ангараг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бархасбадь",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гэрэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дуу",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дэлхий",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Загас",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Зөгий",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Санчир",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Телескоп",
+      "reason": "missing"
+    },
+    {
+      "title": "Туулай",
+      "reason": "missing"
+    },
+    {
+      "title": "Хонь",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цахилгаан",
+      "reason": "missing"
+    },
+    {
+      "title": "Шавж",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Энерги",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Яст мэлхий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үхэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өрөм",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl"
+  ],
+  "sha256": "a968faefc3359f68e195d9475b2ff0b1f609e2905f3377d051b8380d09a207d7",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "date": "2026-10-17",
+  "timezone": "Asia/Ulaanbaatar",
+  "target": 100,
+  "batch_size": 20,
+  "completed_batches": 3,
+  "unique_added": 60,
+  "rejected_candidates": 60,
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "batches": [
+    {"id": "batch-01", "articles": 20, "characters": 20622, "corpus_sha256": "891c78c743a8e49ab4c06c086d39d28d2b379d89f456d9f0f621ce300a737a99"},
+    {"id": "batch-02", "articles": 20, "characters": 20750, "corpus_sha256": "d84793b83fe8a2e16d7b44686b676f3b07bc0740de6d5838f76a23dd18efdeb7"},
+    {"id": "batch-03", "articles": 20, "characters": 26487, "corpus_sha256": "a968faefc3359f68e195d9475b2ff0b1f609e2905f3377d051b8380d09a207d7"}
+  ]
+}
