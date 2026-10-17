@@ -2,6 +2,10 @@
 
 ## 2026-10-17 source recheck
 
+13:00 follow-up: official producer pages, PEFT release notes/API and LoRA paper
+rechecked. No new immutable pin, tested runtime upgrade or baseline promotion.
+Batch 02 adds raw sources only; no training/inference or measured quality gain.
+
 Reopened official Qwen, Gemma, DeepSeek, Meta, Mistral pages, PEFT releases and
 LoRA paper. PEFT latest-release API still reports v0.21.2, published
 2026-10-01T10:29:50Z; no new immutable model pin, tested runtime upgrade or
