@@ -3,7 +3,8 @@
 ## 2026-10-17 daily corpus
 - [x] Batch 01: 20 new sources / 20,622 characters; 200 repository-wide unique raw sources, all hashes checked.
 - [x] Batch 02: 20 new sources / 20,750 characters; all 220 records globally exact-unique with verified hashes.
-- [ ] Batches 03–05: 60 more unique sources. Human-reviewed/training-ready: 0/0.
+- [x] Batch 03: 20 new sources / 26,487 characters; all 240 records globally exact-unique with verified hashes.
+- [ ] Batches 04–05: 40 more unique sources. Human-reviewed/training-ready: 0/0.
 - [ ] Human rights/privacy/quality review and source-linked instruction authoring before training release.
 
 ## 2026-10-16 daily corpus
