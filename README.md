@@ -76,7 +76,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
 | Unit tests | Available | 123 tests, including collection screening/dedup, instruction drafts, corpus review/splits, checkpoint fault handling and evaluation |
-| Training corpus | Pending | 260 real Wikipedia leads collected; all unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
+| Training corpus | Pending | 280 real Wikipedia leads collected; all unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
 | Inference API / Docker | Planned | No runnable service or container configuration |
@@ -256,7 +256,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
 | Unit test | Бэлэн | Цуглуулалтын screening/давхардал, instruction ноорог, корпусын review/split, checkpoint, үнэлгээний 123 тест; бодит сургалтын баталгаа биш |
-| Сургалтын корпус | Бэлтгэгдээгүй | 260 бодит Wikipedia эх; бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
+| Сургалтын корпус | Бэлтгэгдээгүй | 280 бодит Wikipedia эх; бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |

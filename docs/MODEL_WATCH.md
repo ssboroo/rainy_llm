@@ -2,6 +2,10 @@
 
 ## 2026-10-18 source recheck
 
+13:00 follow-up: same official sources and PEFT release API rechecked; no new
+verified immutable pin or tested upgrade. Batch 02 adds raw sources, not trained
+weights or benchmark evidence. Baseline unchanged.
+
 Official producer pages, PEFT releases and LoRA paper rechecked. PEFT latest API
 still reports v0.21.2 (2026-10-01T10:29:50Z), encoder-decoder fix for Transformers
 >=5.18.0. No new verified immutable model pin, tested runtime upgrade or baseline
