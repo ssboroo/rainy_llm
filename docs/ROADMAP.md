@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-18 daily corpus
+- [x] Batch 01: 20 new sources / 20,455 characters; 260 globally exact-unique raw records with verified hashes.
+- [ ] Batches 02–05: 80 more unique sources; human-reviewed/training-ready 0/0.
+- [ ] Human review and source-linked instructions before training. October 17 remains 60/100, not backfilled.
+
 ## 2026-10-17 daily corpus
 - [x] Batch 01: 20 new sources / 20,622 characters; 200 repository-wide unique raw sources, all hashes checked.
 - [x] Batch 02: 20 new sources / 20,750 characters; all 220 records globally exact-unique with verified hashes.

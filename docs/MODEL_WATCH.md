@@ -1,5 +1,13 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-18 source recheck
+
+Official producer pages, PEFT releases and LoRA paper rechecked. PEFT latest API
+still reports v0.21.2 (2026-10-01T10:29:50Z), encoder-decoder fix for Transformers
+>=5.18.0. No new verified immutable model pin, tested runtime upgrade or baseline
+promotion. Delivered real corpus data, not training or measured quality gain.
+See [research](../research/2026-10-18.md); previous pins/results preserved.
+
 ## 2026-10-17 source recheck
 
 17:00 follow-up: reopened the same official producer/runtime/paper sources.
