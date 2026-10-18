@@ -3,7 +3,8 @@
 ## 2026-10-18 daily corpus
 - [x] Batch 01: 20 new sources / 20,455 characters; 260 globally exact-unique raw records with verified hashes.
 - [x] Batch 02: 20 new sources / 29,096 characters; all 280 raw records globally exact-unique and hashes verified.
-- [ ] Batches 03–05: 60 more unique sources; human-reviewed/training-ready 0/0.
+- [x] Batch 03: 20 new sources / 25,724 characters; all 300 raw records globally exact-unique and hashes verified.
+- [ ] Batches 04–05: 40 more unique sources; human-reviewed/training-ready 0/0.
 - [ ] Human review and source-linked instructions before training. October 17 remains 60/100, not backfilled.
 
 ## 2026-10-17 daily corpus

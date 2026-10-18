@@ -2,6 +2,10 @@
 
 ## 2026-10-18 source recheck
 
+17:00 follow-up: official producer/runtime/paper sources and PEFT API rechecked.
+No new verified immutable model pin, tested dependency upgrade or baseline
+promotion. Batch 03 adds raw sources only; no measured model-quality gain.
+
 13:00 follow-up: same official sources and PEFT release API rechecked; no new
 verified immutable pin or tested upgrade. Batch 02 adds raw sources, not trained
 weights or benchmark evidence. Baseline unchanged.
