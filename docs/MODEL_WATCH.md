@@ -2,6 +2,10 @@
 
 ## 2026-10-18 source recheck
 
+21:00 follow-up: official producer/runtime/paper sources and PEFT API rechecked;
+v0.21.2 remains the API's latest release. No new immutable model pin or tested
+dependency change. Batches 04–05 complete collection target, not model training.
+
 17:00 follow-up: official producer/runtime/paper sources and PEFT API rechecked.
 No new verified immutable model pin, tested dependency upgrade or baseline
 promotion. Batch 03 adds raw sources only; no measured model-quality gain.
