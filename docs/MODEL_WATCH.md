@@ -1,5 +1,14 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-19 source recheck
+
+Official Qwen, Gemma, DeepSeek, Meta, Mistral pages, PEFT releases/API and LoRA
+paper reopened. PEFT API still reports v0.21.2, published 2026-10-01T10:29:50Z,
+encoder-decoder compatibility fix for Transformers >=5.18.0. No new immutable
+model pin or tested runtime upgrade established; baseline and rollback evidence
+unchanged. Actual deliverable: 20 real raw sources, not model-quality improvement.
+See [research](../research/2026-10-19.md). Watchlist coverage is not exhaustive.
+
 ## 2026-10-18 source recheck
 
 21:00 follow-up: official producer/runtime/paper sources and PEFT API rechecked;

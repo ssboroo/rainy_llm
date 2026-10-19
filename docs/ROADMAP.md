@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-19 daily corpus
+- [x] Batch 01: 20 new sources / 15,531 characters; today 20/100, repository 360 raw records. Human-reviewed/training-ready 0/0.
+- [ ] Remaining 80 unique sources; broaden subjects beyond geography.
+- [ ] Human review and source-linked instruction authoring; real CPU training still needs reviewed data, runtime and durable private checkpoint storage.
+
 ## 2026-10-18 daily corpus
 - [x] Batch 01: 20 new sources / 20,455 characters; 260 globally exact-unique raw records with verified hashes.
 - [x] Batch 02: 20 new sources / 29,096 characters; all 280 raw records globally exact-unique and hashes verified.
