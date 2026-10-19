@@ -2,7 +2,8 @@
 
 ## 2026-10-19 daily corpus
 - [x] Batch 01: 20 new sources / 15,531 characters; today 20/100, repository 360 raw records. Human-reviewed/training-ready 0/0.
-- [ ] Remaining 80 unique sources; broaden subjects beyond geography.
+- [x] Batch 02: 20 plant/food-related sources / 39,485 characters; today 40/100, repository 380. Completed at 17:05 after an incomplete earlier attempt; not backdated.
+- [ ] Remaining 60 unique sources; continue broader topic coverage.
 - [ ] Human review and source-linked instruction authoring; real CPU training still needs reviewed data, runtime and durable private checkpoint storage.
 
 ## 2026-10-18 daily corpus

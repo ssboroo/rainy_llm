@@ -2,6 +2,10 @@
 
 ## 2026-10-19 source recheck
 
+17:00 continuation: official producer/runtime/paper pages and PEFT latest API
+rechecked during this work cycle. No new verified immutable pin or tested runtime
+upgrade. Batch 02 is real corpus collection, not training or quality improvement.
+
 Official Qwen, Gemma, DeepSeek, Meta, Mistral pages, PEFT releases/API and LoRA
 paper reopened. PEFT API still reports v0.21.2, published 2026-10-01T10:29:50Z,
 encoder-decoder compatibility fix for Transformers >=5.18.0. No new immutable
