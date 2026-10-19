@@ -2,6 +2,11 @@
 
 ## 2026-10-19 source recheck
 
+21:00 follow-up: seven official producer/runtime/paper sources and PEFT API
+reopened. Still v0.21.2 (2026-10-01T10:29:50Z); no new verified immutable pin,
+tested runtime integration or baseline promotion. Batches 03–04 add raw sources,
+not training or measured model-quality improvement.
+
 17:00 continuation: official producer/runtime/paper pages and PEFT latest API
 rechecked during this work cycle. No new verified immutable pin or tested runtime
 upgrade. Batch 02 is real corpus collection, not training or quality improvement.
