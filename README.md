@@ -5,9 +5,9 @@
 
 [English](#english) · [Монгол](#монгол) · [Data specification](docs/DATA.md) · [Dataset registry](data/source_registry.json) · [Evaluation protocol](evaluation/README.md) · [Model watch](docs/MODEL_WATCH.md) · [Roadmap](docs/ROADMAP.md)
 
-> **Development stage: research foundation.** Dataset validation and unit tests are available. No trained RAINY weights or service have been released. A first Qwen3-0.6B CPU smoke evaluation is now recorded below.
+> **Development stage: measured research foundation.** Dataset validation, evaluation gates and reproducible CPU experiments are available. No trained RAINY weights or service have been released. The latest Qwen3.5-4B candidate result is 12/24 on a small public smoke set; it is not a production promotion.
 >
-> **Төлөв: судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл шалгах код болон тест бэлэн. RAINY загварыг сургаагүй, үйлчилгээ гаргаагүй. Qwen3-0.6B CPU туршилтын бодит үр дүнг доор нэмсэн.
+> **Төлөв: хэмжилттэй судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл/үнэлгээний шалгалт, давтан ажиллуулах CPU туршилт бэлэн. RAINY загварыг сургаагүй, үйлчилгээ гаргаагүй. Qwen3.5-4B-ийн 12/24 нь жижиг public smoke үр дүн бөгөөд production суурь болгосон гэсэн үг биш.
 
 ---
 
@@ -33,6 +33,7 @@ Available: heuristic privacy/prompt-similarity audit, split-specific chat export
 - [Real-data and baseline report / Тайлан](research/2026-09-29-real-baseline.md)
 - [20 attributed Wikipedia leads / Бодит өгөгдөл](data/mnwiki_pilot/README.md)
 - [Reproduction guide / Давтан ажиллуулах](docs/BASELINE.md)
+- [Latest Qwen3.5-4B matched experiment / Сүүлийн бодит туршилт](docs/QUALITY_EXPERIMENT_2026-10-07.md)
 
 Qwen3-0.6B, CPU float32, non-thinking greedy, 64-token cap: **0/24 exact match**, **7 capped responses**, **120.8175 s** generation time. This small draft test and older tiny model do not establish general Mongolian ability. The collected corpus was not used for training or prompting.
 

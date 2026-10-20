@@ -62,3 +62,8 @@ Also rechecked [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B), [DeepSeek
 
 The previous 4B Q4_K_M result remains 7/24 on public draft smoke questions, not a held-out benchmark. Today's code change rejects invalid numeric measurements and incomplete-baseline promotion; it does not improve model answers. Preserve old locks/results; architecture and adapter compatibility must be checked separately.
 
+## 2026-10-07: Qwen3.5-4B executed candidate
+
+Pinned upstream `Qwen/Qwen3.5-4B` at `851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a` and the separate third-party `unsloth/Qwen3.5-4B-GGUF` conversion at `e87f176479d0855a907a41277aca2f8ee7a09523`. The executed `Qwen3.5-4B-Q4_K_M.gguf` is 2,740,937,888 bytes with SHA-256 `00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4`. Both repositories report Apache-2.0; the conversion is not an official Qwen artifact and open weights do not prove open training data.
+
+Real CPU inference completed with llama-cpp-python 0.3.36 and Transformers 4.51.3: **12/24 (50%)**, 52.9427 generation seconds, 4.241 GiB peak process RSS, two token-limit hits. Against the retained Qwen3-4B-Instruct-2507 Q4_K_M run, the gate found matched settings, +5 exact matches and -0.5231 seconds/case. It still returned `promotion_eligible=false`: resource/cost metadata are incomplete and the 24 public draft cases are not a human-reviewed held-out benchmark. No training, adapter compatibility claim or base-model replacement occurred. See [the full experiment report](QUALITY_EXPERIMENT_2026-10-07.md).

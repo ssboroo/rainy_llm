@@ -10,6 +10,13 @@ from evaluate import score
 from prepare_data import read_rows
 
 
+def render_prompt(tokenizer, content, thinking=False):
+    """Render one user turn while making the model's reasoning mode explicit."""
+    return tokenizer.apply_chat_template(
+        [dict(role='user', content=content)], tokenize=False,
+        add_generation_prompt=True, enable_thinking=thinking)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', required=True, help='GGUF Hugging Face repository')
@@ -22,6 +29,8 @@ def main():
     parser.add_argument('--output-dir', required=True)
     parser.add_argument('--threads', type=int, default=4)
     parser.add_argument('--max-new-tokens', type=int, default=64)
+    parser.add_argument('--thinking', action=argparse.BooleanOptionalAction, default=False,
+        help='Pass enable_thinking to the tokenizer chat template (default: disabled)')
     args = parser.parse_args()
     import llama_cpp
     import transformers
@@ -43,7 +52,9 @@ def main():
         tokenizer_revision=args.tokenizer_revision, backend='llama-cpp-python',
         llama_cpp=llama_cpp.__version__, transformers=transformers.__version__,
         python=platform.python_version(), device='cpu', dtype=args.quantization,
-        threads=args.threads, seed=42, thinking=False, do_sample=False,
+        artifact_size_bytes=Path(model_path).stat().st_size,
+        chat_template_sha256=hashlib.sha256(tokenizer.chat_template.encode()).hexdigest(),
+        threads=args.threads, seed=42, thinking=args.thinking, do_sample=False,
         max_new_tokens=args.max_new_tokens, n_ctx=2048, temperature=0.0,
         repeat_penalty=1.0, cases_sha256=hashlib.sha256(Path(args.cases).read_bytes()).hexdigest(),
         status='running', note='Quantized system experiment. Different runtime and precision from Transformers baseline; not an isolated model-size comparison.')
@@ -53,8 +64,7 @@ def main():
     predictions = []
     with (target / 'predictions.jsonl').open('w', encoding='utf-8') as out:
         for case in cases:
-            prompt = tokenizer.apply_chat_template([dict(role='user', content=case['prompt'])],
-                tokenize=False, add_generation_prompt=True)
+            prompt = render_prompt(tokenizer, case['prompt'], args.thinking)
             llm.reset()
             start = time.perf_counter()
             result = llm(prompt, max_tokens=args.max_new_tokens, temperature=0.0,

@@ -1,0 +1,24 @@
+{"id": "mn-smoke-001", "output": "42", "generated_tokens": 2, "seconds": 1.4014, "hit_token_limit": false, "prompt_sha256": "ac3185e9435c893ea92243e8dc10d59fca9481acf98a28cf62c72082da07e098"}
+{"id": "mn-smoke-002", "output": "63", "generated_tokens": 2, "seconds": 1.244, "hit_token_limit": false, "prompt_sha256": "f7728076e09c28d4567729d0fab090ede1af836a9fff9bf0b78b60844c2e3fd8"}
+{"id": "mn-smoke-003", "output": "72", "generated_tokens": 2, "seconds": 1.2367, "hit_token_limit": false, "prompt_sha256": "341ca1d32a53334ebad6e40ae80a77c3f2eac09d66ca54ac0c89857c1e7dd0fb"}
+{"id": "mn-smoke-004", "output": "144-ийг 12-т хуваавал:\n144 ÷ 12 = 12", "generated_tokens": 30, "seconds": 3.7927, "hit_token_limit": false, "prompt_sha256": "7aa0a55154781a9f741f50a72b82c6823efe2e6ab3b5e08b5cb00ee64eb7e183"}
+{"id": "mn-smoke-005", "output": "30", "generated_tokens": 2, "seconds": 1.3528, "hit_token_limit": false, "prompt_sha256": "9101dd88db3f5907f8d253f2e75776e73fd056b782b4862a659dea5fefd33611"}
+{"id": "mn-smoke-006", "output": "3000000", "generated_tokens": 7, "seconds": 2.9655, "hit_token_limit": false, "prompt_sha256": "9f4b106fd1ad66b639318541b872157040dcfb83108780bcb99556ad27bbed6b"}
+{"id": "mn-smoke-007", "output": "0", "generated_tokens": 1, "seconds": 1.7003, "hit_token_limit": false, "prompt_sha256": "4030477cb54b93d9f8dc522bc335012f469c55368ab50f9f07687015f6315253"}
+{"id": "mn-smoke-008", "output": "Гарагт", "generated_tokens": 4, "seconds": 1.7325, "hit_token_limit": false, "prompt_sha256": "70e6a38d3f6b1a966f31baf4bf4c66bf589a14c0501b016377df3f2b33f25837"}
+{"id": "mn-smoke-009", "output": "Цэнхэр", "generated_tokens": 4, "seconds": 2.0245, "hit_token_limit": false, "prompt_sha256": "91418ee24b71c60d634e9e6e1496cf9461c2937a01c0a5061faa0b58af6cfb9c"}
+{"id": "mn-smoke-010", "output": "30", "generated_tokens": 2, "seconds": 1.9281, "hit_token_limit": false, "prompt_sha256": "47c1b9966533fcf5bfcf3b38fc53a0b876b7622e543d75021969a3d280e6f0a9"}
+{"id": "mn-smoke-011", "output": "Сүүдэр", "generated_tokens": 4, "seconds": 1.4736, "hit_token_limit": false, "prompt_sha256": "4c9624ef990b39e7f485ec2668e6ff891750825e93c2c24342b00004d5a67287"}
+{"id": "mn-smoke-012", "output": "7000", "generated_tokens": 4, "seconds": 1.9636, "hit_token_limit": false, "prompt_sha256": "93a385f5a20c76961b05c195d1e272f84a3f7d26344a874367f9fb8690a18c13"}
+{"id": "mn-smoke-013", "output": "Нар, **сар**, од.", "generated_tokens": 8, "seconds": 1.7636, "hit_token_limit": false, "prompt_sha256": "326c75ab3c50d89b54cc7f68c7afd9786a8e0c71cb0f6bae081294c879484877"}
+{"id": "mn-smoke-014", "output": "Өгөгдсөн тоонуудыг харьцуулбал:\n*   7\n*   19\n*   4\n\n19 нь 7-ээс болон 4-ээс их тул хамгийн их тоо нь **19** ю", "generated_tokens": 64, "seconds": 6.752, "hit_token_limit": true, "prompt_sha256": "f67516a59d800f86d33349238c82874889f35ae749cff31def1809ab1013d05b"}
+{"id": "mn-smoke-015", "output": "Өгөгдсөн тоонуудын дундаас хамгийн бага тоог олохын тулд тэдгээрийг харьцуулж үзье:\n\n*   12\n*   5\n*   21\n\nЭдгээр то", "generated_tokens": 64, "seconds": 6.5137, "hit_token_limit": true, "prompt_sha256": "a64ed381003c565b93839b063bdf1d2418e7bed2c675f0f420fc8272fbb7be3e"}
+{"id": "mn-smoke-016", "output": "БЭЛЭН", "generated_tokens": 5, "seconds": 1.4678, "hit_token_limit": false, "prompt_sha256": "171c604e1df7355ae8ba7cf0e2924b8f25b5126b2eb49ae14ab382bf55b104d3"}
+{"id": "mn-smoke-017", "output": "Өнөөдөр", "generated_tokens": 5, "seconds": 1.5976, "hit_token_limit": false, "prompt_sha256": "1de793c6a4f2edf79f70a2dc25def7ed110300c6dee0ce5c0309c1a0e84ac2ec"}
+{"id": "mn-smoke-018", "output": "30", "generated_tokens": 2, "seconds": 1.3109, "hit_token_limit": false, "prompt_sha256": "76bb42b571ecfb9695a6381ee39d9ebb76b941de291853c48d3dfa37bde3be84"}
+{"id": "mn-smoke-019", "output": "Сайн байна уу", "generated_tokens": 6, "seconds": 1.7784, "hit_token_limit": false, "prompt_sha256": "70359bc19f6976dac6d68ba47820f876443e96764a1030404bf39f0e38161eaa"}
+{"id": "mn-smoke-020", "output": "байрлал", "generated_tokens": 4, "seconds": 1.7485, "hit_token_limit": false, "prompt_sha256": "bbde2126b0ece294da37bf0852e916630657d4e8087fd1a2cb71273808bbf757"}
+{"id": "mn-smoke-021", "output": "Хушан", "generated_tokens": 4, "seconds": 1.5322, "hit_token_limit": false, "prompt_sha256": "974a10ed747dac7a16d67adec8a1aa96ff4a2d3a1112aacb605675afbba6ce44"}
+{"id": "mn-smoke-022", "output": "Бүтээгдэхүүн", "generated_tokens": 9, "seconds": 2.1083, "hit_token_limit": false, "prompt_sha256": "edab2aea929df9c4dea07e70fb3cae35dbfdd3fa053bee9b21fa2a1070206237"}
+{"id": "mn-smoke-023", "output": "Тийм", "generated_tokens": 3, "seconds": 2.0917, "hit_token_limit": false, "prompt_sha256": "74c327398020cb84c0091f1750cd193411d3b9356f1def691a5463b622cadd90"}
+{"id": "mn-smoke-024", "output": "А", "generated_tokens": 1, "seconds": 1.4623, "hit_token_limit": false, "prompt_sha256": "2ceb4f00e2477b4253ca9cd5cf3050463f34ae70815afd4bbefbf89f421dcc70"}
