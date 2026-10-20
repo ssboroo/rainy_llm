@@ -67,9 +67,9 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 24 tests covering validation, grouping, leakage checks and scoring |
+| Unit tests | Available | 62 tests covering validation, grouping, leakage, human-review evidence, benchmark integrity and scoring |
 | Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
-| Mongolian evaluation | Draft tooling | 24 draft smoke cases; Qwen3-0.6B CPU exact match 0/24 |
+| Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Planned | No training runner or trained adapter |
 | Inference API / Docker | Planned | No runnable service or container configuration |
 
@@ -171,6 +171,7 @@ A lower training loss is not sufficient evidence of better assistant behavior. N
 | Path | Purpose |
 | --- | --- |
 | [`scripts/validate_data.py`](scripts/validate_data.py) | Dataset validation CLI |
+| [`scripts/review_evaluation.py`](scripts/review_evaluation.py) | Export/apply content-bound human-review packets |
 | [`tests/test_validate_data.py`](tests/test_validate_data.py) | Validator unit tests |
 | [`data/examples.jsonl`](data/examples.jsonl) | One format example, not a training corpus |
 | [`docs/DATA.md`](docs/DATA.md) | Dataset contract and limitations |
@@ -244,9 +245,9 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Өгөгдөл, бүлэглэлт, үнэлгээ шалгах 24 тест |
+| Unit test | Бэлэн | Өгөгдөл, leakage, human-review evidence, benchmark integrity, үнэлгээ шалгах 62 тест |
 | Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
-| Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; Qwen3-0.6B CPU туршилт 0/24 |
+| Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
 
@@ -342,6 +343,7 @@ python scripts/validate_data.py path/to/dataset.jsonl
 | Зам | Зориулалт |
 | --- | --- |
 | [`scripts/validate_data.py`](scripts/validate_data.py) | Өгөгдөл шалгах команд |
+| [`scripts/review_evaluation.py`](scripts/review_evaluation.py) | Агуулгатай fingerprint-ээр холбосон хүний review packet export/apply |
 | [`tests/test_validate_data.py`](tests/test_validate_data.py) | Шалгагчийн тест |
 | [`data/examples.jsonl`](data/examples.jsonl) | Форматын нэг жишээ |
 | [`docs/DATA.md`](docs/DATA.md) | Өгөгдлийн дүрэм, хязгаар |

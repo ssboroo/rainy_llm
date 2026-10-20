@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-10-03",
+  "reviewed_at": "2026-10-08",
   "sources": [
     {
       "id": "mnwiki-lead-pilot-v1",
@@ -29,12 +29,12 @@
       "license_id": "CC-BY-SA-4.0",
       "license_evidence_url": "https://huggingface.co/datasets/openlanguagedata/flores_plus",
       "license_verified": true,
-      "snapshot_ref": "dataset version 4.6; immutable Hugging Face commit not pinned yet",
-      "immutable_ref": false,
+      "snapshot_ref": "Hugging Face commit e707e62e762a9e2faca3933aa315f4665cc3cd8f; dataset version 4.6",
+      "immutable_ref": true,
       "training_allowed": false,
       "evaluation_only": true,
       "attribution_required": true,
-      "notes": "Official card says evaluation only, requires accepting access conditions, and includes khk_Cyrl. Do not download or commit data until terms are accepted and a commit SHA is pinned."
+      "notes": "Official card says evaluation only, requires accepting access conditions, and includes khk_Cyrl. Public metadata was pinned without downloading gated content. Do not acquire or commit data until the project owner accepts the terms; do not redistribute unprotected copies."
     },
     {
       "id": "eduge-tugstugi",

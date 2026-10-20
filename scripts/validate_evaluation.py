@@ -1,7 +1,9 @@
 """Validate held-out evaluation JSONL and block accidental training overlap."""
 import argparse
+import datetime
 import hashlib
 import json
+import re
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -9,10 +11,48 @@ from pathlib import Path
 
 STATUSES = {"draft-needs-human-review", "human-reviewed"}
 REQUIRED = {"id", "category", "prompt", "answers", "review_status", "source"}
+REVIEW_CHECKS = {
+    "mongolian_wording", "answer_correct", "unambiguous",
+    "source_independent", "exact_match_suitable",
+}
+REVIEWER_ROLES = {"human-reviewer", "independent-human-reviewer"}
 
 
 def normalized(value):
     return " ".join(unicodedata.normalize("NFC", value).casefold().split())
+
+
+def case_fingerprint(row):
+    """Bind review evidence to the exact evaluation content, not its status."""
+    content = {key: row[key] for key in ("id", "category", "prompt", "answers", "source")}
+    canonical = json.dumps(content, ensure_ascii=False, sort_keys=True,
+                           separators=(",", ":")).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
+def validate_review_evidence(row, label):
+    evidence = row.get("review_evidence")
+    if not isinstance(evidence, dict):
+        return [f"{label}.review_evidence must be an object for human-reviewed cases"]
+    errors = []
+    if evidence.get("case_sha256") != case_fingerprint(row):
+        errors.append(f"{label}.review_evidence.case_sha256 does not match case content")
+    if evidence.get("reviewer_role") not in REVIEWER_ROLES:
+        errors.append(f"{label}.review_evidence.reviewer_role is invalid")
+    reviewed_at = evidence.get("reviewed_at")
+    try:
+        if not isinstance(reviewed_at, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", reviewed_at):
+            raise ValueError
+        datetime.date.fromisoformat(reviewed_at)
+    except ValueError:
+        errors.append(f"{label}.review_evidence.reviewed_at must be an ISO date")
+    if evidence.get("decision") != "accept":
+        errors.append(f"{label}.review_evidence.decision must be accept")
+    checks = evidence.get("checks")
+    if not isinstance(checks, dict) or set(checks) != REVIEW_CHECKS or not all(
+            checks.get(key) is True for key in REVIEW_CHECKS):
+        errors.append(f"{label}.review_evidence.checks must contain all required true checks")
+    return errors
 
 
 def read_jsonl(path):
@@ -75,6 +115,8 @@ def validate_cases(cases, training_rows=(), release=False, min_cases=100):
             errors.append(f"{label}.review_status is invalid")
         else:
             statuses[status] += 1
+            if status == "human-reviewed":
+                errors.extend(validate_review_evidence(row, label))
         if isinstance(row["category"], str):
             categories[row["category"]] += 1
     if release:
