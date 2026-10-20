@@ -6,7 +6,10 @@ import sqlite3
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from collect_wikipedia import request, fetch_pages, normalized, screening_reason
+try:
+    from .collect_wikipedia import request, fetch_pages, normalized, screening_reason
+except ImportError:
+    from collect_wikipedia import request, fetch_pages, normalized, screening_reason
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
