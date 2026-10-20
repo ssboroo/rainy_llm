@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-18T13:05:42.737556+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 23356,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 5,
+    "duplicate-source": 7,
+    "quality-artifact": 4,
+    "short": 1,
+    "batch-limit": 3
+  },
+  "rejected_items": [
+    {
+      "title": "Акустик",
+      "reason": "missing"
+    },
+    {
+      "title": "Алгебр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алгоритм",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Геометр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Даралт",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Дулаан",
+      "reason": "short"
+    },
+    {
+      "title": "Интернэт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Логик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Магадлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Нягт",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Програм хангамж",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Резистор",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Робот",
+      "reason": "missing"
+    },
+    {
+      "title": "Статистик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тригонометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан хүчдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан эсэргүүцэл",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Электрон",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйлдлийн систем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн сан",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl"
+  ],
+  "sha256": "1cf41f365b2db5dc0d2ecf437255c78c4183655e7508b8724d43aed0e9d2df8f",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

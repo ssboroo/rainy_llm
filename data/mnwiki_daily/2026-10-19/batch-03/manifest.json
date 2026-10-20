@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-19T13:09:15.488615+00:00",
+  "requested_titles": 60,
+  "articles": 20,
+  "characters": 20288,
+  "rejected": 40,
+  "rejected_by_reason": {
+    "duplicate-source": 12,
+    "missing": 3,
+    "batch-limit": 24,
+    "short": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Алжир",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ангол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Белиз",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ботсвана",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гайана",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гватемал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гондурас",
+      "reason": "missing"
+    },
+    {
+      "title": "Доминиканы Бүгд Найрамдах Улс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Йордан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Кабо Верде",
+      "reason": "missing"
+    },
+    {
+      "title": "Камерун",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Кипр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Коморос",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Конго",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Коста-Рика",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Кот д'Ивуар",
+      "reason": "missing"
+    },
+    {
+      "title": "Кувейт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Лесото",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Либери",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ливи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Лихтенштайн",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Люксембург",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Маврики",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мавритани",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мадагаскар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Малави",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мали",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Мальдив",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мальта",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мозамбик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монако",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Монтенегро",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Науру",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Нижер",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төв Африкийн Бүгд Найрамдах Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Фижи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чад",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экваторын Гвиней",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эритрей",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эсватини",
+      "reason": "short"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl"
+  ],
+  "sha256": "7165b0ca8c8e6cb1e56d8c14cc129d63bd9fe00772f841e23e7b7533ecd2037f",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

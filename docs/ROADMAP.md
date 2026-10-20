@@ -1,5 +1,26 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-20 daily corpus
+- [x] Batch 01: 20 chemistry-element sources / 11,214 characters; today 20/100, repository 440 raw records; human-reviewed/training-ready 0/0.
+- [x] Batch 02: 20 further sources / 9,351 characters; today 40/100, repository 460. All pending; no training.
+- [x] Batch 03: 20 technology/energy sources / 26,104 characters; today 60/100, repository 480 raw records; reviewed/ready 0/0.
+- [x] Batches 04–05: 40 chemistry/technology/animal sources, 28,625 characters; today 100/100, repository 520; reviewed/ready 0/0. October 19's missing 20 remain historical, not backdated.
+- [ ] Human review and source-linked instructions before real CPU training. DeepSeek Flash-1017 is watch-only and outside local resource capacity; retain existing base/results.
+
+## 2026-10-19 daily corpus
+- [x] Batch 01: 20 new sources / 15,531 characters; today 20/100, repository 360 raw records. Human-reviewed/training-ready 0/0.
+- [x] Batch 02: 20 plant/food-related sources / 39,485 characters; today 40/100, repository 380. Completed at 17:05 after an incomplete earlier attempt; not backdated.
+- [x] Batches 03–04: 40 new sources / 40,001 characters; daily 80/100, repository 420 raw records.
+- [ ] One 20-source batch remains missing after the earlier incomplete attempt; do not claim 100/100 or backdate additions. Broaden non-geography topics next.
+- [ ] Human review and source-linked instruction authoring; real CPU training still needs reviewed data, runtime and durable private checkpoint storage.
+
+## 2026-10-18 daily corpus
+- [x] Batch 01: 20 new sources / 20,455 characters; 260 globally exact-unique raw records with verified hashes.
+- [x] Batch 02: 20 new sources / 29,096 characters; all 280 raw records globally exact-unique and hashes verified.
+- [x] Batch 03: 20 new sources / 25,724 characters; all 300 raw records globally exact-unique and hashes verified.
+- [x] Batches 04–05: 20 + 20 new sources / 15,945 + 23,356 characters. Today 100/100; all 340 raw records globally exact-unique and hashes verified. Human-reviewed/training-ready 0/0.
+- [ ] Human review and source-linked instructions before training. October 17 remains 60/100, not backfilled.
+
 ## 2026-10-17 daily corpus
 - [x] Batch 01: 20 new sources / 20,622 characters; 200 repository-wide unique raw sources, all hashes checked.
 - [x] Batch 02: 20 new sources / 20,750 characters; all 220 records globally exact-unique with verified hashes.
