@@ -6,7 +6,7 @@
 
 ## Дараагийн ажлууд
 - [x] Монгол датасетуудын эх сурвалж, лицензийн машин унших анхны shortlist ба validator (хэмжээ/lineage review үргэлжилнэ)
-- [ ] Монгол хэлний хүний хянасан 100 асуулттай анхны evaluation багц
+- [ ] Монгол хэлний хүний хянасан 100 асуулттай анхны evaluation багц (100-case v2 draft ба pending packet бэлэн)
 - [x] Held-out evaluation schema, exact training-overlap check, hash report ба human-review release gate
 - [x] Human-review packet, case fingerprint, checklist/evidence validator; бодит хүний review хүлээгдэж байна
 - [x] Суурь inference runner ба benchmark comparison gate; revision, eval hash, decoding, latency/resource completeness шалгана
@@ -23,3 +23,5 @@
 
 ## Чанарын шалгуур
 Зөв бичих, заавар дагах, кирилл/латин галиг, орчуулга, Монгол мэдлэг, үндэслэл, мэдэхгүйгээ хэлэх чадварыг тус тус үнэлнэ. Хүний үнэлгээ болон автомат оноог салган тайлагнана. Сургалтын loss буурсан нь чат чанар сайжирсны баталгаа биш.
+
+- [x] GGUF runtime/context/decoding comparison guard; matching hardware required for latency delta
