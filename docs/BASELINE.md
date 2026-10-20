@@ -6,6 +6,18 @@ Model card: https://huggingface.co/Qwen/Qwen3-0.6B
 Model license: Apache-2.0 (upstream model card).
 Pinned revision: c1899de289a04d12100db370d81485cdf75e47ca
 
+## Compare without moving the baseline
+
+```bash
+python scripts/compare_benchmarks.py \
+  experiments/qwen3-06b-cpu-v1 \
+  experiments/candidate-run
+```
+
+The comparison refuses apples-to-oranges claims when evaluation SHA-256, metric, total cases, seed, sampling, token budget or thinking mode differ. Both revisions must be immutable hashes. A higher exact-match score alone is not enough for promotion: predictions must be complete and both runs must record `hardware`, `peak_vram_gb`, and `estimated_cost_usd`. Human review remains separate.
+
+The legacy CPU baseline is a valid rollback artifact, but it predates those three resource fields. Therefore it can be compared for score and measured wall time, but the automated gate will not approve a production/base-model promotion from it until a fully instrumented baseline rerun exists.
+
 ## Setup
 
 Use a separate Python 3.12 virtual environment. Install CPU PyTorch first, then the tested Transformers version. The exact resolved environment for the recorded run is in requirements/baseline-cpu-lock.txt (Linux CPU snapshot, not a universal cross-platform lock).
