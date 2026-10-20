@@ -3,7 +3,8 @@
 ## 2026-10-20 daily corpus
 - [x] Batch 01: 20 chemistry-element sources / 11,214 characters; today 20/100, repository 440 raw records; human-reviewed/training-ready 0/0.
 - [x] Batch 02: 20 further sources / 9,351 characters; today 40/100, repository 460. All pending; no training.
-- [ ] Remaining 60 sources with broader topics; October 19's missing 20 remain historical, not backdated.
+- [x] Batch 03: 20 technology/energy sources / 26,104 characters; today 60/100, repository 480 raw records; reviewed/ready 0/0.
+- [ ] Remaining 40 sources with broader topics; October 19's missing 20 remain historical, not backdated.
 - [ ] Human review and source-linked instructions before real CPU training. DeepSeek Flash-1017 is watch-only and outside local resource capacity; retain existing base/results.
 
 ## 2026-10-19 daily corpus

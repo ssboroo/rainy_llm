@@ -2,6 +2,11 @@
 
 ## 2026-10-20: DeepSeek Flash-1017 watch-only snapshot
 
+17:00 follow-up: official producer/runtime/paper sources reopened; PEFT latest
+API remains v0.21.2 (2026-10-01T10:29:50Z). No new immutable model pin or tested
+runtime upgrade established. Batch 03 adds raw technology/energy sources, not
+training or measured quality improvement. Baseline and rollback evidence kept.
+
 13:00 follow-up: official producer pages, PEFT releases/API and LoRA paper
 reopened. PEFT remains v0.21.2 (2026-10-01T10:29:50Z). No newly verified
 immutable model revision or tested runtime upgrade beyond the morning snapshot.
