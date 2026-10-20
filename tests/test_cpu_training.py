@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from scripts.train_lora_cpu import prepare, tokenize, snapshot, outside_git, check_resume, digest
+from scripts.train_lora_cpu import prepare, tokenize, snapshot, outside_git, check_resume, digest, seal_checkpoint
 
 
 class Tokenizer:
@@ -45,20 +45,23 @@ class TrainingTests(unittest.TestCase):
     def test_resume_identity_and_complete_state(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            (root / 'run_identity.json').write_text('{"seed":42}')
+            identity = {'seed': 42, 'total_steps': 20}
+            (root / 'run_identity.json').write_text(json.dumps(identity))
             cp = root / 'checkpoint-1'
             cp.mkdir()
             with self.assertRaisesRegex(ValueError, 'identity'):
                 check_resume(root, cp, {'seed': 43})
             with self.assertRaisesRegex(ValueError, 'incomplete'):
-                check_resume(root, cp, {'seed': 42})
+                check_resume(root, cp, identity)
             for name in ['adapter_config.json', 'adapter_model.safetensors', 'optimizer.pt',
                          'scheduler.pt', 'rng_state.pth', 'trainer_state.json']:
                 (cp / name).write_text('fixture')
-            self.assertEqual(check_resume(root, cp, {'seed': 42}), str(cp))
+            (cp / 'trainer_state.json').write_text('{"global_step":1}')
+            seal_checkpoint(cp, identity)
+            self.assertEqual(check_resume(root, cp, identity), str(cp))
             (cp / 'checkpoint-is-incomplete.txt').touch()
             with self.assertRaisesRegex(ValueError, 'complete'):
-                check_resume(root, cp, {'seed': 42})
+                check_resume(root, cp, identity)
 
     def test_review_and_eval_separation(self):
         with tempfile.TemporaryDirectory() as tmp:

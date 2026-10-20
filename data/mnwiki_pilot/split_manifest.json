@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "algorithm": "source-text-components-sha256-v1",
+  "seed": "rainy-corpus-v1",
+  "group_count": 20,
+  "counts": {
+    "train": 17,
+    "validation": 1,
+    "test": 2
+  },
+  "training_ready": false,
+  "assignments": [
+    {
+      "id": "mnwiki-12420-808097",
+      "split": "validation",
+      "group_sha256": "461f7f20d8cdd1ee6ed900a68d4687f02d49cbf06b37ca8e7863387ba326cfbf",
+      "record_sha256": "ecd3492e8095c6f9af4322c6077feef627a1ef4cf4d1bb989762664ca4f95791"
+    },
+    {
+      "id": "mnwiki-12494-868843",
+      "split": "train",
+      "group_sha256": "c54d6dbfacd1b71ceab1c49327ef3664188f2d515e970f68b8b2f77ff9fff4cd",
+      "record_sha256": "aa81f8ac4d502c25451cbba6530d62db46291ffc6ccea671356abc0f54339602"
+    },
+    {
+      "id": "mnwiki-12795-863791",
+      "split": "train",
+      "group_sha256": "f961e24a537593dad57eb0d001873e95fb111712980046d757f75c2505d0ddd3",
+      "record_sha256": "ad2c5c81573b7bc83b2e9eeda129af5b7d3dfb89f588ecca4d17348a5c704913"
+    },
+    {
+      "id": "mnwiki-23337-849319",
+      "split": "train",
+      "group_sha256": "1e005da580c65b40f94188cf0e612efafbb30626410f3da69abb6871bed955ab",
+      "record_sha256": "de3325b4ad9a47acbb684c29ebf236ef3a7469ee52f56a17027fa610e2b59b00"
+    },
+    {
+      "id": "mnwiki-3905-792156",
+      "split": "train",
+      "group_sha256": "6a536d028c853fff833f07b2b51a38654dd9667a695b4fbf54cdcb96c3ca5184",
+      "record_sha256": "154ce420505632ac76022550f596820388d06796a1f2e2624203d257be0c9f13"
+    },
+    {
+      "id": "mnwiki-4301-834059",
+      "split": "train",
+      "group_sha256": "c049844cf5f5e8ff62224a0a5f1f1251892da478016db7830ae0ba55e56d97ef",
+      "record_sha256": "df0092759150273cf7717e26564e19f1475c02bd682b223a6afadc3e0a2e47ec"
+    },
+    {
+      "id": "mnwiki-4681-869535",
+      "split": "train",
+      "group_sha256": "227f5b7b0807b288200e7a5321e0cec08978c0d4a7cb6c9ba9e541070fe0381d",
+      "record_sha256": "afc8a749a3c1e609226e985f5f44a61635b488da19147546deb9a0b45b6d9d3a"
+    },
+    {
+      "id": "mnwiki-4939-842923",
+      "split": "train",
+      "group_sha256": "028bdd3225ed4663a6392d17a6506c26c460740ae193e3870855d1f29904c05b",
+      "record_sha256": "bd116665b6bade24271f4c016949a4b6e2ba355e8a57e28269e801163bcf1955"
+    },
+    {
+      "id": "mnwiki-5070-871762",
+      "split": "train",
+      "group_sha256": "05d7f133e271382ac69416dab9c0b97bb61db61907adeb91dc29c31f4634e605",
+      "record_sha256": "49f62be42193dd5f40c1d6baea1dbcf417e98c344273042bf13cf195252ae95c"
+    },
+    {
+      "id": "mnwiki-6775-829623",
+      "split": "train",
+      "group_sha256": "f59adc2b53e42337c38346b06655905f8d7578814077316bac841ed20f76ce23",
+      "record_sha256": "93e3ba0d75bf0953e1965c31030286e1ed4fda1f5307e7d174b675c100be0b71"
+    },
+    {
+      "id": "mnwiki-7134-871816",
+      "split": "train",
+      "group_sha256": "67b662ffa980845c1e156fe096b4f4937824243142f9041346f390a6a928d565",
+      "record_sha256": "7b7af9fbb52315381a73e848682eb351e4882a5988a549254bd57fbcf3197397"
+    },
+    {
+      "id": "mnwiki-7267-855715",
+      "split": "train",
+      "group_sha256": "e49452c6b54ac11c3f88048602fe3e5ede5a43e5f015f144d775771f71ba75ac",
+      "record_sha256": "b2223aae4dc499d8cdd95b8d9b4a35736ef2d3b49ad21f9d52955af8d5d8e357"
+    },
+    {
+      "id": "mnwiki-785-859479",
+      "split": "train",
+      "group_sha256": "e47d3b0314e6c236c262c897e34bd74fef008cfffbf8b751633f989fa2b6ccd3",
+      "record_sha256": "e6e4accd09b39c2fc81bad34a310028ffdefaefa4a1e98f41665b6fb05161687"
+    },
+    {
+      "id": "mnwiki-790-864677",
+      "split": "train",
+      "group_sha256": "a22a9d25917ccb727f793d08809cc59b6fd32f10dfc860ef6db8934ab5b242cb",
+      "record_sha256": "e8f0e7e7c041118a531f18d11301ede4aed4ef83a3263b71a2b562fa544eba53"
+    },
+    {
+      "id": "mnwiki-820-868742",
+      "split": "train",
+      "group_sha256": "abbd18977991475350ba46cd64e54c2684f715677ed6f9fe95358bdd56416273",
+      "record_sha256": "85bac99699c57e0e9295920db180473d2dec34743078dc22da76f943405cb2a3"
+    },
+    {
+      "id": "mnwiki-8202-869164",
+      "split": "test",
+      "group_sha256": "932a486090cf2a0c21746b0caccf212ed1adbefb48b69c7653119c4114edc22b",
+      "record_sha256": "9545f5e95d78b1012e4e0c330da0ccee9d4687202d0b91445191e0c00d5c34cf"
+    },
+    {
+      "id": "mnwiki-8742-847509",
+      "split": "train",
+      "group_sha256": "a32b1a6d167741b676eb89d0ea911090395c0b1c53c11bcbb8dfebe6e01b74dc",
+      "record_sha256": "a110c9de3092adfb819376588d9b2880e042bda028b912e8e9f0d19161c8568c"
+    },
+    {
+      "id": "mnwiki-8743-810735",
+      "split": "train",
+      "group_sha256": "b769e31a1573f7686cdfe562978ba07111ff9fea37762871d63b02b9606857ec",
+      "record_sha256": "a00f6d77af3fa5719b2ad5d93c8623e3632204ca0bf4c4cf75b0dc0c0494d5c5"
+    },
+    {
+      "id": "mnwiki-9719-834856",
+      "split": "test",
+      "group_sha256": "752d009d611cd0208c4e6778caa180ead3060cf7b0d4965841f2dd7c0ab68a33",
+      "record_sha256": "24c1c9b85bc2ad8db81c6906884900c1a0920dbff2d65971e1d3a6f35adda614"
+    },
+    {
+      "id": "mnwiki-9917-847353",
+      "split": "train",
+      "group_sha256": "982f8beed6cec5fab8dcec2a859d14bafd56a128de26f068f39a53523fb1bcea",
+      "record_sha256": "4d4c052d36f8ed82eb348438f131df132287612374a448622a9d478780d7d662"
+    }
+  ],
+  "warnings": [
+    "Raw documents only; human review and instruction conversion still required.",
+    "80/10/10 hash buckets are approximate, not balanced quotas.",
+    "URL aliases, semantic duplicates and pretraining contamination are not detected."
+  ],
+  "empty_splits": [],
+  "corpus_sha256": "7cb96231d7a5773e7ce466ed56badb7b91a029af3487a591543239005a3d061c",
+  "output_sha256": {
+    "train": "0b100a953e0216ecc8564a0808c839059215315a123b2973cf9b8170164c9113",
+    "validation": "3d65866ec575205969dc6965df02a42b7fef633da366e1d5d123405359b1d26b",
+    "test": "08e9aad3d05b8bfb1c472d6620c2aaaf09467310bd0f0e4d0291306192530fef"
+  }
+}

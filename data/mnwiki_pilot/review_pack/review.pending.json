@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "corpus_sha256": "7cb96231d7a5773e7ce466ed56badb7b91a029af3487a591543239005a3d061c",
+  "reviewer": "",
+  "reviewer_role": "",
+  "reviewed_at": "",
+  "documents": [
+    {
+      "id": "mnwiki-8202-869164",
+      "record_sha256": "9545f5e95d78b1012e4e0c330da0ccee9d4687202d0b91445191e0c00d5c34cf",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-8742-847509",
+      "record_sha256": "a110c9de3092adfb819376588d9b2880e042bda028b912e8e9f0d19161c8568c",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-12420-808097",
+      "record_sha256": "ecd3492e8095c6f9af4322c6077feef627a1ef4cf4d1bb989762664ca4f95791",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-3905-792156",
+      "record_sha256": "154ce420505632ac76022550f596820388d06796a1f2e2624203d257be0c9f13",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-7134-871816",
+      "record_sha256": "7b7af9fbb52315381a73e848682eb351e4882a5988a549254bd57fbcf3197397",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-4681-869535",
+      "record_sha256": "afc8a749a3c1e609226e985f5f44a61635b488da19147546deb9a0b45b6d9d3a",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-5070-871762",
+      "record_sha256": "49f62be42193dd5f40c1d6baea1dbcf417e98c344273042bf13cf195252ae95c",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-785-859479",
+      "record_sha256": "e6e4accd09b39c2fc81bad34a310028ffdefaefa4a1e98f41665b6fb05161687",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-4939-842923",
+      "record_sha256": "bd116665b6bade24271f4c016949a4b6e2ba355e8a57e28269e801163bcf1955",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-12795-863791",
+      "record_sha256": "ad2c5c81573b7bc83b2e9eeda129af5b7d3dfb89f588ecca4d17348a5c704913",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-820-868742",
+      "record_sha256": "85bac99699c57e0e9295920db180473d2dec34743078dc22da76f943405cb2a3",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-6775-829623",
+      "record_sha256": "93e3ba0d75bf0953e1965c31030286e1ed4fda1f5307e7d174b675c100be0b71",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-9719-834856",
+      "record_sha256": "24c1c9b85bc2ad8db81c6906884900c1a0920dbff2d65971e1d3a6f35adda614",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-790-864677",
+      "record_sha256": "e8f0e7e7c041118a531f18d11301ede4aed4ef83a3263b71a2b562fa544eba53",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-12494-868843",
+      "record_sha256": "aa81f8ac4d502c25451cbba6530d62db46291ffc6ccea671356abc0f54339602",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-9917-847353",
+      "record_sha256": "4d4c052d36f8ed82eb348438f131df132287612374a448622a9d478780d7d662",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-8743-810735",
+      "record_sha256": "a00f6d77af3fa5719b2ad5d93c8623e3632204ca0bf4c4cf75b0dc0c0494d5c5",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-4301-834059",
+      "record_sha256": "df0092759150273cf7717e26564e19f1475c02bd682b223a6afadc3e0a2e47ec",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-23337-849319",
+      "record_sha256": "de3325b4ad9a47acbb684c29ebf236ef3a7469ee52f56a17027fa610e2b59b00",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "mnwiki-7267-855715",
+      "record_sha256": "b2223aae4dc499d8cdd95b8d9b4a35736ef2d3b49ad21f9d52955af8d5d8e357",
+      "decision": "pending",
+      "checks": {
+        "mongolian_quality": false,
+        "facts_checked": false,
+        "privacy_checked": false,
+        "rights_checked": false
+      },
+      "notes": ""
+    }
+  ]
+}

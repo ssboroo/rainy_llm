@@ -120,3 +120,18 @@ No new immutable revision was pinned and no model was downloaded, integrated, tr
 ## 2026-10-13 21:03 follow-up: training runtime research
 
 Official producer pages above were reopened; no new model ID/revision or baseline promotion was established. PEFT v0.21.2 was published 2026-10-01T10:29:50Z (GitHub latest-release API), annotated tag `86b6cbda4c125337bdc0cc7fc3f2fe09c17238e1`, commit `eaa35c777c7ba554a2a3639ac9c79bb690f39a57`. Its release note fixes encoder-decoder compatibility with Transformers >=5.18.0; this is not a Mongolian causal-model quality result. [Official release](https://github.com/huggingface/peft/releases/tag/v0.21.2). No library upgrade or tested training lock was installed. The new [experimental CPU LoRA runner](CPU_TRAINING.md) is guard-tested only; real backend training/resume remains pending. Existing model pins, licenses and experiment artifacts are retained unchanged.
+## 2026-10-14: checkpoint reliability and source check
+
+Reopened the official Qwen3.8-27B card, Google releases, DeepSeek/Meta producer pages and planned Mistral Large 4 weights page. No new immutable model revision, license change or locally tested model integration was established; retained baseline/config/results are unchanged. PEFT latest-release metadata remains v0.21.2 (2026-10-01), not a newly installed training dependency. Implemented checkpoint completion/integrity in the experimental CPU LoRA runner using the official Transformers `on_save` contract. Seven synthetic filesystem fault tests do not establish real backend training/resume or Mongolian quality. Details and sources: [2026-10-14 research](../research/2026-10-14.md).
+
+### 2026-10-14 13:03 follow-up
+
+Reopened the same official producer pages and PEFT release notes. No new immutable model/runtime integration or measured model upgrade was established. Existing rollback pins/results remain untouched. Work instead unblocks licensed real-source review with an offline 20-document reading pack; all decisions remain pending. See [corpus review](CORPUS_REVIEW.md) and today's research for executed tests and limitations.
+
+### 2026-10-14 17:00 follow-up
+
+Reopened official Qwen, Google, DeepSeek, Meta, Mistral pages, PEFT releases and LoRA paper. No new immutable revision or tested runtime upgrade established; existing pins and baseline unchanged. Implemented source-grouped raw corpus splitting instead; no model inference/training claim. See today's research and [corpus partitions](CORPUS_SPLITS.md).
+
+### 2026-10-14 21:05 follow-up
+
+Rechecked official producer pages, PEFT releases, LoRA paper and TRL SFT dataset guidance. No new pinned artifact or tested runtime integration established; baseline unchanged. Selected work: explicit source-linked prompt/answer draft conversion, not a model upgrade. TRL format documentation does not validate this environment's absent training runtime. See [instruction drafts](INSTRUCTION_DRAFTS.md) and today's research.
