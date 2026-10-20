@@ -5,7 +5,7 @@
 - [x] JSONL шалгалт, basic duplicate detection, unit tests
 
 ## Дараагийн ажлууд
-- [ ] Монгол датасетуудын эх сурвалж, лиценз, хэмжээний бүртгэл
+- [x] Монгол датасетуудын эх сурвалж, лицензийн машин унших анхны shortlist ба validator (хэмжээ/lineage review үргэлжилнэ)
 - [ ] Монгол хэлний хүний хянасан 100 асуулттай анхны evaluation багц
 - [ ] Суурь загварын inference benchmark runner; model revision, seed, decoding settings хадгалах
 - [ ] Qwen3-4B, Gemma 3-4B Монгол чанар, tokenizer үр ашиг, лиценз, нөөц харьцуулах
