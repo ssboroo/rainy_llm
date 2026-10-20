@@ -1,11 +1,11 @@
 # Daily Mongolian Wikipedia source batches
 
-Current snapshot, 2026-10-20: batches 01–03 add 60 sources / 46,669 characters.
-Today: 60/100; repository: 480 raw documents; human-reviewed/training-ready: 0/0.
+Current snapshot, 2026-10-20: batches 01–05 add 100 sources / 75,294 characters.
+Today: 100/100; repository: 520 raw documents; human-reviewed/training-ready: 0/0.
 October 19 remains 80/100; its incomplete earlier attempt is not counted or backdated.
 October 16 and 18 completed 100/100; October 15 and 17 remain 60/100, with no backdated additions.
 
-2026-10-20: өнөөдөр 60/100 шинэ эх, нийт 480 raw эх. Хүний хяналттай болон
+2026-10-20: өнөөдөр 100/100 шинэ эх, нийт 520 raw эх. Хүний хяналттай болон
 сургалтад бэлэн эх 0/0. 10-р сарын 19-нд 80/100; 16, 18-нд 100/100; 15, 17-ны тус бүр 40 эх дутуу хэвээр.
 
 These are raw article introductions retrieved through the official MediaWiki API,

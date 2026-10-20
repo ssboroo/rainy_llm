@@ -259,3 +259,10 @@ Rechecked the official producer pages. Mistral Large 4 weights remain an upcomin
 ### 2026-10-15 17:00 follow-up
 
 Reopened official Qwen, Gemma, DeepSeek, Meta and Mistral pages plus the LoRA paper and PEFT releases. The PEFT latest-release API still reports v0.21.2 (2026-10-01T10:29:50Z), not an installed or tested training lock. No new immutable weight revision, compatible runtime integration or baseline promotion was established. Shipped batch 03 with conservative template/email and lexical near-duplicate screening; raw collection and automated screening do not demonstrate model-quality improvement. See today's research for actual tests, resource/storage blockers and remaining human-review gates.
+
+### October 20, 21:00 follow-up
+Reopened the official producer pages, LoRA paper and PEFT releases cited in
+today's research. Latest PEFT API remains v0.21.2 (2026-10-01T10:29:50Z);
+no new verified model revision, tested runtime upgrade or baseline promotion.
+The executable data deliverable is 40 new raw sources (daily 100/100), all
+pending review, not trained weights or measured model-quality improvement.
