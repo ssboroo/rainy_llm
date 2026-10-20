@@ -1,0 +1,52 @@
+name: RAINY CPU checks
+
+on:
+  push:
+    branches: [main, 'rainy/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rainy-checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Runtime identity
+        run: python3 -c "import sys, sqlite3; print(sys.version); print('SQLite', sqlite3.sqlite_version)"
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Dataset source policy
+        run: python3 scripts/validate_source_registry.py
+      - name: Draft evaluation integrity
+        run: python3 scripts/validate_evaluation.py evaluation/mn_v2_draft.jsonl --training data/examples.jsonl
+      - name: Review progress (not human approval)
+        run: python3 scripts/review_evaluation.py summary --cases evaluation/mn_v2_draft.jsonl --reviews evaluation/mn_v2_review_packet.jsonl
+      - name: Local document search smoke
+        run: |
+          python3 - <<'PY'
+          from scripts.search_documents import search_documents
+          result = search_documents("examples/knowledge", "ХҮРГЭЛТ")
+          assert result["results"], "Expected fictional delivery source"
+          assert result["results"][0]["path"] == "delivery.md"
+          print("Source-cited Mongolian search smoke passed")
+          PY
+      - name: Offline CLI interface
+        run: python3 scripts/ask_offline.py --help
+      - name: Validation scope
+        if: always()
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          CPU code and data checks only. See individual steps for pass/fail.
+          No model weights, training, inference benchmark or automatic merge.
+          A green check is not a trained model or human-reviewed release.
+          EOF

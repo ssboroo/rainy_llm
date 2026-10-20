@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "total_cases": 100,
+  "review_rows": 100,
+  "statuses": {
+    "pending": 100
+  },
+  "categories": {
+    "abstention": {
+      "pending": 10,
+      "total": 10
+    },
+    "arithmetic": {
+      "pending": 10,
+      "total": 10
+    },
+    "comprehension": {
+      "pending": 10,
+      "total": 10
+    },
+    "extraction": {
+      "pending": 10,
+      "total": 10
+    },
+    "grammar": {
+      "pending": 10,
+      "total": 10
+    },
+    "instruction": {
+      "pending": 10,
+      "total": 10
+    },
+    "logic": {
+      "pending": 10,
+      "total": 10
+    },
+    "spelling": {
+      "pending": 10,
+      "total": 10
+    },
+    "translation": {
+      "pending": 10,
+      "total": 10
+    },
+    "transliteration": {
+      "pending": 10,
+      "total": 10
+    }
+  },
+  "unknown_review_ids": [],
+  "ready_to_apply": false,
+  "note": "Progress report only. ready-accept means packet structure is complete; it does not verify reviewer identity or substitute for human review."
+}

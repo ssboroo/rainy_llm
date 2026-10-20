@@ -1,6 +1,9 @@
 # Хөгжүүлэлтийн дараалал
 
+**2026-10-13 priority change:** [Бие даасан Монгол загвар](STANDALONE_MODEL.md) нь үндсэн зорилго. Licensed corpus → multi-capability base comparison → SFT/LoRA → evaluated standalone export. Document assistant бол нэмэлт integration.
+
 ## Хийгдсэн
+- [x] Local TXT/Markdown lexical search: SQLite FTS5/BM25, source file/line/hash, bounded in-memory snapshot; [usage](DOCUMENT_SEARCH.md)
 - [x] Repository суурь, өгөгдлийн формат
 - [x] JSONL шалгалт, basic duplicate detection, unit tests
 
@@ -9,6 +12,7 @@
 - [ ] Монгол хэлний хүний хянасан 100 асуулттай анхны evaluation багц (100-case v2 draft ба pending packet бэлэн)
 - [x] Held-out evaluation schema, exact training-overlap check, hash report ба human-review release gate
 - [x] Human-review packet, case fingerprint, checklist/evidence validator; бодит хүний review хүлээгдэж байна
+- [x] Human-review progress summary; prompt задруулахгүй category/status count ба unready CI exit
 - [x] Суурь inference runner ба benchmark comparison gate; revision, eval hash, decoding, latency/resource completeness шалгана
 - [x] Benchmark numeric integrity: NaN/Infinity, буруу төрөл, нийцэхгүй counts болон baseline-ийн дутуу хариуг блоклох
 - [x] Хадгалсан experiment integrity: raw prediction-оос оноо/нийлбэрийг дахин тооцож, evaluation/file hash-тэй тайлан хадгалах
@@ -17,7 +21,8 @@
 - [ ] Qwen3-4B, Gemma 3-4B Монгол чанар, tokenizer үр ашиг, лиценз, нөөц харьцуулах
 - [ ] GPU нэр, VRAM, төсөв тогтоох
 - [x] Dataset normalization, source-based split, exact dedup болон evaluation/training character n-gram near-overlap audit (semantic detection үргэлжилнэ)
-- [ ] Баталгаажуулсан хувилбартай сургалтын dependencies ба LoRA/QLoRA script
+- [x] Experimental local CPU LoRA runner with assistant-only masking and resume guards; [limits](CPU_TRAINING.md). Guard tests only, no backend training yet.
+- [ ] Баталгаажуулсан хувилбартай сургалтын dependencies, бодит CPU LoRA resume equivalence test ба QLoRA script
 - [ ] GPU smoke run, loss ба held-out evaluation; baseline-тай харьцуулах
 - [ ] Model card, adapter artifact, inference API, Docker
 

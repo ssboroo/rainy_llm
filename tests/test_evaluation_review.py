@@ -2,7 +2,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.review_evaluation import apply_reviews, export_packet, write_jsonl
+from scripts.review_evaluation import (
+    apply_reviews, export_packet, summarize_reviews, write_jsonl,
+)
 from scripts.validate_evaluation import REVIEW_CHECKS, case_fingerprint, validate_cases
 
 
@@ -55,6 +57,54 @@ class EvaluationReviewTests(unittest.TestCase):
             write_jsonl(path, [{"id": "one"}])
             with self.assertRaises(FileExistsError):
                 write_jsonl(path, [{"id": "two"}])
+
+    def test_summary_counts_progress_without_prompt_text(self):
+        rows = cases() + [{
+            "id": "mn-002", "category": "logic", "prompt": "Нууц prompt",
+            "answers": ["тийм"], "review_status": "draft-needs-human-review",
+            "source": "project-authored-evaluation-draft",
+        }]
+        packet = export_packet(rows)
+        packet[0]["checks"] = {key: True for key in REVIEW_CHECKS}
+        packet[0]["decision"] = "accept"
+
+        report = summarize_reviews(rows, packet)
+
+        self.assertEqual(report["statuses"], {"pending": 1, "ready-accept": 1})
+        self.assertEqual(report["categories"]["logic"]["pending"], 1)
+        self.assertFalse(report["ready_to_apply"])
+        self.assertNotIn("Нууц prompt", str(report))
+
+    def test_summary_reports_stale_missing_unknown_and_rejected(self):
+        rows = cases() + [{
+            "id": "mn-002", "category": "logic", "prompt": "Хоёр",
+            "answers": ["2"], "review_status": "draft-needs-human-review",
+            "source": "project-authored-evaluation-draft",
+        }, {
+            "id": "mn-003", "category": "logic", "prompt": "Гурав",
+            "answers": ["3"], "review_status": "draft-needs-human-review",
+            "source": "project-authored-evaluation-draft",
+        }]
+        packet = export_packet(rows)
+        packet[0]["case_sha256"] = "0" * 64
+        packet[1]["decision"] = "reject"
+        packet.pop()
+        packet.append({"id": "unknown"})
+
+        report = summarize_reviews(rows, packet)
+
+        self.assertEqual(report["statuses"], {
+            "missing": 1, "rejected": 1, "stale": 1,
+        })
+        self.assertEqual(report["unknown_review_ids"], ["unknown"])
+        self.assertFalse(report["ready_to_apply"])
+
+    def test_summary_all_complete_is_ready(self):
+        packet = export_packet(cases())
+        packet[0]["checks"] = {key: True for key in REVIEW_CHECKS}
+        packet[0]["decision"] = "accept"
+
+        self.assertTrue(summarize_reviews(cases(), packet)["ready_to_apply"])
 
 
 if __name__ == "__main__":

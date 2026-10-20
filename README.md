@@ -67,10 +67,10 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 79 tests covering validation, grouping, fuzzy leakage audit, human-review evidence, artifact integrity and scoring |
+| Unit tests | Available | 94 tests covering validation, review progress, artifact integrity, scoring, document search and offline loader wiring |
 | Training corpus | Pending | 20 real Wikipedia leads collected; unreviewed pilot, not a curated training corpus |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
-| LoRA / QLoRA training | Planned | No training runner or trained adapter |
+| LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
 | Inference API / Docker | Planned | No runnable service or container configuration |
 
 The initial six tests passed during project setup. This is a recorded local result, not a live CI status badge.
@@ -194,7 +194,7 @@ Dates and training costs depend on data readiness, hardware access, and measured
 
 ### Research automation
 
-An external ChatGPT scheduled task is configured for approximately **09:00 Asia/Ulaanbaatar each day**. Its intended workflow is to inspect repository progress, research relevant releases, implement a bounded improvement, run appropriate checks, and push changes to a development branch with a Mongolian report.
+An external ChatGPT scheduled task is configured for approximately **09:00, 13:00, 17:00 and 21:00 Asia/Ulaanbaatar each day**. Its intended workflow is to inspect repository progress, research relevant releases, implement a bounded improvement, run appropriate checks, and push changes to a development branch with a Mongolian report.
 
 The schedule is external to this repository; cloning the project does not install it. Runs depend on scheduler availability, permissions, and connected tools. No GitHub Actions training workflow is included. Paid GPU jobs are not authorized by this schedule.
 
@@ -247,10 +247,10 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Өгөгдөл, fuzzy leakage audit, human-review evidence, artifact integrity, үнэлгээ шалгах 79 тест |
+| Unit test | Бэлэн | Өгөгдөл, review, үнэлгээ, баримтын хайлт, offline loader болон training guard-ийн 94 тест; шинэ loader-ийн тест mock ашигласан |
 | Сургалтын корпус | Бэлтгэгдээгүй | 20 бодит Wikipedia эх; хянаагүй туршилтын багц |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
-| LoRA / QLoRA сургалт | Төлөвлөсөн | Сургалтын код, сургагдсан adapter гараагүй |
+| LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
 
 Төслийг эхлүүлэх үед зургаан тест амжилттай ажилласан. Энэ нь тухайн үеийн локал шалгалтын үр дүн бөгөөд байнга шинэчлэгддэг CI төлөв биш.
@@ -422,6 +422,12 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 
 ### Evaluation expansion — 2026-10-11
 
+**Model-first direction (2026-10-13):** [Standalone Mongolian model](docs/STANDALONE_MODEL.md). Үндсэн зорилго нь гаднын API-гүй ажиллах олон зориулалтын Монгол загвар; сургагдсан RAINY жин хараахан гараагүй. Experimental `scripts/ask_offline.py` loads a checksummed local GGUF without Hub calls; real-weight validation of this new entry point is still pending.
+
+Local document search is available: [English/Монгол usage](docs/DOCUMENT_SEARCH.md). Run `python scripts/search_documents.py --documents examples/knowledge --query "Хүргэлт"` to retrieve source excerpts with file, line and hash references. Баримтын хайлт ажиллана; generated answer, PDF/OCR болон web chat дараагийн шатанд.
+
 A separate [100-case Mongolian development draft](evaluation/MN_V2_REVIEW.md) and content-bound pending review packet are ready. Ten categories have ten cases each. No human review or v2 model inference has occurred. The existing 24-case results remain unchanged.
 
 Монгол үнэлгээний шинэ 100 асуулт, 10 ангилалтай ноорог болон хүн хянах packet бэлэн. Бүгд draft; хүний review болон шинэ багцын модель хэмжилт хийгдээгүй. Өмнөх 24 асуултын үр дүн хэвээр.
+
+Review progress summary нь prompt задруулахгүйгээр төлөвийг ангилал тус бүрээр тоолно. 2026-10-13-ны бодит тайлан: **100/100 pending, 0 ready-accept, ready_to_apply=false**. Энэ нь хүний хяналт хийгдсэн гэсэн үг биш.
