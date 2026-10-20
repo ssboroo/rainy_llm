@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-19T09:05:25.544440+00:00",
+  "requested_titles": 70,
+  "articles": 20,
+  "characters": 39485,
+  "rejected": 50,
+  "rejected_by_reason": {
+    "missing": 25,
+    "duplicate-source": 22,
+    "short": 3
+  },
+  "rejected_items": [
+    {
+      "title": "Авокадо",
+      "reason": "missing"
+    },
+    {
+      "title": "Алим",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алтанзул",
+      "reason": "missing"
+    },
+    {
+      "title": "Амтат гуа",
+      "reason": "missing"
+    },
+    {
+      "title": "Арвай",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Байцаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Бургас",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бөөрөлзгөнө",
+      "reason": "missing"
+    },
+    {
+      "title": "Гадил",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Газрын самар",
+      "reason": "missing"
+    },
+    {
+      "title": "Гацуур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гүзээлзгэнэ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Жүрж",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Замаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Лийр",
+      "reason": "short"
+    },
+    {
+      "title": "Лууван",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Маалинга",
+      "reason": "short"
+    },
+    {
+      "title": "Манго",
+      "reason": "missing"
+    },
+    {
+      "title": "Мандарин",
+      "reason": "missing"
+    },
+    {
+      "title": "Мөөг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Наранцэцэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Нарс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нэрс",
+      "reason": "missing"
+    },
+    {
+      "title": "Овьёос",
+      "reason": "missing"
+    },
+    {
+      "title": "Ойм",
+      "reason": "missing"
+    },
+    {
+      "title": "Сармис",
+      "reason": "missing"
+    },
+    {
+      "title": "Сарнай",
+      "reason": "missing"
+    },
+    {
+      "title": "Сонгино",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тарвас",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тутарга",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улаагана",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улаан лооль",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улиас",
+      "reason": "missing"
+    },
+    {
+      "title": "Усан үзэм",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Хар перец",
+      "reason": "missing"
+    },
+    {
+      "title": "Хулс",
+      "reason": "missing"
+    },
+    {
+      "title": "Хулуу",
+      "reason": "missing"
+    },
+    {
+      "title": "Хус",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хуш",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хушга",
+      "reason": "missing"
+    },
+    {
+      "title": "Хөвд",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөх тариа",
+      "reason": "missing"
+    },
+    {
+      "title": "Цагаан гаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Царс",
+      "reason": "missing"
+    },
+    {
+      "title": "Чацаргана",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Чидун",
+      "reason": "missing"
+    },
+    {
+      "title": "Шанцай",
+      "reason": "missing"
+    },
+    {
+      "title": "Шинэс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Өргөст хэмх",
+      "reason": "short"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl"
+  ],
+  "sha256": "979b1b9bace781b00e45dfeadb3a8bc2a8b35fde4b0585057e45cdf9ffdf9709",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
