@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-16T05:04:51.072710+00:00",
+  "requested_titles": 30,
+  "articles": 20,
+  "characters": 13522,
+  "rejected": 10,
+  "rejected_by_reason": {
+    "missing": 2,
+    "batch-limit": 8
+  },
+  "rejected_items": [
+    {
+      "title": "Витамин",
+      "reason": "missing"
+    },
+    {
+      "title": "Чулуу",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шавж",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шувуу",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энэтхэгийн далай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өөх тос",
+      "reason": "missing"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl"
+  ],
+  "sha256": "a3fe7bea9a2525654857c47609dbe51dd7f1535e77a7e2c4375bc8bfa2a7cb99",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
