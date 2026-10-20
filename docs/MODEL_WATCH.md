@@ -79,3 +79,13 @@ No candidate was integrated or promoted today. Official sources were rechecked; 
 | Qwen3.8 / Gemma 4 / Meta Llama 4 families | Official producer pages rechecked 2026-10-08 | Open-weight families with artifact-specific licenses; API availability is not weight availability | No newly verified small candidate displaced the executed Qwen3.5-4B. Existing pinned entries and rollback artifacts remain unchanged. |
 
 Vendor benchmark and efficiency claims are not Mongolian evidence. Mistral Small 4's active parameter count does not reduce the need to store its full MoE weights. DeepSeek's published runtime recipes do not imply compatibility with RAINY's existing adapters. The next model experiment remains a resource-feasible, pinned Gemma 4 quantization after the human-review evaluation workflow.
+
+## 2026-10-09: EmbeddingGemma 2 and official-source verification
+
+No generative base was replaced or promoted today. Google's official release log records **EmbeddingGemma 2** on 2026-10-06, and the official model card classifies it as a 740M multimodal embedding model rather than a chat/generative LLM.
+
+| Model ID | Immutable repository revision (HF API, checked 2026-10-09) | License and release | Runtime/resource notes | RAINY decision |
+| --- | --- | --- | --- | --- |
+| [google/embeddinggemma-2](https://huggingface.co/google/embeddinggemma-2) | `914f7f89142e33e77833254d9c9b90c3cef7303b` | Apache-2.0; released 2026-10-06 in the [Google Gemma release log](https://ai.google.dev/gemma/docs/releases) | 740M total parameters, 8K context, 768-dimensional text/image/video/audio embeddings and 100+ languages. Official card recommends BF16 or FP32 and warns that FP16 can produce NaNs or degrade quality. Local memory, latency and Mongolian retrieval quality are unmeasured. | Research-only candidate for future semantic near-duplicate detection or RAG retrieval. **Not** a generative training base and not a replacement for Qwen3.5-4B. |
+
+The official Qwen3.8, Gemma 4, DeepSeek-V4.1-Flash, Meta and Mistral sources were also rechecked. No newly verified resource-feasible generative candidate was promoted. EmbeddingGemma 2 was not downloaded or executed, and its vendor multilingual coverage is not evidence of Mongolian benchmark quality. Any future use must pin the revision above and measure held-out Mongolian retrieval/near-duplicate performance, latency, peak memory and cost separately from chat generation.
