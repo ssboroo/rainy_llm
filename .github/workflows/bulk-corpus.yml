@@ -1,0 +1,48 @@
+name: RAINY bulk Mongolian corpus
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/bulk-corpus.yml']
+  schedule:
+    - cron: '15 1,5,9,13 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: rainy-bulk-corpus
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Verify code before network collection
+        run: python3 -m unittest discover -s tests -v
+      - name: Preserve current collector implementation
+        run: |
+          mkdir -p /tmp/rainy-bulk-tools
+          cp scripts/collect_wikipedia.py scripts/collect_wikipedia_bulk.py /tmp/rainy-bulk-tools/
+      - name: Restore persistent corpus branch
+        run: |
+          if git ls-remote --exit-code --heads origin data/bulk-wikipedia; then
+            git fetch origin data/bulk-wikipedia
+            git switch -c data/bulk-wikipedia FETCH_HEAD
+          else
+            git switch -c data/bulk-wikipedia
+          fi
+      - name: Collect bounded batch
+        run: python3 /tmp/rainy-bulk-tools/collect_wikipedia_bulk.py --limit 250 --max-requests 100
+      - name: Save corpus and cursor together
+        run: |
+          git config user.name "RAINY corpus bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/mnwiki_bulk
+          if ! git diff --cached --quiet; then
+            git commit -m "data: collect attributed Mongolian Wikipedia research batch"
+            git push origin HEAD:refs/heads/data/bulk-wikipedia
+          fi
+      - name: Report limits
+        if: always()
+        run: |
+          echo "Collection target: 250 per run (up to 39 extra to finish a source page), four runs daily. Actual acceptance depends on source availability and filters. Data persists on data/bulk-wikipedia. Raw leads are not approved training data. No paid GPU, model training or model-quality claim." >> "$GITHUB_STEP_SUMMARY"
