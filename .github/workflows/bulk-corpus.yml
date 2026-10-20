@@ -1,4 +1,5 @@
 name: RAINY bulk Mongolian corpus
+# Bounded source collection; tests run before each batch.
 on:
   workflow_dispatch:
   push:
