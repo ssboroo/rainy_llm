@@ -16,7 +16,7 @@ class BulkTests(unittest.TestCase):
              patch.object(bulk.time,'sleep'), contextlib.redirect_stdout(io.StringIO()):
             bulk.main()
     def page(self, pid, text):
-        return dict(pageid=pid,title=str(pid),extract=text,fullurl=f'https://mn.wikipedia.org/wiki/{pid}',revisions=[{'revid':pid}])
+        return dict(pageid=900000000+pid,title=str(pid),extract=text,fullurl=f'https://mn.wikipedia.org/wiki/{pid}',revisions=[{'revid':pid}])
     def test_complete_page_and_resume_dedup(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)
