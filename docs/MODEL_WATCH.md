@@ -89,3 +89,14 @@ No generative base was replaced or promoted today. Google's official release log
 | [google/embeddinggemma-2](https://huggingface.co/google/embeddinggemma-2) | `914f7f89142e33e77833254d9c9b90c3cef7303b` | Apache-2.0; released 2026-10-06 in the [Google Gemma release log](https://ai.google.dev/gemma/docs/releases) | 740M total parameters, 8K context, 768-dimensional text/image/video/audio embeddings and 100+ languages. Official card recommends BF16 or FP32 and warns that FP16 can produce NaNs or degrade quality. Local memory, latency and Mongolian retrieval quality are unmeasured. | Research-only candidate for future semantic near-duplicate detection or RAG retrieval. **Not** a generative training base and not a replacement for Qwen3.5-4B. |
 
 The official Qwen3.8, Gemma 4, DeepSeek-V4.1-Flash, Meta and Mistral sources were also rechecked. No newly verified resource-feasible generative candidate was promoted. EmbeddingGemma 2 was not downloaded or executed, and its vendor multilingual coverage is not evidence of Mongolian benchmark quality. Any future use must pin the revision above and measure held-out Mongolian retrieval/near-duplicate performance, latency, peak memory and cost separately from chat generation.
+
+## 2026-10-10: Mistral Large 4 public preview
+
+Mistral officially announced Mistral Large 4 on 2026-10-06. The current status must not be mislabeled as a downloadable local integration:
+
+| Identity | Availability on 2026-10-10 | License/revision | Runtime and RAINY decision |
+| --- | --- | --- | --- |
+| API model `mistral-large-4` | Paid public-preview API; 1M context. Pricing observed in official docs: promotional $0.68/M input, $0.07/M cached input and $2.09/M output tokens; prices can change. | API terms apply. No downloadable weight snapshot, immutable weight revision or weight license was available to pin. | 1.05T total, 52B active parameters and a 1.6B vision encoder. No local inference, training, Mongolian benchmark, latency, VRAM or cost run. |
+| Planned `mistralai/Mistral-Large-4-1T-A52B` | Official HF page says “Upcoming release” with current ETA 2026-10-31; weights are not yet released. | Unknown until the actual artifact/model card is published; a planned ID is not an immutable revision. | Watch only. Do not design adapter compatibility or replace the retained Qwen3.5-4B baseline from vendor claims. |
+
+Official announcement: https://mistral.ai/news/mistral-large-4/ and API documentation: https://docs.mistral.ai/models/mistral-large-4-0. Mistral states 160+ language coverage, but this is not a measured Mongolian result. Qwen, Google/Gemma, DeepSeek and Meta official sources were rechecked; no newly verified resource-feasible downloadable generative candidate displaced the retained baseline today.

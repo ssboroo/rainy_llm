@@ -40,6 +40,6 @@ All 24 case IDs should be supplied for a complete run. Missing predictions count
 
 Гурав дахь команд нь өөрийн бэлдсэн хариултыг 24 асуулттай харьцуулна. Модель хариу үүсгэхгүй. Хариулаагүй асуултыг буруу гэж тооцно. Оноо нь богино хариултын форматад мэдрэмтгий тул Монгол хэлний бүрэн чадварыг илэрхийлэхгүй.
 
-evaluation/mn_smoke.jsonl нь AI-аар боловсруулсан анхны ноорог; хүний хэл найруулгын хяналт хийгдээгүй. Сургалтад оруулахгүй. Corpus, GPU inference, training, human review, near-duplicate detection дараагийн ажил хэвээр.
+evaluation/mn_smoke.jsonl нь AI-аар боловсруулсан анхны ноорог; хүний хэл найруулгын хяналт хийгдээгүй. Сургалтад оруулахгүй. Exact overlap gate болон character n-gram fuzzy overlap audit бэлэн боловч semantic/translation contamination-ийг бүрэн илрүүлэхгүй. Corpus, GPU inference, training, human review дараагийн ажил хэвээр.
 
 Давхардсан мөрийг устгахаас өмнө бүх эх сурвалжийн холбоосыг бүлэглэнэ. Ижил агуулгатай мөрүүдээс ID-ийн тэмдэгтийн дарааллаар эхнийхийг үлдээж, бусдын ID, эх сурвалж, лицензийг duplicate_provenance талбарт хадгална. Өмнөх frozen split-үүдийг дахин бичихгүй; шинэ хувилбарын гаралтыг тусад нь хадгална.

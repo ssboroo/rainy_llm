@@ -16,7 +16,7 @@
 - [ ] Gemma 4 жижиг хувилбарын pinned quantized artifact, runtime, chat template preflight ба бодит Монгол туршилт
 - [ ] Qwen3-4B, Gemma 3-4B Монгол чанар, tokenizer үр ашиг, лиценз, нөөц харьцуулах
 - [ ] GPU нэр, VRAM, төсөв тогтоох
-- [ ] Dataset normalization, source-based split, near-duplicate detection
+- [x] Dataset normalization, source-based split, exact dedup болон evaluation/training character n-gram near-overlap audit (semantic detection үргэлжилнэ)
 - [ ] Баталгаажуулсан хувилбартай сургалтын dependencies ба LoRA/QLoRA script
 - [ ] GPU smoke run, loss ба held-out evaluation; baseline-тай харьцуулах
 - [ ] Model card, adapter artifact, inference API, Docker
