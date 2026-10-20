@@ -4,11 +4,14 @@ Run from the repository root with Python 3.10+. No model or GPU required.
 
 ```bash
 python -m unittest discover -s tests -v
+python scripts/validate_evaluation.py --training data/examples.jsonl
 python scripts/prepare_data.py data/examples.jsonl --heldout evaluation/mn_smoke.jsonl --output-dir outputs/prepared-v1
 python scripts/evaluate.py --cases evaluation/mn_smoke.jsonl --predictions outputs/predictions.jsonl --output outputs/report.json
 ```
 
-The first command tests the implementation. The second prepares the single example only; empty validation/test splits are expected. The third requires real predictions that you supply; it does not generate model responses.
+The first command tests the implementation. The second validates the held-out draft and checks exact normalized overlap with the example training file. The third prepares the single example only; empty validation/test splits are expected. The fourth requires real predictions that you supply; it does not generate model responses.
+
+Before a benchmark run, validate every held-out case and pass every training JSONL via repeated `--training` arguments. `--release --min-cases 100` is a stricter gate and currently fails by design because all 24 smoke cases still need real human review. The report includes the exact evaluation file SHA-256; save it with experiment metadata. See `evaluation/README.md`.
 
 Prediction file format:
 ```json
