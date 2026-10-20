@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-16T13:04:42.203538+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 16450,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 5,
+    "batch-limit": 12,
+    "duplicate-source": 1,
+    "short": 2
+  },
+  "rejected_items": [
+    {
+      "title": "Байцаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Гурил",
+      "reason": "missing"
+    },
+    {
+      "title": "Овьёос",
+      "reason": "missing"
+    },
+    {
+      "title": "Сармис",
+      "reason": "missing"
+    },
+    {
+      "title": "Улаан буудай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Улаан лооль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Усжуулалт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хонь",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хоол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хоолны давс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүлэмж",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүнсний ногоо",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөдөө аж ахуй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цөцгийн тос",
+      "reason": "missing"
+    },
+    {
+      "title": "Чацаргана",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Элсэн чихэр",
+      "reason": "short"
+    },
+    {
+      "title": "Ямаа",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өргөст хэмх",
+      "reason": "short"
+    },
+    {
+      "title": "Өрөм",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl"
+  ],
+  "sha256": "bcbf2ca6cbf4cd44c4e023d83e59e5670360b2fde8ac1c59cf2628d781b5f115",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

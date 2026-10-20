@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-15T00:59:33.165598+00:00",
+  "requested_titles": 30,
+  "articles": 20,
+  "characters": 19162,
+  "rejected": 10,
+  "rejected_by_reason": {
+    "missing": 6,
+    "short": 1,
+    "batch-limit": 3
+  },
+  "rejected_items": [
+    {
+      "title": "Богд хаант Монгол улс",
+      "reason": "missing"
+    },
+    {
+      "title": "Горхи-Тэрэлжийн байгалийн цогцолборт газар",
+      "reason": "missing"
+    },
+    {
+      "title": "Дорнод аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Монгол үндэсний бөх",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын газар зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын соёл",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын уламжлалт анагаах ухаан",
+      "reason": "missing"
+    },
+    {
+      "title": "Шагайн харваа",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэнэт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өмнөговь аймаг",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl"
+  ],
+  "sha256": "5a625d68e9cf03a770f54ef2e4a044de51ad407aa1fde6e77ae724035b3feb72",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

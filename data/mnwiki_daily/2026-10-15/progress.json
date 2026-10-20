@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "date": "2026-10-15",
+  "timezone": "Asia/Ulaanbaatar",
+  "target_unique_documents": 100,
+  "batch_size": 20,
+  "completed_batches": 3,
+  "unique_added": 60,
+  "rejected_candidates": 50,
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "batches": [
+    {
+      "id": "batch-01",
+      "articles": 20,
+      "characters": 19162,
+      "corpus_sha256": "5a625d68e9cf03a770f54ef2e4a044de51ad407aa1fde6e77ae724035b3feb72"
+    },
+    {
+      "id": "batch-02",
+      "articles": 20,
+      "characters": 14493,
+      "corpus_sha256": "313b326d7213ab981b1136d71430f55311147c253006c120092e0bc9bdc5d010"
+    },
+    {
+      "id": "batch-03",
+      "articles": 20,
+      "characters": 31389,
+      "corpus_sha256": "35b3640968ce5f23b73f557cbfb474bbfdbfafb568bdb38ae68d8c7db7f83970"
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-16 daily corpus
+- [x] Batch 01: 20 new sources / 36,872 characters; 100 repository-wide unique raw records, all hashes checked.
+- [x] Batch 02: 20 new sources / 13,522 characters; 120 repository-wide unique records, all hashes checked.
+- [x] Batch 03: 20 arts/culture/education/sport sources / 22,599 characters; 140 repository-wide unique records, all hashes checked.
+- [x] Batch 04: 20 new sources / 14,547 characters; batch 05: 20 new sources / 16,450 characters. Today 100/100, repository 180 unique raw sources; all hashes checked.
+- [ ] Human rights/privacy/quality review and instruction conversion. Human-reviewed/training-ready: 0/0; collection target completion is not training readiness.
+- 2026-10-15 remains 60/100 in the remote ledger; missing batches are not counted or backdated.
+
 **2026-10-13 priority change:** [Бие даасан Монгол загвар](STANDALONE_MODEL.md) нь үндсэн зорилго. Licensed corpus → multi-capability base comparison → SFT/LoRA → evaluated standalone export. Document assistant бол нэмэлт integration.
 
 ## Хийгдсэн
@@ -38,3 +46,11 @@
 
 - [x] Source-linked extractive QA authoring template and draft exporter; inherited frozen splits, original provenance, no automatic approval.
 - [ ] Instruction-level human review and train-only release export; actual questions/answers remain unauthored.
+
+## 2026-10-15 daily corpus target
+- [x] Batch 01: 20 new attributed CC BY-SA 4.0 documents; 19,162 characters; global exact source/page/text dedup passed.
+- [x] Batch 02: 20 new attributed CC BY-SA 4.0 documents; 14,493 characters; 60/60 repository-wide exact source/page/text uniqueness passed.
+- [x] Batch 03: 20 science/technology sources, 31,389 characters; template/email and lexical near-duplicate heuristic screening; 80/80 exact uniqueness.
+- [ ] Batches 04–05: 40 more unique documents, each in a separate 20-document manifest.
+- [ ] Resolve 6 historical template-artifact quarantine flags without silently changing frozen source/split hashes; see batch-03 screening audit.
+- [ ] Human privacy/quality/rights review and semantic near-duplicate audit. Current daily human-reviewed/training-ready counts: 0/0.

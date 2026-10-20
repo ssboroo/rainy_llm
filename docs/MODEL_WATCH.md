@@ -1,5 +1,24 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-16 source recheck
+
+21:00 follow-up: reopened official producer pages, PEFT releases and LoRA paper.
+PEFT latest-release API still reports v0.21.2, published 2026-10-01T10:29:50Z;
+no dependency upgrade, new immutable weight pin or model promotion established.
+Completed two real-source batches, not model integration or quality improvement.
+Existing runtime/model pins and rollback results are unchanged.
+
+13:00 follow-up: reopened the same official producer pages, PEFT releases and LoRA
+paper. No new immutable revision, tested runtime or baseline promotion established.
+Executed daily raw-source batch 02; no inference/training or model-quality claim.
+
+Official Qwen/Gemma/DeepSeek/Meta/Mistral pages below and PEFT releases/LoRA paper
+were reopened. PEFT latest API remains v0.21.2 (2026-10-01T10:29:50Z), an
+encoder-decoder fix for Transformers >=5.18.0, not a locally validated training
+lock. No new immutable model revision or runtime integration was established;
+baseline and rollback artifacts unchanged. Delivered a new 20-document raw batch,
+not inference/training or measured model improvement. See today's research.
+
 Шалгасан: 2026-09-29, Asia/Ulaanbaatar. Энэ нь бүрэн зах зээлийн жагсаалт биш, тухайн өдөр албан ёсны эх сурвалжаас баталгаажуулсан shortlist. Нийтэлсэн өдөр ба metadata шинэчилсэн өдрийг ялгана.
 
 | Загвар | Албан ёсны эх сурвалж | Одоогийн шийдвэр |
@@ -135,3 +154,23 @@ Reopened official Qwen, Google, DeepSeek, Meta, Mistral pages, PEFT releases and
 ### 2026-10-14 21:05 follow-up
 
 Rechecked official producer pages, PEFT releases, LoRA paper and TRL SFT dataset guidance. No new pinned artifact or tested runtime integration established; baseline unchanged. Selected work: explicit source-linked prompt/answer draft conversion, not a model upgrade. TRL format documentation does not validate this environment's absent training runtime. See [instruction drafts](INSTRUCTION_DRAFTS.md) and today's research.
+
+## 2026-10-16 17:00 source check
+
+Reopened official Qwen, Gemma, DeepSeek, Meta and Mistral pages, PEFT releases and
+the LoRA paper. No new immutable pin, tested dependency upgrade or model promotion
+was established. Existing baseline/config/results remain unchanged. Actual work:
+20 new attributed corpus sources, all unreviewed; not model integration, training
+or measured quality improvement. See [research](../research/2026-10-16.md).
+
+## 2026-10-15 09:00 source and model recheck
+
+Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and Meta producer indexes, and planned Mistral Large 4 weights page. No new immutable small-model revision or locally tested runtime integration was established, so the retained baseline/config/results remain unchanged. The executable work was the first globally deduplicated 20-document daily corpus batch; it is raw unreviewed CC BY-SA 4.0 text, not model integration or measured quality gain. See [daily corpus batches](../data/mnwiki_daily/README.md) and the 2026-10-15 research note.
+
+### 2026-10-15 13:00 follow-up
+
+Rechecked the official producer pages. Mistral Large 4 weights remain an upcoming 2026-10-31 artifact rather than a released immutable snapshot. No newly verified resource-feasible generative model, license change, runtime integration or baseline promotion was established. The executable work was daily corpus batch 02; no inference, training or measured model-quality improvement occurred.
+
+### 2026-10-15 17:00 follow-up
+
+Reopened official Qwen, Gemma, DeepSeek, Meta and Mistral pages plus the LoRA paper and PEFT releases. The PEFT latest-release API still reports v0.21.2 (2026-10-01T10:29:50Z), not an installed or tested training lock. No new immutable weight revision, compatible runtime integration or baseline promotion was established. Shipped batch 03 with conservative template/email and lexical near-duplicate screening; raw collection and automated screening do not demonstrate model-quality improvement. See today's research for actual tests, resource/storage blockers and remaining human-review gates.
