@@ -1,6 +1,7 @@
 """Compare two benchmark directories without hiding comparability gaps."""
 import argparse
 import json
+import math
 import re
 from pathlib import Path
 
@@ -8,6 +9,19 @@ from pathlib import Path
 HEX40_64 = re.compile(r"^[0-9a-f]{40,64}$")
 DECODE_KEYS = ("seed", "do_sample", "max_new_tokens", "thinking")
 RUNTIME_KEYS = ("device", "dtype", "threads", "torch", "transformers")
+
+
+def finite_number(value):
+    if not isinstance(value, (int, float)) or isinstance(value, bool):
+        return False
+    try:
+        return math.isfinite(value)
+    except OverflowError:
+        return False
+
+
+def integer(value, minimum=0):
+    return type(value) is int and value >= minimum
 
 
 def load_run(folder):
@@ -20,6 +34,8 @@ def load_run(folder):
 
 def validate_run(metadata, scores):
     errors = []
+    if not isinstance(metadata, dict) or not isinstance(scores, dict):
+        return ["metadata and scores must be JSON objects"]
     for key in ("model", "revision", "device", "dtype", "cases_sha256", "status",
                 "total_generation_seconds") + DECODE_KEYS:
         if key not in metadata:
@@ -31,21 +47,26 @@ def validate_run(metadata, scores):
     if metadata.get("status") != "completed":
         errors.append("run status must be completed")
     seconds = metadata.get("total_generation_seconds")
-    if not isinstance(seconds, (int, float)) or isinstance(seconds, bool) or seconds <= 0:
-        errors.append("total_generation_seconds must be positive")
+    if not finite_number(seconds) or seconds <= 0:
+        errors.append("total_generation_seconds must be finite and positive")
     for key in ("metric", "correct", "total", "accuracy", "missing"):
         if key not in scores:
             errors.append(f"scores missing: {key}")
     total, correct, accuracy = scores.get("total"), scores.get("correct"), scores.get("accuracy")
-    if not isinstance(total, int) or isinstance(total, bool) or total <= 0:
+    if not integer(total, 1):
         errors.append("scores.total must be a positive integer")
-    if not isinstance(correct, int) or isinstance(correct, bool) or not isinstance(total, int) or not 0 <= correct <= total:
+    if not integer(correct) or not integer(total, 1) or correct > total:
         errors.append("scores.correct must be between zero and total")
-    if isinstance(total, int) and total > 0 and isinstance(correct, int) and isinstance(accuracy, (int, float)):
+    if integer(total, 1) and integer(correct) and finite_number(accuracy) and 0 <= accuracy <= 1:
         if abs(accuracy - correct / total) > 1e-12:
             errors.append("accuracy disagrees with correct/total")
     else:
-        errors.append("scores.accuracy must be numeric")
+        errors.append("scores.accuracy must be finite and between zero and one")
+    missing = scores.get("missing")
+    if not integer(missing) or not integer(total, 1) or missing > total:
+        errors.append("scores.missing must be an integer between zero and total")
+    elif integer(correct) and correct + missing > total:
+        errors.append("correct plus missing cannot exceed total")
     adapter = metadata.get("adapter")
     if adapter is not None:
         if not isinstance(adapter, dict):
@@ -64,6 +85,9 @@ def compare_runs(baseline, candidate):
     cand_meta, cand_scores = candidate
     errors = [f"baseline: {e}" for e in validate_run(base_meta, base_scores)]
     errors += [f"candidate: {e}" for e in validate_run(cand_meta, cand_scores)]
+    base_meta, base_scores, cand_meta, cand_scores = (
+        value if isinstance(value, dict) else {}
+        for value in (base_meta, base_scores, cand_meta, cand_scores))
     mismatches = []
     if base_meta.get("cases_sha256") != cand_meta.get("cases_sha256"):
         mismatches.append("cases_sha256")
@@ -75,14 +99,17 @@ def compare_runs(baseline, candidate):
         if base_meta.get(key) != cand_meta.get(key):
             mismatches.append(key)
     base_total, cand_total = base_scores.get("total", 0), cand_scores.get("total", 0)
-    base_latency = base_meta.get("total_generation_seconds", 0) / base_total if base_total else None
-    cand_latency = cand_meta.get("total_generation_seconds", 0) / cand_total if cand_total else None
+    def latency(meta, total):
+        seconds = meta.get("total_generation_seconds")
+        return seconds / total if finite_number(seconds) and seconds > 0 and integer(total, 1) else None
+    base_latency = latency(base_meta, base_total)
+    cand_latency = latency(cand_meta, cand_total)
     resource_fields = ("hardware", "peak_vram_gb", "estimated_cost_usd")
     def resource_missing(meta, key):
         value = meta.get(key)
         if key == "hardware":
             return not isinstance(value, str) or not value.strip()
-        return not isinstance(value, (int, float)) or isinstance(value, bool) or value < 0
+        return not finite_number(value) or value < 0
     missing_resources = [
         f"{side}.{key}"
         for side, meta in (("baseline", base_meta), ("candidate", cand_meta))
@@ -91,25 +118,26 @@ def compare_runs(baseline, candidate):
     comparable = not errors and not mismatches
     quality_improved = comparable and cand_scores["accuracy"] > base_scores["accuracy"]
     promotion_eligible = bool(
-        quality_improved and not missing_resources and cand_scores.get("missing") == 0)
+        quality_improved and not missing_resources and
+        base_scores.get("missing") == 0 and cand_scores.get("missing") == 0)
     return {
         "comparable": comparable,
         "validation_errors": errors,
         "comparability_mismatches": mismatches,
         "baseline": {
             "model": base_meta.get("model"), "revision": base_meta.get("revision"),
-            "accuracy": base_scores.get("accuracy"), "seconds_per_case": base_latency,
+            "accuracy": base_scores.get("accuracy") if finite_number(base_scores.get("accuracy")) else None, "seconds_per_case": base_latency,
         },
         "candidate": {
             "model": cand_meta.get("model"), "revision": cand_meta.get("revision"),
-            "accuracy": cand_scores.get("accuracy"), "seconds_per_case": cand_latency,
+            "accuracy": cand_scores.get("accuracy") if finite_number(cand_scores.get("accuracy")) else None, "seconds_per_case": cand_latency,
         },
         "accuracy_delta": (cand_scores.get("accuracy", 0) - base_scores.get("accuracy", 0)) if comparable else None,
         "seconds_per_case_delta": (cand_latency - base_latency) if comparable else None,
         "missing_resource_measurements": missing_resources,
         "quality_improved": quality_improved,
         "promotion_eligible": promotion_eligible,
-        "note": "Promotion requires comparable settings, higher measured accuracy, no missing predictions, and recorded hardware/VRAM/cost. Human review is separate.",
+        "note": "Technical eligibility requires comparable settings, higher measured accuracy, no missing predictions in either run, and finite hardware/VRAM/cost records. It is not release approval; human review and held-out validation remain separate.",
     }
 
 
@@ -122,7 +150,7 @@ def main():
         report = compare_runs(load_run(args.baseline), load_run(args.candidate))
     except (OSError, UnicodeError, json.JSONDecodeError) as exc:
         parser.exit(1, str(exc) + "\n")
-    print(json.dumps(report, ensure_ascii=False, indent=2))
+    print(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False))
     if not report["comparable"]:
         parser.exit(1)
 
