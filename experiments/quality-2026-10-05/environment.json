@@ -1,0 +1,19 @@
+{
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "architecture": "x86_64",
+  "cgroup_memory_limit_bytes": 8589934592,
+  "inference_threads": 4,
+  "device": "cpu",
+  "gpu_used": false,
+  "paid_service_started": false,
+  "infrastructure_cost_usd": null,
+  "cost_note": "Existing execution environment; infrastructure billing not exposed. No paid GPU or inference API launched.",
+  "timing_note": "Single runs on shared CPU; download work overlapped part of 1.7B generation. Not a controlled latency benchmark.",
+  "failed_attempt": {
+    "model": "Qwen/Qwen3-1.7B",
+    "dtype": "float32",
+    "exit_code": 137,
+    "completed": false,
+    "interpretation": "Likely memory-limit kill during loading; no predictions or scores. cgroup reported oom_kill=2 after exit; no before counter available."
+  }
+}

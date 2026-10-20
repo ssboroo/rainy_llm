@@ -7,6 +7,7 @@ from pathlib import Path
 
 HEX40_64 = re.compile(r"^[0-9a-f]{40,64}$")
 DECODE_KEYS = ("seed", "do_sample", "max_new_tokens", "thinking")
+RUNTIME_KEYS = ("device", "dtype", "threads", "torch", "transformers")
 
 
 def load_run(folder):
@@ -70,7 +71,7 @@ def compare_runs(baseline, candidate):
         mismatches.append("metric")
     if base_scores.get("total") != cand_scores.get("total"):
         mismatches.append("total")
-    for key in DECODE_KEYS:
+    for key in DECODE_KEYS + RUNTIME_KEYS:
         if base_meta.get(key) != cand_meta.get(key):
             mismatches.append(key)
     base_total, cand_total = base_scores.get("total", 0), cand_scores.get("total", 0)
