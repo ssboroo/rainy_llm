@@ -1,0 +1,20 @@
+{
+  "valid": true,
+  "experiment": "qwen3-4b-2507-cpu-q4km-v1",
+  "errors": [],
+  "warnings": [],
+  "files": {
+    "cases_sha256": "b45f694cc83a5ffd030bcbb02b5872e4ffe49133e3ee0cf6d35aa1c030955bb5",
+    "metadata_sha256": "38f3e7ba21d5a606a1db8b3127941423e08859d11d8628f50d6f08820b4e143b",
+    "predictions_sha256": "8f6557ed742722ea44646e26d6b577b86749d5d91b9de73c49a1939d02a8ffbc",
+    "scores_sha256": "97379e052852ae260430fccdd461726d01d4ccb48e8e6b70fe84294933287f45"
+  },
+  "measurements": {
+    "cases": 24,
+    "predictions": 24,
+    "correct": 7,
+    "total_generation_seconds": 65.4978,
+    "generated_tokens": 637,
+    "token_limit_hits": 5
+  }
+}

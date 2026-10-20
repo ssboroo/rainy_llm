@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-16T08:57:23.179727+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 22599,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 3,
+    "batch-limit": 17
+  },
+  "rejected_items": [
+    {
+      "title": "Гүйлт",
+      "reason": "missing"
+    },
+    {
+      "title": "Теннис",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уран баримал",
+      "reason": "missing"
+    },
+    {
+      "title": "Уран зохиол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уран зураг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Усанд сэлэлт",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэл шинжлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөгжим",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөлбөмбөг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чулуу",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шавж",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шатар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шувуу",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энэтхэгийн далай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Яруу найраг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүл",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl"
+  ],
+  "sha256": "f426a71a1ba341dfbb0abc566074e0aba10a53ac543c2fa4ec977dcbb46f4de9",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

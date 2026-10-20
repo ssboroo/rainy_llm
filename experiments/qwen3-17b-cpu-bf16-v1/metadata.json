@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "device": "cpu",
+  "dtype": "bfloat16",
+  "threads": 4,
+  "seed": 42,
+  "torch": "2.14.1+cpu",
+  "transformers": "4.51.3",
+  "python": "3.12.14",
+  "thinking": false,
+  "do_sample": false,
+  "max_new_tokens": 64,
+  "cases_sha256": "b45f694cc83a5ffd030bcbb02b5872e4ffe49133e3ee0cf6d35aa1c030955bb5",
+  "status": "completed",
+  "note": "CPU feasibility experiment, not a latest-model or production-quality claim. Greedy non-thinking run.",
+  "total_generation_seconds": 191.3468,
+  "peak_rss_kib_linux": 3823812,
+  "machine": "x86_64",
+  "generated_tokens": 1043,
+  "token_limit_hits": 11
+}

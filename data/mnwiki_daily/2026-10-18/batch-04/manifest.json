@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-18T13:05:02.541767+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 15945,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 3,
+    "batch-limit": 17
+  },
+  "rejected_items": [
+    {
+      "title": "Багамын арлууд",
+      "reason": "missing"
+    },
+    {
+      "title": "Гаити",
+      "reason": "missing"
+    },
+    {
+      "title": "Гондурас",
+      "reason": "missing"
+    },
+    {
+      "title": "Намиби",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Никарагуа",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Панам",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Парагвай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сальвадор",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сенегал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Судан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Суринам",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Танзани",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тринидад ба Тобаго",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тунис",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уганда",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уругвай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эквадор",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Этиоп",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ямайка",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өмнөд Африк",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl"
+  ],
+  "sha256": "2242415cc11bc8e0838deee4c88a3dfa1364a905af2fc6511f41509c8d8964ab",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

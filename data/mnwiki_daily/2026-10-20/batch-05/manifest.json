@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-20T12:57:09.367140+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 13761,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 12,
+    "batch-limit": 7,
+    "short": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Акул",
+      "reason": "missing"
+    },
+    {
+      "title": "Дельфин",
+      "reason": "missing"
+    },
+    {
+      "title": "Дун",
+      "reason": "missing"
+    },
+    {
+      "title": "Зээр",
+      "reason": "missing"
+    },
+    {
+      "title": "Медуз",
+      "reason": "missing"
+    },
+    {
+      "title": "Наймаалж",
+      "reason": "missing"
+    },
+    {
+      "title": "Отго",
+      "reason": "missing"
+    },
+    {
+      "title": "Тахиа",
+      "reason": "missing"
+    },
+    {
+      "title": "Туулай",
+      "reason": "missing"
+    },
+    {
+      "title": "Хавч",
+      "reason": "missing"
+    },
+    {
+      "title": "Хандгай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хараацай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хирс",
+      "reason": "missing"
+    },
+    {
+      "title": "Хулан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хун",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэрэм",
+      "reason": "short"
+    },
+    {
+      "title": "Хэрээ",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цацагт хяруул",
+      "reason": "missing"
+    },
+    {
+      "title": "Шаазгай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шүр",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl"
+  ],
+  "sha256": "1cc099aad5e0ca33c57791d79da6bfb2f2b15f2ed3dccc8671fd2e4183fd230e",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

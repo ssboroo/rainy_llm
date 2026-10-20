@@ -1,0 +1,20 @@
+{
+  "valid": true,
+  "experiment": "qwen3-06b-cpu-bf16-v1",
+  "errors": [],
+  "warnings": [],
+  "files": {
+    "cases_sha256": "b45f694cc83a5ffd030bcbb02b5872e4ffe49133e3ee0cf6d35aa1c030955bb5",
+    "metadata_sha256": "6a16f0c665aa71860e17599b4b9e0867e81356637796fe8f57fa867fbb652383",
+    "predictions_sha256": "128690701bffa8264a1e68c76c9879fa3e50d8485b0a97d4dfc5f212f55a821f",
+    "scores_sha256": "106dd6585216d7f2b8f67f6b2f24dab70f46db523c5084624deab77d7603a4d1"
+  },
+  "measurements": {
+    "cases": 24,
+    "predictions": 24,
+    "correct": 0,
+    "total_generation_seconds": 77.5213,
+    "generated_tokens": 1064,
+    "token_limit_hits": 7
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-20T08:58:02.662398+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 26104,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "missing": 11,
+    "short": 2,
+    "batch-limit": 6,
+    "quality-artifact": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Аккумулятор",
+      "reason": "missing"
+    },
+    {
+      "title": "Дулааны цахилгаан станц",
+      "reason": "missing"
+    },
+    {
+      "title": "Криптограф",
+      "reason": "short"
+    },
+    {
+      "title": "Микропроцессор",
+      "reason": "missing"
+    },
+    {
+      "title": "Оптик мяндас",
+      "reason": "missing"
+    },
+    {
+      "title": "Радар",
+      "reason": "missing"
+    },
+    {
+      "title": "Робот",
+      "reason": "missing"
+    },
+    {
+      "title": "Робот техник",
+      "reason": "missing"
+    },
+    {
+      "title": "Телевиз",
+      "reason": "short"
+    },
+    {
+      "title": "Төв боловсруулах байгууламж",
+      "reason": "missing"
+    },
+    {
+      "title": "Усан цахилгаан станц",
+      "reason": "missing"
+    },
+    {
+      "title": "Ухаалаг утас",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан станц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан хөдөлгүүр",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан үүсгүүр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахим хуудас",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахим хөтөч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахим шуудан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөмийн эрчим хүч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энерги",
+      "reason": "quality-artifact"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl"
+  ],
+  "sha256": "1715ebee0fc2f9aecbf234df65ef181bef181c1bab321a022ad1ef8a0c2eb551",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

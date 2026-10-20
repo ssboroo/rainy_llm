@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-18T05:04:44.705754+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 29096,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "batch-limit": 20
+  },
+  "rejected_items": [
+    {
+      "title": "Словени",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тайланд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тарвас",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Унгар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Усан үзэм",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Филиппин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Финланд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хорват",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хуушуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хуш",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чех",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чили",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Швед",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Швейцар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинэ Зеланд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эстони",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Яст мэлхий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үхэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өрөм",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl"
+  ],
+  "sha256": "a0026dbea13c6669c5a6e48bfd2a40b3019b3866c79f7630ca2c6dba20ccdfec",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
