@@ -1,0 +1,82 @@
+[
+  {
+    "id": "mn-pilot-authored-001",
+    "parent_id": "mnwiki-3905-792156",
+    "parent_sha256": "154ce420505632ac76022550f596820388d06796a1f2e2624203d257be0c9f13",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Монгол гэр ямар амьдралын хэв маягт зохицсон бэ?",
+    "answer_start": 209,
+    "answer_end": 229
+  },
+  {
+    "id": "mn-pilot-authored-002",
+    "parent_id": "mnwiki-3905-792156",
+    "parent_sha256": "154ce420505632ac76022550f596820388d06796a1f2e2624203d257be0c9f13",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Монгол гэрийг ямар гурван төрөлд ялган үздэг вэ?",
+    "answer_start": 837,
+    "answer_end": 856
+  },
+  {
+    "id": "mn-pilot-authored-003",
+    "parent_id": "mnwiki-4939-842923",
+    "parent_sha256": "bd116665b6bade24271f4c016949a4b6e2ba355e8a57e28269e801163bcf1955",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Морин хуур ямар үндэстний хөгжмийн зэмсэг вэ?",
+    "answer_start": 14,
+    "answer_end": 46
+  },
+  {
+    "id": "mn-pilot-authored-004",
+    "parent_id": "mnwiki-4939-842923",
+    "parent_sha256": "bd116665b6bade24271f4c016949a4b6e2ba355e8a57e28269e801163bcf1955",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Өвөр Монголын зарим нутагт морин хуурыг юу гэж нэрлэдэг вэ?",
+    "answer_start": 243,
+    "answer_end": 247
+  },
+  {
+    "id": "mn-pilot-authored-005",
+    "parent_id": "mnwiki-12795-863791",
+    "parent_sha256": "ad2c5c81573b7bc83b2e9eeda129af5b7d3dfb89f588ecca4d17348a5c704913",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Наадмыг ЮНЕСКО хэдэн онд бүртгэн авсан бэ?",
+    "answer_start": 96,
+    "answer_end": 104
+  },
+  {
+    "id": "mn-pilot-authored-006",
+    "parent_id": "mnwiki-4301-834059",
+    "parent_sha256": "df0092759150273cf7717e26564e19f1475c02bd682b223a6afadc3e0a2e47ec",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Хөвсгөл нуураас ямар гол эх авдаг вэ?",
+    "answer_start": 438,
+    "answer_end": 447
+  },
+  {
+    "id": "mn-pilot-authored-007",
+    "parent_id": "mnwiki-4301-834059",
+    "parent_sha256": "df0092759150273cf7717e26564e19f1475c02bd682b223a6afadc3e0a2e47ec",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Хөвсгөл нуурын хамгийн гүн хэсэг хэдэн метр вэ?",
+    "answer_start": 629,
+    "answer_end": 639
+  },
+  {
+    "id": "mn-pilot-authored-008",
+    "parent_id": "mnwiki-7267-855715",
+    "parent_sha256": "b2223aae4dc499d8cdd95b8d9b4a35736ef2d3b49ad21f9d52955af8d5d8e357",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Цагаан сар ямар баяр вэ?",
+    "answer_start": 132,
+    "answer_end": 175
+  },
+  {
+    "id": "mn-pilot-authored-009",
+    "parent_id": "mnwiki-4681-869535",
+    "parent_sha256": "afc8a749a3c1e609226e985f5f44a61635b488da19147546deb9a0b45b6d9d3a",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Монгол Улсын нийслэл аль хот вэ?",
+    "answer_start": 151,
+    "answer_end": 166
+  },
+  {
+    "id": "mn-pilot-authored-010",
+    "parent_id": "mnwiki-4681-869535",
+    "parent_sha256": "afc8a749a3c1e609226e985f5f44a61635b488da19147546deb9a0b45b6d9d3a",
+    "instruction": "Зөвхөн өгөгдсөн эхэд тулгуурлан товч хариул. Монгол Улс хойд талаараа аль улстай хиллэдэг вэ?",
+    "answer_start": 56,
+    "answer_end": 75
+  }
+]
