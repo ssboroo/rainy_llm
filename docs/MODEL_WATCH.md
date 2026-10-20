@@ -2,6 +2,11 @@
 
 ## 2026-10-20: DeepSeek Flash-1017 watch-only snapshot
 
+13:00 follow-up: official producer pages, PEFT releases/API and LoRA paper
+reopened. PEFT remains v0.21.2 (2026-10-01T10:29:50Z). No newly verified
+immutable model revision or tested runtime upgrade beyond the morning snapshot.
+Batch 02 adds real raw data, not a model-quality improvement.
+
 Official [model card](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
 and Hub API checked: exact ID `deepseek-ai/DeepSeek-V4.1-Flash-1017`, immutable
 revision `1bae0e1088993b9b82de08f59de5be5a34e42170`. Repository creation is
