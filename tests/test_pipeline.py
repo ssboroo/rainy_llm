@@ -27,12 +27,39 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(report['removed_exact_duplicates'], 1)
 
+    def test_duplicate_preserves_source_connection(self):
+        records = [row(1, 'a', 'Ижил'), row(2, 'b', 'Ижил'), row(3, 'b')]
+        rows, report = prepare(records)
+        self.assertEqual(report['groups'], 1)
+        self.assertEqual(len({r['split'] for r in rows}), 1)
+        self.assertEqual(report['records'], 2)
+
+    def test_duplicate_order_independent_and_provenance(self):
+        records = [row(2, 'b', 'Ижил'), row(1, 'a', 'Ижил'), row(3, 'b')]
+        self.assertEqual(prepare(records), prepare(list(reversed(records))))
+        rows, report = prepare(records)
+        self.assertEqual(rows[0]['id'], '1')
+        self.assertEqual(rows[0]['duplicate_provenance'], [
+            dict(id='1', source='a', license='test-only'),
+            dict(id='2', source='b', license='test-only')])
+        self.assertEqual(report['removed_exact_duplicates'], 1)
+        self.assertEqual(sum(report['splits'].values()), 2)
+        self.assertNotIn('split', records[0])
+
+    def test_duplicate_transitive_connection(self):
+        records = [row(1, 'a', 'X'), row(2, 'b', 'X'),
+                   row(3, 'b', 'Y'), row(4, 'c', 'Y'), row(5, 'c')]
+        rows, report = prepare(records)
+        self.assertEqual(report['groups'], 1)
+        self.assertEqual(len({r['split'] for r in rows}), 1)
+        self.assertEqual(len(rows), 3)
+
     def test_heldout_rejected(self):
         with self.assertRaises(ValueError):
             prepare([row(1, prompt='Нууц тест')], heldout=['Нууц тест'])
 
     def test_invalid_data(self):
-        for rows in [[], [row(1), row(1)], [dict(row(1), license='')], [dict(row(1), input=3)]]:
+        for rows in [[], [row(1), row(1)], [dict(row(1), license='')], [dict(row(1), input=3)], [dict(row(1), duplicate_provenance=[])]]:
             with self.subTest(rows=rows), self.assertRaises(ValueError):
                 prepare(rows)
 

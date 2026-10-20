@@ -26,12 +26,15 @@ def read_rows(path):
 
 
 def prepare(rows, seed='rainy-v1', heldout=()):
-    # Group by source AND prompt using connected components. This prevents
-    # identical prompts appearing in different splits even across sources.
-    clean, ids, seen, removed = [], set(), set(), 0
+    # Group by source AND prompt using connected components.
+    # Do this BEFORE removing duplicates, preserving every source connection.
+    # This prevents identical prompts appearing in different splits even across sources.
+    clean, ids = [], set()
     blocked = {norm(q) for q in heldout}
     for original in rows:
         row = dict(original)
+        if "duplicate_provenance" in row:
+            raise ValueError("prepare expects raw rows without duplicate_provenance")
         for key in ('id', 'instruction', 'output', 'source', 'license'):
             if not isinstance(row.get(key), str) or not norm(row[key]):
                 raise ValueError(f'invalid field: {key}')
@@ -44,11 +47,6 @@ def prepare(rows, seed='rainy-v1', heldout=()):
         ids.add(row['id'])
         if row['instruction'] in blocked:
             raise ValueError('held-out prompt found: ' + row['id'])
-        signature = tuple(row[k] for k in ('instruction', 'input', 'output'))
-        if signature in seen:
-            removed += 1
-            continue
-        seen.add(signature)
         clean.append(row)
     if not clean:
         raise ValueError('dataset is empty')
@@ -70,14 +68,29 @@ def prepare(rows, seed='rainy-v1', heldout=()):
     for i, row in enumerate(clean):
         components.setdefault(root(i), []).append(row)
     counts = dict(train=0, validation=0, test=0)
+    retained, duplicates = [], {}
+    removed = 0
     for members in components.values():
         identity = json.dumps(sorted({r['source'] for r in members}), ensure_ascii=False)
         bucket = int(hashlib.sha256((seed + '\0' + identity).encode()).hexdigest(), 16) % 100
         split = 'train' if bucket < 80 else 'validation' if bucket < 90 else 'test'
         for row in members:
             row['split'] = split
-            counts[split] += 1
-    return clean, dict(records=len(clean), removed_exact_duplicates=removed,
+            signature = tuple(row[k] for k in ('instruction', 'input', 'output'))
+            if signature in duplicates:
+                canonical = duplicates[signature]
+                if 'duplicate_provenance' not in canonical:
+                    canonical['duplicate_provenance'] = [
+                        {k: canonical[k] for k in ('id', 'source', 'license')}]
+                canonical['duplicate_provenance'].append(
+                    {k: row[k] for k in ('id', 'source', 'license')})
+                removed += 1
+            else:
+                duplicates[signature] = row
+                retained.append(row)
+                counts[split] += 1
+    retained.sort(key=lambda r: r['id'])
+    return retained, dict(records=len(retained), removed_exact_duplicates=removed,
                        groups=len(components), splits=counts, seed=seed,
                        warnings=['Empty splits are possible; hash ratios are approximate.'] if 0 in counts.values() else [])
 
