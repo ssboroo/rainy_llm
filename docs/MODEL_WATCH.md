@@ -1,5 +1,90 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-20: DeepSeek Flash-1017 watch-only snapshot
+
+17:00 follow-up: official producer/runtime/paper sources reopened; PEFT latest
+API remains v0.21.2 (2026-10-01T10:29:50Z). No new immutable model pin or tested
+runtime upgrade established. Batch 03 adds raw technology/energy sources, not
+training or measured quality improvement. Baseline and rollback evidence kept.
+
+13:00 follow-up: official producer pages, PEFT releases/API and LoRA paper
+reopened. PEFT remains v0.21.2 (2026-10-01T10:29:50Z). No newly verified
+immutable model revision or tested runtime upgrade beyond the morning snapshot.
+Batch 02 adds real raw data, not a model-quality improvement.
+
+Official [model card](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+and Hub API checked: exact ID `deepseek-ai/DeepSeek-V4.1-Flash-1017`, immutable
+revision `1bae0e1088993b9b82de08f59de5be5a34e42170`. Repository creation is
+2026-10-17T02:40:38Z; an independent release announcement date was not verified.
+MIT applies to repository code and weights. Open-weight, not API-only; fully
+open training data is not established. Vendor describes a minor update with
+reasoning/coding/visual improvements; these are not RAINY Mongolian measurements.
+There is no Jinja chat template: the card points to Python encoding and the
+deepseek-recipe toolkit. Tokenizer files and runtime version compatibility have
+not been locally validated. Hub reports 763B parameters with mixed tensor types;
+not feasible in this approximately 10 GiB RAM / 26 GiB free-disk environment.
+No download, adapter compatibility claim, integration or base replacement.
+
+Qwen/Gemma/Meta/Mistral official pages and LoRA paper reopened. PEFT latest API
+still reports v0.21.2, published 2026-10-01T10:29:50Z, the encoder-decoder fix for
+Transformers >=5.18.0. No tested dependency upgrade. Existing pins/results kept.
+Executable deliverable: 20 new licensed raw sources; see [research](../research/2026-10-20.md).
+
+## 2026-10-19 source recheck
+
+21:00 follow-up: seven official producer/runtime/paper sources and PEFT API
+reopened. Still v0.21.2 (2026-10-01T10:29:50Z); no new verified immutable pin,
+tested runtime integration or baseline promotion. Batches 03–04 add raw sources,
+not training or measured model-quality improvement.
+
+17:00 continuation: official producer/runtime/paper pages and PEFT latest API
+rechecked during this work cycle. No new verified immutable pin or tested runtime
+upgrade. Batch 02 is real corpus collection, not training or quality improvement.
+
+Official Qwen, Gemma, DeepSeek, Meta, Mistral pages, PEFT releases/API and LoRA
+paper reopened. PEFT API still reports v0.21.2, published 2026-10-01T10:29:50Z,
+encoder-decoder compatibility fix for Transformers >=5.18.0. No new immutable
+model pin or tested runtime upgrade established; baseline and rollback evidence
+unchanged. Actual deliverable: 20 real raw sources, not model-quality improvement.
+See [research](../research/2026-10-19.md). Watchlist coverage is not exhaustive.
+
+## 2026-10-18 source recheck
+
+21:00 follow-up: official producer/runtime/paper sources and PEFT API rechecked;
+v0.21.2 remains the API's latest release. No new immutable model pin or tested
+dependency change. Batches 04–05 complete collection target, not model training.
+
+17:00 follow-up: official producer/runtime/paper sources and PEFT API rechecked.
+No new verified immutable model pin, tested dependency upgrade or baseline
+promotion. Batch 03 adds raw sources only; no measured model-quality gain.
+
+13:00 follow-up: same official sources and PEFT release API rechecked; no new
+verified immutable pin or tested upgrade. Batch 02 adds raw sources, not trained
+weights or benchmark evidence. Baseline unchanged.
+
+Official producer pages, PEFT releases and LoRA paper rechecked. PEFT latest API
+still reports v0.21.2 (2026-10-01T10:29:50Z), encoder-decoder fix for Transformers
+>=5.18.0. No new verified immutable model pin, tested runtime upgrade or baseline
+promotion. Delivered real corpus data, not training or measured quality gain.
+See [research](../research/2026-10-18.md); previous pins/results preserved.
+
+## 2026-10-17 source recheck
+
+17:00 follow-up: reopened the same official producer/runtime/paper sources.
+PEFT latest API remains v0.21.2 (2026-10-01T10:29:50Z). No new verified model
+revision, dependency upgrade or baseline change; batch 03 is data collection only.
+
+13:00 follow-up: official producer pages, PEFT release notes/API and LoRA paper
+rechecked. No new immutable pin, tested runtime upgrade or baseline promotion.
+Batch 02 adds raw sources only; no training/inference or measured quality gain.
+
+Reopened official Qwen, Gemma, DeepSeek, Meta, Mistral pages, PEFT releases and
+LoRA paper. PEFT latest-release API still reports v0.21.2, published
+2026-10-01T10:29:50Z; no new immutable model pin, tested runtime upgrade or
+baseline promotion established. Delivered a 20-source raw corpus batch, not
+training/inference or measured quality improvement. Existing pins and results
+remain unchanged. See [today's research](../research/2026-10-17.md).
+
 ## 2026-10-16 source recheck
 
 21:00 follow-up: reopened official producer pages, PEFT releases and LoRA paper.
@@ -174,3 +259,10 @@ Rechecked the official producer pages. Mistral Large 4 weights remain an upcomin
 ### 2026-10-15 17:00 follow-up
 
 Reopened official Qwen, Gemma, DeepSeek, Meta and Mistral pages plus the LoRA paper and PEFT releases. The PEFT latest-release API still reports v0.21.2 (2026-10-01T10:29:50Z), not an installed or tested training lock. No new immutable weight revision, compatible runtime integration or baseline promotion was established. Shipped batch 03 with conservative template/email and lexical near-duplicate screening; raw collection and automated screening do not demonstrate model-quality improvement. See today's research for actual tests, resource/storage blockers and remaining human-review gates.
+
+### October 20, 21:00 follow-up
+Reopened the official producer pages, LoRA paper and PEFT releases cited in
+today's research. Latest PEFT API remains v0.21.2 (2026-10-01T10:29:50Z);
+no new verified model revision, tested runtime upgrade or baseline promotion.
+The executable data deliverable is 40 new raw sources (daily 100/100), all
+pending review, not trained weights or measured model-quality improvement.

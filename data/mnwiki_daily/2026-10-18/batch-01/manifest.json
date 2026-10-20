@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-18T01:00:05.867643+00:00",
+  "requested_titles": 60,
+  "articles": 20,
+  "characters": 20455,
+  "rejected": 40,
+  "rejected_by_reason": {
+    "duplicate-source": 14,
+    "missing": 10,
+    "short": 3,
+    "batch-limit": 13
+  },
+  "rejected_items": [
+    {
+      "title": "Ааруул",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Австрали",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алим",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Арвай",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Байцаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Будаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Бяслаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бөөрөлзгөнө",
+      "reason": "missing"
+    },
+    {
+      "title": "Гурил",
+      "reason": "missing"
+    },
+    {
+      "title": "Гүзээлзгэнэ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Зөгийн бал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Лийр",
+      "reason": "short"
+    },
+    {
+      "title": "Лууван",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нэрс",
+      "reason": "missing"
+    },
+    {
+      "title": "Овьёос",
+      "reason": "missing"
+    },
+    {
+      "title": "Перу",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Португал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Самар",
+      "reason": "missing"
+    },
+    {
+      "title": "Сармис",
+      "reason": "missing"
+    },
+    {
+      "title": "Сонгино",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сүү",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тараг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тарвас",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төмс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улаан лооль",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Усан үзэм",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Финланд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хоолны давс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хуушуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хуш",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цуйван",
+      "reason": "missing"
+    },
+    {
+      "title": "Цөцгийн тос",
+      "reason": "missing"
+    },
+    {
+      "title": "Чили",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Швед",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Элсэн чихэр",
+      "reason": "short"
+    },
+    {
+      "title": "Яст мэлхий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үхэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өргөст хэмх",
+      "reason": "short"
+    },
+    {
+      "title": "Өрөм",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl"
+  ],
+  "sha256": "7c4fa1c88c03ec5500e4734c9ba5916b9c380284a01d1635794df8b994e2a8c6",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
