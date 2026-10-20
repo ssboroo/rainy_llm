@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-20T01:02:45.627576+00:00",
+  "requested_titles": 40,
+  "articles": 20,
+  "characters": 11214,
+  "rejected": 20,
+  "rejected_by_reason": {
+    "short": 5,
+    "quality-artifact": 1,
+    "batch-limit": 13,
+    "missing": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Бор",
+      "reason": "short"
+    },
+    {
+      "title": "Бром",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Иод",
+      "reason": "short"
+    },
+    {
+      "title": "Кали",
+      "reason": "short"
+    },
+    {
+      "title": "Рубиди",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Селен",
+      "reason": "missing"
+    },
+    {
+      "title": "Сканди",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Стронци",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Титан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Фосфор",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Фтор",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хлор",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хром",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүнцэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүхэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөнгөн цагаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан тугалга",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цайр",
+      "reason": "short"
+    },
+    {
+      "title": "Цахиур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Циркони",
+      "reason": "short"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl"
+  ],
+  "sha256": "534b0e9d6695047401abb2e7bcce4cf98d3ee0fdcca53b8d5de0c00d0db74048",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

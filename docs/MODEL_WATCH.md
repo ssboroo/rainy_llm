@@ -1,5 +1,25 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-20: DeepSeek Flash-1017 watch-only snapshot
+
+Official [model card](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+and Hub API checked: exact ID `deepseek-ai/DeepSeek-V4.1-Flash-1017`, immutable
+revision `1bae0e1088993b9b82de08f59de5be5a34e42170`. Repository creation is
+2026-10-17T02:40:38Z; an independent release announcement date was not verified.
+MIT applies to repository code and weights. Open-weight, not API-only; fully
+open training data is not established. Vendor describes a minor update with
+reasoning/coding/visual improvements; these are not RAINY Mongolian measurements.
+There is no Jinja chat template: the card points to Python encoding and the
+deepseek-recipe toolkit. Tokenizer files and runtime version compatibility have
+not been locally validated. Hub reports 763B parameters with mixed tensor types;
+not feasible in this approximately 10 GiB RAM / 26 GiB free-disk environment.
+No download, adapter compatibility claim, integration or base replacement.
+
+Qwen/Gemma/Meta/Mistral official pages and LoRA paper reopened. PEFT latest API
+still reports v0.21.2, published 2026-10-01T10:29:50Z, the encoder-decoder fix for
+Transformers >=5.18.0. No tested dependency upgrade. Existing pins/results kept.
+Executable deliverable: 20 new licensed raw sources; see [research](../research/2026-10-20.md).
+
 ## 2026-10-19 source recheck
 
 21:00 follow-up: seven official producer/runtime/paper sources and PEFT API
