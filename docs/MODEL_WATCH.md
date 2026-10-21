@@ -1,5 +1,17 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-21 21:00: official sources rechecked; baseline retained
+
+Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and
+Meta producer pages, Mistral Large 4 planned-weight page and PEFT releases. No
+new immutable resource-feasible base, license change, locally validated runtime
+compatibility or matched Mongolian result was established after 17:00. The
+Qwen3.8-27B card still describes a 27B open-weight multimodal model, Google's
+latest dated Gemma entry remains EmbeddingGemma 2 (2026-10-06), and Mistral
+Large 4 remains an upcoming artifact. Existing pins, baseline results and
+rollback evidence are retained. This run completes two raw corpus batches; it
+does not integrate, train or promote a model.
+
 ## 2026-10-21 17:00: official sources unchanged; data work continued
 
 Reopened the official Qwen organization/cards, Google Gemma release log,

@@ -1,12 +1,12 @@
 # Daily Mongolian Wikipedia source batches
 
-Current snapshot, 2026-10-21: batches 01-03 add 60 medical, law/economics and mathematics/earth-science sources / 67,515 characters.
-Today: 60/100; daily-branch daily/pilot corpus: 580 raw documents; separately persisted bulk branch: 518; combined exact-unique: 1,098; human-reviewed/training-ready: 0/0.
+Current snapshot, 2026-10-21: five batches add 100 medical, law/economics, mathematics/earth-science, humanities and computing/engineering sources / 110,899 characters.
+Today: 100/100; daily-branch daily/pilot corpus: 620 raw documents; separately persisted bulk branch: 518; combined exact-unique: 1,138; human-reviewed/training-ready: 0/0.
 October 19 remains 80/100; its incomplete earlier attempt is not counted or backdated.
 October 16 and 18 completed 100/100; October 15 and 17 remain 60/100, with no backdated additions.
 
-2026-10-21: өнөөдөр 60/100 шинэ эх, 67,515 тэмдэгт; daily branch-ийн daily/pilot 580,
-тусдаа bulk branch 518, нийлээд exact-unique 1,098 raw эх. Хүний хяналттай болон сургалтад бэлэн эх 0/0.
+2026-10-21: өнөөдөр 100/100 шинэ эх, 110,899 тэмдэгт; daily branch-ийн daily/pilot 620,
+тусдаа bulk branch 518, нийлээд exact-unique 1,138 raw эх. Хүний хяналттай болон сургалтад бэлэн эх 0/0.
 10-р сарын 20-нд 100/100; 19-нд 80/100; 16, 18-нд 100/100; 15, 17-ны тус бүр 40 эх дутуу хэвээр.
 
 These are raw article introductions retrieved through the official MediaWiki API,

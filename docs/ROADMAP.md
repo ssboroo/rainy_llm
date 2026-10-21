@@ -4,7 +4,7 @@
 - [x] Batch 01: 20 medical/anatomy/genetics sources / 19,976 characters; today 20/100. Main daily/pilot corpus 540; separately persisted bulk branch 264; combined exact-unique raw leads 804; human-reviewed/training-ready 0/0.
 - [x] Batch 02: 20 law/government/economics sources / 19,837 characters; today 40/100. Main daily/pilot corpus 560; separately persisted bulk branch 264; combined exact-unique raw leads 824; human-reviewed/training-ready 0/0.
 - [x] Batch 03: 20 mathematics/astronomy/earth-science/humanities sources / 27,702 characters; today 60/100. Daily-branch daily/pilot corpus 580; separately persisted bulk branch 518; combined exact-unique raw leads 1,098; human-reviewed/training-ready 0/0.
-- [ ] Batches 04–05: 40 more daily sources. Continue deduplication against both the daily branch and the latest bulk branch.
+- [x] Batches 04–05: 20 humanities/culture and 20 computing/engineering sources / 20,287 + 23,097 characters. Today 100/100 and 110,899 characters; daily/pilot 620 plus bulk 518 = 1,138 exact-unique raw leads; human-reviewed/training-ready 0/0.
 - [ ] Human rights/privacy/quality review and source-linked instruction authoring. Do not treat 10 AI-authored grounded QA drafts or raw collection as human approval.
 
 ## 2026-10-20 daily corpus
