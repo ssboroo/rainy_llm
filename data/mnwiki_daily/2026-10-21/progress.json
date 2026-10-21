@@ -4,13 +4,14 @@
   "timezone": "Asia/Ulaanbaatar",
   "target": 100,
   "batch_size": 20,
-  "completed_batches": 2,
-  "unique_added": 40,
-  "rejected_candidates": 57,
+  "completed_batches": 3,
+  "unique_added": 60,
+  "rejected_candidates": 147,
   "human_reviewed": 0,
   "training_ready": 0,
   "batches": [
     {"id": "batch-01", "articles": 20, "characters": 19976, "corpus_sha256": "06abee892bb2842513d1e248966a484b12c8306d569fcc08f88877194f78c68a"},
-    {"id": "batch-02", "articles": 20, "characters": 19837, "corpus_sha256": "1be0e4dcaedf0225ec69488283580631fec22658ac3c89aaabc7a14e4ee5eac3"}
+    {"id": "batch-02", "articles": 20, "characters": 19837, "corpus_sha256": "1be0e4dcaedf0225ec69488283580631fec22658ac3c89aaabc7a14e4ee5eac3"},
+    {"id": "batch-03", "articles": 20, "characters": 27702, "corpus_sha256": "fa4169906d2a58c1708dca1f5559bdf920094e0fd479c390ef5c05cb021d2d1b"}
   ]
 }

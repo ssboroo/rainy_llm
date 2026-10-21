@@ -1,5 +1,15 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-21 17:00: official sources unchanged; data work continued
+
+Reopened the official Qwen organization/cards, Google Gemma release log,
+DeepSeek and Meta producer pages, the Mistral Large 4 planned-weight page and
+PEFT releases. No new immutable resource-feasible base, license change, tested
+runtime compatibility or matched Mongolian result was established after the
+13:00 check. Existing pins, baseline results and rollback evidence are retained;
+no model or dependency was downloaded or promoted. The executable work is raw
+corpus collection and cross-branch deduplication, not training or quality gain.
+
 ## 2026-10-21 13:00: upstream recheck; no baseline change
 
 Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and
