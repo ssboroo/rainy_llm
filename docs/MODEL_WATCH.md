@@ -1,5 +1,16 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-21 13:00: upstream recheck; no baseline change
+
+Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and
+Meta producer pages, the planned Mistral Large 4 weights page, and PEFT release
+metadata. No new immutable resource-feasible model revision, license change,
+locally compatible runtime result, or held-out Mongolian comparison was
+established after the morning snapshot. Qwen3.8-27B remains watch-only at the
+morning pin; PEFT remains uninstalled. No model was downloaded, integrated or
+promoted. This run adds raw corpus data only; retained configs, revisions and
+rollback results are unchanged.
+
 ## 2026-10-21: official recheck and Qwen3.8-27B immutable snapshot
 
 Official model card/API checked for exact ID Qwen/Qwen3.8-27B: model-card
