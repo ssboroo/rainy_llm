@@ -1,0 +1,20 @@
+{
+  "accepted": 276,
+  "examined": 380,
+  "api_requests": 45,
+  "rejected": {
+    "short": 77,
+    "quality-artifact": 20,
+    "low-cyrillic": 7
+  },
+  "total_unique_indexed": 1314,
+  "corpus_sha256": "03d242c97e4bc7d935a7dc5130caef44cbadb950db4f757f2dd652b957882679",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "II_Газан",
+    "exhausted": false
+  }
+}
