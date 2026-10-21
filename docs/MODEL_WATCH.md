@@ -1,5 +1,27 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-21: official recheck and Qwen3.8-27B immutable snapshot
+
+Official model card/API checked for exact ID Qwen/Qwen3.8-27B: model-card
+release date 2026-08-13, immutable revision
+1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0, Apache-2.0 weights/repository,
+open-weight rather than API-only. The API exposes a Jinja chat template and
+lists Transformers with Qwen3_5ForConditionalGeneration; compatibility is
+declared upstream, not locally validated. BF16 weights contain 27,781,427,952
+parameters and occupy 55,615,875,685 bytes, exceeding this run's approximately
+26 GiB free disk before runtime overhead. No download, adapter-compatibility
+claim, integration or baseline promotion. Fully open training data is not
+established.
+
+Gemma's official release log still lists EmbeddingGemma 2 (2026-10-06) as its
+latest entry; it is an embedding model, not a drop-in causal base. DeepSeek
+Flash-1017 remains the latest checked DeepSeek card; Meta's official organization
+page provided no newer resource-feasible candidate. Mistral Large 4 remains an
+upcoming 2026-10-31 weight release, not downloadable/tested today. PEFT latest
+API remains v0.21.2 (2026-10-01T10:29:50Z). Existing baseline and rollback
+evidence are retained. Executable deliverable: 20 licensed raw sources, not
+trained weights or measured Mongolian quality.
+
 ## 2026-10-20: DeepSeek Flash-1017 watch-only snapshot
 
 17:00 follow-up: official producer/runtime/paper sources reopened; PEFT latest

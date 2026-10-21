@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-21 daily corpus
+- [x] Batch 01: 20 medical/anatomy/genetics sources / 19,976 characters; today 20/100. Main daily/pilot corpus 540; separately persisted bulk branch 264; combined exact-unique raw leads 804; human-reviewed/training-ready 0/0.
+- [ ] Batches 02–05: 80 more daily sources. Continue deduplication against both main and the bulk branch.
+- [ ] Human rights/privacy/quality review and source-linked instruction authoring. Do not treat 10 AI-authored grounded QA drafts or raw collection as human approval.
+
 ## 2026-10-20 daily corpus
 - [x] Batch 01: 20 chemistry-element sources / 11,214 characters; today 20/100, repository 440 raw records; human-reviewed/training-ready 0/0.
 - [x] Batch 02: 20 further sources / 9,351 characters; today 40/100, repository 460. All pending; no training.
