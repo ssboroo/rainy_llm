@@ -1,0 +1,20 @@
+{
+  "accepted": 254,
+  "examined": 676,
+  "api_requests": 63,
+  "rejected": {
+    "short": 415,
+    "low-cyrillic": 3,
+    "quality-artifact": 4
+  },
+  "total_unique_indexed": 1038,
+  "corpus_sha256": "6a0fd5fb045ef6392a9bf4188445e0e00183b959cc3310fed517eceb5724dc6c",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Anarchy_Reigns",
+    "exhausted": false
+  }
+}
