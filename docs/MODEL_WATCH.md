@@ -1,5 +1,21 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-22 17:00: official sources unchanged; data gate continued
+
+Reopened official Qwen material, Google Gemma releases, the exact
+`deepseek-ai/DeepSeek-V4.1-Flash-1017` card, Meta's producer index, Mistral
+model documentation and PEFT releases. Google still lists EmbeddingGemma 2
+(2026-10-06) as the latest dated family entry. DeepSeek's card still identifies
+MIT weights, 763B parameters, no Jinja chat template and separate Python/Rust
+prompt encoding. These upstream runtime instructions do not establish local
+compatibility or Mongolian quality.
+
+No new resource-feasible immutable causal base, license change, locally tested
+runtime or matched held-out Mongolian advantage was established. Existing
+pins, Qwen3.5-4B experimental result and rollback artifacts remain unchanged.
+No download, dependency installation, inference, training or promotion was
+performed; the executable result is licensed raw-data batch 03.
+
 ## 2026-10-22 13:00: official recheck; retained baseline
 
 Reopened official Qwen material, the Google Gemma release log, the exact
