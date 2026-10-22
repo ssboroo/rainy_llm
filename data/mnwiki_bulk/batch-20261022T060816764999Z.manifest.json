@@ -1,0 +1,20 @@
+{
+  "accepted": 254,
+  "examined": 349,
+  "api_requests": 40,
+  "rejected": {
+    "short": 69,
+    "quality-artifact": 17,
+    "low-cyrillic": 9
+  },
+  "total_unique_indexed": 1568,
+  "corpus_sha256": "a575447502b7ad453f216db4e413720e4a162740e4d579f1248c8585dc0161a6",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Parkour",
+    "exhausted": false
+  }
+}
