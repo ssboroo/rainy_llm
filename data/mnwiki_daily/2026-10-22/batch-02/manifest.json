@@ -1,0 +1,345 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-22T05:00:00.311866+00:00",
+  "requested_titles": 89,
+  "articles": 20,
+  "characters": 16458,
+  "rejected": 69,
+  "rejected_by_reason": {
+    "missing": 20,
+    "duplicate-source": 10,
+    "short": 2,
+    "batch-limit": 37
+  },
+  "rejected_items": [
+    {
+      "title": "Авто зам",
+      "reason": "missing"
+    },
+    {
+      "title": "Автомашин",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Академи",
+      "reason": "missing"
+    },
+    {
+      "title": "Ариун цэвэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Ачаа тээвэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Галт тэрэг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гүүр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дархлаажуулалт",
+      "reason": "short"
+    },
+    {
+      "title": "Дугуй",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дээд боловсролын газар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Зайн сургалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Замын хөдөлгөөний аюулгүй байдал",
+      "reason": "missing"
+    },
+    {
+      "title": "Контейнер тээвэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Лаборатори",
+      "reason": "missing"
+    },
+    {
+      "title": "Логистик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Метро",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нийгмийн статистик",
+      "reason": "missing"
+    },
+    {
+      "title": "Нийгмийн эрүүл мэнд",
+      "reason": "missing"
+    },
+    {
+      "title": "Нисэх онгоц",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нисэх онгоцны буудал",
+      "reason": "short"
+    },
+    {
+      "title": "Сургууль",
+      "reason": "missing"
+    },
+    {
+      "title": "Тээвэр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Төмөр зам",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Урьдчилан сэргийлэх анагаах ухаан",
+      "reason": "missing"
+    },
+    {
+      "title": "Усны ариун цэвэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Уур амьсгалын өөрчлөлт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Халдваргүйжүүлэлт",
+      "reason": "missing"
+    },
+    {
+      "title": "Хар нүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Химийн инженерчлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хиндү шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хог хаягдал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хонгил",
+      "reason": "missing"
+    },
+    {
+      "title": "Хоол тэжээл",
+      "reason": "missing"
+    },
+    {
+      "title": "Хоёртын тооллын систем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Христ итгэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хубилай хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэвлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэрэглэгчийн интерфэйс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүлэмжийн хий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүнсний аюулгүй байдал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрс судлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрсний бохирдол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөх Түрэгийн хаант улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цаг агаар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан толгой",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан соронзон цацрал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цирк",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөлжилт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чингис хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шалгалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинто",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экосистем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Электроник",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпидемиологи",
+      "reason": "missing"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэм шинжилгээ",
+      "reason": "missing"
+    },
+    {
+      "title": "Эрүүл мэндийн боловсрол",
+      "reason": "missing"
+    },
+    {
+      "title": "Эх код",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Юань Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйл үг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүлэн тооцоолол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өв соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгэдэй хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүлбэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн бүтэц",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl"
+  ],
+  "sha256": "60be7c479edc51efc9ed3724b4033be7adccac8cbeb9c525b0bcbe9636d78025",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

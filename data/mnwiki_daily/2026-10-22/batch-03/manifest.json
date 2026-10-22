@@ -1,0 +1,388 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-22T09:06:05.705880+00:00",
+  "requested_titles": 99,
+  "articles": 20,
+  "characters": 21754,
+  "rejected": 79,
+  "rejected_by_reason": {
+    "missing": 21,
+    "duplicate-source": 27,
+    "quality-artifact": 1,
+    "batch-limit": 29,
+    "short": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Ардын дуу",
+      "reason": "missing"
+    },
+    {
+      "title": "Археологи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Архив",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Архитектур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Биет бус соёлын өв",
+      "reason": "missing"
+    },
+    {
+      "title": "Бичиг үсэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Бүжиг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Волейбол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Газар зүй",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гэрэл зураг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Домог",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дэлхийн аварга шалгаруулах тэмцээн",
+      "reason": "missing"
+    },
+    {
+      "title": "Дэлхийн түүх",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дүрслэх урлаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Жүжиг",
+      "reason": "missing"
+    },
+    {
+      "title": "Кино урлаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын кино урлаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын соёл",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын түүх",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монголын уран зохиол",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын урлаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын хөгжим",
+      "reason": "missing"
+    },
+    {
+      "title": "Музей",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нийгэм судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Ном хэвлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Номын сан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Олимпын наадам",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Орчин үеийн түүх",
+      "reason": "missing"
+    },
+    {
+      "title": "Сагсан бөмбөг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Соёл судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Соёлын өв",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Спорт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сэтгэл судлал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Театр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Теннис",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Түүх",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улс төр судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Уран баримал",
+      "reason": "missing"
+    },
+    {
+      "title": "Уран зохиол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Усанд сэлэлт",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэвлэлийн үйлдвэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэл шинжлэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хүн ам зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүн судлал",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хүнсний аюулгүй байдал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөгжим",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөлбөмбөг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөнгөн атлетик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрс судлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрсний бохирдол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөх Түрэгийн хаант улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цаг агаар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан толгой",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан соронзон цацрал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цирк",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөлжилт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чингис хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чөлөөт бөх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шатар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинто",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шүлэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эдийн засаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Экосистем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Электроник",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эртний түүх",
+      "reason": "short"
+    },
+    {
+      "title": "Эх код",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Юань Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйл үг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үлгэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Үүлэн тооцоолол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өв соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгэдэй хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүлбэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүллэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн бүтэц",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:7ab7fb5e665806fe083844b0ffe0aac8047ddcb1:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:7ab7fb5e665806fe083844b0ffe0aac8047ddcb1:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:7ab7fb5e665806fe083844b0ffe0aac8047ddcb1:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "git:7ab7fb5e665806fe083844b0ffe0aac8047ddcb1:data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl"
+  ],
+  "sha256": "ac0ed2adde630cdf02ffab3f9e2cb1a72adc3e7481aa141319c29ce3b193d145",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

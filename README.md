@@ -75,8 +75,8 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 123 tests, including collection screening/dedup, instruction drafts, corpus review/splits, checkpoint fault handling and evaluation |
-| Training corpus | Pending | 520 real Wikipedia leads collected; all unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
+| Unit tests | Available | 126 tests, including collection screening/dedup, instruction drafts, corpus review/splits, checkpoint fault handling and evaluation |
+| Training corpus | Pending | 680 daily/pilot Wikipedia leads plus 1,048 separately persisted bulk rows; 1,727 sources are exact-unique across branches after accounting for one known `JavaScript` cross-branch duplicate. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
 | Inference API / Docker | Planned | No runnable service or container configuration |
@@ -255,8 +255,8 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | Цуглуулалтын screening/давхардал, instruction ноорог, корпусын review/split, checkpoint, үнэлгээний 123 тест; бодит сургалтын баталгаа биш |
-| Сургалтын корпус | Бэлтгэгдээгүй | 520 бодит Wikipedia эх; бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
+| Unit test | Бэлэн | Цуглуулалтын screening/давхардал, instruction ноорог, корпусын review/split, checkpoint, үнэлгээний 126 тест; бодит сургалтын баталгаа биш |
+| Сургалтын корпус | Бэлтгэгдээгүй | daily branch дээр 680 daily/pilot, тусдаа bulk branch дээр 1,048 мөр; `JavaScript` нэг cross-branch давхардлыг хасаад 1,727 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
