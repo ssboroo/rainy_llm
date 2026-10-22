@@ -1,12 +1,12 @@
 # Daily Mongolian Wikipedia source batches
 
-Current snapshot, 2026-10-22: batch 01 adds 20 agriculture, environment and sustainability sources / 42,331 characters.
-Today: 20/100; daily-branch daily/pilot corpus: 640 raw documents; separately persisted bulk branch: 794; combined exact-unique: 1,434; human-reviewed/training-ready: 0/0.
+Current snapshot, 2026-10-22: batches 01–02 add 40 agriculture, environment, education, transport and culture sources / 58,789 characters.
+Today: 40/100; daily-branch daily/pilot corpus: 660 raw documents; separately persisted bulk branch: 794; combined exact-unique: 1,454; human-reviewed/training-ready: 0/0.
 October 19 remains 80/100; its incomplete earlier attempt is not counted or backdated.
 October 16 and 18 completed 100/100; October 15 and 17 remain 60/100, with no backdated additions.
 
-2026-10-22: өнөөдөр 20/100 шинэ эх, 42,331 тэмдэгт; daily branch-ийн daily/pilot 640,
-тусдаа bulk branch 794, нийлээд exact-unique 1,434 raw эх. Хүний хяналттай болон сургалтад бэлэн эх 0/0.
+2026-10-22: өнөөдөр 40/100 шинэ эх, 58,789 тэмдэгт; daily branch-ийн daily/pilot 660,
+тусдаа bulk branch 794, нийлээд exact-unique 1,454 raw эх. Хүний хяналттай болон сургалтад бэлэн эх 0/0.
 10-р сарын 20-нд 100/100; 19-нд 80/100; 16, 18-нд 100/100; 15, 17-ны тус бүр 40 эх дутуу хэвээр.
 
 These are raw article introductions retrieved through the official MediaWiki API,

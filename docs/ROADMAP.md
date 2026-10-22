@@ -2,7 +2,8 @@
 
 ## 2026-10-22 daily corpus
 - [x] Batch 01: 20 agriculture/environment/sustainability sources / 42,331 characters; today 20/100. Daily/pilot corpus 640; separately persisted bulk branch 794; combined exact-unique raw leads 1,434; human-reviewed/training-ready 0/0.
-- [ ] Batches 02–05: 80 more licensed, globally deduplicated sources with frozen evaluation data unchanged.
+- [x] Batch 02: 20 education/transport/culture sources / 16,458 characters; today 40/100. Daily/pilot corpus 660; separately persisted bulk branch 794; combined exact-unique raw leads 1,454; human-reviewed/training-ready 0/0.
+- [ ] Batches 03–05: 60 more licensed, globally deduplicated sources with frozen evaluation data unchanged.
 - [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
 
 ## 2026-10-21 daily corpus

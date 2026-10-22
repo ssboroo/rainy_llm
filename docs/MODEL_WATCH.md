@@ -1,5 +1,22 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-22 13:00: official recheck; retained baseline
+
+Reopened official Qwen material, the Google Gemma release log, the exact
+`deepseek-ai/DeepSeek-V4.1-Flash-1017` card, Meta's producer index, Mistral's
+Large 4 announcement/docs and PEFT releases. Google still lists
+EmbeddingGemma 2 (2026-10-06) as its latest dated Gemma entry; it is an
+embedding model rather than a causal training base. DeepSeek Flash-1017 is a
+roughly 763B multimodal model and Mistral Large 4 is a 1.05T/52B-active
+open-weight model; neither is feasible in this run's 9,967 MiB RAM / 25 GiB
+free-disk environment. Producer performance claims are not Mongolian evidence.
+
+No new resource-feasible immutable causal base, verified license change,
+locally tested dependency or matched held-out Mongolian advantage was
+established. Existing pins, rollback results and the Qwen3.5-4B experimental
+baseline remain unchanged. No weights, runtime dependency, model integration,
+training or inference was executed; batch 02 is raw-data work only.
+
 ## 2026-10-22 09:00: official recheck; no baseline promotion
 
 Reopened the official Qwen organization/cards, Google Gemma release log,
