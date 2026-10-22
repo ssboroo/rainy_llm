@@ -1,5 +1,17 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-22 09:00: official recheck; no baseline promotion
+
+Reopened the official Qwen organization/cards, Google Gemma release log,
+DeepSeek producer card and PEFT releases. The checked pages still show
+Qwen3.8-27B (2026-08-13), EmbeddingGemma 2 (2026-10-06),
+DeepSeek-V4.1-Flash-1017 and PEFT v0.21.2 (2026-10-01). No new immutable,
+resource-feasible causal base, license change, locally validated runtime result
+or matched Mongolian advantage was established. Existing pins, rollback data
+and baseline results remain unchanged; no model or dependency was downloaded,
+integrated or promoted. The executable work is a new licensed raw-source batch,
+not training, inference or measured quality gain.
+
 ## 2026-10-21 21:00: official sources rechecked; baseline retained
 
 Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and

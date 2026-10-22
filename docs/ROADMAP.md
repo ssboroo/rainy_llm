@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-22 daily corpus
+- [x] Batch 01: 20 agriculture/environment/sustainability sources / 42,331 characters; today 20/100. Daily/pilot corpus 640; separately persisted bulk branch 794; combined exact-unique raw leads 1,434; human-reviewed/training-ready 0/0.
+- [ ] Batches 02–05: 80 more licensed, globally deduplicated sources with frozen evaluation data unchanged.
+- [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
+
 ## 2026-10-21 daily corpus
 - [x] Batch 01: 20 medical/anatomy/genetics sources / 19,976 characters; today 20/100. Main daily/pilot corpus 540; separately persisted bulk branch 264; combined exact-unique raw leads 804; human-reviewed/training-ready 0/0.
 - [x] Batch 02: 20 law/government/economics sources / 19,837 characters; today 40/100. Main daily/pilot corpus 560; separately persisted bulk branch 264; combined exact-unique raw leads 824; human-reviewed/training-ready 0/0.

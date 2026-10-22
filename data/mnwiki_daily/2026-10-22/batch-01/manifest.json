@@ -1,0 +1,628 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-22T01:07:15.590709+00:00",
+  "requested_titles": 161,
+  "articles": 20,
+  "characters": 42331,
+  "rejected": 140,
+  "rejected_by_reason": {
+    "duplicate-source": 31,
+    "missing": 62,
+    "short": 3,
+    "batch-limit": 44
+  },
+  "rejected_items": [
+    {
+      "title": "Адуу",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алим",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Арвай",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Байгалийн цогцолборт газар",
+      "reason": "missing"
+    },
+    {
+      "title": "Байгаль орчны нөлөөллийн үнэлгээ",
+      "reason": "missing"
+    },
+    {
+      "title": "Байгаль хамгаалал",
+      "reason": "missing"
+    },
+    {
+      "title": "Байцаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Биом",
+      "reason": "missing"
+    },
+    {
+      "title": "Биотүлш",
+      "reason": "missing"
+    },
+    {
+      "title": "Боом",
+      "reason": "missing"
+    },
+    {
+      "title": "Бордоо",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бруцеллёз",
+      "reason": "missing"
+    },
+    {
+      "title": "Будаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Буудай",
+      "reason": "missing"
+    },
+    {
+      "title": "Бэлчээр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бэлчээрийн даац",
+      "reason": "missing"
+    },
+    {
+      "title": "Бяслаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Вакцин",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Газар тариалан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Галуу",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Генийн өөрчлөлттэй организм",
+      "reason": "missing"
+    },
+    {
+      "title": "Гүзээлзгэнэ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дархан цаазат газар",
+      "reason": "missing"
+    },
+    {
+      "title": "Даршилах",
+      "reason": "missing"
+    },
+    {
+      "title": "Дахин боловсруулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Задлагч",
+      "reason": "missing"
+    },
+    {
+      "title": "Зооноз",
+      "reason": "missing"
+    },
+    {
+      "title": "Инсектицид",
+      "reason": "missing"
+    },
+    {
+      "title": "Компост",
+      "reason": "missing"
+    },
+    {
+      "title": "Лийр",
+      "reason": "short"
+    },
+    {
+      "title": "Лууван",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Мал аж ахуй",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Мал эмнэлэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Малын вакцин",
+      "reason": "missing"
+    },
+    {
+      "title": "Малын халдварт өвчин",
+      "reason": "missing"
+    },
+    {
+      "title": "Малын эмч",
+      "reason": "missing"
+    },
+    {
+      "title": "Махан бүтээгдэхүүн",
+      "reason": "missing"
+    },
+    {
+      "title": "Махчин",
+      "reason": "missing"
+    },
+    {
+      "title": "Мод бэлтгэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Нугас",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нэн ховор зүйл",
+      "reason": "missing"
+    },
+    {
+      "title": "Нэн ховордсон зүйл",
+      "reason": "missing"
+    },
+    {
+      "title": "Нүүрстөрөгчийн давхар исэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Нүүрстөрөгчийн ул мөр",
+      "reason": "missing"
+    },
+    {
+      "title": "Нөхөн сэргээгдэх эрчим хүч",
+      "reason": "missing"
+    },
+    {
+      "title": "Ой",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ойжуулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Ойн түймэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Салхины элэгдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Салхины эрчим хүч",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сармис",
+      "reason": "missing"
+    },
+    {
+      "title": "Силос",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сонгино",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тараг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тариалан",
+      "reason": "missing"
+    },
+    {
+      "title": "Тарианы хөнөөлт шавж",
+      "reason": "missing"
+    },
+    {
+      "title": "Тахиа",
+      "reason": "missing"
+    },
+    {
+      "title": "Тогтвортой хөгжил",
+      "reason": "missing"
+    },
+    {
+      "title": "Торгоны аж ахуй",
+      "reason": "missing"
+    },
+    {
+      "title": "Тэжээвэр гахай",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тэжээл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тэмээ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Төмс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Уйгур улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Улаагана",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улаан лооль",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Улаан ном",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уламжлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уран бичлэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ургамал хамгаалал",
+      "reason": "missing"
+    },
+    {
+      "title": "Урлаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Усалгаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Усан цахилгаан станц",
+      "reason": "missing"
+    },
+    {
+      "title": "Усан үзэм",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Усны бохирдол",
+      "reason": "missing"
+    },
+    {
+      "title": "Усны менежмент",
+      "reason": "missing"
+    },
+    {
+      "title": "Усны нөөц",
+      "reason": "missing"
+    },
+    {
+      "title": "Усны элэгдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Уур амьсгалын өөрчлөлт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хадлан",
+      "reason": "missing"
+    },
+    {
+      "title": "Хар нүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Химийн инженерчлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хиндү шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хог хаягдал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хонь",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хортон",
+      "reason": "missing"
+    },
+    {
+      "title": "Хоёртын тооллын систем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Христ итгэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хубилай хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэвлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэрэглэгчийн интерфэйс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүлийн хийх",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүлэмж",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хүлэмжийн хий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүлэмжийн үзэгдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүнсний аюулгүй байдал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүнсний боловсруулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүнсний хэлхээ",
+      "reason": "missing"
+    },
+    {
+      "title": "Хөдөө аж ахуй",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөрс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөрс судлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрсний бохирдол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрсний элэгдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Хөх Түрэгийн хаант улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөх тариа",
+      "reason": "missing"
+    },
+    {
+      "title": "Цаг агаар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цаг уурын үйлчилгээ",
+      "reason": "missing"
+    },
+    {
+      "title": "Цагаан толгой",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан соронзон цацрал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цирк",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөлжилт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөлжилттэй тэмцэх",
+      "reason": "missing"
+    },
+    {
+      "title": "Цөцгий",
+      "reason": "short"
+    },
+    {
+      "title": "Чангаанз",
+      "reason": "missing"
+    },
+    {
+      "title": "Чингис хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинто",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шүлхий",
+      "reason": "missing"
+    },
+    {
+      "title": "Экологийн мөр",
+      "reason": "missing"
+    },
+    {
+      "title": "Экосистем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Электроник",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэнэ шиш",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Эх код",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Юань Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ямаа",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Үйл үг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үнийн сүү",
+      "reason": "missing"
+    },
+    {
+      "title": "Үхэр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Үүлэн тооцоолол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өв соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өвсийн тэжээлтэн",
+      "reason": "missing"
+    },
+    {
+      "title": "Өгэдэй хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүлбэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн бүтэц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өргөст хэмх",
+      "reason": "short"
+    },
+    {
+      "title": "Өрөм",
+      "reason": "duplicate-source"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl"
+  ],
+  "sha256": "709d7b169c6b0171597069fb93ef8fb1408047de80d22751aa27f7b2ae340457",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
