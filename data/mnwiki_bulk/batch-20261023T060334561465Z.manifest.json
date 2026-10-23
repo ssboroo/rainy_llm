@@ -1,0 +1,21 @@
+{
+  "accepted": 265,
+  "examined": 329,
+  "api_requests": 32,
+  "rejected": {
+    "quality-artifact": 4,
+    "short": 56,
+    "low-cyrillic": 1,
+    "exact-duplicate": 3
+  },
+  "total_unique_indexed": 2090,
+  "corpus_sha256": "19058f3e0ce31956afd4722c2ea7dbea59c0aa6b79e998e7e920399480225e51",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Австрали_доллар",
+    "exhausted": false
+  }
+}
