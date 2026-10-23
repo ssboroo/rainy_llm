@@ -4,7 +4,7 @@
 - [x] Batch 01: 20 infrastructure, industry, regional-history and technology sources / 55,101 characters; daily 20/100.
 - [x] Batch 02: 20 geography, history, culture and sport sources / 19,706 characters; daily 40/100. Daily/pilot 720 plus bulk 1,305 = 2,024 exact-unique after excluding the known cross-branch `JavaScript` duplicate; human-reviewed/training-ready 0/0.
 - [x] Batch 03: 20 science, environment, infrastructure and culture sources / 19,411 characters; daily 60/100. Daily/pilot 740 plus bulk 1,570 = 2,306 exact-unique after excluding four cross-branch duplicates; human-reviewed/training-ready 0/0.
-- [ ] Batches 04–05: 40 additional licensed, globally deduplicated sources.
+- [x] Batches 04–05: 40 globally deduplicated general-knowledge sources / 21,456 + 14,848 characters. Today 100/100 and 130,522 characters; daily/pilot 780 plus bulk 1,570 = 2,346 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0.
 - [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
 
 ## 2026-10-22 daily corpus

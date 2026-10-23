@@ -1,5 +1,20 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-23 21:00: official recheck; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT pages were
+reopened after the 17:00 snapshot. Google still lists EmbeddingGemma 2 (740M,
+2026-10-06) as the latest dated Gemma entry; it is not a causal base. Mistral
+Large 4 remains an upcoming October 31 weight release, and the newly surfaced
+Timestral checkpoints are specialized time-series forecasters rather than
+general language models. PEFT v0.21.2 remains the latest verified release.
+
+No new resource-feasible immutable causal base, verified license/runtime
+combination, locally executed compatibility result or same-hash Mongolian
+advantage was established. Existing pins, baseline result and rollback
+evidence remain unchanged. No weights or dependency were downloaded, trained,
+inferred or promoted; the executable work completes raw corpus batches 04–05.
+
 ## 2026-10-23 17:00: small-model watch only; no promotion
 
 Official producer pages surfaced `Qwen/Qwen3.5-0.8B` and
