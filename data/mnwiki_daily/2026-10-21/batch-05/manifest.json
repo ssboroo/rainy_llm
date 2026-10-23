@@ -1,0 +1,451 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-21T13:11:27.066920+00:00",
+  "requested_titles": 116,
+  "articles": 20,
+  "characters": 23097,
+  "rejected": 96,
+  "rejected_by_reason": {
+    "missing": 67,
+    "duplicate-source": 18,
+    "short": 2,
+    "quality-artifact": 1,
+    "batch-limit": 8
+  },
+  "rejected_items": [
+    {
+      "title": "АПИ",
+      "reason": "missing"
+    },
+    {
+      "title": "Ай-Пи хаяг",
+      "reason": "missing"
+    },
+    {
+      "title": "АйОС",
+      "reason": "missing"
+    },
+    {
+      "title": "Алгоритм",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Байгалийн хэл боловсруулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Байт",
+      "reason": "missing"
+    },
+    {
+      "title": "Бинар файл",
+      "reason": "missing"
+    },
+    {
+      "title": "Блокчейн",
+      "reason": "missing"
+    },
+    {
+      "title": "Блүүтүүт",
+      "reason": "missing"
+    },
+    {
+      "title": "Вай-Фай",
+      "reason": "missing"
+    },
+    {
+      "title": "Версийн удирдлага",
+      "reason": "missing"
+    },
+    {
+      "title": "Виртуалчлал",
+      "reason": "short"
+    },
+    {
+      "title": "Газар зүйн мэдээллийн систем",
+      "reason": "missing"
+    },
+    {
+      "title": "Гит",
+      "reason": "missing"
+    },
+    {
+      "title": "ГитХаб",
+      "reason": "missing"
+    },
+    {
+      "title": "Гурван хэмжээст хэвлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Гүн сургалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Дебаггер",
+      "reason": "missing"
+    },
+    {
+      "title": "Дижитал технологи",
+      "reason": "missing"
+    },
+    {
+      "title": "Докер",
+      "reason": "missing"
+    },
+    {
+      "title": "Дуу таних",
+      "reason": "missing"
+    },
+    {
+      "title": "Дэлхийн байршлын систем",
+      "reason": "missing"
+    },
+    {
+      "title": "ЖЭЙСОН",
+      "reason": "missing"
+    },
+    {
+      "title": "Зайнаас тандах",
+      "reason": "missing"
+    },
+    {
+      "title": "Интеграл схем",
+      "reason": "missing"
+    },
+    {
+      "title": "Интернэт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Интерпретатор",
+      "reason": "missing"
+    },
+    {
+      "title": "Иргэний инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Код",
+      "reason": "missing"
+    },
+    {
+      "title": "Компилятор",
+      "reason": "missing"
+    },
+    {
+      "title": "Компьютер",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Компьютерын архитектур",
+      "reason": "missing"
+    },
+    {
+      "title": "Компьютерын график",
+      "reason": "missing"
+    },
+    {
+      "title": "Компьютерын сүлжээ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Контейнер",
+      "reason": "missing"
+    },
+    {
+      "title": "Криптограф",
+      "reason": "short"
+    },
+    {
+      "title": "Лиценз",
+      "reason": "missing"
+    },
+    {
+      "title": "Логик хаалга",
+      "reason": "missing"
+    },
+    {
+      "title": "Майкрософт Виндоус",
+      "reason": "missing"
+    },
+    {
+      "title": "Мак ҮС",
+      "reason": "missing"
+    },
+    {
+      "title": "Машин орчуулга",
+      "reason": "missing"
+    },
+    {
+      "title": "Машин сургалт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Механик инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Микропроцессор",
+      "reason": "missing"
+    },
+    {
+      "title": "Мэдрэлийн сүлжээ",
+      "reason": "missing"
+    },
+    {
+      "title": "Мэдээллийн аюулгүй байдал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Мэдээллийн технологи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Мэдээлэлзүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Нисгэгчгүй нисэх аппарат",
+      "reason": "missing"
+    },
+    {
+      "title": "Нууц үг",
+      "reason": "missing"
+    },
+    {
+      "title": "Нээлттэй эх",
+      "reason": "missing"
+    },
+    {
+      "title": "Оптик ширхэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Пайтон",
+      "reason": "missing"
+    },
+    {
+      "title": "Програм хангамж",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Программчлалын хэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Програмчлал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Протокол",
+      "reason": "missing"
+    },
+    {
+      "title": "Робот",
+      "reason": "missing"
+    },
+    {
+      "title": "Санах ой",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сервер",
+      "reason": "missing"
+    },
+    {
+      "title": "Си плас плас",
+      "reason": "missing"
+    },
+    {
+      "title": "Си-Эс-Эс",
+      "reason": "missing"
+    },
+    {
+      "title": "Системийн инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Стандарт",
+      "reason": "missing"
+    },
+    {
+      "title": "Сүлжээ",
+      "reason": "missing"
+    },
+    {
+      "title": "ТСП/Ай-Пи",
+      "reason": "missing"
+    },
+    {
+      "title": "Транзистор",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Файлын систем",
+      "reason": "missing"
+    },
+    {
+      "title": "ХТМЛ",
+      "reason": "missing"
+    },
+    {
+      "title": "ХТТП",
+      "reason": "missing"
+    },
+    {
+      "title": "ХТТПС",
+      "reason": "missing"
+    },
+    {
+      "title": "Хагас дамжуулагч",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хайлтын систем",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хатуу диск",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хатуу төлөвт хөтөч",
+      "reason": "missing"
+    },
+    {
+      "title": "Хиймэл оюун",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Химийн инженерчлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Холбооны хиймэл дагуул",
+      "reason": "missing"
+    },
+    {
+      "title": "Хоёртын тооллын систем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэмжүүр",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэрэглэгчийн интерфэйс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүн-компьютерын харилцаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан соронзон цацрал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахим хөтөч",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Электроник",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эс-Күү-Эл",
+      "reason": "missing"
+    },
+    {
+      "title": "Этернэт",
+      "reason": "missing"
+    },
+    {
+      "title": "Эх код",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "ЮЭсБи",
+      "reason": "missing"
+    },
+    {
+      "title": "Яриа нийлэгжүүлэлт",
+      "reason": "missing"
+    },
+    {
+      "title": "Үйлдлийн систем",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "ҮүМЛ",
+      "reason": "missing"
+    },
+    {
+      "title": "Үүлэн тооцоолол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн бүтэц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн сан",
+      "reason": "duplicate-source"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl"
+  ],
+  "sha256": "9c9097c0d6d8ce11317844ca171f6db36ee4dc44486ecc0323028a1bb0b52984",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
