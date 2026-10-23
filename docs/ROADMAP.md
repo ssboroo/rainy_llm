@@ -2,7 +2,8 @@
 
 ## 2026-10-23 daily corpus
 - [x] Batch 01: 20 infrastructure, industry, regional-history and technology sources / 55,101 characters; daily 20/100.
-- [ ] Batches 02–05: 80 further exact-unique sources. Human-reviewed/training-ready remain 0/0.
+- [x] Batch 02: 20 geography, history, culture and sport sources / 19,706 characters; daily 40/100. Daily/pilot 720 plus bulk 1,305 = 2,024 exact-unique after excluding the known cross-branch `JavaScript` duplicate; human-reviewed/training-ready 0/0.
+- [ ] Batches 03–05: 60 further exact-unique sources. Human-reviewed/training-ready remain 0/0.
 - [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
 
 ## 2026-10-22 daily corpus

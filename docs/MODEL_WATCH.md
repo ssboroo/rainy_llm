@@ -1,5 +1,20 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-23 13:00: official recheck; no promotion
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
+reopened. Google still dates EmbeddingGemma 2 to 2026-10-06; it is an embedding
+model, not a causal RAINY training base. DeepSeek-V4.1-Flash-1017 and Mistral
+Large 4 remain far outside this run's local memory/disk envelope, while PEFT's
+latest verified release remains v0.21.2. Producer claims and repository update
+ordering are not held-out Mongolian results.
+
+No resource-feasible immutable causal model, verified license/runtime change or
+matched RAINY Mongolian advantage was established. Existing pins, rollback
+evidence and baseline remain unchanged. No weights or dependency were
+downloaded, trained, inferred or promoted; the executable change is raw corpus
+batch 02.
+
 ## 2026-10-23 09:00: official recheck; baseline retained
 
 Official Qwen producer listings, Google Gemma releases, the DeepSeek producer
