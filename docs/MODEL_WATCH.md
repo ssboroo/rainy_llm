@@ -1,5 +1,16 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-23 09:00: official recheck; baseline retained
+
+Official Qwen producer listings, Google Gemma releases, the DeepSeek producer
+index and PEFT releases were reopened. Qwen's newest surfaced items are image,
+guard and driving models rather than a smaller validated Mongolian causal base.
+Google's October 6 release list includes specialized Gemma artifacts; vendor
+multilingual or medical claims are not RAINY held-out Mongolian evidence. PEFT
+remains v0.21.2. No immutable model/runtime pin was changed, downloaded or
+promoted. The executable change is a new attributed raw-text batch, not model
+training, inference or measured quality gain.
+
 ## 2026-10-22 17:00: official sources unchanged; data gate continued
 
 Reopened official Qwen material, Google Gemma releases, the exact
