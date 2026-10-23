@@ -1,5 +1,21 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-23 17:00: small-model watch only; no promotion
+
+Official producer pages surfaced `Qwen/Qwen3.5-0.8B` and
+`mistralai/Ministral-3-3B-Instruct-2512`; the latter currently resolves to
+revision `b4cc13e94e5e7481a83b34797b8a47efb62d197c`. This run did not establish
+an immutable Qwen revision, a verified Ministral weights-license/runtime
+combination, or a same-hash Mongolian quality/latency/RAM comparison for either
+candidate. They therefore remain watch-only and are not represented as RAINY
+improvements.
+
+The newer surfaced Qwen3.8 27B/Flash-Next, DeepSeek-V4.1-Flash-1017 and Mistral
+Large 4 artifacts exceed the current local resource envelope. EmbeddingGemma 2
+is an embedding model, not a causal base. No model, adapter or runtime pin was
+downloaded, trained, inferred or changed. The executable result is raw corpus
+batch 03; retained baseline and rollback evidence remain unchanged.
+
 ## 2026-10-23 13:00: official recheck; no promotion
 
 Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
