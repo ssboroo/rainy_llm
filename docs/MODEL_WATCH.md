@@ -1,5 +1,20 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-24 13:00: official recheck; no promotion
+
+Official Qwen listings, Google Gemma releases, the DeepSeek producer card and
+PEFT releases were reopened. The newest Qwen entries surfaced by modification
+date remain image/guard/specialized or much larger models rather than a newly
+validated small Mongolian causal base. Google's latest dated release entry is
+still specialized rather than evidence of a better RAINY causal base;
+DeepSeek-V4.1-Flash-1017 remains a 763B model, and PEFT remains v0.21.2.
+
+No immutable, resource-feasible candidate with verified license, local runtime
+compatibility and a matched-hash Mongolian quality/resource advantage was
+established. Existing pins and rollback evidence remain unchanged. No model,
+adapter or dependency was downloaded, trained, inferred or promoted; batch 02
+is raw corpus work only.
+
 ## 2026-10-24 09:00: official recheck; baseline retained
 
 Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT producer pages
