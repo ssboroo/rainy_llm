@@ -1,5 +1,19 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-24 09:00: official recheck; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT producer pages
+were checked after the 2026-10-23 snapshot. No resource-feasible immutable
+causal base with a newly verified weights/code license, compatible pinned local
+runtime and matched-hash Mongolian advantage was established. Specialized
+embedding, time-series and very large multimodal releases do not replace the
+current causal-model comparison candidates.
+
+Existing model revisions, baseline results and rollback evidence remain
+unchanged. No model, adapter or runtime dependency was downloaded, trained,
+inferred or promoted. The executable work in this run is licensed raw corpus
+batch 01; collection throughput is not model-quality evidence.
+
 ## 2026-10-23 21:00: official recheck; baseline retained
 
 Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT pages were

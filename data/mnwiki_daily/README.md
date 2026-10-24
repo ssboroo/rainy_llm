@@ -1,13 +1,14 @@
 # Daily Mongolian Wikipedia source batches
 
-Current snapshot, 2026-10-23: batches 01–05 add 100 infrastructure, regional-history, geography, culture, sport, science, environment and general-knowledge sources / 130,522 characters.
-Today: 100/100; daily-branch daily/pilot corpus: 780 raw documents; separately persisted bulk branch: 1,570 rows. Across both branches there are 2,346 exact-unique sources after excluding four cross-branch duplicates (`Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига`); human-reviewed/training-ready: 0/0.
+Current snapshot, 2026-10-24: batch 01 adds 20 culture, geography, technology, science and general-knowledge sources / 14,066 characters.
+Today: 20/100; daily-branch daily/pilot corpus: 800 raw documents; separately persisted bulk branch: 1,570 rows. Across both branches there are 2,366 exact-unique sources after excluding four cross-branch duplicates (`Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига`); human-reviewed/training-ready: 0/0.
+October 23 completed 100/100 with 130,522 characters.
 October 22 remains 60/100; its missing final two batches are not backdated.
 October 19 remains 80/100; its incomplete earlier attempt is not counted or backdated.
 October 16 and 18 completed 100/100; October 15 and 17 remain 60/100, with no backdated additions.
 
-2026-10-23: өнөөдөр 100/100 шинэ эх, 130,522 тэмдэгт; daily branch-ийн daily/pilot 780,
-тусдаа bulk branch 1,570 мөр. `Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига` гэсэн дөрвөн cross-branch давхардлыг хасвал хоёр branch-ийн нийлбэр 2,346 exact-unique эх; хүний хяналттай болон сургалтад бэлэн эх 0/0. 10-р сарын 22 нь 60/100 хэвээр, дутуу хоёр багцыг нөхөж тооцоогүй.
+2026-10-24: өнөөдөр 20/100 шинэ эх, 14,066 тэмдэгт; daily branch-ийн daily/pilot 800,
+тусдаа bulk branch 1,570 мөр. `Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига` гэсэн дөрвөн cross-branch давхардлыг хасвал хоёр branch-ийн нийлбэр 2,366 exact-unique эх; хүний хяналттай болон сургалтад бэлэн эх 0/0. 10-р сарын 23-нд 100/100, 130,522 тэмдэгтээр дууссан. 10-р сарын 22 нь 60/100 хэвээр, дутуу хоёр багцыг нөхөж тооцоогүй.
 10-р сарын 20-нд 100/100; 19-нд 80/100; 16, 18-нд 100/100; 15, 17-ны тус бүр 40 эх дутуу хэвээр.
 
 These are raw article introductions retrieved through the official MediaWiki API,

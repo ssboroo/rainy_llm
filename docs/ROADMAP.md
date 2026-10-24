@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-24 daily corpus
+- [x] Batch 01: 20 globally deduplicated culture, geography, technology, science and general-knowledge sources / 14,066 characters; daily 20/100. Daily/pilot 800 plus bulk 1,570 = 2,366 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0.
+- [ ] Batches 02–05: 80 more licensed, globally deduplicated sources with frozen evaluation data unchanged.
+- [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
+
 ## 2026-10-23 daily corpus
 - [x] Batch 01: 20 infrastructure, industry, regional-history and technology sources / 55,101 characters; daily 20/100.
 - [x] Batch 02: 20 geography, history, culture and sport sources / 19,706 characters; daily 40/100. Daily/pilot 720 plus bulk 1,305 = 2,024 exact-unique after excluding the known cross-branch `JavaScript` duplicate; human-reviewed/training-ready 0/0.
