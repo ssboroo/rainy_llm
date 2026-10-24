@@ -1,0 +1,425 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-21T09:06:22.387746+00:00",
+  "requested_titles": 111,
+  "articles": 20,
+  "characters": 27702,
+  "rejected": 90,
+  "rejected_by_reason": {
+    "quality-artifact": 2,
+    "duplicate-source": 41,
+    "missing": 30,
+    "short": 3,
+    "batch-limit": 14
+  },
+  "rejected_items": [
+    {
+      "title": "Агаар мандал",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Алгебр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ангараг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Анхны тоо",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Археологи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Аянга",
+      "reason": "missing"
+    },
+    {
+      "title": "Бархасбадь",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Биом",
+      "reason": "missing"
+    },
+    {
+      "title": "Бичиг үсэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Бодит тоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Боловсрол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бороо",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Вектор",
+      "reason": "short"
+    },
+    {
+      "title": "Газар хөдлөлт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Галактик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Галт уул",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Геологи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Геометр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гол мөрөн",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гоо зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Гүн ухаан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Далай",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Далай ван",
+      "reason": "missing"
+    },
+    {
+      "title": "Дифференциал",
+      "reason": "missing"
+    },
+    {
+      "title": "Дэлхий",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Интеграл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Логарифм",
+      "reason": "missing"
+    },
+    {
+      "title": "Магадлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Математик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Математик анализ",
+      "reason": "missing"
+    },
+    {
+      "title": "Математик логик",
+      "reason": "missing"
+    },
+    {
+      "title": "Матриц",
+      "reason": "missing"
+    },
+    {
+      "title": "Метеорологи",
+      "reason": "missing"
+    },
+    {
+      "title": "Нар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нарны аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нарны аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нуур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Од",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Одон орон",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ой",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Орчлон ертөнц",
+      "reason": "missing"
+    },
+    {
+      "title": "Пи тоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Рационал тоо",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Салхи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сансар огторгуй",
+      "reason": "missing"
+    },
+    {
+      "title": "Санчир",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Солир",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Солонго",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Статистик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сугар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Суралцахуй",
+      "reason": "missing"
+    },
+    {
+      "title": "Сургууль",
+      "reason": "missing"
+    },
+    {
+      "title": "Сэтгэл судлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тал хээр",
+      "reason": "missing"
+    },
+    {
+      "title": "Таталцал",
+      "reason": "missing"
+    },
+    {
+      "title": "Телескоп",
+      "reason": "missing"
+    },
+    {
+      "title": "Теорем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тив",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тоо",
+      "reason": "short"
+    },
+    {
+      "title": "Тригонометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Тэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Тэгшитгэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тэнгэрийн ван",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тэнгэрийн заадас",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Усны эргэлт",
+      "reason": "short"
+    },
+    {
+      "title": "Утга зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Уур амьсгал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Функц",
+      "reason": "missing"
+    },
+    {
+      "title": "Хаббл сансрын дуран",
+      "reason": "missing"
+    },
+    {
+      "title": "Хар нүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хиймэл дагуул",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Христ итгэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэл шинжлэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хязгаар",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүлэмжийн хий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүн судлал",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хөрс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цаг агаар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан толгой",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цас",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чулуу",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Үг зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Үүл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Өгүүлбэр зүй",
+      "reason": "missing"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl"
+  ],
+  "sha256": "fa4169906d2a58c1708dca1f5559bdf920094e0fd479c390ef5c05cb021d2d1b",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

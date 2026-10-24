@@ -1,0 +1,245 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-23T13:02:37.870971+00:00",
+  "requested_titles": 62,
+  "articles": 20,
+  "characters": 14848,
+  "rejected": 42,
+  "rejected_by_reason": {
+    "duplicate-source": 5,
+    "short": 8,
+    "batch-limit": 29
+  },
+  "rejected_items": [
+    {
+      "title": "1956 оны Унгарын хувьсгал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Red beryl",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алтай",
+      "reason": "short"
+    },
+    {
+      "title": "Баргажин",
+      "reason": "short"
+    },
+    {
+      "title": "Вологда муж",
+      "reason": "short"
+    },
+    {
+      "title": "Ламрим",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ле Монд (сонин)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Линз",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Лут цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мадрид",
+      "reason": "short"
+    },
+    {
+      "title": "Мажарууд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Майнц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Манила",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Машин үйлдвэрлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Миджорни",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Монголын уран зургийн галерей",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мэдээллийн амьдралын цикл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Натрийн гидроксид",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Нунавут",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Нэр үг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нячанг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Окленд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Оригами",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Оросын далбаа",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Пику-Руйву",
+      "reason": "short"
+    },
+    {
+      "title": "Пирелли",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Прокси сервер",
+      "reason": "short"
+    },
+    {
+      "title": "Самари",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Санхүүгийн зах зээл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сарт Халимаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Товчлол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хараре",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хенри Форд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Химийн элемент",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ховдын буддын сүм хийдийн жагсаалт",
+      "reason": "short"
+    },
+    {
+      "title": "Хулсны том баавгай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хурган цахлай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан зуд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шар тос",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эсфахан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ялта",
+      "reason": "short"
+    },
+    {
+      "title": "Өвлийн Олимпын наадам",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "717e43be14b11661d4aee659466cfd9e915c2f9e6741718f8f5ee4174cbd6b9e",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

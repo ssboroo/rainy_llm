@@ -1,5 +1,33 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-24 daily corpus
+- [x] Batch 01: 20 globally deduplicated culture, geography, technology, science and general-knowledge sources / 14,066 characters; daily 20/100. Daily/pilot 800 plus bulk 1,570 = 2,366 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0.
+- [x] Batch 02: 20 globally deduplicated history, geography, science, culture and general-knowledge sources / 17,378 characters; daily 40/100. Daily/pilot 820 plus bulk 1,570 = 2,386 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0.
+- [x] Batch 03: 20 globally deduplicated geography, culture, language, computing and science sources / 28,741 characters; daily 60/100. Daily/pilot 840 plus bulk 1,570 = 2,406 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0.
+- [x] Batches 04–05: 40 globally deduplicated mathematics, science, health, technology, language, literature, economics and civics sources / 25,200 + 21,546 characters. Today 100/100 and 106,931 characters; daily/pilot 880 plus bulk 1,570 = 2,446 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0. Frozen evaluation data unchanged.
+- [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
+
+## 2026-10-23 daily corpus
+- [x] Batch 01: 20 infrastructure, industry, regional-history and technology sources / 55,101 characters; daily 20/100.
+- [x] Batch 02: 20 geography, history, culture and sport sources / 19,706 characters; daily 40/100. Daily/pilot 720 plus bulk 1,305 = 2,024 exact-unique after excluding the known cross-branch `JavaScript` duplicate; human-reviewed/training-ready 0/0.
+- [x] Batch 03: 20 science, environment, infrastructure and culture sources / 19,411 characters; daily 60/100. Daily/pilot 740 plus bulk 1,570 = 2,306 exact-unique after excluding four cross-branch duplicates; human-reviewed/training-ready 0/0.
+- [x] Batches 04–05: 40 globally deduplicated general-knowledge sources / 21,456 + 14,848 characters. Today 100/100 and 130,522 characters; daily/pilot 780 plus bulk 1,570 = 2,346 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0.
+- [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
+
+## 2026-10-22 daily corpus
+- [x] Batch 01: 20 agriculture/environment/sustainability sources / 42,331 characters; today 20/100. Daily/pilot corpus 640; separately persisted bulk branch 794; combined exact-unique raw leads 1,434; human-reviewed/training-ready 0/0.
+- [x] Batch 02: 20 education/transport/culture sources / 16,458 characters; today 40/100. Daily/pilot corpus 660; separately persisted bulk branch 794; combined exact-unique raw leads 1,454; human-reviewed/training-ready 0/0.
+- [x] Batch 03: 20 culture/history/science sources / 21,754 characters; today 60/100. Daily/pilot corpus 680; bulk branch 1,048 rows; combined 1,727 exact-unique sources after excluding one known cross-branch `JavaScript` duplicate; human-reviewed/training-ready 0/0.
+- [ ] Batches 04–05: 40 more licensed, globally deduplicated sources with frozen evaluation data unchanged.
+- [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
+
+## 2026-10-21 daily corpus
+- [x] Batch 01: 20 medical/anatomy/genetics sources / 19,976 characters; today 20/100. Main daily/pilot corpus 540; separately persisted bulk branch 264; combined exact-unique raw leads 804; human-reviewed/training-ready 0/0.
+- [x] Batch 02: 20 law/government/economics sources / 19,837 characters; today 40/100. Main daily/pilot corpus 560; separately persisted bulk branch 264; combined exact-unique raw leads 824; human-reviewed/training-ready 0/0.
+- [x] Batch 03: 20 mathematics/astronomy/earth-science/humanities sources / 27,702 characters; today 60/100. Daily-branch daily/pilot corpus 580; separately persisted bulk branch 518; combined exact-unique raw leads 1,098; human-reviewed/training-ready 0/0.
+- [x] Batches 04–05: 20 humanities/culture and 20 computing/engineering sources / 20,287 + 23,097 characters. Today 100/100 and 110,899 characters; daily/pilot 620 plus bulk 518 = 1,138 exact-unique raw leads; human-reviewed/training-ready 0/0.
+- [ ] Human rights/privacy/quality review and source-linked instruction authoring. Do not treat 10 AI-authored grounded QA drafts or raw collection as human approval.
+
 ## 2026-10-20 daily corpus
 - [x] Batch 01: 20 chemistry-element sources / 11,214 characters; today 20/100, repository 440 raw records; human-reviewed/training-ready 0/0.
 - [x] Batch 02: 20 further sources / 9,351 characters; today 40/100, repository 460. All pending; no training.

@@ -1,0 +1,426 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-21T13:10:07.656900+00:00",
+  "requested_titles": 112,
+  "articles": 20,
+  "characters": 20287,
+  "rejected": 90,
+  "rejected_by_reason": {
+    "duplicate-source": 35,
+    "missing": 24,
+    "short": 4,
+    "batch-limit": 26,
+    "quality-artifact": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Ёс зүй",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Айраг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Аман зохиол",
+      "reason": "missing"
+    },
+    {
+      "title": "Анимизм",
+      "reason": "missing"
+    },
+    {
+      "title": "Ардын хөгжим",
+      "reason": "missing"
+    },
+    {
+      "title": "Археологи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Архитектур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Аялга",
+      "reason": "short"
+    },
+    {
+      "title": "Балет",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Богд хаант Монгол улс",
+      "reason": "missing"
+    },
+    {
+      "title": "Боловсролын түүх",
+      "reason": "missing"
+    },
+    {
+      "title": "Бэлгэдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Бөөгийн шашин",
+      "reason": "missing"
+    },
+    {
+      "title": "Гар урлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Гоо зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Гэр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гэрэл зураг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Гүн ухаан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Даам",
+      "reason": "missing"
+    },
+    {
+      "title": "Дуурь",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дүрэм",
+      "reason": "missing"
+    },
+    {
+      "title": "Зан үйл",
+      "reason": "missing"
+    },
+    {
+      "title": "Ислам",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Их Монгол Улс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Каллиграф",
+      "reason": "missing"
+    },
+    {
+      "title": "Кино урлаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Кирилл бичиг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Конфуцийн сургаал",
+      "reason": "missing"
+    },
+    {
+      "title": "Латин бичиг",
+      "reason": "short"
+    },
+    {
+      "title": "Логик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монгол бичиг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монгол бүжиг",
+      "reason": "missing"
+    },
+    {
+      "title": "Монгол хэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монголын Нууц Товчоо",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Монголын түүх",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Морин хуур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Музей",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Наадам",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нийгэм судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Ном",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Номын сан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Олон нийтийн мэдээллийн хэрэгсэл",
+      "reason": "short"
+    },
+    {
+      "title": "Радио",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Соёл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сурын харваа",
+      "reason": "missing"
+    },
+    {
+      "title": "Театр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Телевиз",
+      "reason": "short"
+    },
+    {
+      "title": "Тууль",
+      "reason": "missing"
+    },
+    {
+      "title": "Түүх",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Уйгур улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уламжлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уран баримал",
+      "reason": "missing"
+    },
+    {
+      "title": "Уран бичлэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уран зохиол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Уран зураг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Урлаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уртын дуу",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хар нүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хиндү шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Христ итгэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хубилай хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хурдан морь",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэвлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хятан улс",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүлэмжийн хий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүн судлал",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хүннү улс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөгжим",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хөх Түрэгийн хаант улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөөмий",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цаг агаар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан сар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цагаан толгой",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цирк",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чингис хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шатар",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинто",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Этнографи",
+      "reason": "missing"
+    },
+    {
+      "title": "Юань Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Яруу найраг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Үйл үг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үлгэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Өв соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгэдэй хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүлбэр",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl"
+  ],
+  "sha256": "366dc1c8b963f0ccf7a9f701ac8be00821d24c7788cda278c34dd871c024df65",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

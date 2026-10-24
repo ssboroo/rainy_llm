@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-24T13:11:52.053875+00:00",
+  "requested_titles": 82,
+  "articles": 20,
+  "characters": 21546,
+  "rejected": 62,
+  "rejected_by_reason": {
+    "duplicate-source": 1,
+    "short": 5,
+    "batch-limit": 56
+  },
+  "rejected_items": [
+    {
+      "title": "1990 оны Монголын ардчилсан хувьсгал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бүлэг (математик)",
+      "reason": "short"
+    },
+    {
+      "title": "Дуу хөгжмийн боловсрол",
+      "reason": "short"
+    },
+    {
+      "title": "Монголын товч түүх (ном)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Монголын түүхэн он дараалал",
+      "reason": "short"
+    },
+    {
+      "title": "Неоклассик эдийн засаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Нийтийн эрүүл мэнд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ногоон технологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Онолын хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Органик хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Оросын уран зохиол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Орчин үеийн Монголын түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Персональ компьютер",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сансрын физик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Санхүүгийн технологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Синтетик биологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Системийн биологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Соёл иргэншил",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сэтгэцийн эрүүл мэнд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Техникийн газар зүй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Технологи инженерчлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тогтвортой хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тооцооллын хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төрөл (биологи)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төрөлх хэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Урлаг судлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Утасгүй технологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Физик газар зүй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Физик санах ой",
+      "reason": "short"
+    },
+    {
+      "title": "Физик эмчилгээ",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Физикийн хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Францын уран зохиол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Халаасны компьютер",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэл зүй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэл шинжлэлийн тайлбар",
+      "reason": "short"
+    },
+    {
+      "title": "Хэлний өөрчлөлт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэрэглээний математик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хялбаршуулсан командтай компьютер",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хятадын уран зохиол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөгжлийн биологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөдөлгөөн (физик)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөдөлмөрийн аюулгүй байдал, эрүүл ахуй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрсний биологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цэвэр математик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цэргийн газар зүй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөмийн хими",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухаан ба технологи Монголд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны уран зохиол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шулуун (математик)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эдийн засгийн газар зүй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эдийн засгийн математик загварчлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эдийн засгийн шинжлэх ухаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экологийн эрүүл мэнд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эмэгтэйчүүдийн боловсрол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эсийн биологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эстонийн боловсрол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "ЮНЕСКО",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Японы уран зохиол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйлдвэрлэх технологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үндсэн хууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өөлд",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-04/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "ecf29ad3166d99c9eba8a974a56174b57cbe80a33cc67ce235955a978ea780e7",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

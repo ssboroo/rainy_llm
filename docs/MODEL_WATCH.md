@@ -1,5 +1,225 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-24 21:00: official recheck; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
+rechecked. `Qwen/Qwen3.8-27B` is a 27B native vision-language model and is not
+resource-feasible on this host. Google's latest dated entry remains
+EmbeddingGemma 2 (740M, 2026-10-06), an embedding model rather than a causal
+base. `deepseek-ai/DeepSeek-V4.1-Flash-1017` remains 763B. Mistral's newest
+modified entries are specialized Timestral forecasters; Meta's producer index
+did not surface a new small causal model. PEFT v0.21.2 remains the latest
+verified release checked here.
+
+No immutable, resource-feasible candidate with verified license, tokenizer,
+chat template, runtime compatibility and a matched-hash Mongolian quality,
+latency and memory advantage was established. Existing pins and rollback
+evidence remain unchanged. No model, adapter or dependency was downloaded,
+trained, inferred or promoted; batches 04–05 are raw corpus work only.
+
+## 2026-10-24 17:00: official recheck; no promotion
+
+Official Qwen, Google Gemma, DeepSeek, Meta and Mistral producer listings plus
+PEFT releases were rechecked. Recently dated entries are specialized or far
+outside the local resource envelope: Google lists EmbeddingGemma 2 (740M,
+2026-10-06), Mistral lists Large 4 (52B active / 1.05T total), and the checked
+DeepSeek V4.1 Flash card is 763B. PEFT v0.21.2 (2026-10-01, release commit
+`eaa35c7`) includes an encoder-decoder compatibility fix for Transformers
+>=5.18, but the RAINY runtime is not installed or compatibility-tested here;
+this is not grounds for a blind dependency upgrade.
+
+No immutable, resource-feasible candidate with a verified license/runtime
+combination and matched-hash Mongolian quality, latency and memory advantage
+was established. Existing pins and rollback evidence remain unchanged. No
+model, adapter or dependency was downloaded, trained, inferred or promoted;
+batch 03 is raw corpus work only.
+
+## 2026-10-24 13:00: official recheck; no promotion
+
+Official Qwen listings, Google Gemma releases, the DeepSeek producer card and
+PEFT releases were reopened. The newest Qwen entries surfaced by modification
+date remain image/guard/specialized or much larger models rather than a newly
+validated small Mongolian causal base. Google's latest dated release entry is
+still specialized rather than evidence of a better RAINY causal base;
+DeepSeek-V4.1-Flash-1017 remains a 763B model, and PEFT remains v0.21.2.
+
+No immutable, resource-feasible candidate with verified license, local runtime
+compatibility and a matched-hash Mongolian quality/resource advantage was
+established. Existing pins and rollback evidence remain unchanged. No model,
+adapter or dependency was downloaded, trained, inferred or promoted; batch 02
+is raw corpus work only.
+
+## 2026-10-24 09:00: official recheck; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT producer pages
+were checked after the 2026-10-23 snapshot. No resource-feasible immutable
+causal base with a newly verified weights/code license, compatible pinned local
+runtime and matched-hash Mongolian advantage was established. Specialized
+embedding, time-series and very large multimodal releases do not replace the
+current causal-model comparison candidates.
+
+Existing model revisions, baseline results and rollback evidence remain
+unchanged. No model, adapter or runtime dependency was downloaded, trained,
+inferred or promoted. The executable work in this run is licensed raw corpus
+batch 01; collection throughput is not model-quality evidence.
+
+## 2026-10-23 21:00: official recheck; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT pages were
+reopened after the 17:00 snapshot. Google still lists EmbeddingGemma 2 (740M,
+2026-10-06) as the latest dated Gemma entry; it is not a causal base. Mistral
+Large 4 remains an upcoming October 31 weight release, and the newly surfaced
+Timestral checkpoints are specialized time-series forecasters rather than
+general language models. PEFT v0.21.2 remains the latest verified release.
+
+No new resource-feasible immutable causal base, verified license/runtime
+combination, locally executed compatibility result or same-hash Mongolian
+advantage was established. Existing pins, baseline result and rollback
+evidence remain unchanged. No weights or dependency were downloaded, trained,
+inferred or promoted; the executable work completes raw corpus batches 04–05.
+
+## 2026-10-23 17:00: small-model watch only; no promotion
+
+Official producer pages surfaced `Qwen/Qwen3.5-0.8B` and
+`mistralai/Ministral-3-3B-Instruct-2512`; the latter currently resolves to
+revision `b4cc13e94e5e7481a83b34797b8a47efb62d197c`. This run did not establish
+an immutable Qwen revision, a verified Ministral weights-license/runtime
+combination, or a same-hash Mongolian quality/latency/RAM comparison for either
+candidate. They therefore remain watch-only and are not represented as RAINY
+improvements.
+
+The newer surfaced Qwen3.8 27B/Flash-Next, DeepSeek-V4.1-Flash-1017 and Mistral
+Large 4 artifacts exceed the current local resource envelope. EmbeddingGemma 2
+is an embedding model, not a causal base. No model, adapter or runtime pin was
+downloaded, trained, inferred or changed. The executable result is raw corpus
+batch 03; retained baseline and rollback evidence remain unchanged.
+
+## 2026-10-23 13:00: official recheck; no promotion
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
+reopened. Google still dates EmbeddingGemma 2 to 2026-10-06; it is an embedding
+model, not a causal RAINY training base. DeepSeek-V4.1-Flash-1017 and Mistral
+Large 4 remain far outside this run's local memory/disk envelope, while PEFT's
+latest verified release remains v0.21.2. Producer claims and repository update
+ordering are not held-out Mongolian results.
+
+No resource-feasible immutable causal model, verified license/runtime change or
+matched RAINY Mongolian advantage was established. Existing pins, rollback
+evidence and baseline remain unchanged. No weights or dependency were
+downloaded, trained, inferred or promoted; the executable change is raw corpus
+batch 02.
+
+## 2026-10-23 09:00: official recheck; baseline retained
+
+Official Qwen producer listings, Google Gemma releases, the DeepSeek producer
+index and PEFT releases were reopened. Qwen's newest surfaced items are image,
+guard and driving models rather than a smaller validated Mongolian causal base.
+Google's October 6 release list includes specialized Gemma artifacts; vendor
+multilingual or medical claims are not RAINY held-out Mongolian evidence. PEFT
+remains v0.21.2. No immutable model/runtime pin was changed, downloaded or
+promoted. The executable change is a new attributed raw-text batch, not model
+training, inference or measured quality gain.
+
+## 2026-10-22 17:00: official sources unchanged; data gate continued
+
+Reopened official Qwen material, Google Gemma releases, the exact
+`deepseek-ai/DeepSeek-V4.1-Flash-1017` card, Meta's producer index, Mistral
+model documentation and PEFT releases. Google still lists EmbeddingGemma 2
+(2026-10-06) as the latest dated family entry. DeepSeek's card still identifies
+MIT weights, 763B parameters, no Jinja chat template and separate Python/Rust
+prompt encoding. These upstream runtime instructions do not establish local
+compatibility or Mongolian quality.
+
+No new resource-feasible immutable causal base, license change, locally tested
+runtime or matched held-out Mongolian advantage was established. Existing
+pins, Qwen3.5-4B experimental result and rollback artifacts remain unchanged.
+No download, dependency installation, inference, training or promotion was
+performed; the executable result is licensed raw-data batch 03.
+
+## 2026-10-22 13:00: official recheck; retained baseline
+
+Reopened official Qwen material, the Google Gemma release log, the exact
+`deepseek-ai/DeepSeek-V4.1-Flash-1017` card, Meta's producer index, Mistral's
+Large 4 announcement/docs and PEFT releases. Google still lists
+EmbeddingGemma 2 (2026-10-06) as its latest dated Gemma entry; it is an
+embedding model rather than a causal training base. DeepSeek Flash-1017 is a
+roughly 763B multimodal model and Mistral Large 4 is a 1.05T/52B-active
+open-weight model; neither is feasible in this run's 9,967 MiB RAM / 25 GiB
+free-disk environment. Producer performance claims are not Mongolian evidence.
+
+No new resource-feasible immutable causal base, verified license change,
+locally tested dependency or matched held-out Mongolian advantage was
+established. Existing pins, rollback results and the Qwen3.5-4B experimental
+baseline remain unchanged. No weights, runtime dependency, model integration,
+training or inference was executed; batch 02 is raw-data work only.
+
+## 2026-10-22 09:00: official recheck; no baseline promotion
+
+Reopened the official Qwen organization/cards, Google Gemma release log,
+DeepSeek producer card and PEFT releases. The checked pages still show
+Qwen3.8-27B (2026-08-13), EmbeddingGemma 2 (2026-10-06),
+DeepSeek-V4.1-Flash-1017 and PEFT v0.21.2 (2026-10-01). No new immutable,
+resource-feasible causal base, license change, locally validated runtime result
+or matched Mongolian advantage was established. Existing pins, rollback data
+and baseline results remain unchanged; no model or dependency was downloaded,
+integrated or promoted. The executable work is a new licensed raw-source batch,
+not training, inference or measured quality gain.
+
+## 2026-10-21 21:00: official sources rechecked; baseline retained
+
+Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and
+Meta producer pages, Mistral Large 4 planned-weight page and PEFT releases. No
+new immutable resource-feasible base, license change, locally validated runtime
+compatibility or matched Mongolian result was established after 17:00. The
+Qwen3.8-27B card still describes a 27B open-weight multimodal model, Google's
+latest dated Gemma entry remains EmbeddingGemma 2 (2026-10-06), and Mistral
+Large 4 remains an upcoming artifact. Existing pins, baseline results and
+rollback evidence are retained. This run completes two raw corpus batches; it
+does not integrate, train or promote a model.
+
+## 2026-10-21 17:00: official sources unchanged; data work continued
+
+Reopened the official Qwen organization/cards, Google Gemma release log,
+DeepSeek and Meta producer pages, the Mistral Large 4 planned-weight page and
+PEFT releases. No new immutable resource-feasible base, license change, tested
+runtime compatibility or matched Mongolian result was established after the
+13:00 check. Existing pins, baseline results and rollback evidence are retained;
+no model or dependency was downloaded or promoted. The executable work is raw
+corpus collection and cross-branch deduplication, not training or quality gain.
+
+## 2026-10-21 13:00: upstream recheck; no baseline change
+
+Reopened the official Qwen3.8-27B card, Google Gemma release log, DeepSeek and
+Meta producer pages, the planned Mistral Large 4 weights page, and PEFT release
+metadata. No new immutable resource-feasible model revision, license change,
+locally compatible runtime result, or held-out Mongolian comparison was
+established after the morning snapshot. Qwen3.8-27B remains watch-only at the
+morning pin; PEFT remains uninstalled. No model was downloaded, integrated or
+promoted. This run adds raw corpus data only; retained configs, revisions and
+rollback results are unchanged.
+
+## 2026-10-21: official recheck and Qwen3.8-27B immutable snapshot
+
+Official model card/API checked for exact ID Qwen/Qwen3.8-27B: model-card
+release date 2026-08-13, immutable revision
+1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0, Apache-2.0 weights/repository,
+open-weight rather than API-only. The API exposes a Jinja chat template and
+lists Transformers with Qwen3_5ForConditionalGeneration; compatibility is
+declared upstream, not locally validated. BF16 weights contain 27,781,427,952
+parameters and occupy 55,615,875,685 bytes, exceeding this run's approximately
+26 GiB free disk before runtime overhead. No download, adapter-compatibility
+claim, integration or baseline promotion. Fully open training data is not
+established.
+
+Gemma's official release log still lists EmbeddingGemma 2 (2026-10-06) as its
+latest entry; it is an embedding model, not a drop-in causal base. DeepSeek
+Flash-1017 remains the latest checked DeepSeek card; Meta's official organization
+page provided no newer resource-feasible candidate. Mistral Large 4 remains an
+upcoming 2026-10-31 weight release, not downloadable/tested today. PEFT latest
+API remains v0.21.2 (2026-10-01T10:29:50Z). Existing baseline and rollback
+evidence are retained. Executable deliverable: 20 licensed raw sources, not
+trained weights or measured Mongolian quality.
+
 ## 2026-10-20: DeepSeek Flash-1017 watch-only snapshot
 
 17:00 follow-up: official producer/runtime/paper sources reopened; PEFT latest
