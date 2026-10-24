@@ -1,5 +1,22 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-24 17:00: official recheck; no promotion
+
+Official Qwen, Google Gemma, DeepSeek, Meta and Mistral producer listings plus
+PEFT releases were rechecked. Recently dated entries are specialized or far
+outside the local resource envelope: Google lists EmbeddingGemma 2 (740M,
+2026-10-06), Mistral lists Large 4 (52B active / 1.05T total), and the checked
+DeepSeek V4.1 Flash card is 763B. PEFT v0.21.2 (2026-10-01, release commit
+`eaa35c7`) includes an encoder-decoder compatibility fix for Transformers
+>=5.18, but the RAINY runtime is not installed or compatibility-tested here;
+this is not grounds for a blind dependency upgrade.
+
+No immutable, resource-feasible candidate with a verified license/runtime
+combination and matched-hash Mongolian quality, latency and memory advantage
+was established. Existing pins and rollback evidence remain unchanged. No
+model, adapter or dependency was downloaded, trained, inferred or promoted;
+batch 03 is raw corpus work only.
+
 ## 2026-10-24 13:00: official recheck; no promotion
 
 Official Qwen listings, Google Gemma releases, the DeepSeek producer card and
