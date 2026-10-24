@@ -1,5 +1,22 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-24 21:00: official recheck; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
+rechecked. `Qwen/Qwen3.8-27B` is a 27B native vision-language model and is not
+resource-feasible on this host. Google's latest dated entry remains
+EmbeddingGemma 2 (740M, 2026-10-06), an embedding model rather than a causal
+base. `deepseek-ai/DeepSeek-V4.1-Flash-1017` remains 763B. Mistral's newest
+modified entries are specialized Timestral forecasters; Meta's producer index
+did not surface a new small causal model. PEFT v0.21.2 remains the latest
+verified release checked here.
+
+No immutable, resource-feasible candidate with verified license, tokenizer,
+chat template, runtime compatibility and a matched-hash Mongolian quality,
+latency and memory advantage was established. Existing pins and rollback
+evidence remain unchanged. No model, adapter or dependency was downloaded,
+trained, inferred or promoted; batches 04–05 are raw corpus work only.
+
 ## 2026-10-24 17:00: official recheck; no promotion
 
 Official Qwen, Google Gemma, DeepSeek, Meta and Mistral producer listings plus

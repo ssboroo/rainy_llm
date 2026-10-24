@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-24T13:08:17.906255+00:00",
+  "requested_titles": 60,
+  "articles": 20,
+  "characters": 25200,
+  "rejected": 40,
+  "rejected_by_reason": {
+    "missing": 29,
+    "duplicate-source": 6,
+    "short": 3,
+    "quality-artifact": 1,
+    "batch-limit": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Авиазүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Акустик",
+      "reason": "missing"
+    },
+    {
+      "title": "Боловсрол судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Вирус судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Гүн ухаан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Далайн судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Дархлаа судлал",
+      "reason": "short"
+    },
+    {
+      "title": "Жуулчлал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Жүжиг",
+      "reason": "missing"
+    },
+    {
+      "title": "Кино урлаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Компьютерын аюулгүй байдал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Компьютерын сүлжээ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Криптограф",
+      "reason": "short"
+    },
+    {
+      "title": "Магадлалын онол",
+      "reason": "short"
+    },
+    {
+      "title": "Математик анализ",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын газар зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын соёл",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын уран зохиол",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын урлаг",
+      "reason": "missing"
+    },
+    {
+      "title": "Монголын шинжлэх ухаан",
+      "reason": "missing"
+    },
+    {
+      "title": "Нян судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Программчлалын хэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Робот техник",
+      "reason": "missing"
+    },
+    {
+      "title": "Танин мэдэхүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Тригонометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Төрийн удирдлага",
+      "reason": "missing"
+    },
+    {
+      "title": "Улс төр судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Ус судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Усан цахилгаан станц",
+      "reason": "missing"
+    },
+    {
+      "title": "Утга зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Харилцаа холбоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Хиймэл оюун",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хоол зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Хууль зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүн судлал",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хөгжмийн онол",
+      "reason": "missing"
+    },
+    {
+      "title": "Үг зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Үлгэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Өгүүлбэр зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Өөлд",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-03/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "fb0a2f2810666f9cf309ac8f6285f8c2194e49268ee20099964292da30d2cfdd",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
