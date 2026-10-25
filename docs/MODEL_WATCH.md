@@ -1,5 +1,20 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-25 16:30: actual pinned Qwen3 CPU experiment
+
+`Qwen/Qwen3-0.6B` revision `c1899de289a04d12100db370d81485cdf75e47ca`
+was downloaded and executed (Apache-2.0 open weights; not API-only, not a
+fully open training-data claim). No new release-date claim is made.
+Official tokenizer/chat template at that revision, `enable_thinking=False`;
+Transformers 4.51.3, Torch 2.6.0+cu124 CPU execution, PEFT 0.15.2 tested.
+Weights are 1,503,300,328 bytes; combined inference/LoRA experiment peak RSS
+4.84 GiB with four CPU threads. Real 16-step synthetic LoRA changed the same
+draft exact-match score from 0/24 to 6/24; translation/transliteration stayed
+0/4. This is limited diagnostic evidence, not broad Mongolian validation.
+No existing base/pin/results were replaced. Adapter is specific to this base;
+no cross-architecture compatibility is assumed. Full hashes, timings, outputs,
+failure notes and limitations are in [research](../research/2026-10-25.md).
+
 ## 2026-10-25 13:00: immutable small-base candidate recorded; no promotion
 
 The official `Qwen/Qwen3.5-0.8B-Base` card was verified at immutable revision

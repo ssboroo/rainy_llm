@@ -1,0 +1,340 @@
+{
+  "before": {
+    "metric": "normalized_exact_match",
+    "correct": 0,
+    "total": 24,
+    "accuracy": 0.0,
+    "missing": 0,
+    "categories": {
+      "arithmetic": {
+        "correct": 0,
+        "total": 6
+      },
+      "comprehension": {
+        "correct": 0,
+        "total": 6
+      },
+      "instruction": {
+        "correct": 0,
+        "total": 6
+      },
+      "transliteration": {
+        "correct": 0,
+        "total": 2
+      },
+      "translation": {
+        "correct": 0,
+        "total": 2
+      },
+      "logic": {
+        "correct": 0,
+        "total": 2
+      }
+    },
+    "details": [
+      {
+        "id": "mn-smoke-001",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-002",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-003",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-004",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-005",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-006",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-007",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-008",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-009",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-010",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-011",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-012",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-013",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-014",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-015",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-016",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-017",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-018",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-019",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-020",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-021",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-022",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-023",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-024",
+        "correct": false,
+        "missing": false
+      }
+    ],
+    "seconds": 128.963574214,
+    "tokens": 745
+  },
+  "after": {
+    "metric": "normalized_exact_match",
+    "correct": 6,
+    "total": 24,
+    "accuracy": 0.25,
+    "missing": 0,
+    "categories": {
+      "arithmetic": {
+        "correct": 2,
+        "total": 6
+      },
+      "comprehension": {
+        "correct": 1,
+        "total": 6
+      },
+      "instruction": {
+        "correct": 2,
+        "total": 6
+      },
+      "transliteration": {
+        "correct": 0,
+        "total": 2
+      },
+      "translation": {
+        "correct": 0,
+        "total": 2
+      },
+      "logic": {
+        "correct": 1,
+        "total": 2
+      }
+    },
+    "details": [
+      {
+        "id": "mn-smoke-001",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-002",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-003",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-004",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-005",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-006",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-007",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-008",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-009",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-010",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-011",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-012",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-013",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-014",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-015",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-016",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-017",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-018",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-019",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-020",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-021",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-022",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-023",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "mn-smoke-024",
+        "correct": false,
+        "missing": false
+      }
+    ],
+    "seconds": 25.7964528560002,
+    "tokens": 120
+  },
+  "steps": 16,
+  "losses": [
+    4.291093826293945,
+    2.517395496368408,
+    2.175743341445923,
+    0.3075404167175293,
+    0.22432243824005127,
+    0.15646672248840332,
+    1.302899718284607,
+    0.04714985564351082,
+    0.7836920619010925,
+    0.7821444272994995,
+    0.017448417842388153,
+    0.16172091662883759,
+    0.8447203040122986,
+    0.0010855125728994608,
+    0.0006575472070835531,
+    0.0008625283953733742
+  ],
+  "training_seconds": 13.462673370999937,
+  "peak_rss_kib": 5077988,
+  "accuracy_delta": 0.25,
+  "general_mongolian_improvement_proven": false,
+  "note": "Draft 24-case diagnostic; synthetic training; no human review. No model promotion."
+}

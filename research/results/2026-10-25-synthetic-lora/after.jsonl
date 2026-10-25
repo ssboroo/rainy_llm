@@ -1,0 +1,24 @@
+{"id": "mn-smoke-001", "output": "42", "seconds": 0.6661069930000849, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-002", "output": "37", "seconds": 0.6459834270000329, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-003", "output": "8", "seconds": 0.4982181870000204, "tokens": 2, "hit_token_limit": false}
+{"id": "mn-smoke-004", "output": "12", "seconds": 0.6431681889999936, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-005", "output": "15", "seconds": 0.671407396999939, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-006", "output": "1", "seconds": 0.5986844029999929, "tokens": 2, "hit_token_limit": false}
+{"id": "mn-smoke-007", "output": "1", "seconds": 0.5799453660000609, "tokens": 2, "hit_token_limit": false}
+{"id": "mn-smoke-008", "output": "1", "seconds": 0.5410508960000016, "tokens": 2, "hit_token_limit": false}
+{"id": "mn-smoke-009", "output": "1", "seconds": 0.6463978389999738, "tokens": 2, "hit_token_limit": false}
+{"id": "mn-smoke-010", "output": "10", "seconds": 0.9220077940000238, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-011", "output": "Сүүдэр", "seconds": 1.229586640999969, "tokens": 6, "hit_token_limit": false}
+{"id": "mn-smoke-012", "output": "1", "seconds": 0.6341043730000138, "tokens": 2, "hit_token_limit": false}
+{"id": "mn-smoke-013", "output": "нар", "seconds": 0.6828313659999594, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-014", "output": "7, 19, 4", "seconds": 1.696032133000017, "tokens": 9, "hit_token_limit": false}
+{"id": "mn-smoke-015", "output": "12", "seconds": 0.7662193230000867, "tokens": 3, "hit_token_limit": false}
+{"id": "mn-smoke-016", "output": "БЭЛЭН", "seconds": 1.1721303289999696, "tokens": 6, "hit_token_limit": false}
+{"id": "mn-smoke-017", "output": "Өнөөдөр", "seconds": 1.465994290000026, "tokens": 8, "hit_token_limit": false}
+{"id": "mn-smoke-018", "output": "тоогоор", "seconds": 0.8159863680000399, "tokens": 4, "hit_token_limit": false}
+{"id": "mn-smoke-019", "output": "Монгол", "seconds": 1.0336007810000183, "tokens": 5, "hit_token_limit": false}
+{"id": "mn-smoke-020", "output": "Монгол", "seconds": 1.1107683310000311, "tokens": 5, "hit_token_limit": false}
+{"id": "mn-smoke-021", "output": "Монгол хэл рүү", "seconds": 2.2694481380000298, "tokens": 11, "hit_token_limit": false}
+{"id": "mn-smoke-022", "output": "Англи хэлний булаар монгол хэл рүү", "seconds": 4.220847972999991, "tokens": 23, "hit_token_limit": false}
+{"id": "mn-smoke-023", "output": "Тийм", "seconds": 0.9884510529999488, "tokens": 4, "hit_token_limit": false}
+{"id": "mn-smoke-024", "output": "Б-ээс", "seconds": 1.297481265999977, "tokens": 6, "hit_token_limit": false}

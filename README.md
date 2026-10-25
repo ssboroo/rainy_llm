@@ -7,7 +7,7 @@
 
 > **Development stage: measured research foundation.** Dataset validation, evaluation gates and reproducible CPU experiments are available. No trained RAINY weights or service have been released. The latest Qwen3.5-4B candidate result is 12/24 on a small public smoke set; it is not a production promotion.
 >
-> **Төлөв: хэмжилттэй судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл/үнэлгээний шалгалт, давтан ажиллуулах CPU туршилт бэлэн. RAINY загварыг сургаагүй, үйлчилгээ гаргаагүй. Qwen3.5-4B-ийн 12/24 нь жижиг public smoke үр дүн бөгөөд production суурь болгосон гэсэн үг биш.
+> **Төлөв: хэмжилттэй судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл/үнэлгээний шалгалт, давтан ажиллуулах CPU туршилт бэлэн. Хүний хянасан corpus дээр сурсан RAINY release, үйлчилгээ гараагүй. Qwen3.5-4B-ийн 12/24 нь жижиг public smoke үр дүн бөгөөд production суурь болгосон гэсэн үг биш.
 
 ---
 
@@ -18,7 +18,8 @@
 - Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.
 - 24 draft Mongolian smoke questions, offline exact-match scoring, 24 local tests passed.
 - Өгөгдөл цэвэрлэх, бүлэглэн хуваах, 24 асуулттай ноорог үнэлгээ, хариу оноолох код бэлэн.
-- Qwen3-0.6B inference completed; no training. / Qwen3-0.6B хариулт үүсгэсэн; сургалт хийгдээгүй.
+- [Real CPU LoRA experiment](docs/SYNTHETIC_CPU_EXPERIMENT.md), 2026-10-25: Qwen3-0.6B, 16 synthetic-training steps; identical draft diagnostic **0/24 → 6/24**. Not reviewed-corpus training or a general-language improvement claim.
+- Бодит CPU LoRA: 16 алхам, ижил draft үнэлгээ **0/24 → 6/24**. Хиймэл жишээтэй техникийн туршилт; хүний хянасан corpus дээрх RAINY release биш.
 
 ## Data quality and export / Чанар ба хөрвүүлэлт
 
