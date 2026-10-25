@@ -1,5 +1,22 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-25 09:00: small-model watch; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek and PEFT sources were rechecked.
+`Qwen/Qwen3.5-0.8B` is dated 2026-03-09 and is explicitly positioned for
+prototyping and task-specific fine-tuning; it is resource-interesting, but this
+run did not establish its immutable revision, exact weights license, pinned
+runtime compatibility, tokenizer/chat-template behavior or a matched-hash
+Mongolian quality/latency/memory advantage. It therefore remains watch-only.
+Qwen3.8-27B and the 763B DeepSeek-V4.1-Flash-1017 remain outside this host's
+resource envelope. Google's latest dated Gemma entry observed was the
+specialized EmbeddingGemma 2 (740M, 2026-10-06), not a causal base. PEFT v0.21.2
+(2026-10-01, release commit `eaa35c7`) remains the latest verified release.
+
+No model, adapter or dependency was downloaded, trained, inferred or promoted.
+Existing pins, baseline results and rollback evidence remain unchanged. The
+executable result is licensed raw corpus batch 01, not model-quality evidence.
+
 ## 2026-10-24 21:00: official recheck; baseline retained
 
 Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
