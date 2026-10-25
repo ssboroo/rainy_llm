@@ -2,7 +2,8 @@
 
 ## 2026-10-25 daily corpus
 - [x] Batch 01: 20 globally deduplicated history, economics, health, technology, chemistry, literature and biology sources / 22,576 characters; daily 20/100. Daily/pilot 900 plus bulk 1,570 = 2,466 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0. Frozen evaluation data unchanged.
-- [ ] Batches 02–05: 80 more licensed, globally deduplicated sources in four 20-document manifests.
+- [x] Batch 02: 20 globally deduplicated language, technology, geography, medicine, chemistry, literature, law, mathematics and biology sources / 18,422 characters; daily 40/100. Daily/pilot 920 plus bulk 1,570 = 2,486 exact-unique raw leads after excluding four known cross-branch duplicates; human-reviewed/training-ready 0/0. Frozen evaluation data unchanged.
+- [ ] Batches 03–05: 60 more licensed, globally deduplicated sources in three 20-document manifests.
 - [ ] Human privacy/quality/license review and source-linked instruction authoring before training.
 
 ## 2026-10-24 daily corpus

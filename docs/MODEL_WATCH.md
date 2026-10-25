@@ -1,5 +1,22 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-25 13:00: immutable small-base candidate recorded; no promotion
+
+The official `Qwen/Qwen3.5-0.8B-Base` card was verified at immutable revision
+`dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68`. It is a pretrained-only 0.8B
+vision-language causal model under Apache-2.0. The card states that the
+`<|im_start|>` / `<|im_end|>` control tokens and official chat template support
+LoRA-style PEFT without necessarily tuning the large embeddings. Transformers,
+vLLM and SGLang compatibility is producer-declared; no local runtime was
+installed or tested here. Exact CPU RAM, quantized artifact and throughput
+requirements remain unmeasured, and no matched-hash Mongolian baseline exists.
+
+Google's dated release page still lists EmbeddingGemma 2 (740M, 2026-10-06) as
+the newest entry; it is an embedding model. No new resource-feasible DeepSeek,
+Meta or Mistral causal candidate with a complete local comparison was
+established. Existing model pins and rollback results remain unchanged. No
+weights, adapter or dependency were downloaded, trained, inferred or promoted.
+
 ## 2026-10-25 09:00: small-model watch; baseline retained
 
 Official Qwen, Google Gemma, DeepSeek and PEFT sources were rechecked.
