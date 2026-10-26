@@ -2,6 +2,11 @@
 
 ## 2026-10-26 checkpoint continuation
 
+- [x] 17:15 corpus batch01:20 new sources,21,400 characters; today20/100, human-reviewed/training-ready0/0. Remaining80 are not backdated or counted as completed.
+
+- [x] Configurable hash-bound synthetic training seed and a separate frozen 12-case transfer diagnostic with lexical separation regression test.
+- [ ] Complete and durably retain seed-42/43 before/after reports. Interrupted seed-42 attempt is not a completed comparison; no promotion.
+
 - [x] Synthetic CPU session/resume CLI; actual Qwen3 four-step versus two-plus-two fresh-process equality of adapter/optimizer/scheduler/RNG/losses.
 - [ ] Fresh held-out evaluation, private durable export, reviewed-data training and GPU/stochastic equivalence remain separate work. Today's source collection is still 0/100; do not count the synthetic test.
 

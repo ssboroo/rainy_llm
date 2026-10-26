@@ -1,5 +1,12 @@
 # Daily Mongolian Wikipedia source batches
 
+2026-10-26 17:15 update: batch01 adds20 globally exact-unique physics, instruments,
+music and art sources /21,400 characters. Today20/100; daily/pilot940 plus bulk1570
+gives2506 exact-unique sources after the four historical cross-branch duplicates.
+New human-reviewed/training-ready0/0. 80 candidates excluded:54 missing,
+14 duplicate-source,8 quality-artifact,4 batch-limit. Prior snapshots below are historical.
+Өнөөдөр20/100 шинэ эх; бүгд хүний хяналт хүлээсэн, сургалтад бэлэн биш.
+
 Current snapshot, 2026-10-25: batches 01–02 add 40 history, economics, health, technology, chemistry, literature, language, mathematics and biology sources / 40,998 characters.
 Today: 40/100; daily-branch daily/pilot corpus: 920 raw documents; separately persisted bulk branch: 1,570 rows. Across both branches there are 2,486 exact-unique sources after excluding four cross-branch duplicates (`Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига`); human-reviewed/training-ready: 0/0.
 October 24 completed 100/100 with 106,931 characters.

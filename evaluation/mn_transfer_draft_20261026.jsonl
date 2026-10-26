@@ -1,0 +1,12 @@
+{"id":"transfer-01","category":"arithmetic","prompt":"Нэг хайрцагт 7 харандаа байв. 3-ыг нь авбал хэд үлдэх вэ? Тооноос өөр зүйл бүү бич.","answers":["4"]}
+{"id":"transfer-02","category":"arithmetic","prompt":"6-г 4-өөр үржүүлсэн хариуг ганц тоогоор бич.","answers":["24"]}
+{"id":"transfer-03","category":"extraction","prompt":"Мэдээлэл: Бат мягмар гарагт Дархан хотод очив. Аль хотод очсон бэ? Зөвхөн хотын нэрийг бич.","answers":["Дархан"]}
+{"id":"transfer-04","category":"extraction","prompt":"Бүртгэл: бүтээгдэхүүн=аяга; өнгө=ногоон; үнэ=8000. Өнгийн утгыг дангаар нь гарга.","answers":["ногоон"]}
+{"id":"transfer-05","category":"translation","prompt":"Англи үгийг Монгол хэл рүү орчуул: horse. Ганц үгээр хариул.","answers":["морь","адуу"]}
+{"id":"transfer-06","category":"translation","prompt":"Монгол үгийг англи хэл рүү орчуул: ном. Ганц үгээр хариул.","answers":["book"]}
+{"id":"transfer-07","category":"transliteration","prompt":"Латинаар бичсэн mongol гэдэг үгийг кирилл үсгээр буулга. Зөвхөн хөрвүүлсэн үгийг бич.","answers":["монгол"]}
+{"id":"transfer-08","category":"transliteration","prompt":"Латинаар бичсэн bayarlalaa гэдэг үгийг кирилл үсгээр буулга. Зөвхөн хөрвүүлсэн үгийг бич.","answers":["баярлалаа"]}
+{"id":"transfer-09","category":"instruction","prompt":"Энэ даалгаварт тайлбар хэрэггүй. Хариулт чинь зөвхөн ТИЙМ гэсэн нэг үг байх ёстой.","answers":["ТИЙМ"]}
+{"id":"transfer-10","category":"instruction","prompt":"Дараах жагсаалтаас зөвхөн жимсийг сонго: сандал, алим, харандаа. Сонгосон үгээ дангаар нь бич.","answers":["алим"]}
+{"id":"transfer-11","category":"reasoning","prompt":"А нь Б-ээс өндөр. Б нь В-ээс өндөр. Хэн хамгийн намхан бэ? Зөвхөн үсгээр хариул.","answers":["В"]}
+{"id":"transfer-12","category":"reasoning","prompt":"Өнөөдөр даваа гараг бол маргааш ямар гараг вэ? Гарагийн нэрийг ганц үгээр бич.","answers":["мягмар"]}

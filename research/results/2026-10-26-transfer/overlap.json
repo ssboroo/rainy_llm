@@ -1,0 +1,11 @@
+{
+  "method": "normalized_character_ngram_jaccard",
+  "ngram": 3,
+  "threshold": 0.5,
+  "evaluation_cases": 12,
+  "training_records": 32,
+  "pairs_checked": 384,
+  "candidate_count": 0,
+  "findings": [],
+  "warning": "Heuristic candidate list only; human review is required. This does not detect all paraphrases, translations, semantic overlap or base-model contamination."
+}

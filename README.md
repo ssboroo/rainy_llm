@@ -13,6 +13,12 @@
 
 ## New: CPU pipeline / CPU дээр ажиллах шинэ хэрэгслүүд
 
+Synthetic CPU experiments now accept a hash-bound `--seed` for repeated-seed
+comparisons. [Fresh 12-case transfer draft](evaluation/MN_TRANSFER_DRAFT.md):
+separated from synthetic training; human review and completed comparison pending.
+Хиймэл сургалтын seed сонгох боломж нэмэгдсэн; тусдаа 12 асуулттай ноорогийн
+бүрэн before/after хэмжилт хараахан дуусаагүй.
+
 [Data preparation and evaluation guide / Өгөгдөл бэлтгэл, үнэлгээний заавар](docs/PIPELINE.md)
 
 - Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.

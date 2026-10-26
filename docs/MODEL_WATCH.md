@@ -1,5 +1,16 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-26 17:11: transfer comparison incomplete
+
+Kept Qwen/Qwen3-0.6B at c1899de289a04d12100db370d81485cdf75e47ca,
+Apache-2.0 open weights, official local tokenizer/template, non-thinking greedy
+CPU float32. Official model card, Qwen3 report, PEFT documentation/releases and
+Google/DeepSeek/Meta/Mistral producer pages reopened. No new immutable candidate
+or tested runtime upgrade promoted. The seed-configurable runner was exercised
+through16 synthetic training steps, but the full transfer predictions/summary
+were not retained after interruption. No complete quality/resource comparison
+or replacement-base decision can be made. See today's research for failures.
+
 ## 2026-10-26: checkpoint reproducibility, no model promotion
 
 Retained Qwen3-0.6B revision c1899de289a04d12100db370d81485cdf75e47ca
