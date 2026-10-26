@@ -1,0 +1,17 @@
+{
+  "before": null,
+  "after": null,
+  "steps": 4,
+  "losses": [
+    4.291093826293945,
+    2.517395496368408,
+    2.175743341445923,
+    0.3075404167175293
+  ],
+  "training_seconds": 4.244833916999994,
+  "peak_rss_kib": 5106908,
+  "session_steps": 4,
+  "accuracy_delta": null,
+  "general_mongolian_improvement_proven": false,
+  "note": "Draft 24-case diagnostic; synthetic training; no human review. No model promotion."
+}

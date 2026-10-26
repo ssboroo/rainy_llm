@@ -1,5 +1,10 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-26 checkpoint continuation
+
+- [x] Synthetic CPU session/resume CLI; actual Qwen3 four-step versus two-plus-two fresh-process equality of adapter/optimizer/scheduler/RNG/losses.
+- [ ] Fresh held-out evaluation, private durable export, reviewed-data training and GPU/stochastic equivalence remain separate work. Today's source collection is still 0/100; do not count the synthetic test.
+
 ## 2026-10-25 real model execution
 
 - [x] Pinned Qwen3-0.6B download, real offline-flagged CPU inference, 16-step synthetic LoRA, identical draft diagnostic 0/24 → 6/24, private checkpoint retention and 24/24 fresh-process reload equivalence. See [experiment](SYNTHETIC_CPU_EXPERIMENT.md).

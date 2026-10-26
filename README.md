@@ -79,7 +79,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Unit tests | Available | 126 tests, including collection screening/dedup, instruction drafts, corpus review/splits, checkpoint fault handling and evaluation |
 | Training corpus | Pending | 920 daily/pilot Wikipedia leads plus 1,570 separately persisted bulk rows; 2,486 sources are exact-unique across branches after accounting for four cross-branch duplicates. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
-| LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
+| LoRA / QLoRA training | Experimental CPU LoRA | [Synthetic experiment](docs/SYNTHETIC_CPU_EXPERIMENT.md): real adapter training/reload and 4-step vs 2+2 resume equality tested. Reviewed-corpus training and QLoRA remain untested. |
 | Inference API / Docker | Planned | No runnable service or container configuration |
 
 The initial six tests passed during project setup. This is a recorded local result, not a live CI status badge.
@@ -259,7 +259,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Unit test | Бэлэн | Цуглуулалтын screening/давхардал, instruction ноорог, корпусын review/split, checkpoint, үнэлгээний 126 тест; бодит сургалтын баталгаа биш |
 | Сургалтын корпус | Бэлтгэгдээгүй | daily branch дээр 920 daily/pilot, тусдаа bulk branch дээр 1,570 мөр; дөрвөн cross-branch давхардлыг хасаад 2,486 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
-| LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
+| LoRA / QLoRA сургалт | CPU LoRA туршилт | [Хиймэл жишээтэй туршилт](docs/SYNTHETIC_CPU_EXPERIMENT.md): бодит сургалт/reload, 4 алхам ба 2+2 сэргээх үр дүн яг ижил. Reviewed corpus сургалт, QLoRA туршаагүй. |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
 
 Төслийг эхлүүлэх үед зургаан тест амжилттай ажилласан. Энэ нь тухайн үеийн локал шалгалтын үр дүн бөгөөд байнга шинэчлэгддэг CI төлөв биш.
