@@ -13,6 +13,12 @@
 
 ## New: CPU pipeline / CPU дээр ажиллах шинэ хэрэгслүүд
 
+[Bounded experiment supervisor](docs/BOUNDED_EXPERIMENT.md) now limits whole-process
+wall time and sampled RSS, with retained stop reasons/logs. Process-control tests
+pass; real model execution through this wrapper is still pending.
+Сургалтын процессыг хугацаа/RAM-аар хянах хэрэгсэл нэмэгдсэн; модель дээрх бүрэн
+туршилт болон найдвартай checkpoint хадгалалт хараахан батлагдаагүй.
+
 Synthetic CPU experiments now accept a hash-bound `--seed` for repeated-seed
 comparisons. [Fresh 12-case transfer draft](evaluation/MN_TRANSFER_DRAFT.md):
 separated from synthetic training; human review and completed comparison pending.

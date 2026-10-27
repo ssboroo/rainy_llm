@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-27T00:59:01.938608+00:00",
+  "requested_titles": 57,
+  "articles": 20,
+  "characters": 15888,
+  "rejected": 37,
+  "rejected_by_reason": {
+    "short": 6,
+    "duplicate-source": 5,
+    "batch-limit": 26
+  },
+  "rejected_items": [
+    {
+      "title": "1957 оны улсын наадмын бөх барилдаан",
+      "reason": "short"
+    },
+    {
+      "title": "2017 оны Австралийн гран-при",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Forbes Global 2000",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "PlayStation",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "АНУ-ын Сансрын Тандалтын Сүлжээ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дархан-Өргөө Политехникийн коллеж",
+      "reason": "short"
+    },
+    {
+      "title": "Олон төрлийн химийн бодисын эмзэгшил",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Орхон сум (Сэлэнгэ)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Портленд Трэйл Блэйзерс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Праг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Прометей",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сикарам уул",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сонин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Спортивная (өртөө)",
+      "reason": "short"
+    },
+    {
+      "title": "Сүвонийн цэнгэлдэх хүрээлэн",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Температур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Толбо сум",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тольт хартотол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Уур амьсгалын бүс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Феррари SF70H",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Халх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хатанбаатар (кино)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хурган нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүний эрхийг хамгаалагч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүсэл мөрөөдлийн зүгт",
+      "reason": "short"
+    },
+    {
+      "title": "Хөмсөг",
+      "reason": "short"
+    },
+    {
+      "title": "Хөрсөн бүрхэвчийн судалгаа, зураглал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан улаагана",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чин Улсын эрхшээл дэх Монгол орон",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чингийн зүүн бунхан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Швидница",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шиншүү Их Сургууль",
+      "reason": "short"
+    },
+    {
+      "title": "Эксперт систем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энх амгалангийн төр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эсбьерг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үзэсгэлэнт 12 сар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өнөөдөр (сонин)",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-26/batch-01/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "dc80670b69557dbcc0411562f09aad6b5c4eaf86f55550d7b821e3c91789daac",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

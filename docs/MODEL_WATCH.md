@@ -1,5 +1,17 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-27 recheck — no base promotion
+
+Reopened the official [Qwen3-0.6B card](https://huggingface.co/Qwen/Qwen3-0.6B),
+[Qwen3 report](https://arxiv.org/abs/2505.09388) (submitted 2025-05-14), and
+[PEFT releases](https://github.com/huggingface/peft/releases). Retain
+`Qwen/Qwen3-0.6B` revision `c1899de289a04d12100db370d81485cdf75e47ca`,
+Apache-2.0 open weights and existing tokenizer/chat-template/runtime pins.
+No newly verified immutable candidate, dependency upgrade, or vendor quality
+claim is integrated. No model execution or resource/quality comparison completed
+in this run. The bounded subprocess supervisor is infrastructure, not a model
+quality improvement. See `research/2026-10-27.md`.
+
 ## 2026-10-26 17:11: transfer comparison incomplete
 
 Kept Qwen/Qwen3-0.6B at c1899de289a04d12100db370d81485cdf75e47ca,

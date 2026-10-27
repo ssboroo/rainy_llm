@@ -1,5 +1,12 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-27 bounded experiment execution
+
+- [x] Whole-process wall/RSS supervisor, retained logs and explicit failure reports; actual subprocess fault tests. Model execution under this wrapper remains pending.
+- [x] Batch01: 20 new licensed sources, 15,888 characters; today 20/100, human-reviewed/training-ready 0/0.
+- [ ] Next: restore pinned runtime and private durable checkpoint retention, then complete seed-42/43 transfer comparisons under the supervisor. Do not repeat public-smoke tuning or promote a base from one seed.
+- [ ] Offline merged/base-plus-adapter export and quantization comparisons follow retained evidence; human corpus review is a separate gate.
+
 ## 2026-10-26 checkpoint continuation
 
 - [x] 17:15 corpus batch01:20 new sources,21,400 characters; today20/100, human-reviewed/training-ready0/0. Remaining80 are not backdated or counted as completed.
