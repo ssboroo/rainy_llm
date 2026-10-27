@@ -27,6 +27,12 @@ def supervise(command, log, seconds, rss_bytes, measure):
     try:
         while child.poll() is None:
             rss = measure(child.pid)
+            if not isinstance(rss, int) or isinstance(rss, bool) or rss <= 0:
+                # A disappearing process can race the sample. An alive child
+                # with no observable RSS must never be treated as using 0 bytes.
+                if child.poll() is not None:
+                    break
+                raise RuntimeError('child RSS unavailable; memory guard cannot operate')
             peak = max(peak, rss)
             if rss > rss_bytes:
                 reason = 'rss_limit'
@@ -74,7 +80,7 @@ def main():
         try:
             return psutil.Process(pid).memory_info().rss
         except psutil.NoSuchProcess:
-            return 0
+            return None
     # No descendants are expected: the fixed CPU runner does not launch workers.
     # RSS sampling is a best-effort guard, not an OS/cgroup hard memory limit.
     with Path(str(out)+'.supervisor.json').open('x') as report:

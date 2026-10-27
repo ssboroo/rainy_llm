@@ -1,5 +1,18 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-27 21:00 — retained transfer result, no promotion
+
+Same `Qwen/Qwen3-0.6B` immutable revision
+`c1899de289a04d12100db370d81485cdf75e47ca`, Apache-2.0 open weights (not a
+fully open training-data claim), official local tokenizer/template. CPU float32,
+four threads, Transformers4.51.3/PEFT0.15.2/Torch2.6.0+cpu executed. Seed42
+16-step synthetic LoRA changed the separate 12-case draft score0/12→3/12;
+training30.038s, model-process peak RSS4.604GiB. Supervisor zero RSS is invalid.
+Seed43 ran but complete artifacts were not retained: no repeat-seed promotion.
+No newly asserted model release date, architecture change or replacement base.
+Official Qwen card/report and PEFT releases rechecked; dependency freeze and
+per-file model hashes retained with [results](../research/results/2026-10-27-transfer/).
+
 ## 2026-10-27 recheck — no base promotion
 
 Reopened the official [Qwen3-0.6B card](https://huggingface.co/Qwen/Qwen3-0.6B),

@@ -11,8 +11,8 @@ python scripts/run_synthetic_bounded.py --model /private/pinned-qwen3 \
   --seconds 240 --rss-mib 8192
 ```
 
-Requires the tested synthetic runtime plus `psutil` (previously installed version
-7.2.2); this supervisor has not yet completed a real model run. It records a
+Requires the tested synthetic runtime plus `psutil` (tested version
+7.2.2). It records a
 sibling `.log` and `.supervisor.json`, refuses existing output/report/log files,
 and returns nonzero for child failure, timeout, RSS excess or monitor failure.
 Logs/reports are flushed and fsynced after process termination. Do not place
@@ -29,6 +29,15 @@ Actual tests launch short Python child processes and check success, exit3,
 timeout, injected RSS excess, monitor exception and missing executable. Memory
 limit tests inject the measurement; they do not allocate 8GiB or prove OOM safety.
 These are process-control tests, not model inference or language-quality tests.
+
+2026-10-27 real-model execution exposed a host limitation: psutil could not
+observe the child PID, and the original supervisor silently counted that as
+zero RSS. Historical raw supervisor reports are retained but their zero RSS is
+invalid, not a resource measurement. Model-process `ru_maxrss` is reported
+separately. The corrected supervisor now fails closed for missing/zero/invalid
+RSS while a child is alive. A real CLI probe on this host returned
+`monitor_error`, exit 1, in 0.005 seconds; do not bypass it to claim guarded
+execution. A host with observable child RSS is needed for the full guard.
 
 Монгол: Сургалтын бүх процессыг хугацаа ба RAM хэмжилтээр хянаж, алдааны шалтгаан,
 лог хадгална. Хязгаар давбал зогсооно. Түр файлыг байнга хадгална гэсэн баталгаа

@@ -13,17 +13,20 @@
 
 ## New: CPU pipeline / CPU дээр ажиллах шинэ хэрэгслүүд
 
-[Bounded experiment supervisor](docs/BOUNDED_EXPERIMENT.md) now limits whole-process
-wall time and sampled RSS, with retained stop reasons/logs. Process-control tests
-pass; real model execution through this wrapper is still pending.
-Сургалтын процессыг хугацаа/RAM-аар хянах хэрэгсэл нэмэгдсэн; модель дээрх бүрэн
-туршилт болон найдвартай checkpoint хадгалалт хараахан батлагдаагүй.
+[Bounded experiment supervisor](docs/BOUNDED_EXPERIMENT.md) now fails closed when
+child RSS cannot be observed. Real model execution exposed the former zero-RSS
+bug; historical zero readings are invalid, not memory measurements.
+RAM хэмжилт боломжгүй үед процессыг зогсоодог болгож зассан; хуучин 0-byte
+тайланг бодит RAM хэрэглээ гэж үзэхгүй.
 
 Synthetic CPU experiments now accept a hash-bound `--seed` for repeated-seed
 comparisons. [Fresh 12-case transfer draft](evaluation/MN_TRANSFER_DRAFT.md):
-separated from synthetic training; human review and completed comparison pending.
-Хиймэл сургалтын seed сонгох боломж нэмэгдсэн; тусдаа 12 асуулттай ноорогийн
-бүрэн before/after хэмжилт хараахан дуусаагүй.
+separated from synthetic training. On 2026-10-27, seed42 completed 16 CPU LoRA
+steps: **0/12 → 3/12**, with a retained private checkpoint and raw reports.
+Seed43's complete artifacts were not retained; a verified two-seed comparison
+and human review remain pending. No general-quality or release claim.
+Seed42 дээр 16 алхмын бодит CPU сургалт хийж **0/12 → 3/12** хэмжсэн.
+Энэ нь жижиг synthetic/draft туршилт; нийт Монгол чадварын баталгаа биш.
 
 [Data preparation and evaluation guide / Өгөгдөл бэлтгэл, үнэлгээний заавар](docs/PIPELINE.md)
 

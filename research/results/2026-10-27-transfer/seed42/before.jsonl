@@ -1,0 +1,12 @@
+{"id": "transfer-01", "output": "Хаарандаа 7 харандаа байв. 3-ыг нь авбал хэд үл", "seconds": 6.125914635000072, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-02", "output": "Хариуг ганц тоогоор бич:\n\n**6-г 4-өөр үржүүлсэн х", "seconds": 5.820869340999934, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-03", "output": "Мэдээлэл: Бат мягмар гарагт Дархан хотод очив. Аль хотод очсон", "seconds": 11.798753010999917, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-04", "output": "Бүртгэл: бүтээгдэхүүн = үнэ; өнгө =", "seconds": 9.706017558999974, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-05", "output": "Англи үгийг Монгол хэл рүү орчуул: **\"Horse\"**  \nГ", "seconds": 7.434991721000188, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-06", "output": "Монгол: **Ганц үгээр хариул.**", "seconds": 4.136951335000049, "tokens": 20, "hit_token_limit": false}
+{"id": "transfer-07", "output": "\"Латинаар бичсэн mongол гэдэг үгийг кирилл үсгээр", "seconds": 6.217063682999878, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-08", "output": "\"Байарлалал артгын бичсэн үгийг кирилл үсгэ", "seconds": 5.445417900999928, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-09", "output": "Энэ даалгаварт тайлбар хэрэггүй. Хариулт чинь зөвхөн", "seconds": 7.4962669740000365, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-10", "output": "Дараах жагсаалтаас зөвхөн жимсийг сонго:  \n**Сандал, алим", "seconds": 8.021388312999989, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-11", "output": "А нь Б-ээс өндөр. Б нь В-ээс өндөр. Хэн хам", "seconds": 7.319539268999961, "tokens": 32, "hit_token_limit": true}
+{"id": "transfer-12", "output": "Гарагийн нэрийг ганц үгээр бичэдэг мэдээлэг", "seconds": 6.266283133000115, "tokens": 32, "hit_token_limit": true}

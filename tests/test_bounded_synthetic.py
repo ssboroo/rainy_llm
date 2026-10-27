@@ -8,6 +8,14 @@ from run_synthetic_bounded import supervise
 
 
 class BoundedSyntheticTests(unittest.TestCase):
+    def test_unobservable_rss_fails_closed(self):
+        for rss in [None, 0, -1, False]:
+            with tempfile.TemporaryFile(mode='w+') as log:
+                result = supervise([sys.executable, '-c', 'import time; time.sleep(5)'],
+                                   log, 3, 1024, lambda pid: rss)
+                self.assertEqual(result['stop_reason'], 'monitor_error')
+                self.assertFalse(result['completed'])
+
     def test_launch_failure(self):
         with tempfile.TemporaryFile(mode='w+') as log:
             result = supervise(['/nonexistent/rainy-python'], log, 3, 1024, lambda pid: 0)
@@ -28,12 +36,12 @@ class BoundedSyntheticTests(unittest.TestCase):
         for code in [0, 3]:
             with tempfile.TemporaryFile(mode='w+') as log:
                 result = supervise([sys.executable, '-c', f'raise SystemExit({code})'],
-                                   log, 3, 1024, lambda pid: 0)
+                                   log, 3, 1024, lambda pid: 1)
                 self.assertEqual(result['completed'], code == 0)
                 self.assertEqual(result['returncode'], code)
 
     def test_timeout_and_memory(self):
-        for seconds, rss, expected in [(0, 0, 'wall_timeout'), (3, 1025, 'rss_limit')]:
+        for seconds, rss, expected in [(0, 1, 'wall_timeout'), (3, 1025, 'rss_limit')]:
             with tempfile.TemporaryFile(mode='w+') as log:
                 result = supervise([sys.executable, '-c', 'import time; time.sleep(5)'],
                                    log, seconds, 1024, lambda pid: rss)

@@ -1,0 +1,265 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-27T12:58:40.368778+00:00",
+  "requested_titles": 64,
+  "articles": 20,
+  "characters": 15920,
+  "rejected": 44,
+  "rejected_by_reason": {
+    "short": 9,
+    "duplicate-source": 1,
+    "quality-artifact": 2,
+    "batch-limit": 32
+  },
+  "rejected_items": [
+    {
+      "title": "2012-2013 оны НБА-гийн улирал",
+      "reason": "short"
+    },
+    {
+      "title": "2012/2013 оны Германы хөлбөмбөгийн лиг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Андын нуруу",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Браунмилерят",
+      "reason": "short"
+    },
+    {
+      "title": "Дунайская (Санкт-Петербургийн метро)",
+      "reason": "short"
+    },
+    {
+      "title": "Мэдээллийн прескриптив шинж",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мөндөр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Мөнххайрхан уул",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Намрын синдром",
+      "reason": "short"
+    },
+    {
+      "title": "Нинжин сэтгэл",
+      "reason": "short"
+    },
+    {
+      "title": "Номгон сум",
+      "reason": "short"
+    },
+    {
+      "title": "Нуклон",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Нэгдсэн Хаант Улсын ерөнхий сайд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Орос дахь хятадууд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Палестин Улс",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Пенициллин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Рио (хүүхэлдэйн кино)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Рэнчинлхүмбэ сум",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сонгинохайрхан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сонгодог механик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Таксимо",
+      "reason": "short"
+    },
+    {
+      "title": "Торго",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Угчонь-гүнь",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ургамлын тэжээл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ухаалаг гар утас",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Физик космологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хандгай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хо Ши Мин Хотын театр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хубу Гуаньпяо",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хятад дахь хүний эрх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хятадын орчин үеийн утга зохиол, соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүний амьдралын үнэт зүйл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөндий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахар баруун гарын өмнөд хошуу",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чау чау",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чилгүк-гүнь",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шаргалжуут",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энэтхэгийн философи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эргэж бодох бодол",
+      "reason": "short"
+    },
+    {
+      "title": "Эрдэнэбүрэнгийн усан цахилгаан станц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Янгү-гүнь",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үд гол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үндэсний бөх",
+      "reason": "short"
+    },
+    {
+      "title": "Өмнөд Янь",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-26/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-27/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-27/batch-02/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "c61293361c4752d033cd8dc19dc772099269232e1292ae0ed278634d380ed1df",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

@@ -1,0 +1,9 @@
+{
+  "returncode": 0,
+  "stop_reason": null,
+  "error_type": null,
+  "elapsed_seconds": 152.77684447599995,
+  "peak_sampled_rss_bytes": 0,
+  "rss_sampling_seconds": 0.1,
+  "completed": true
+}

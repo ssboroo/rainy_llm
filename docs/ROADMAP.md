@@ -2,6 +2,11 @@
 
 ## 2026-10-27 bounded experiment execution
 
+- [x] Batches02–04:60 additional unique licensed sources; day80/100,63,323characters, human-reviewed/training-ready0/0. One20-source batch remains missing; no fabricated backfill.
+
+- [x] Retained seed42 transfer experiment:16 real CPU LoRA steps, draft0/12→3/12; private final checkpoint preserved. Detected and fixed unobservable-RSS fail-open bug.
+- [ ] Seed43 complete raw artifacts were lost after execution; repeat-seed evidence remains incomplete. Next: restore retained checkpoint and verify offline reload, then rerun seed43 only after immediate artifact retention is ready. Do not retrain seed42 unnecessarily.
+
 - [x] Whole-process wall/RSS supervisor, retained logs and explicit failure reports; actual subprocess fault tests. Model execution under this wrapper remains pending.
 - [x] Batch01: 20 new licensed sources, 15,888 characters; today 20/100, human-reviewed/training-ready 0/0.
 - [ ] Next: restore pinned runtime and private durable checkpoint retention, then complete seed-42/43 transfer comparisons under the supervisor. Do not repeat public-smoke tuning or promote a base from one seed.

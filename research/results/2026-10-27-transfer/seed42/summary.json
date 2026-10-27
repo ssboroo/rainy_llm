@@ -1,0 +1,221 @@
+{
+  "before": {
+    "metric": "normalized_exact_match",
+    "correct": 0,
+    "total": 12,
+    "accuracy": 0.0,
+    "missing": 0,
+    "categories": {
+      "arithmetic": {
+        "correct": 0,
+        "total": 2
+      },
+      "extraction": {
+        "correct": 0,
+        "total": 2
+      },
+      "translation": {
+        "correct": 0,
+        "total": 2
+      },
+      "transliteration": {
+        "correct": 0,
+        "total": 2
+      },
+      "instruction": {
+        "correct": 0,
+        "total": 2
+      },
+      "reasoning": {
+        "correct": 0,
+        "total": 2
+      }
+    },
+    "details": [
+      {
+        "id": "transfer-01",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-02",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-03",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-04",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-05",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-06",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-07",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-08",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-09",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-10",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-11",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-12",
+        "correct": false,
+        "missing": false
+      }
+    ],
+    "seconds": 85.78945687500004,
+    "tokens": 372
+  },
+  "after": {
+    "metric": "normalized_exact_match",
+    "correct": 3,
+    "total": 12,
+    "accuracy": 0.25,
+    "missing": 0,
+    "categories": {
+      "arithmetic": {
+        "correct": 0,
+        "total": 2
+      },
+      "extraction": {
+        "correct": 0,
+        "total": 2
+      },
+      "translation": {
+        "correct": 0,
+        "total": 2
+      },
+      "transliteration": {
+        "correct": 1,
+        "total": 2
+      },
+      "instruction": {
+        "correct": 2,
+        "total": 2
+      },
+      "reasoning": {
+        "correct": 0,
+        "total": 2
+      }
+    },
+    "details": [
+      {
+        "id": "transfer-01",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-02",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-03",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-04",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-05",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-06",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-07",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "transfer-08",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-09",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "transfer-10",
+        "correct": true,
+        "missing": false
+      },
+      {
+        "id": "transfer-11",
+        "correct": false,
+        "missing": false
+      },
+      {
+        "id": "transfer-12",
+        "correct": false,
+        "missing": false
+      }
+    ],
+    "seconds": 24.10506440099948,
+    "tokens": 71
+  },
+  "steps": 16,
+  "losses": [
+    4.291104316711426,
+    2.517393112182617,
+    2.175738573074341,
+    0.3075399100780487,
+    0.22432459890842438,
+    0.1564672291278839,
+    1.3029042482376099,
+    0.04714951664209366,
+    0.7837011218070984,
+    0.7821637988090515,
+    0.017447616904973984,
+    0.161722794175148,
+    0.8447161316871643,
+    0.0010855125728994608,
+    0.0006575770094059408,
+    0.0008625283953733742
+  ],
+  "training_seconds": 30.038301530999888,
+  "peak_rss_kib": 4827800,
+  "session_steps": 16,
+  "accuracy_delta": 0.25,
+  "general_mongolian_improvement_proven": false,
+  "note": "Draft 12-case diagnostic; synthetic training; no human review. No model promotion."
+}
