@@ -42,3 +42,14 @@ path traversal, duplicate members, links, limits, Git-output and overwrite refus
 Монгол: хадгалсан архивыг hash-аар шалгаж, Git-ээс гадуур шинэ хавтаст сэргээнэ.
 Энэ нь дахин сургалт эсвэл чанарын ахиц биш. Base weights ба runtime-ийг тусад нь
 бэлтгэж байж бодит inference reload туршина; review gate өөрчлөгдөхгүй.
+
+## Measured fresh-process reload (2026-10-28)
+
+After archive restoration, run `scripts/verify_synthetic_adapter.py` with
+`--model`, `--run`, `--evaluation`, `--step 16` and optional `--report NEW.json`.
+The report refuses overwrite and records outputs, per-case latency, runtime,
+evaluation/identity hashes and process peak RSS. Linux RSS units are KiB.
+The retained seed42 checkpoint matched all 12 saved predictions in 27.7639s,
+peak RSS 4,822,560 KiB. See `research/results/2026-10-28-restore/reload.json`.
+This checks inference reproducibility, not optimizer resume or quality gains.
+HF offline flags and Python socket guards do not certify OS-level isolation.

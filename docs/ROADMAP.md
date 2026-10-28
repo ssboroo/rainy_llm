@@ -2,13 +2,18 @@
 
 ## 2026-10-28 checkpoint restoration
 
+- [x] Batch02:20 additional licensed sources,48,392characters; day40/100,
+  human-reviewed/training-ready0/0. No backdated collection.
+
 - [x] Batch01:20 new licensed sources,11,779characters; day20/100,
   human-reviewed/training-ready0/0. Global dedup includes all six bulk files.
 
 - [x] Trusted-archive restore CLI: bounded safe extraction outside Git, exclusive
   destination, checkpoint identity/hash verification; real seed42 archive restored.
-- [ ] Restore pinned base/runtime and perform fresh-process inference reload;
-  then complete seed43 with immediate durable retention. RSS guard remains intact.
+- [x] Restore pinned base/runtime and perform fresh-process inference reload:
+  12/12 retained predictions match,27.76s,4.60GiB peak RSS; Python network guards only.
+- [ ] Complete seed43 with immediate durable retention. RSS guard remains intact;
+  host child-process RSS visibility is still required for bounded training.
 - [ ] Full offline export and quantization follow retained repeat-seed evidence;
   reviewed-corpus training remains separately gated.
 
