@@ -1,0 +1,23 @@
+{
+  "accepted": 1015,
+  "examined": 1429,
+  "api_requests": 126,
+  "rejected": {
+    "short": 352,
+    "exact-duplicate": 48,
+    "quality-artifact": 10,
+    "low-cyrillic": 4
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 3681,
+  "corpus_sha256": "82f534599c958f8a04ff9826207c288ad7e64191f7ed1fd2ee18772445b25726",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Антон_Зайлингер",
+    "exhausted": false
+  }
+}
