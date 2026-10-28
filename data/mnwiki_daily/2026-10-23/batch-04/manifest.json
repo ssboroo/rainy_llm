@@ -1,0 +1,229 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-23T13:01:07.371637+00:00",
+  "requested_titles": 58,
+  "articles": 20,
+  "characters": 21456,
+  "rejected": 38,
+  "rejected_by_reason": {
+    "short": 2,
+    "duplicate-source": 1,
+    "batch-limit": 34,
+    "quality-artifact": 1
+  },
+  "rejected_items": [
+    {
+      "title": "Виртуал машин",
+      "reason": "short"
+    },
+    {
+      "title": "Дорнод аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Итали",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Синьхайн хувьсгал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Техникийн зураг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Токиогийн Их Сургууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Флоренцийн Бүгд найрамдах улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хазара",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хотон (ястан)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цэцэгт ургамал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чойр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чөлөөт бөх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинто",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шүлэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эгийн гол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экосистем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Электроник",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энэтхэгийн соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпигеномик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэнэ Зуу хийд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэнэдалай сум",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Эрдэнэт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эх код",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Юань Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Японы газар нутгийн маргаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйл үг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үүлэн тооцоолол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өв соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өвөрхангай аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгэдэй хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүлбэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүллэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн бүтэц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өмнөговь аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өөлд",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "git:1f5285fbe65fb9e6cf6064a1ca0ee226b6325855:data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "ef92ae8ac79216de61a68607a0a542f15352d12529bfe3bf0f9625e014135d93",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

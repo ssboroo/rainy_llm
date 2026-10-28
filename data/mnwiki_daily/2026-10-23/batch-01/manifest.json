@@ -1,0 +1,678 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-23T01:06:55.108674+00:00",
+  "requested_titles": 171,
+  "articles": 20,
+  "characters": 55101,
+  "rejected": 151,
+  "rejected_by_reason": {
+    "duplicate-source": 54,
+    "quality-artifact": 2,
+    "missing": 30,
+    "short": 9,
+    "batch-limit": 56
+  },
+  "rejected_items": [
+    {
+      "title": "1990 оны Монголын ардчилсан хувьсгал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ёлын ам",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Агаарын бохирдол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алгоритм",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Алтай таван богд",
+      "reason": "missing"
+    },
+    {
+      "title": "Алтан орд",
+      "reason": "missing"
+    },
+    {
+      "title": "Амарбаясгалант хийд",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ардын хувьсгал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Архангай аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Банк",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Баян-Өлгий аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Баянхонгор аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Богд хаант Монгол улс",
+      "reason": "missing"
+    },
+    {
+      "title": "Боловсролын технологи",
+      "reason": "missing"
+    },
+    {
+      "title": "Боловсруулах үйлдвэр",
+      "reason": "missing"
+    },
+    {
+      "title": "Боомт (салаа утга)",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Буйр нуур",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Булган аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бурхан Халдун уул",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Газар зохион байгуулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Гандантэгчэнлин хийд",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Говь-Алтай аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Говьсүмбэр аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Дархан (хот)",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дархан-Уул аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дахин боловсруулах",
+      "reason": "missing"
+    },
+    {
+      "title": "Дорноговь аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Дорнод аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Дулааны цахилгаан станц",
+      "reason": "missing"
+    },
+    {
+      "title": "Дундговь аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Жуулчлал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Завхан аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Завхан гол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Зам",
+      "reason": "missing"
+    },
+    {
+      "title": "Зах зээл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Захиргаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Зэс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Зээлийн хүү",
+      "reason": "missing"
+    },
+    {
+      "title": "Интернэт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Иргэний инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Иргэний нисэх",
+      "reason": "missing"
+    },
+    {
+      "title": "Их Монгол Улс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Их Монгол Улс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Их засаг хууль",
+      "reason": "missing"
+    },
+    {
+      "title": "Компьютерын аюулгүй байдал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Компьютерын инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Компьютерын сүлжээ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Криптограф",
+      "reason": "short"
+    },
+    {
+      "title": "Логистик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Машин сургалт",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Металлурги",
+      "reason": "missing"
+    },
+    {
+      "title": "Механик инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Мэдээллийн аюулгүй байдал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Мэдээллийн технологи",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нарны эрчим хүч",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нийтийн тээвэр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Нийтийн үйлчилгээ",
+      "reason": "missing"
+    },
+    {
+      "title": "Нисэх онгоцны буудал",
+      "reason": "short"
+    },
+    {
+      "title": "Нууц товчоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Онон гол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Орон сууц",
+      "reason": "missing"
+    },
+    {
+      "title": "Орхон аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Орхоны хөндий",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Отгонтэнгэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Оюуны өмч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Портал:Материал судлал",
+      "reason": "short"
+    },
+    {
+      "title": "Програм хангамж",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Робот",
+      "reason": "missing"
+    },
+    {
+      "title": "Сайншанд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Салхины эрчим хүч",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Санхүүгийн зах зээл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Систем",
+      "reason": "missing"
+    },
+    {
+      "title": "Сэлэнгэ аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сэргээгдэх эрчим хүч",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сяньби",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сүхбаатар (хот)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сүхбаатар аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Туул гол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тэрхийн цагаан нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Тээвэр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Төв аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төмөр",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Төмөр зам",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Увс аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Улиастай",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Усан хангамж",
+      "reason": "missing"
+    },
+    {
+      "title": "Усан цахилгаан станц",
+      "reason": "missing"
+    },
+    {
+      "title": "Усны бохирдол",
+      "reason": "missing"
+    },
+    {
+      "title": "Уул уурхай",
+      "reason": "missing"
+    },
+    {
+      "title": "Халхын голын дайн",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хар-Ус нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Харилцаа холбоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Хархорин сум",
+      "reason": "short"
+    },
+    {
+      "title": "Хидан Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хиймэл оюун",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Ховд (хот)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ховд аймаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хонгорын элс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хорго",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хот төлөвлөлт",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэнтий аймаг",
+      "reason": "short"
+    },
+    {
+      "title": "Хэрлэн гол",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хяргас нуур",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүннү улс",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Хүнсний аюулгүй байдал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөвсгөл аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөнгөн атлетик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрс судлал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрсний бохирдол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөрөнгө оруулалт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөх Түрэгийн хаант улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цаг агаар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагаан толгой",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан соронзон цацрал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгаан эрчим хүч",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цахилгааны инженерчлэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахим засаглал",
+      "reason": "missing"
+    },
+    {
+      "title": "Цирк",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цөлжилт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чингис (хот)",
+      "reason": "short"
+    },
+    {
+      "title": "Чингис хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чойбалсан (салаа утга)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чойр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Чөлөөт бөх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шашин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинжлэх ухааны түүх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинто",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шүлэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эгийн гол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эдийн засаг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Экосистем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Электроник",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энерги",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Эпистемологи",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэнэ Зуу хийд",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрдэнэт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эх код",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Юань Улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйл үг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үйлдлийн систем",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Үүлэн тооцоолол",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өв соёл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өвөрхангай аймаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгэдэй хаан",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүлбэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгүүллэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн бүтэц",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өгөгдлийн сан",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Өмнөговь аймаг",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "git:60f666d0f4d37b9a9dc6c1bf01d3c0d2b7296cf7:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "git:60f666d0f4d37b9a9dc6c1bf01d3c0d2b7296cf7:data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "git:60f666d0f4d37b9a9dc6c1bf01d3c0d2b7296cf7:data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "git:60f666d0f4d37b9a9dc6c1bf01d3c0d2b7296cf7:data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "git:60f666d0f4d37b9a9dc6c1bf01d3c0d2b7296cf7:data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl"
+  ],
+  "sha256": "0f67119526ce21b5d0543cf14b677fadfd82d87856318ef933b671381b319169",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
