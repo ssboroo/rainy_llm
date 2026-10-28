@@ -1,0 +1,8 @@
+{
+  "adapter_tensors_exact": true,
+  "optimizer.pt": true,
+  "scheduler.pt": true,
+  "rng_state.pth": true,
+  "trainer_state_exact": true,
+  "all_exact": true
+}

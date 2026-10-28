@@ -1,0 +1,406 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-26T09:15:22.537193+00:00",
+  "requested_titles": 100,
+  "articles": 20,
+  "characters": 21400,
+  "rejected": 80,
+  "rejected_by_reason": {
+    "missing": 54,
+    "duplicate-source": 14,
+    "quality-artifact": 8,
+    "batch-limit": 4
+  },
+  "rejected_items": [
+    {
+      "title": "Акустик",
+      "reason": "missing"
+    },
+    {
+      "title": "Амперметр",
+      "reason": "missing"
+    },
+    {
+      "title": "Анемометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Арфа",
+      "reason": "missing"
+    },
+    {
+      "title": "Балет",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Бүрээ",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Вальс",
+      "reason": "missing"
+    },
+    {
+      "title": "Виолончель",
+      "reason": "missing"
+    },
+    {
+      "title": "Вольтметр",
+      "reason": "missing"
+    },
+    {
+      "title": "Гадаргуугийн таталцал",
+      "reason": "missing"
+    },
+    {
+      "title": "Гигрометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Гидродинамик",
+      "reason": "missing"
+    },
+    {
+      "title": "Гидростатик",
+      "reason": "missing"
+    },
+    {
+      "title": "Готик",
+      "reason": "missing"
+    },
+    {
+      "title": "Давтамж",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Далайц",
+      "reason": "missing"
+    },
+    {
+      "title": "Диод",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Диффуз",
+      "reason": "missing"
+    },
+    {
+      "title": "Долгион",
+      "reason": "missing"
+    },
+    {
+      "title": "Доплерийн эффект",
+      "reason": "missing"
+    },
+    {
+      "title": "Дулаан багтаамж",
+      "reason": "missing"
+    },
+    {
+      "title": "Дулаан дамжуулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Дуурь",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Жазз",
+      "reason": "missing"
+    },
+    {
+      "title": "Зуурамтгай чанар",
+      "reason": "missing"
+    },
+    {
+      "title": "Кантат",
+      "reason": "missing"
+    },
+    {
+      "title": "Капилляр",
+      "reason": "missing"
+    },
+    {
+      "title": "Квант механик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Кларнет",
+      "reason": "missing"
+    },
+    {
+      "title": "Конденсатор",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Контрабасс",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Концерт",
+      "reason": "missing"
+    },
+    {
+      "title": "Лазер",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Лимбэ",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Линз",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Манометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Микроскоп",
+      "reason": "missing"
+    },
+    {
+      "title": "Омметр",
+      "reason": "missing"
+    },
+    {
+      "title": "Оратори",
+      "reason": "missing"
+    },
+    {
+      "title": "Орган",
+      "reason": "missing"
+    },
+    {
+      "title": "Осмос",
+      "reason": "missing"
+    },
+    {
+      "title": "Осциллограф",
+      "reason": "missing"
+    },
+    {
+      "title": "Поляризаци",
+      "reason": "missing"
+    },
+    {
+      "title": "Постмодернизм",
+      "reason": "missing"
+    },
+    {
+      "title": "Призм",
+      "reason": "missing"
+    },
+    {
+      "title": "Радар",
+      "reason": "missing"
+    },
+    {
+      "title": "Реализм",
+      "reason": "missing"
+    },
+    {
+      "title": "Резонанс",
+      "reason": "missing"
+    },
+    {
+      "title": "Рококо",
+      "reason": "missing"
+    },
+    {
+      "title": "Сейсмограф",
+      "reason": "missing"
+    },
+    {
+      "title": "Симфони",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Сонар",
+      "reason": "missing"
+    },
+    {
+      "title": "Сонат",
+      "reason": "missing"
+    },
+    {
+      "title": "Спектрометр",
+      "reason": "missing"
+    },
+    {
+      "title": "Спектроскоп",
+      "reason": "missing"
+    },
+    {
+      "title": "Супер дамжуулалт",
+      "reason": "missing"
+    },
+    {
+      "title": "Танго",
+      "reason": "missing"
+    },
+    {
+      "title": "Телескоп",
+      "reason": "missing"
+    },
+    {
+      "title": "Термодинамик",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Транзистор",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Трансформатор",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Тромбон",
+      "reason": "missing"
+    },
+    {
+      "title": "Төгөлдөр хуур",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Фламенко",
+      "reason": "missing"
+    },
+    {
+      "title": "Фотоэффект",
+      "reason": "missing"
+    },
+    {
+      "title": "Фуга",
+      "reason": "missing"
+    },
+    {
+      "title": "Хагас дамжуулагч",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хийл",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Хип хоп",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хугарал",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэлбэлзэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Хэт авиан",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан гүйдэл",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цахилгаан соронзон цацрал",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Цахилгаан хүчдэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Цахилгаан эсэргүүцэл",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Шингэний механик",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экспрессионизм",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Энтальпи",
+      "reason": "quality-artifact"
+    },
+    {
+      "title": "Энтропи",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-02/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "97a341117939a107522314ca1e24a5b22af0ab697357fa8ac8c99151d922ac0a",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

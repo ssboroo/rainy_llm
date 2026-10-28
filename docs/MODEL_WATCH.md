@@ -1,5 +1,25 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-26 17:11: transfer comparison incomplete
+
+Kept Qwen/Qwen3-0.6B at c1899de289a04d12100db370d81485cdf75e47ca,
+Apache-2.0 open weights, official local tokenizer/template, non-thinking greedy
+CPU float32. Official model card, Qwen3 report, PEFT documentation/releases and
+Google/DeepSeek/Meta/Mistral producer pages reopened. No new immutable candidate
+or tested runtime upgrade promoted. The seed-configurable runner was exercised
+through16 synthetic training steps, but the full transfer predictions/summary
+were not retained after interruption. No complete quality/resource comparison
+or replacement-base decision can be made. See today's research for failures.
+
+## 2026-10-26: checkpoint reproducibility, no model promotion
+
+Retained Qwen3-0.6B revision c1899de289a04d12100db370d81485cdf75e47ca
+and its official tokenizer/template/license. The official model card, Qwen3
+report (2025-05-14) and PEFT release page were rechecked. PEFT v0.21.2's
+encoder-decoder/Transformers >=5.18.0 fix does not justify changing this tested
+causal runtime. Real CPU LoRA resume matched uninterrupted training exactly;
+no new Mongolian quality score was measured. See [research](../research/2026-10-26.md).
+
 ## 2026-10-25 16:30: actual pinned Qwen3 CPU experiment
 
 `Qwen/Qwen3-0.6B` revision `c1899de289a04d12100db370d81485cdf75e47ca`

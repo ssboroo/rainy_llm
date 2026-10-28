@@ -18,7 +18,7 @@ import json
 from pathlib import Path
 rows = synthetic_rows()
 assert len(rows) == 32
-for name in ['mn_smoke.jsonl', 'mn_v2_draft.jsonl']:
+for name in ['mn_smoke.jsonl', 'mn_v2_draft.jsonl', 'mn_transfer_draft_20261026.jsonl']:
     cases = [json.loads(line) for line in Path('evaluation', name).read_text().splitlines()]
     validate_separation(rows, cases)
 try:
@@ -42,3 +42,24 @@ else:
             capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('limited to 32', result.stderr)
+
+    def test_seed_rejected_before_loading(self):
+        result = subprocess.run([sys.executable, 'scripts/synthetic_lora_experiment.py',
+            '--model', 'absent', '--evaluation', 'absent', '--output', '/tmp/unused', '--seed', '-1'],
+            capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('seed must be', result.stderr)
+
+    def test_fresh_transfer_lexical_separation(self):
+        result = subprocess.run([sys.executable, '-c', '''
+import sys, json
+from pathlib import Path
+sys.path.insert(0, 'scripts')
+from synthetic_lora_experiment import synthetic_rows
+from audit_evaluation_overlap import audit_overlap
+cases = [json.loads(s) for s in Path('evaluation/mn_transfer_draft_20261026.jsonl').read_text().splitlines()]
+assert len(cases) == 12
+report = audit_overlap(cases, [(1, i+1, r) for i,r in enumerate(synthetic_rows())], threshold=0.5)
+assert report['candidate_count'] == 0, report
+'''], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)

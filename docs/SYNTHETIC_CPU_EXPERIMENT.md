@@ -39,8 +39,17 @@ answers remain in the results; no answer repair or selective retries occur.
 Inference/training use local-files-only loading and HF offline flags; Python
 socket connections are blocked. This is not an OS network-namespace isolation
 test. Each completed step saves adapter, optimizer, scheduler, RNG, ordered
-sample indices and hash-sealed state. The experiment does **not** yet expose a
-resume CLI; retained state is not proof of tested resume equivalence.
+sample indices and hash-sealed state. Use `--session-steps 2` to stop after two
+steps of a `--steps 4` experiment; resume with `--resume /private/run/checkpoint-2`
+and a NEW `--output` directory, preserving all other arguments. Runner/config,
+data, model and runtime identities must match. Earlier runner checkpoints are
+not silently migrated. `--skip-evaluation` runs mechanics only and emits null
+quality scores; use it consistently in both sessions.
+
+Real CPU Qwen3 validation on 2026-10-26 compared uninterrupted four steps with
+two steps plus a fresh-process two-step resume: adapter, optimizer, scheduler,
+RNG and loss/sample-order states were exactly equal. See the dated research
+report. This is not GPU/cross-hardware equivalence or a quality improvement.
 
 Keep weights and optimizer files private/outside Git. Retain the final checkpoint
 in durable private storage before relying on it across sessions. This short
