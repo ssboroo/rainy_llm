@@ -1,0 +1,23 @@
+{
+  "accepted": 1010,
+  "examined": 1559,
+  "api_requests": 144,
+  "rejected": {
+    "short": 478,
+    "exact-duplicate": 56,
+    "quality-artifact": 12,
+    "low-cyrillic": 3
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 4691,
+  "corpus_sha256": "68b4750dd321a080746a9a96d8bde7be5151ba102d232ed754c2a4bf3afbd68c",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Бахчисарай",
+    "exhausted": false
+  }
+}
