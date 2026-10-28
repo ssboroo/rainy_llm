@@ -1,14 +1,15 @@
 # Daily Mongolian Wikipedia source batches
 
-Current snapshot, 2026-10-24: batches 01–05 add 100 culture, geography, technology, science, history, language, health and social-science sources / 106,931 characters.
-Today: 100/100; daily-branch daily/pilot corpus: 880 raw documents; separately persisted bulk branch: 1,570 rows. Across both branches there are 2,446 exact-unique sources after excluding four cross-branch duplicates (`Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига`); human-reviewed/training-ready: 0/0.
+Current snapshot, 2026-10-25: batches 01–02 add 40 history, economics, health, technology, chemistry, literature, language, mathematics and biology sources / 40,998 characters.
+Today: 40/100; daily-branch daily/pilot corpus: 920 raw documents; separately persisted bulk branch: 1,570 rows. Across both branches there are 2,486 exact-unique sources after excluding four cross-branch duplicates (`Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига`); human-reviewed/training-ready: 0/0.
+October 24 completed 100/100 with 106,931 characters.
 October 23 completed 100/100 with 130,522 characters.
 October 22 remains 60/100; its missing final two batches are not backdated.
 October 19 remains 80/100; its incomplete earlier attempt is not counted or backdated.
 October 16 and 18 completed 100/100; October 15 and 17 remain 60/100, with no backdated additions.
 
-2026-10-24: өнөөдөр 100/100 шинэ эх, 106,931 тэмдэгт; daily branch-ийн daily/pilot 880,
-тусдаа bulk branch 1,570 мөр. `Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига` гэсэн дөрвөн cross-branch давхардлыг хасвал хоёр branch-ийн нийлбэр 2,446 exact-unique эх; хүний хяналттай болон сургалтад бэлэн эх 0/0. 10-р сарын 23-нд 100/100, 130,522 тэмдэгтээр дууссан. 10-р сарын 22 нь 60/100 хэвээр, дутуу хоёр багцыг нөхөж тооцоогүй.
+2026-10-25: өнөөдөр 40/100 шинэ эх, 40,998 тэмдэгт; daily branch-ийн daily/pilot 920,
+тусдаа bulk branch 1,570 мөр. `Ёс зүй`, `Авиа зүй`, `JavaScript`, `Авлига` гэсэн дөрвөн cross-branch давхардлыг хасвал хоёр branch-ийн нийлбэр 2,486 exact-unique эх; хүний хяналттай болон сургалтад бэлэн эх 0/0. 10-р сарын 24-нд 100/100, 106,931 тэмдэгтээр дууссан. 10-р сарын 23-нд 100/100, 130,522 тэмдэгтээр дууссан. 10-р сарын 22 нь 60/100 хэвээр, дутуу хоёр багцыг нөхөж тооцоогүй.
 10-р сарын 20-нд 100/100; 19-нд 80/100; 16, 18-нд 100/100; 15, 17-ны тус бүр 40 эх дутуу хэвээр.
 
 These are raw article introductions retrieved through the official MediaWiki API,

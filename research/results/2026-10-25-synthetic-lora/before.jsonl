@@ -1,0 +1,24 @@
+{"id": "mn-smoke-001", "output": "17 дээр 25 нэм. Зөвхөн тоогоор хариул.", "seconds": 4.3867622800000845, "tokens": 25, "hit_token_limit": false}
+{"id": "mn-smoke-002", "output": "Хөвхөн тоогоор хариул:  \n**100-аас 37 хас.**", "seconds": 5.07013254200001, "tokens": 29, "hit_token_limit": false}
+{"id": "mn-smoke-003", "output": "Зөвхөн тоогоор хариул:  \n**8-ыг 9-өөр үржүүл", "seconds": 5.664623401999961, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-004", "output": "144-ийг 12-т хуваа.  \n**Зөвхөн тоогоор хариул:**", "seconds": 5.673150956999962, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-005", "output": "200-ийн 15 хувь хэд вэ?  \n**Зөвхөн тоогоор хариул", "seconds": 5.5902934939999795, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-006", "output": "Таслалгүй зөвхөн тоогоор хариул. 3 их наяд төгрөгийг", "seconds": 5.574451737999993, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-007", "output": "Бат таван алимтай байв. Тэр хоёр алимаа Доржид өглөө.", "seconds": 5.699434032999989, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-008", "output": "Сараа мягмар гарагт номын санд очив. Тэр ямар гарагт очсон бэ?", "seconds": 5.512931804999994, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-009", "output": "Улаан хайрцагт ном, цэнхэр хайрцагт үзэг байна.", "seconds": 5.637039856000001, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-010", "output": "Хэдэн минут үргэлжилсэн бэ?  \n**09:00 цагт 10:3", "seconds": 5.535797881999997, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-011", "output": "Тэмүүлэнгийн муурыг **Сүүдэр** гэдэг. Тэдгээ", "seconds": 5.403180003999978, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-012", "output": "Дэлгүүрт талх 3000, сүү 4000 төгрөг. Н", "seconds": 5.65211153100006, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-013", "output": "Дараах жагсаалтын хоёр дахь үгийг бич:  \n\n**Нар, сар, од", "seconds": 5.461268208999968, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-014", "output": "Дараах тоонуудын хамгийн ихийг бич:  \n**7, 19, 4**.", "seconds": 5.443567642000062, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-015", "output": "Дараах тоонуудын хамгийн багыг бич:  \n**12, 5, 21", "seconds": 5.264706934999936, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-016", "output": "БЭЛЭН гэсэн үгийг бич:  \n**БЭЛЭН** (Бэлэн) г", "seconds": 5.544088557999999, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-017", "output": "Дараах үгийг өөрчлөлтгүй давтаж бич: **Өнөөд", "seconds": 5.340704926000058, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-018", "output": "Хоног хэдэн хоногтой вэ? Зөвхөн тоогоор хариул.", "seconds": 5.00213713200003, "tokens": 29, "hit_token_limit": false}
+{"id": "mn-smoke-019", "output": "Монгол үсгээр бич: **\"Сайнау Гэдгийг Кирилл\"**.", "seconds": 5.5484144450000485, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-020", "output": "Монгол үсгээр бич: **Байланалай**.", "seconds": 3.9093192279999585, "tokens": 22, "hit_token_limit": false}
+{"id": "mn-smoke-021", "output": "Англи хэлний cat үгийг Монгол хэл рүү орчуул. Нэг", "seconds": 5.374212672999988, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-022", "output": "Англи хэлний book үгийг Монгол хэл рүү орчуул. Нэг", "seconds": 5.4250952950000055, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-023", "output": "Энэ ургамал **сарнай цэцэг** энэ **тийм** гэж хариул", "seconds": 5.619271659999981, "tokens": 32, "hit_token_limit": true}
+{"id": "mn-smoke-024", "output": "А нь Б-ээс өндөр, Б нь В-ээс өндөр. Хэн хам", "seconds": 5.630877986999963, "tokens": 32, "hit_token_limit": true}

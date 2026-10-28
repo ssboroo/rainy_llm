@@ -7,7 +7,7 @@
 
 > **Development stage: measured research foundation.** Dataset validation, evaluation gates and reproducible CPU experiments are available. No trained RAINY weights or service have been released. The latest Qwen3.5-4B candidate result is 12/24 on a small public smoke set; it is not a production promotion.
 >
-> **Төлөв: хэмжилттэй судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл/үнэлгээний шалгалт, давтан ажиллуулах CPU туршилт бэлэн. RAINY загварыг сургаагүй, үйлчилгээ гаргаагүй. Qwen3.5-4B-ийн 12/24 нь жижиг public smoke үр дүн бөгөөд production суурь болгосон гэсэн үг биш.
+> **Төлөв: хэмжилттэй судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл/үнэлгээний шалгалт, давтан ажиллуулах CPU туршилт бэлэн. Хүний хянасан corpus дээр сурсан RAINY release, үйлчилгээ гараагүй. Qwen3.5-4B-ийн 12/24 нь жижиг public smoke үр дүн бөгөөд production суурь болгосон гэсэн үг биш.
 
 ---
 
@@ -18,7 +18,8 @@
 - Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.
 - 24 draft Mongolian smoke questions, offline exact-match scoring, 24 local tests passed.
 - Өгөгдөл цэвэрлэх, бүлэглэн хуваах, 24 асуулттай ноорог үнэлгээ, хариу оноолох код бэлэн.
-- Qwen3-0.6B inference completed; no training. / Qwen3-0.6B хариулт үүсгэсэн; сургалт хийгдээгүй.
+- [Real CPU LoRA experiment](docs/SYNTHETIC_CPU_EXPERIMENT.md), 2026-10-25: Qwen3-0.6B, 16 synthetic-training steps; identical draft diagnostic **0/24 → 6/24**. Not reviewed-corpus training or a general-language improvement claim.
+- Бодит CPU LoRA: 16 алхам, ижил draft үнэлгээ **0/24 → 6/24**. Хиймэл жишээтэй техникийн туршилт; хүний хянасан corpus дээрх RAINY release биш.
 
 ## Data quality and export / Чанар ба хөрвүүлэлт
 
@@ -76,7 +77,7 @@ These are development objectives, not claims about an already trained model. Tra
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
 | Unit tests | Available | 126 tests, including collection screening/dedup, instruction drafts, corpus review/splits, checkpoint fault handling and evaluation |
-| Training corpus | Pending | 880 daily/pilot Wikipedia leads plus 1,570 separately persisted bulk rows; 2,446 sources are exact-unique across branches after accounting for four cross-branch duplicates. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
+| Training corpus | Pending | 920 daily/pilot Wikipedia leads plus 1,570 separately persisted bulk rows; 2,486 sources are exact-unique across branches after accounting for four cross-branch duplicates. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA runner | [Local training guide](docs/CPU_TRAINING.md); guard tests pass, backend training/resume untested; no trained adapter or QLoRA |
 | Inference API / Docker | Planned | No runnable service or container configuration |
@@ -256,7 +257,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
 | Unit test | Бэлэн | Цуглуулалтын screening/давхардал, instruction ноорог, корпусын review/split, checkpoint, үнэлгээний 126 тест; бодит сургалтын баталгаа биш |
-| Сургалтын корпус | Бэлтгэгдээгүй | daily branch дээр 880 daily/pilot, тусдаа bulk branch дээр 1,570 мөр; дөрвөн cross-branch давхардлыг хасаад 2,446 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
+| Сургалтын корпус | Бэлтгэгдээгүй | daily branch дээр 920 daily/pilot, тусдаа bulk branch дээр 1,570 мөр; дөрвөн cross-branch давхардлыг хасаад 2,486 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилтын код | [Сургалтын заавар](docs/CPU_TRAINING.md); guard тестүүд өнгөрсөн, backend сургалт/сэргээх туршилт хийгдээгүй; adapter/QLoRA байхгүй |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |

@@ -1,5 +1,54 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-25 16:30: actual pinned Qwen3 CPU experiment
+
+`Qwen/Qwen3-0.6B` revision `c1899de289a04d12100db370d81485cdf75e47ca`
+was downloaded and executed (Apache-2.0 open weights; not API-only, not a
+fully open training-data claim). No new release-date claim is made.
+Official tokenizer/chat template at that revision, `enable_thinking=False`;
+Transformers 4.51.3, Torch 2.6.0+cu124 CPU execution, PEFT 0.15.2 tested.
+Weights are 1,503,300,328 bytes; combined inference/LoRA experiment peak RSS
+4.84 GiB with four CPU threads. Real 16-step synthetic LoRA changed the same
+draft exact-match score from 0/24 to 6/24; translation/transliteration stayed
+0/4. This is limited diagnostic evidence, not broad Mongolian validation.
+No existing base/pin/results were replaced. Adapter is specific to this base;
+no cross-architecture compatibility is assumed. Full hashes, timings, outputs,
+failure notes and limitations are in [research](../research/2026-10-25.md).
+
+## 2026-10-25 13:00: immutable small-base candidate recorded; no promotion
+
+The official `Qwen/Qwen3.5-0.8B-Base` card was verified at immutable revision
+`dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68`. It is a pretrained-only 0.8B
+vision-language causal model under Apache-2.0. The card states that the
+`<|im_start|>` / `<|im_end|>` control tokens and official chat template support
+LoRA-style PEFT without necessarily tuning the large embeddings. Transformers,
+vLLM and SGLang compatibility is producer-declared; no local runtime was
+installed or tested here. Exact CPU RAM, quantized artifact and throughput
+requirements remain unmeasured, and no matched-hash Mongolian baseline exists.
+
+Google's dated release page still lists EmbeddingGemma 2 (740M, 2026-10-06) as
+the newest entry; it is an embedding model. No new resource-feasible DeepSeek,
+Meta or Mistral causal candidate with a complete local comparison was
+established. Existing model pins and rollback results remain unchanged. No
+weights, adapter or dependency were downloaded, trained, inferred or promoted.
+
+## 2026-10-25 09:00: small-model watch; baseline retained
+
+Official Qwen, Google Gemma, DeepSeek and PEFT sources were rechecked.
+`Qwen/Qwen3.5-0.8B` is dated 2026-03-09 and is explicitly positioned for
+prototyping and task-specific fine-tuning; it is resource-interesting, but this
+run did not establish its immutable revision, exact weights license, pinned
+runtime compatibility, tokenizer/chat-template behavior or a matched-hash
+Mongolian quality/latency/memory advantage. It therefore remains watch-only.
+Qwen3.8-27B and the 763B DeepSeek-V4.1-Flash-1017 remain outside this host's
+resource envelope. Google's latest dated Gemma entry observed was the
+specialized EmbeddingGemma 2 (740M, 2026-10-06), not a causal base. PEFT v0.21.2
+(2026-10-01, release commit `eaa35c7`) remains the latest verified release.
+
+No model, adapter or dependency was downloaded, trained, inferred or promoted.
+Existing pins, baseline results and rollback evidence remain unchanged. The
+executable result is licensed raw corpus batch 01, not model-quality evidence.
+
 ## 2026-10-24 21:00: official recheck; baseline retained
 
 Official Qwen, Google Gemma, DeepSeek, Meta, Mistral and PEFT sources were
