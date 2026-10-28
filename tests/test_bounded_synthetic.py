@@ -2,12 +2,29 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
-from run_synthetic_bounded import supervise
+from run_synthetic_bounded import supervise, preflight
 
 
 class BoundedSyntheticTests(unittest.TestCase):
+    def test_preflight_real_child(self):
+        with tempfile.TemporaryFile(mode='w+') as log:
+            result = preflight(log, lambda pid: 16*1024**2)
+            self.assertTrue(result['completed'])
+            self.assertGreater(result['rss_samples'], 0)
+            self.assertFalse(result['model_loaded'])
+            self.assertFalse(result['training_executed'])
+
+    def test_fast_exit_without_measurement_is_not_success(self):
+        with tempfile.TemporaryFile(mode='w+') as log, patch('run_synthetic_bounded.subprocess.Popen') as factory:
+            factory.return_value.poll.return_value = 0
+            factory.return_value.wait.return_value = 0
+            result = supervise(['unused'], log, 3, 1024, lambda pid: 1)
+            self.assertEqual(result['stop_reason'], 'unobserved_exit')
+            self.assertFalse(result['completed'])
+
     def test_unobservable_rss_fails_closed(self):
         for rss in [None, 0, -1, False]:
             with tempfile.TemporaryFile(mode='w+') as log:

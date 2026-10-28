@@ -2,6 +2,13 @@
 
 ## 2026-10-28 checkpoint restoration
 
+- [x] Executable no-model child-RSS preflight and zero-sample-exit safety fix;
+  real host probe fails closed. No guarded training or quality gain claimed.
+- [x] Batches03–04:40 additional sources; day80/100,20missing,reviewed/ready0/0.
+- [ ] On a host passing preflight, complete retained seed43 comparison; if this
+  host remains incompatible, pursue offline artifact packaging without weakening
+  training guards. Do not repeatedly download weights before preflight.
+
 - [x] Batch02:20 additional licensed sources,48,392characters; day40/100,
   human-reviewed/training-ready0/0. No backdated collection.
 

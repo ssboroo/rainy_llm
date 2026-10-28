@@ -13,6 +13,12 @@
 
 ## New: CPU pipeline / CPU дээр ажиллах шинэ хэрэгслүүд
 
+Before downloading training weights, run the [bounded supervisor preflight](docs/BOUNDED_EXPERIMENT.md)
+with `--preflight --output /private/new-probe`. It exercises real child-process
+RSS observation without Torch or model downloads and saves a diagnostic report.
+Сургалтын model татахаас өмнө жижиг процессоор RAM хяналтыг шалгана.
+RAM хэмжилтгүй эсвэл хэмжилтийн дээжгүй дууссан процессыг амжилт гэж тооцохгүй.
+
 [Checkpoint restore](docs/CHECKPOINT_RESTORE.md): restore a trusted archived
 synthetic run outside Git with archive and per-checkpoint hash verification,
 no overwrite and no pickle deserialization. The retained seed42 archive was
@@ -99,8 +105,8 @@ These are development objectives, not claims about an already trained model. Tra
 | Project documentation | Available | Roadmap, data specification, research notes, model watch |
 | Dataset validation | Available | Python CLI for instruction-format JSONL |
 | Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 147 passed in the pinned CPU environment on 2026-10-28; includes checkpoint restore and reload-report protection tests |
-| Training corpus | Pending | 1,060 daily/pilot Wikipedia leads plus 1,570 separately persisted bulk rows; 2,626 sources are exact-unique across branches after four historical duplicates. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
+| Unit tests | Available | 149 discovered: 148 passed, 1 optional Torch skip in the evening environment on 2026-10-28; includes checkpoint restore and reload-report protection tests |
+| Training corpus | Pending | 1,100 daily/pilot Wikipedia leads plus 1,570 separately persisted bulk rows; 2,666 sources are exact-unique across branches after four historical duplicates. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
 | Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
 | LoRA / QLoRA training | Experimental CPU LoRA | [Synthetic experiment](docs/SYNTHETIC_CPU_EXPERIMENT.md): real adapter training/reload and 4-step vs 2+2 resume equality tested. Reviewed-corpus training and QLoRA remain untested. |
 | Inference API / Docker | Planned | No runnable service or container configuration |
@@ -280,7 +286,7 @@ RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг
 | Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
 | Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
 | Unit test | Бэлэн | 2026-10-28: 146 тестээс 145 passed, 1 optional Torch skip; бодит сургалтын баталгаа биш |
-| Сургалтын корпус | Бэлтгэгдээгүй | 1,060 daily/pilot, тусдаа bulk branch дээр 1,570 мөр; дөрвөн cross-branch давхардлыг хасаад 2,626 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
+| Сургалтын корпус | Бэлтгэгдээгүй | 1,100 daily/pilot, тусдаа bulk branch дээр 1,570 мөр; дөрвөн cross-branch давхардлыг хасаад 2,666 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
 | Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
 | LoRA / QLoRA сургалт | CPU LoRA туршилт | [Хиймэл жишээтэй туршилт](docs/SYNTHETIC_CPU_EXPERIMENT.md): бодит сургалт/reload, 4 алхам ба 2+2 сэргээх үр дүн яг ижил. Reviewed corpus сургалт, QLoRA туршаагүй. |
 | API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |

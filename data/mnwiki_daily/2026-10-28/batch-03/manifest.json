@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-28T13:08:09.877247+00:00",
+  "requested_titles": 56,
+  "articles": 20,
+  "characters": 12518,
+  "rejected": 36,
+  "rejected_by_reason": {
+    "duplicate-source": 5,
+    "short": 8,
+    "batch-limit": 23
+  },
+  "rejected_items": [
+    {
+      "title": "Douyin Baike",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "АНУ-ын Төрийн Департамент",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Аварга гариг",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Амьтдын шилжилт",
+      "reason": "short"
+    },
+    {
+      "title": "Баягид, баягууд",
+      "reason": "short"
+    },
+    {
+      "title": "Валенс",
+      "reason": "short"
+    },
+    {
+      "title": "Гехаркуник муж",
+      "reason": "short"
+    },
+    {
+      "title": "Зарлаагүй дайны оршил",
+      "reason": "short"
+    },
+    {
+      "title": "Мөсөн хатан",
+      "reason": "short"
+    },
+    {
+      "title": "Сименс (нэгж)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Систан-Балучистаны газар хөдлөлт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Стандарт загвар",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Сургалтын шилжүүлгэ",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Түлш эрчим хүчний аж үйлдвэр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төв парк (Нью-Йорк)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Улсын төв их сургууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Францын Институт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хакас",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Халхын голын дайн",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Харьцангуй ядуурал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хийсвэрлэл",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хожуу Лян (907-923)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хэт өргөн зурвасын технологи (Ultra-wideband)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хятадын юань (мөнгө)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хүрээлэн буй орчны төсвийн зарлагын хөтөлбөрийн ангиллын олон улсын туршлага",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөвчтөн",
+      "reason": "short"
+    },
+    {
+      "title": "Цагаанууд",
+      "reason": "short"
+    },
+    {
+      "title": "Шан улс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шинэ Монгол Технологийн Дээд Сургууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Шюгүлуань уул",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эквадор",
+      "reason": "duplicate-source"
+    },
+    {
+      "title": "Эрүүл хооллолт",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Юнивишн",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Явган түнжин",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Ясны чөмөг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өскемен",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-22/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-23/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-24/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-25/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-26/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-27/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-27/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-27/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-27/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-28/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-28/batch-02/corpus.jsonl",
+    "data/mnwiki_pilot/corpus.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T060400575472Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261021T143046407618Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T060816764999Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261022T143231836166Z.jsonl",
+    "../rainy-bulk-20261026-read/data/mnwiki_bulk/batch-20261023T060334561465Z.jsonl"
+  ],
+  "sha256": "0e2807247004792ff97c2879c45005f00b89b529a827cdfa5e72f0b58bc99eb5",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

@@ -8,7 +8,8 @@ repositories, Mistral inference and PEFT releases. Retain Qwen/Qwen3-0.6B at
 fully open training data is not established. No new release date, immutable
 candidate, runtime upgrade or Mongolian advantage was established today.
 The existing official tokenizer/template and tested runtime pins are unchanged.
-Actual work restores the retained adapter archive, not new model inference.
+Afternoon fresh-process inference matched12/12 retained adapter outputs;
+evening work adds a real child-RSS preflight, not new training or quality gains.
 No API-only service was used as a local base. See today's research and
 [restore usage](CHECKPOINT_RESTORE.md).
 

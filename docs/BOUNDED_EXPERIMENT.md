@@ -1,5 +1,25 @@
 # Bounded synthetic experiment supervisor
 
+## Check the host before downloading weights
+
+Install `psutil==7.2.2`, then run:
+
+```sh
+python scripts/run_synthetic_bounded.py --preflight --output /private/new-probe
+```
+
+This launches a small child (8MiB allocation,0.6s hold) through the same
+supervisor. No model, Torch, checkpoint or training data is needed. Exit0 means
+the probe completed with at least one positive RSS sample, not that a full model
+fits or OS memory enforcement works. Nonzero means do not start guarded training
+on this host. Reports/logs remain exclusive and fsynced. A zero-sample fast exit
+now reports `unobserved_exit` rather than success.
+
+2026-10-28 actual CLI: `monitor_error`,zero valid samples,child killed,exit1.
+The child PID directory existed but its status file was unavailable. This
+confirms a visibility mismatch, not permission to bypass the guard; exact host
+implementation cause remains unknown. Model execution was not attempted.
+
 `scripts/run_synthetic_bounded.py` launches only the existing synthetic CPU
 runner, with 16 steps and an explicit seed. It supervises the **whole process**,
 including model loading and before/after generation, not just the training loop.

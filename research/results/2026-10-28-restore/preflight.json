@@ -1,0 +1,13 @@
+{
+  "returncode": -9,
+  "stop_reason": "monitor_error",
+  "error_type": "RuntimeError",
+  "elapsed_seconds": 0.0013726840000174434,
+  "peak_sampled_rss_bytes": 0,
+  "rss_samples": 0,
+  "rss_sampling_seconds": 0.1,
+  "completed": false,
+  "probe": "8MiB allocation and 0.6s hold",
+  "model_loaded": false,
+  "training_executed": false
+}
