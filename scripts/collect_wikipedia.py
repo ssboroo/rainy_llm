@@ -6,6 +6,8 @@ import re
 import unicodedata
 import urllib.parse
 import urllib.request
+import urllib.error
+import time
 from datetime import datetime, timezone
 from collections import Counter
 from pathlib import Path
@@ -17,14 +19,36 @@ DEFAULT_TITLES = ['Монгол улс', 'Улаанбаатар', 'Монгол
 
 
 def request(params):
-    url = 'https://mn.wikipedia.org/w/api.php?' + urllib.parse.urlencode(dict(format='json', **params))
+    url = 'https://mn.wikipedia.org/w/api.php?' + urllib.parse.urlencode(dict(format='json', maxlag=5, **params))
     req = urllib.request.Request(url, headers={
         'User-Agent': 'RAINY-LLM/0.2 (https://github.com/ssboroo/rainy_llm)'})
-    with urllib.request.urlopen(req, timeout=60) as response:
-        data = json.load(response)
-    if 'error' in data:
-        raise ValueError(str(data['error']))
-    return data
+    for attempt in range(4):
+        delay = 5 * (2 ** attempt)
+        try:
+            time.sleep(0.5)
+            with urllib.request.urlopen(req, timeout=60) as response:
+                data = json.load(response)
+                retry_after = response.headers.get('Retry-After')
+            if 'error' not in data:
+                return data
+            if data['error'].get('code') not in ('maxlag', 'ratelimited'):
+                raise ValueError(str(data['error']))
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (429, 502, 503, 504):
+                raise
+            retry_after = exc.headers.get('Retry-After') if exc.headers else None
+        except (urllib.error.URLError, TimeoutError):
+            retry_after = None
+        if attempt == 3:
+            raise RuntimeError('Wikipedia request failed after four bounded attempts')
+        if retry_after:
+            try:
+                delay = max(delay, float(retry_after))
+            except ValueError:
+                raise RuntimeError('Non-numeric Retry-After; stop and retry in a later run')
+        if delay > 120:
+            raise RuntimeError('Server requests a longer pause; retry in a later run')
+        time.sleep(delay)
 
 
 def normalized(text):
@@ -164,3 +188,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
