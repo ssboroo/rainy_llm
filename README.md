@@ -14,7 +14,7 @@
 | Хэсэг | Бодит төлөв |
 | --- | --- |
 | Өгөгдөл цуглуулах | Эх сурвалж, revision, лиценз, текстийн hash хадгалсан Wikipedia оршлууд |
-| Өгөгдлийн сан | Хоёр салбарын 2,670 мөр; ID ба нормчилсон текстээр тус тус 2,666 давхардаагүй эх |
+| Өгөгдлийн сан | Хоёр салбарын 3,685 мөр; ID ба нормчилсон текстээр тус тус 3,681 давхардаагүй эх |
 | Чанарын хяналт | Автомат шүүлт болон хүний review хэрэгслүүд бий; түүхий корпусын human-reviewed/training-ready төлөв 0 |
 | Асуулт–хариулт | Эхэд тулгуурласан 10 ноорог; сургалтад баталсан багц биш |
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
@@ -33,11 +33,11 @@
 | Байршил | Файл/багц | Мөр |
 | --- | ---: | ---: |
 | `main`: pilot + daily корпус | 55 | 1,100 |
-| `data/bulk-wikipedia`: bulk корпус | 6 | 1,570 |
-| Хоёр салбарын нийлбэр | 61 | 2,670 |
-| Давхардсан 4 мөрийг хассан нийт | — | **2,666** |
+| `data/bulk-wikipedia`: bulk корпус | 7 | 2,585 |
+| Хоёр салбарын нийлбэр | 62 | 3,685 |
+| Давхардсан 4 мөрийг хассан нийт | — | **3,681** |
 
-ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 2,666. Энэ тоо нь утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
+ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 3,681. Энэ тоо нь утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
 
 - [Pilot корпус](data/mnwiki_pilot)
 - [Өдөр тутмын корпус](data/mnwiki_daily)
@@ -51,7 +51,7 @@ Wikipedia-ийн **оршил текст** цуглуулдаг; бүтэн өг
 
 [Bulk workflow](.github/workflows/bulk-corpus.yml) Улаанбаатарын цагаар **01:17, 05:17, 09:17, 13:17, 17:17, 21:17** ажиллах хуваарьтай. Нэг удаагийн зорилт 1,000 орчим эх; API-ийн хуудсыг бүтнээр дуусгах үед 39 хүртэл нэмэлт эх орж болно. Cursor-оос үргэлжилж, амжилттай татсан өгөгдөл болон төлөвийг тусдаа салбарт хамт commit хийнэ.
 
-**2026-10-28-ны засвар:** өмнөх таталтыг зогсоосон Unicode JSONL мөр хуваалтын алдааг давтаж тестлээд зассан. Одоогийн main corpus-ийг давхардлын шалгалтад оруулж, түр алдааны bounded retry, maxlag=5 болон дууссан discovery хуудсын ахицыг хадгалах хамгаалалт нэмсэн. [Эхний нэмэгдүүлсэн ажиллуулалт](https://github.com/ssboroo/rainy_llm/actions/runs/40697296744). Өдөрт 6,000 орчим эх нь зорилт; баталгаатай гарц биш. GitHub хуваарийг хойшлуулах эсвэл алгасах боломжтой.
+**2026-10-28-ны засвар:** өмнөх таталтыг зогсоосон Unicode JSONL мөр хуваалтын алдааг давтаж тестлээд зассан. Одоогийн main corpus-ийг давхардлын шалгалтад оруулж, түр алдааны bounded retry, maxlag=5 болон дууссан discovery хуудсын ахицыг хадгалах хамгаалалт нэмсэн. [Эхний нэмэгдүүлсэн ажиллуулалт](https://github.com/ssboroo/rainy_llm/actions/runs/40697296744) амжилттай: 1,015 шинэ эх, 126 logical API request, network_error=null; өгөгдөл ба cursor хадгалагдсан. Өдөрт 6,000 орчим эх нь зорилт; баталгаатай гарц биш. GitHub хуваарийг хойшлуулах эсвэл алгасах боломжтой.
 
 [Цуглуулалтын ажиллагаа, хадгалалт, хязгаар](docs/BULK_CORPUS.md)
 
@@ -147,7 +147,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## Дараагийн ажил
 
-- [ ] Bulk цуглуулагчийн таталтын алдааг оношилж, амжилттай хадгалалтыг дахин батлах.
+- [x] Bulk цуглуулагчийн Unicode JSONL алдааг засаж, 1,015 шинэ эхийн бодит таталт/хадгалалтаар баталсан.
 - [ ] Дөрвөн historical cross-branch duplicate болон үлдсэн чанарын flag-уудыг шийдэх.
 - [ ] Хүний хянасан, эх сурвалж/лиценз нь баталгаатай Монгол сургалтын сан бүрдүүлэх.
 - [ ] Асуулт–хариултыг төрөлжүүлж, 100 асуулттай v2 үнэлгээг хүнээр хянуулах.
@@ -176,7 +176,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-28**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration and fresh-process inference replay. It has **not** released a production Mongolian model trained on a human-reviewed corpus.
 
-The inspected main and bulk branch snapshots contain **2,670 raw Wikipedia lead records / 2,666 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
+The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
 Synthetic Qwen3-0.6B experiments measured **0/24 → 6/24** and, in a separate 12-case draft diagnostic, **0/12 → 3/12**. Reload reproduced **12/12 retained predictions**, which measures reproducibility rather than correctness. These results do not establish general Mongolian fluency or production readiness.
 
