@@ -1,471 +1,197 @@
 # RAINY LLM
 
-**Building a reproducible foundation for Mongolian language models.**  
-**Монгол хэлний загварыг хэмжиж, сайжруулж, давтан турших боломжтой суурь төсөл.**
+**Бие даан ажиллах Монгол хэлний загварыг өгөгдөл, бодит сургалт, давтан хэмжилтээр хөгжүүлэх төсөл.**
 
-[English](#english) · [Монгол](#монгол) · [Data specification](docs/DATA.md) · [Dataset registry](data/source_registry.json) · [Evaluation protocol](evaluation/README.md) · [Model watch](docs/MODEL_WATCH.md) · [Roadmap](docs/ROADMAP.md)
+[![CPU checks](https://github.com/ssboroo/rainy_llm/actions/workflows/cpu-checks.yml/badge.svg)](https://github.com/ssboroo/rainy_llm/actions/workflows/cpu-checks.yml)
+[![Bulk corpus](https://github.com/ssboroo/rainy_llm/actions/workflows/bulk-corpus.yml/badge.svg)](https://github.com/ssboroo/rainy_llm/actions/workflows/bulk-corpus.yml)
 
-> **Development stage: measured research foundation.** Dataset validation, evaluation gates and reproducible CPU experiments are available. No trained RAINY weights or service have been released. The latest Qwen3.5-4B candidate result is 12/24 on a small public smoke set; it is not a production promotion.
->
-> **Төлөв: хэмжилттэй судалгаа, хөгжүүлэлтийн суурь.** Өгөгдөл/үнэлгээний шалгалт, давтан ажиллуулах CPU туршилт бэлэн. Хүний хянасан corpus дээр сурсан RAINY release, үйлчилгээ гараагүй. Qwen3.5-4B-ийн 12/24 нь жижиг public smoke үр дүн бөгөөд production суурь болгосон гэсэн үг биш.
+[Өгөгдөл](#өгөгдлийн-сан) · [Туршилтын үр дүн](#бодитоор-хийсэн-туршилтууд) · [Эхлэх](#ажиллуулж-эхлэх) · [Дараагийн ажил](#дараагийн-ажил) · [English](#english-summary)
 
----
+> **2026-10-28-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бэлэн чат үйлчилгээ, API/Docker release гараагүй.**
 
-## New: CPU pipeline / CPU дээр ажиллах шинэ хэрэгслүүд
+## Одоогийн боломж
 
-Before downloading training weights, run the [bounded supervisor preflight](docs/BOUNDED_EXPERIMENT.md)
-with `--preflight --output /private/new-probe`. It exercises real child-process
-RSS observation without Torch or model downloads and saves a diagnostic report.
-Сургалтын model татахаас өмнө жижиг процессоор RAM хяналтыг шалгана.
-RAM хэмжилтгүй эсвэл хэмжилтийн дээжгүй дууссан процессыг амжилт гэж тооцохгүй.
+| Хэсэг | Бодит төлөв |
+| --- | --- |
+| Өгөгдөл цуглуулах | Эх сурвалж, revision, лиценз, текстийн hash хадгалсан Wikipedia оршлууд |
+| Өгөгдлийн сан | Хоёр салбарын 2,670 мөр; ID ба нормчилсон текстээр тус тус 2,666 давхардаагүй эх |
+| Чанарын хяналт | Автомат шүүлт болон хүний review хэрэгслүүд бий; түүхий корпусын human-reviewed/training-ready төлөв 0 |
+| Асуулт–хариулт | Эхэд тулгуурласан 10 ноорог; сургалтад баталсан багц биш |
+| Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
+| Сургалт | Qwen3-0.6B дээр бодит CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй |
+| Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; 4 алхмыг 2+2 сэргээхтэй тулгасан туршилт бий |
+| Offline | Local-only model loading, HF offline flags, Python socket guards; OS түвшний сүлжээ тусгаарлалтыг баталгаажуулаагүй |
+| CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
+| Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
 
-[Checkpoint restore](docs/CHECKPOINT_RESTORE.md): restore a trusted archived
-synthetic run outside Git with archive and per-checkpoint hash verification,
-no overwrite and no pickle deserialization. The retained seed42 archive was
-actually restored on 2026-10-28; fresh-process CPU reload matched 12/12 retained
-predictions in 27.76 seconds, peak RSS 4.60 GiB. Python network guards are not OS isolation.
-Хадгалсан checkpoint-ийг шинэ процессоор ачаалахад 12/12 хариулт яг таарсан.
-Энэ нь бодит inference шалгалт; шинэ сургалт эсвэл чанарын ахиц биш.
+Эцсийн суурь загвар сонгоогүй. Нээлттэй жинтэй загварыг Монгол хэлэнд тохируулан сургах чиглэлтэй; эхнээс нь foundation model сургасан гэж мэдэгдэхгүй.
 
-[Bounded experiment supervisor](docs/BOUNDED_EXPERIMENT.md) now fails closed when
-child RSS cannot be observed. Real model execution exposed the former zero-RSS
-bug; historical zero readings are invalid, not memory measurements.
-RAM хэмжилт боломжгүй үед процессыг зогсоодог болгож зассан; хуучин 0-byte
-тайланг бодит RAM хэрэглээ гэж үзэхгүй.
+## Өгөгдлийн сан
 
-Synthetic CPU experiments now accept a hash-bound `--seed` for repeated-seed
-comparisons. [Fresh 12-case transfer draft](evaluation/MN_TRANSFER_DRAFT.md):
-separated from synthetic training. On 2026-10-27, seed42 completed 16 CPU LoRA
-steps: **0/12 → 3/12**, with a retained private checkpoint and raw reports.
-Seed43's complete artifacts were not retained; a verified two-seed comparison
-and human review remain pending. No general-quality or release claim.
-Seed42 дээр 16 алхмын бодит CPU сургалт хийж **0/12 → 3/12** хэмжсэн.
-Энэ нь жижиг synthetic/draft туршилт; нийт Монгол чадварын баталгаа биш.
+**2026-10-28-нд салбаруудын JSONL файлыг уншиж тоолсон snapshot:**
 
-[Data preparation and evaluation guide / Өгөгдөл бэлтгэл, үнэлгээний заавар](docs/PIPELINE.md)
+| Байршил | Файл/багц | Мөр |
+| --- | ---: | ---: |
+| `main`: pilot + daily корпус | 55 | 1,100 |
+| `data/bulk-wikipedia`: bulk корпус | 6 | 1,570 |
+| Хоёр салбарын нийлбэр | 61 | 2,670 |
+| Давхардсан 4 мөрийг хассан нийт | — | **2,666** |
 
-- Unicode normalization, exact deduplication, source/prompt grouped splits and manifests.
-- 24 draft Mongolian smoke questions, offline exact-match scoring, 24 local tests passed.
-- Өгөгдөл цэвэрлэх, бүлэглэн хуваах, 24 асуулттай ноорог үнэлгээ, хариу оноолох код бэлэн.
-- [Real CPU LoRA experiment](docs/SYNTHETIC_CPU_EXPERIMENT.md), 2026-10-25: Qwen3-0.6B, 16 synthetic-training steps; identical draft diagnostic **0/24 → 6/24**. Not reviewed-corpus training or a general-language improvement claim.
-- Бодит CPU LoRA: 16 алхам, ижил draft үнэлгээ **0/24 → 6/24**. Хиймэл жишээтэй техникийн туршилт; хүний хянасан corpus дээрх RAINY release биш.
+ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 2,666. Энэ тоо нь утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
 
-## Data quality and export / Чанар ба хөрвүүлэлт
+- [Pilot корпус](data/mnwiki_pilot)
+- [Өдөр тутмын корпус](data/mnwiki_daily)
+- [Тусдаа bulk салбарын корпус](https://github.com/ssboroo/rainy_llm/tree/data/bulk-wikipedia/data/mnwiki_bulk)
+- [Эх сурвалжийн бүртгэл](data/source_registry.json)
+- [10 асуулт–хариултын ноорог](data/instruction_annotations/pilot-qa-2026-10-21.draft.jsonl)
 
-[Instruction draft authoring / Сургалтын жишээний ноорог](docs/INSTRUCTION_DRAFTS.md): source-linked answer spans and frozen splits; all drafts require human review.
+Wikipedia-ийн **оршил текст** цуглуулдаг; бүтэн өгүүлэл, ном, хүний хянасан instruction corpus биш. Эх бүрийн attribution, revision/history URL, CC-BY-SA-4.0 нөхцөлийг хадгална. Бусад эх сурвалж, суурь загварын эрхийг тусад нь шалгана. Pilot-ийн зөвшөөрлийг бүх bulk өгөгдөлд автоматаар хамааруулахгүй.
 
-[Daily raw-source batches / Өдөр тутмын бодит эх](data/mnwiki_daily/README.md): 20-document attributed batches with global exact deduplication and per-batch audit manifests.
+### Автомат цуглуулалт
 
-[Source-grouped partitions / Эхээр бүлэглэсэн хуваалт](docs/CORPUS_SPLITS.md): reproducible 17/1/2 raw pilot split; not training approval.
+[Bulk workflow](.github/workflows/bulk-corpus.yml) Улаанбаатарын цагаар **09:15, 13:15, 17:15, 21:15** ажиллах хуваарьтай. Нэг удаагийн зорилт 250 орчим эх; API-ийн хуудсыг бүтнээр дуусгах үед 39 хүртэл нэмэлт эх орж болно. Cursor-оос үргэлжилж, амжилттай татсан өгөгдөл болон төлөвийг тусдаа салбарт хамт commit хийнэ.
 
-[Offline corpus review pack / Бодит эхийг хүн хянах багц](docs/CORPUS_REVIEW.md): the existing 20 Wikipedia documents with provenance and license links; all decisions pending, none approved for training.
+**Одоогийн доголдол:** шалгасан сүүлийн таван scheduled run алдаатай дууссан. [2026-10-28-ны run](https://github.com/ssboroo/rainy_llm/actions/runs/40646536975)-д тестүүд тэнцсэн боловч `Collect bounded batch` алхам унаж, өгөгдөл хадгалах алхам алгасагдсан. Өдөрт 1,000 эх нь зорилт; баталгаатай бодит гарц биш. GitHub хуваарийг хойшлуулах эсвэл алгасах боломжтой.
 
-[Quality tools guide / Хэрэглэх заавар](docs/QUALITY.md)
+[Цуглуулалтын ажиллагаа, хадгалалт, хязгаар](docs/BULK_CORPUS.md)
 
-Available: heuristic privacy/prompt-similarity audit, split-specific chat export with provenance, and local runtime/GPU inspection. These tools do not train a model.
+## Бодитоор хийсэн туршилтууд
 
-Бэлэн: хувийн мэдээллийн хэв шинж ба төстэй асуултын аудит, эх сурвалжийг хадгалсан chat export, төхөөрөмж шалгах команд. Аудитын үр дүнг хүн хянана.
-
-## First measured baseline / Эхний бодит хэмжилт
-
-- [Real-data and baseline report / Тайлан](research/2026-09-29-real-baseline.md)
-- [20 attributed Wikipedia leads / Бодит өгөгдөл](data/mnwiki_pilot/README.md)
-- [Reproduction guide / Давтан ажиллуулах](docs/BASELINE.md)
-- [Latest Qwen3.5-4B matched experiment / Сүүлийн бодит туршилт](docs/QUALITY_EXPERIMENT_2026-10-07.md)
-
-Qwen3-0.6B, CPU float32, non-thinking greedy, 64-token cap: **0/24 exact match**, **7 capped responses**, **120.8175 s** generation time. This small draft test and older tiny model do not establish general Mongolian ability. The collected corpus was not used for training or prompting.
-
-Жижиг загварын энэ тохиргоо 24 асуултын яг тохирсон хариултын шалгуураар 0 авсан. Сургалт хийгдээгүй; бодит хариу, тохиргоо, хугацааг ил тод хадгалсан.
-
-## English
-
-### Overview
-
-RAINY LLM is a research and engineering project focused on adapting open-weight language models for Mongolian. It brings model selection, data preparation, evaluation, and future training work into one version-controlled repository.
-
-The intended outcome is a Mongolian assistant whose language quality and resource requirements can be measured and reproduced. The initial direction is to adapt an existing model with suitable Mongolian data, using parameter-efficient training methods such as LoRA or QLoRA after hardware and baseline performance have been established.
-
-A final base model has not been selected. Model size, release date, or a vendor's general benchmark score alone will not determine the choice.
-
-### Goals
-
-- Improve Mongolian instruction following, writing, reading comprehension, and translation.
-- Evaluate Cyrillic Mongolian and common Latin transliterations separately.
-- Build datasets with documented sources, usage rights, and reproducible splits.
-- Measure improvements against an unchanged, held-out evaluation set.
-- Record model revisions, configuration, dependencies, hardware, and results.
-- Prepare a path toward an inference API and Docker deployment after validation.
-
-These are development objectives, not claims about an already trained model. Traditional Mongolian script coverage has not yet been established.
-
-### Current capabilities
-
-| Area | Status | What exists today |
+| Туршилт | Хэмжсэн үр дүн | Утга ба хязгаар |
 | --- | --- | --- |
-| Project documentation | Available | Roadmap, data specification, research notes, model watch |
-| Dataset validation | Available | Python CLI for instruction-format JSONL |
-| Duplicate detection | Basic | Repeated IDs and normalized instruction/input/output tuples within one file |
-| Unit tests | Available | 149 discovered: 148 passed, 1 optional Torch skip in the evening environment on 2026-10-28; includes checkpoint restore and reload-report protection tests |
-| Training corpus | Pending | 1,100 daily/pilot Wikipedia leads plus 1,570 separately persisted bulk rows; 2,666 sources are exact-unique across branches after four historical duplicates. All are unreviewed raw documents, not a curated training corpus; 6 historical template-artifact flags |
-| Mongolian evaluation | Draft tooling | 24 draft smoke cases; fingerprint-bound human-review workflow; Qwen3.5-4B Q4_K_M result 12/24 |
-| LoRA / QLoRA training | Experimental CPU LoRA | [Synthetic experiment](docs/SYNTHETIC_CPU_EXPERIMENT.md): real adapter training/reload and 4-step vs 2+2 resume equality tested. Reviewed-corpus training and QLoRA remain untested. |
-| Inference API / Docker | Planned | No runnable service or container configuration |
+| Суурь загварын харьцуулалт | Qwen3-4B Instruct Q4_K_M: 7/24; Qwen3.5-4B Q4_K_M: 12/24 | Жижиг public draft smoke; RAINY сургалтын үр дүн биш |
+| 2026-10-25 CPU LoRA | Qwen3-0.6B, 32 хиймэл жишээ, 16 алхам; **0/24 → 6/24** | Бодит сургалт; нийт Монгол хэлний чадварын баталгаа биш |
+| 2026-10-26 resume | Тасралтгүй 4 алхам ба шинэ процессоор 2+2 алхам | Adapter/optimizer/scheduler/RNG, loss ба жишээний дараалал яг таарсан |
+| 2026-10-27 transfer, seed42 | 16 алхам; **0/12 → 3/12** | 12 асуулттай шинэ ноорог; хүний review, бүрэн хоёр-seed харьцуулалт дутуу |
+| 2026-10-28 архив сэргээх | 13 файл, 7,023,160 байт; checkpoint seal ба identity таарсан | Adapter архив; base weights тусдаа |
+| 2026-10-28 fresh-process reload | **12/12 хадгалсан хариулт таарсан**, 27.76 секунд; peak RSS 4.60 GiB | Хариу давтагдахыг шалгасан; 12/12 нь зөв хариултын оноо биш |
 
-The initial six tests passed during project setup. This is a recorded local result, not a live CI status badge.
+Өөр өөр асуулт, runtime, загвартай мөрүүдийг нэг шууд чанарын зэрэглэл болгож харьцуулахгүй. Training loss буурах, CI ногоон болох, checkpoint ачаалагдах нь хэрэглэгчийн бүх даалгаварт сайн хариулна гэсэн баталгаа биш.
 
-### Quick start
+Туршилтын баримтууд:
 
-**Requirements:** Git and Python 3.10 or newer. The current validator uses only the Python standard library. No GPU, model download, API key, or package installation is required for these commands.
+- [Суурь загварын харьцуулалт](experiments/qwen35-4b-cpu-q4km-v1/comparison.json)
+- [Synthetic CPU туршилтын заавар](docs/SYNTHETIC_CPU_EXPERIMENT.md)
+- [24 асуултын өмнөх/дараах үр дүн](research/results/2026-10-25-synthetic-lora/summary.json)
+- [12 асуултын transfer үр дүн](research/results/2026-10-27-transfer/seed42/summary.json)
+- [Архив сэргээх ба inference reload](docs/CHECKPOINT_RESTORE.md)
+- [Reload-ийн бодит тайлан](research/results/2026-10-28-restore/reload.json)
+- [2026-10-28-ны судалгаа, шалгалтын тэмдэглэл](research/2026-10-28.md)
 
-Run from a terminal:
+### Одоогийн сургалтын саад
+
+Процессын RAM хэрэглээг хянах supervisor нь child RSS харагдахгүй үед зогсоодог. 2026-10-28-ны бодит preflight `monitor_error`, хэмжилтийн 0 хүчинтэй дээжтэй дууссан. **0-ийг RAM хэрэглээ гэж тооцохгүй; хамгаалалтыг тойрохгүй.** Тус host дээр дараагийн bounded seed43 сургалтыг эхлүүлэхийн өмнө RAM хэмжилт ажиллах орчин хэрэгтэй.
+
+[Preflight болон supervisor-ийн заавар](docs/BOUNDED_EXPERIMENT.md)
+
+## Ажиллуулж эхлэх
+
+### Код, өгөгдлийн шалгалт
+
+Git болон Python 3.10+ хэрэгтэй. Эдгээр команд модель татахгүй, сургалт эхлүүлэхгүй.
 
 ```bash
 git clone https://github.com/ssboroo/rainy_llm.git
 cd rainy_llm
-python --version
 python scripts/validate_data.py data/examples.jsonl
 python -m unittest discover -s tests -v
+python scripts/validate_source_registry.py
 ```
 
-Expected validator summary:
+Жишээ өгөгдлийн шалгалт: `records=1, errors=0`. Системээс хамаарч `python3` эсвэл `py -3` ашиглаж болно. Torch шаарддаг optional тест runtime байхгүй үед skip болно. Сүүлийн судалгааны бүртгэлд **149 тест: 148 passed, 1 optional Torch skip** гэж тэмдэглэсэн; одоогийн төлөвийг дээрх CI холбоосоор шалгана.
 
-```text
-records=1, errors=0
-```
-
-On systems where Python is named `python3`, replace `python` with `python3`. On Windows, `py -3` can be used when the Python launcher is installed.
-
-These commands validate an example and run unit tests. They do not train or launch a language model.
-
-### Dataset format
-
-Use UTF-8 JSONL: one complete JSON object per line. The example below is shown as a single record:
-
-```json
-{"id":"example-001","instruction":"Монгол хэлээр товч мэндчил.","input":"","output":"Сайн байна уу!","source":"project-authored-format-example","license":"CC0-1.0","split":"train"}
-```
-
-| Field | Required | Meaning |
-| --- | --- | --- |
-| `id` | Yes | Non-empty record identifier, unique within the checked file |
-| `instruction` | Yes | The instruction or question |
-| `input` | No | Additional context; a string when present |
-| `output` | Yes | The intended response |
-| `source` | Yes | Traceable origin; preferably a stable document or dataset reference |
-| `license` | Yes | Documented usage license or rights statement |
-| `split` | Yes | `train`, `validation`, or `test` |
-
-Validate your own file:
+### Local document search
 
 ```bash
-python scripts/validate_data.py path/to/dataset.jsonl
+python scripts/search_documents.py --documents examples/knowledge --query "Хүргэлт"
 ```
 
-The command exits with `0` when validation succeeds and `1` when validation or file reading fails. Blank lines are skipped; a file with no records fails validation.
+Файл, мөр, hash-тай эхийн хэсгийг хайна. Энэ нь LLM-ээр хариулт үүсгэх web chatbot биш. [Заавар](docs/DOCUMENT_SEARCH.md)
 
-**Validation boundaries**
+### Local GGUF CLI — туршилтын боломж
 
-The validator checks JSON syntax, required non-empty string fields, the optional input type, split values, repeated IDs, and repeated content tuples. Content comparison applies Unicode NFC normalization and trims surrounding whitespace.
-
-It does not verify licensing, detect personal information, score Mongolian quality, identify semantic duplicates, or compare separate files. To detect exact content duplicates across splits with this tool, records must be checked together in one file. Repeated prompts with different outputs are not treated as duplicate content.
-
-See [the data specification](docs/DATA.md) for the current contract and limitations.
-
-### Model selection and upgrades
-
-The [model watch](docs/MODEL_WATCH.md) records candidates and official sources. The research snapshot dated **2026-09-29** includes Qwen3.8-27B, Qwen3.8-Flash-Next, the Gemma 4 family, and DeepSeek-V4.1-Flash. Earlier Qwen3-4B and Gemma 3-4B entries remain historical baseline candidates.
-
-This list is a research shortlist, not a supported-model matrix or a claim that these are the best Mongolian models.
-
-Before adopting a candidate:
-
-1. Verify the publisher, exact model identifier, weight availability, and license.
-2. Pin an immutable revision and document the tokenizer and chat template.
-3. Check runtime support, total weight storage, peak memory, and training feasibility.
-4. Evaluate against the same Mongolian test set and generation budget.
-5. Compare quality, latency, and resource use with the existing baseline.
-6. Preserve the previous configuration and results so the change can be reversed.
-
-Open weights do not automatically imply that all training data and code are open source. Licenses are assessed per artifact. Existing adapters must not be assumed compatible with a new base model or architecture.
-
-### Evaluation plan
-
-| Dimension | Intended evidence |
-| --- | --- |
-| Mongolian language quality | Spelling, grammar, natural wording, human review |
-| Instruction following | Task completion and format compliance |
-| Comprehension | Answers grounded in supplied Mongolian passages |
-| Translation and transliteration | Meaning preservation and script-specific accuracy |
-| Reasoning | Checked answers and task-specific scoring |
-| Reliability | Appropriate uncertainty and unsupported-claim analysis |
-| Efficiency | Latency, throughput, peak VRAM, documented hardware |
-
-Evaluation data must remain separate from training. Source/prompt grouping is available in the preparation tool. Near-duplicate checks remain planned. Human judgments and automated scores will be reported separately.
-
-A lower training loss is not sufficient evidence of better assistant behavior. No numeric quality target or hardware requirement is claimed until measurements are available.
-
-### Repository guide
-
-| Path | Purpose |
-| --- | --- |
-| [`scripts/validate_data.py`](scripts/validate_data.py) | Dataset validation CLI |
-| [`scripts/review_evaluation.py`](scripts/review_evaluation.py) | Export/apply content-bound human-review packets |
-| [`scripts/audit_evaluation_overlap.py`](scripts/audit_evaluation_overlap.py) | Report fuzzy evaluation/training overlap candidates without copying prompts |
-| [`scripts/verify_experiment.py`](scripts/verify_experiment.py) | Recompute scores and verify stored experiment artifacts |
-| [`tests/test_validate_data.py`](tests/test_validate_data.py) | Validator unit tests |
-| [`data/examples.jsonl`](data/examples.jsonl) | One format example, not a training corpus |
-| [`docs/DATA.md`](docs/DATA.md) | Dataset contract and limitations |
-| [`docs/MODEL_WATCH.md`](docs/MODEL_WATCH.md) | Model candidates and upgrade criteria |
-| [`docs/ROADMAP.md`](docs/ROADMAP.md) | Development backlog |
-| [`research/2026-09-29.md`](research/2026-09-29.md) | Initial research record |
-
-### Development roadmap
-
-1. **Data research:** identify Mongolian sources and document licenses and provenance.
-2. **Evaluation foundation:** prepare a human-reviewed initial test set and baseline runner.
-3. **Model comparison:** compare feasible candidates on Mongolian quality and resource use.
-4. **Training pipeline:** implement data preparation and a reproducible LoRA/QLoRA configuration.
-5. **Measured experiments:** run a GPU smoke test, then compare trained adapters with the baseline.
-6. **Delivery:** publish an appropriate model card and artifacts, followed by an API and Docker setup.
-
-Dates and training costs depend on data readiness, hardware access, and measured results. See [the roadmap](docs/ROADMAP.md) for task-level progress.
-
-### Research automation
-
-An external ChatGPT scheduled task is configured for approximately **09:00, 13:00, 17:00 and 21:00 Asia/Ulaanbaatar each day**. Its intended workflow is to inspect repository progress, research relevant releases, implement a bounded improvement, run appropriate checks, and push changes to a development branch with a Mongolian report.
-
-The schedule is external to this repository; cloning the project does not install it. Runs depend on scheduler availability, permissions, and connected tools. No GitHub Actions training workflow is included. Paid GPU jobs are not authorized by this schedule.
-
-### Contributing and reproducibility
-
-Useful contributions include source and license research, reviewed Mongolian evaluation questions, validator improvements, and reproducible experiments.
-
-- Describe the problem and the expected change.
-- Keep evaluation questions out of training data.
-- Include sources and rights information for contributed data.
-- Run the relevant checks and report what was actually executed.
-- Record exact revisions and configurations for model experiments.
-- Distinguish a proposed feature from a tested implementation.
-
-Do not commit credentials, private data, raw corpora without redistribution rights, or large model weights. The repository ignores common environment files, raw/processed data directories, checkpoints, and model artifacts; ignore rules do not replace a content review.
-
-### License and release status
-
-Original project materials are subject to the ownership notice below. No general open-source license is granted; explicitly licensed files retain their own terms.
-
-The single project-authored format example in `data/examples.jsonl` is designated CC0-1.0 in [the data specification](docs/DATA.md). That designation does not apply to the repository's code, third-party datasets, or model weights. Upstream models and datasets retain their own terms.
-
----
-
-## Монгол
-
-### Төслийн тухай
-
-RAINY LLM нь нээлттэй жинтэй хэлний загваруудыг Монгол хэлний хэрэглээнд тохируулан хөгжүүлэх судалгаа, инженерчлэлийн төсөл юм. Загварын сонголт, өгөгдөл бэлтгэл, үнэлгээ, цаашдын сургалтын ажлыг нэг repository-д хувилбарын түүхтэйгээр хөтөлнө.
-
-Зорилго нь Монгол хэлний чанар, ажиллуулах нөөцийн шаардлага нь хэмжигддэг, туршилтыг нь давтан хийж болдог туслах загвар хөгжүүлэх. Эхний чиглэл бол тохирох бэлэн загварыг Монгол өгөгдлөөр нэмэлт сургах бөгөөд GPU болон анхны үнэлгээг тогтоосны дараа LoRA/QLoRA аргыг туршина.
-
-Суурь загвар эцэслэн сонгогдоогүй. Зөвхөн шинэ гарсан огноо, параметрийн хэмжээ, үйлдвэрлэгчийн ерөнхий оноонд тулгуурлан сонгохгүй.
-
-### Үндсэн зорилтууд
-
-- Монгол хэлээр заавар дагах, бичих, уншиж ойлгох, орчуулах чадварыг сайжруулах.
-- Кирилл Монгол болон түгээмэл латин галигийг тусад нь үнэлэх.
-- Эх сурвалж, ашиглах эрх, хуваарилалт нь тодорхой өгөгдөл бүрдүүлэх.
-- Сургалтаас тусгаарласан тогтмол тестээр ахицыг хэмжих.
-- Загварын хувилбар, тохиргоо, dependency, төхөөрөмж, үр дүнг бүртгэх.
-- Чанарыг баталгаажуулсны дараа API болон Docker хувилбар бэлтгэх.
-
-Эдгээр нь хөгжүүлэлтийн зорилтууд. Сургагдсан загварын батлагдсан чадвар гэсэн үг биш. Уламжлалт Монгол бичгийн дэмжлэг хараахан тогтоогдоогүй.
-
-### Одоогийн боломж
-
-| Хэсэг | Төлөв | Бэлэн байгаа зүйл |
-| --- | --- | --- |
-| Баримтжуулалт | Бэлэн | Төлөвлөгөө, өгөгдлийн дүрэм, судалгаа, загварын бүртгэл |
-| Өгөгдөл шалгах | Бэлэн | JSONL файл шалгах Python команд |
-| Давхардал илрүүлэх | Анхан шат | Нэг файл доторх ID болон агуулгын давхардал |
-| Unit test | Бэлэн | 2026-10-28: 146 тестээс 145 passed, 1 optional Torch skip; бодит сургалтын баталгаа биш |
-| Сургалтын корпус | Бэлтгэгдээгүй | 1,100 daily/pilot, тусдаа bulk branch дээр 1,570 мөр; дөрвөн cross-branch давхардлыг хасаад 2,666 exact-unique Wikipedia эх. Бүгд хүний хяналтгүй raw баримт; өмнөх 6 эхэд template үлдэгдлийн flag байна |
-| Монгол үнэлгээ | Анхны хэрэгсэл | 24 ноорог асуулт; fingerprint-тэй human-review workflow; Qwen3.5-4B Q4_K_M 12/24 |
-| LoRA / QLoRA сургалт | CPU LoRA туршилт | [Хиймэл жишээтэй туршилт](docs/SYNTHETIC_CPU_EXPERIMENT.md): бодит сургалт/reload, 4 алхам ба 2+2 сэргээх үр дүн яг ижил. Reviewed corpus сургалт, QLoRA туршаагүй. |
-| API / Docker | Төлөвлөсөн | Ажиллуулах үйлчилгээ, container тохиргоо гараагүй |
-
-Төслийг эхлүүлэх үед зургаан тест амжилттай ажилласан. Энэ нь тухайн үеийн локал шалгалтын үр дүн бөгөөд байнга шинэчлэгддэг CI төлөв биш.
-
-### Ажиллуулж эхлэх
-
-**Шаардлага:** Git болон Python 3.10 буюу түүнээс шинэ хувилбар. Одоогийн шалгагч Python-ийн стандарт сан ашигладаг тул нэмэлт package, GPU, API key, модель таталт шаардлагагүй.
-
-Терминал дээр:
+Тохирох runtime, өөрийн хууль ёсоор авсан GGUF файл болон итгэмжлэгдсэн SHA-256 хэрэгтэй.
 
 ```bash
-git clone https://github.com/ssboroo/rainy_llm.git
-cd rainy_llm
-python --version
-python scripts/validate_data.py data/examples.jsonl
-python -m unittest discover -s tests -v
+python scripts/ask_offline.py --help
+python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --check-only
+python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул."
 ```
 
-Жишээ файлын шалгалтын хүлээгдэх үр дүн:
+`--check-only` нь модель inference шалгахгүй. Энэ CLI-ийн бодит GGUF validation дутуу хэвээр; дээрх PEFT checkpoint reload нь өөр кодын зам. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
 
-```text
-records=1, errors=0
-```
+### CPU сургалт ба checkpoint
 
-Таны системд `python3` гэж бүртгэлтэй бол `python`-ийг `python3`-аар солино. Windows-ийн Python launcher суусан бол `py -3` ашиглаж болно.
+Runtime шаардлага нь стандарт сангийн тестээс тусдаа. Сургалтанд тохирох Python/runtime, local pinned model, санах ой болон Git-ээс гадуурх хадгалалт шаардлагатай.
 
-Эдгээр команд нь өгөгдлийн жишээ болон тестийг шалгана. LLM сургах, чат загвар эхлүүлэх команд биш.
+- [Хүний хянасан өгөгдөл шаарддаг CPU LoRA runner](docs/CPU_TRAINING.md)
+- [Хиймэл жишээтэй бодит CPU туршилтыг давтах](docs/SYNTHETIC_CPU_EXPERIMENT.md)
+- [Модель татахаас өмнөх resource preflight](docs/BOUNDED_EXPERIMENT.md)
+- [Хадгалсан checkpoint сэргээх](docs/CHECKPOINT_RESTORE.md)
 
-### Өгөгдлийн бүтэц
+Энэ repository-д нийтийн model weights, хувийн checkpoint архив багтаахгүй. Adapter дангаараа суурь загварыг орлохгүй. OS түвшний интернэтгүй ажиллагааны баталгаажуулалт, GGUF export болон бүрэн installation package үлдсэн.
 
-Өгөгдлийг **UTF-8 JSONL** хэлбэрээр хадгална. Нэг мөр бүр нэг бүтэн JSON object байна.
+## Өгөгдөл бэлтгэх ба үнэлэх
 
-| Талбар | Заавал эсэх | Тайлбар |
-| --- | --- | --- |
-| `id` | Заавал | Шалгаж буй файл дотор давтагдахгүй, хоосон биш ID |
-| `instruction` | Заавал | Асуулт эсвэл гүйцэтгэх заавар |
-| `input` | Сонголттой | Нэмэлт нөхцөл; байвал string төрөлтэй |
-| `output` | Заавал | Хүлээгдэх хариулт |
-| `source` | Заавал | Мэдээллийн гарал, тогтвортой эх сурвалж |
-| `license` | Заавал | Баримтжуулсан лиценз эсвэл ашиглах эрхийн тайлбар |
-| `split` | Заавал | `train`, `validation`, `test` утгын аль нэг |
+Instruction өгөгдөл UTF-8 JSONL хэлбэртэй. Гол талбарууд: `id`, `instruction`, `input`, `output`, `source`, `license`, `split`. Raw Wikipedia corpus нь өөр schema-тай; шууд instruction сургалт руу өгөхгүй.
 
-Өөрийн файлыг шалгах:
+1. Эх сурвалж, ашиглах эрх, хэлний чанар, баримт, хувийн мэдээллийг хянана.
+2. Давхардал болон evaluation overlap-ийг шалгаж, эх сурвалжаар train/validation/test-ийг тусгаарлана.
+3. Монгол заавар, хариултыг бэлтгэн хянаж, hash-тай review evidence хадгална.
+4. Сургалтын өмнөх/дараах хариуг ижил тест, decoding тохиргоогоор хэмжинэ.
+5. Хүний үнэлгээ, автомат оноо болон хурд/санах ойг тусад нь тайлагнана.
 
-```bash
-python scripts/validate_data.py path/to/dataset.jsonl
-```
+AI-аар хийсэн шалгалтыг хүний review гэж тэмдэглэхгүй. Одоогийн v2 багцын 100 асуулт бүгд pending; production benchmark биш.
 
-Шалгалт амжилттай бол exit code `0`, өгөгдөл эсвэл файл унших алдаатай бол `1` гарна. Хоосон мөрийг алгасана; нэг ч бичлэггүй файл алдаа болно.
+[Өгөгдлийн дүрэм](docs/DATA.md) · [Pipeline](docs/PIPELINE.md) · [Corpus review](docs/CORPUS_REVIEW.md) · [Instruction drafts](docs/INSTRUCTION_DRAFTS.md) · [Үнэлгээ](evaluation/README.md) · [V2 review](evaluation/MN_V2_REVIEW.md)
 
-Шалгагч нь JSON бүтэц, шаардлагатай талбарууд, утгын төрөл, split, давхардсан ID болон instruction/input/output гурвалын давхардлыг шалгана. Агуулгыг харьцуулахдаа Unicode NFC хэлбэрт оруулж, эхлэл төгсгөлийн хоосон зайг хасна.
+## Дараагийн ажил
 
-Лиценз үнэхээр хүчинтэй эсэх, хувийн мэдээлэл, Монгол хэлний чанар, утгын ойролцоо давхардлыг шалгахгүй. Тусдаа файлуудыг хооронд нь харьцуулахгүй. Өөр split-ийн яг ижил агуулгыг илрүүлэхийн тулд бичлэгүүдийг нэг файлд хамтад нь шалгана. Ижил асуулт өөр хариулттай байвал агуулгын давхардал гэж тооцохгүй.
+- [ ] Bulk цуглуулагчийн таталтын алдааг оношилж, амжилттай хадгалалтыг дахин батлах.
+- [ ] Дөрвөн historical cross-branch duplicate болон үлдсэн чанарын flag-уудыг шийдэх.
+- [ ] Хүний хянасан, эх сурвалж/лиценз нь баталгаатай Монгол сургалтын сан бүрдүүлэх.
+- [ ] Асуулт–хариултыг төрөлжүүлж, 100 асуулттай v2 үнэлгээг хүнээр хянуулах.
+- [ ] Child RSS хэмждэг орчинд seed43 туршилт хийж, хадгалсан хоёр-seed үр дүнг харьцуулах.
+- [ ] Reviewed corpus дээр LoRA сургаж, held-out чанар болон regression хэмжих.
+- [ ] Хувилбартай adapter/model card, export, offline package ба OS сүлжээ тусгаарлах туршилт гаргах.
+- [ ] Баталгаажсан загварт local chat/API, дараа нь Docker ба хэрэглэгчийн интерфейс бэлтгэх.
 
-Дэлгэрэнгүйг [өгөгдлийн дүрмээс](docs/DATA.md) үзнэ үү.
+[Дэлгэрэнгүй roadmap](docs/ROADMAP.md) · [Загварын судалгаа](docs/MODEL_WATCH.md)
 
-### Шинэ загвар сонгох, шинэчлэх
-
-[Загварын бүртгэлд](docs/MODEL_WATCH.md) нэр дэвшигчид болон албан ёсны эх сурвалжийг хадгална. **2026-09-29**-ний судалгаанд Qwen3.8-27B, Qwen3.8-Flash-Next, Gemma 4, DeepSeek-V4.1-Flash багтсан. Qwen3-4B болон Gemma 3-4B нь өмнөх харьцуулалтын нэр дэвшигчид хэвээр байна.
-
-Энэ нь судлах загваруудын жагсаалт; ажилладаг интеграц эсвэл Монгол хэлээр хамгийн сайн гэсэн баталгаа биш.
-
-Шинэ загвар нэвтрүүлэхдээ:
-
-1. Үйлдвэрлэгч, яг model ID, жинг татах боломж, лицензийг баталгаажуулна.
-2. Өөрчлөгдөхгүй revision болон tokenizer, chat template-ийг бүртгэнэ.
-3. Runtime нийцэл, бүх жингийн хадгалалт, санах ой, сургалтын боломжийг шалгана.
-4. Ижил Монгол тест, ижил хариулт үүсгэх нөөцийн хязгаарт туршина.
-5. Чанар, хурд, нөөцийн хэрэглээг өмнөх суурьтай харьцуулна.
-6. Өмнөх тохиргоо, үр дүнг хадгалж, шаардлагатай үед буцаах боломжтой шинэчилнэ.
-
-Нээлттэй жинтэй загварын бүх код, сургалтын өгөгдөл заавал нээлттэй байдаггүй. Шинэ архитектурт хуучин adapter шууд таарна гэж үзэхгүй.
-
-### Үнэлгээний чиглэл
-
-| Чадвар | Шалгах зүйл |
-| --- | --- |
-| Монгол хэлний чанар | Зөв бичих, дүрэм, найруулга, хүний үнэлгээ |
-| Заавар дагах | Даалгавар болон хүссэн форматыг мөрдөх |
-| Уншиж ойлгох | Өгсөн Монгол эхэд тулгуурлан хариулах |
-| Орчуулга, галиг | Утга хадгалах, бичгийн хэлбэрийн зөв байдал |
-| Үндэслэл гаргах | Шалгаж болох хариу, даалгаврын оноо |
-| Найдвартай байдал | Мэдэхгүйгээ илэрхийлэх, баримтгүй мэдэгдэл |
-| Нөөцийн үр ашиг | Хугацаа, хурд, VRAM, төхөөрөмжийн мэдээлэл |
-
-Үнэлгээний асуултуудыг сургалтад оруулахгүй. Эх сурвалж, ижил асуултаар бүлэглэн хуваах код бэлэн. Утгын ойролцоо давхардлыг илрүүлэх шалгалт цаашид нэмэгдэнэ. Хүний үнэлгээ, автомат оноог тусад нь тайлагнана.
-
-Сургалтын loss буурсан нь хэрэглээний чанар сайжирсны хангалттай баталгаа биш. Бодит хэмжилтгүй үед чанарын оноо, GPU шаардлага зохиож зарлахгүй.
-
-### Файлуудын зориулалт
+## Төслийн бүтэц
 
 | Зам | Зориулалт |
 | --- | --- |
-| [`scripts/validate_data.py`](scripts/validate_data.py) | Өгөгдөл шалгах команд |
-| [`scripts/review_evaluation.py`](scripts/review_evaluation.py) | Агуулгатай fingerprint-ээр холбосон хүний review packet export/apply |
-| [`scripts/audit_evaluation_overlap.py`](scripts/audit_evaluation_overlap.py) | Prompt текст хуулалгүй ойролцоо evaluation/training overlap candidate тайлагнах |
-| [`scripts/verify_experiment.py`](scripts/verify_experiment.py) | Хадгалсан туршилтын оноо, hash, хэмжилтийг дахин шалгах команд |
-| [`tests/test_validate_data.py`](tests/test_validate_data.py) | Шалгагчийн тест |
-| [`data/examples.jsonl`](data/examples.jsonl) | Форматын нэг жишээ |
-| [`docs/DATA.md`](docs/DATA.md) | Өгөгдлийн дүрэм, хязгаар |
-| [`docs/MODEL_WATCH.md`](docs/MODEL_WATCH.md) | Загварын судалгаа, шинэчлэх шалгуур |
-| [`docs/ROADMAP.md`](docs/ROADMAP.md) | Хөгжүүлэлтийн ажлын жагсаалт |
-| [`research/2026-09-29.md`](research/2026-09-29.md) | Анхны судалгааны тэмдэглэл |
+| `data/` | Raw корпус, эх сурвалжийн бүртгэл, instruction ноорог |
+| `evaluation/` | Үнэлгээний ноорог, review packet, overlap тайлан |
+| `scripts/` | Цуглуулалт, шалгалт, сургалт, checkpoint, inference хэрэгслүүд |
+| `tests/` | Кодын зан төлөв болон хамгаалалтын тестүүд |
+| `experiments/` | Суурь загваруудын хадгалсан харьцуулалт |
+| `research/results/` | Бодит туршилтын оноо, хариу, hash ба хэмжилт |
+| `research/` | Огноотой ажлын тэмдэглэл |
+| `docs/` | Давтан ажиллуулах заавар, шийдэл, хязгаар |
+| `.github/workflows/` | CPU шалгалт ба bulk цуглуулалтын хуваарь |
 
-### Хөгжүүлэлтийн дараалал
+## English summary
 
-1. **Өгөгдлийн судалгаа:** Монгол эх сурвалж, лиценз, гарал үүслийг бүртгэх.
-2. **Үнэлгээний суурь:** хүний хянасан эхний тест болон baseline ажиллуулах код бэлтгэх.
-3. **Загварын харьцуулалт:** Монгол чадвар, нөөцийн хэрэглээг хэмжих.
-4. **Сургалтын код:** өгөгдөл бэлтгэл, LoRA/QLoRA тохиргоог хэрэгжүүлэх.
-5. **Туршилт:** GPU дээр жижиг шалгалт хийж, adapter-ийг суурь загвартай харьцуулах.
-6. **Хэрэглээнд гаргах:** model card, тохирох файлууд, дараа нь API, Docker бэлтгэх.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-28**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration and fresh-process inference replay. It has **not** released a production Mongolian model trained on a human-reviewed corpus.
 
-Хугацаа, зардал нь өгөгдлийн бэлэн байдал, төхөөрөмж, хэмжилтийн үр дүнгээс хамаарна. Ажил тус бүрийн төлөвийг [хөгжүүлэлтийн жагсаалтаас](docs/ROADMAP.md) харна.
+The inspected main and bulk branch snapshots contain **2,670 raw Wikipedia lead records / 2,666 exact-unique records**. All remain unapproved for corpus training. Bulk collection is scheduled four times daily, but recent scheduled runs failed during acquisition; the daily target is not a delivery guarantee.
 
-### Өдөр тутмын хөгжүүлэлт
+Synthetic Qwen3-0.6B experiments measured **0/24 → 6/24** and, in a separate 12-case draft diagnostic, **0/12 → 3/12**. Reload reproduced **12/12 retained predictions**, which measures reproducibility rather than correctness. These results do not establish general Mongolian fluency or production readiness.
 
-ChatGPT-ийн гадаад scheduled task-ийг **Улаанбаатарын цагаар өдөр бүр 09:00 орчим** ажиллахаар тохируулсан. Repository-ийн явцыг уншиж, шинэ загвар судлан, тодорхой хүрээтэй сайжруулалт хийж, тохирох шалгалтыг ажиллуулаад хөгжүүлэлтийн branch-д push хийж Монгол хэлээр тайлагнах зорилготой.
-
-Энэ хуваарь repository-оос тусдаа. Төслийг clone хийхэд автоматаар суухгүй. Ажиллах боломж нь scheduler, эрх болон холбогдсон хэрэгслээс хамаарна. Repository-д GPU сургалт ажиллуулах GitHub Actions workflow байхгүй. Энэ хуваарь төлбөртэй GPU ажиллуулах зөвшөөрөл болохгүй.
-
-### Хувь нэмэр оруулах
-
-Монгол өгөгдлийн эх сурвалж, лицензийн судалгаа, хүний хянасан тестийн асуулт, шалгах код, давтан ажиллуулах боломжтой туршилтаар хувь нэмэр оруулж болно.
-
-- Ямар асуудал шийдэж байгааг тайлбарлах.
-- Үнэлгээний өгөгдлийг сургалтаас тусгаарлах.
-- Өгөгдлийн эх сурвалж, ашиглах эрхийг хавсаргах.
-- Холбогдох шалгалтыг ажиллуулж, бодит үр дүнг бичих.
-- Загварын туршилтын revision, тохиргоог хадгалах.
-- Төлөвлөсөн боломж болон туршсан хэрэгжилтийг ялгаж тайлагнах.
-
-Нууц түлхүүр, хувийн мэдээлэл, дахин түгээх эрхгүй корпус, том модель жинг commit хийхгүй. Ignore дүрэм нь файлын агуулгыг хянах ажлыг орлохгүй.
-
-### Лиценз ба хувилбарын төлөв
-
-Төслийн өөрийн бүтээсэн материалд доорх эрхийн мэдэгдэл үйлчилнэ. Нийтлэг open-source лиценз олгоогүй; тусгай лицензтэй файлын нөхцөл хэвээр байна.
-
-`data/examples.jsonl` дахь төслийн бичсэн ганц жишээг [өгөгдлийн дүрэмд](docs/DATA.md) CC0-1.0 гэж тэмдэглэсэн. Энэ нөхцөл код, бусад dataset, модель жинд хамаарахгүй. Ашиглах суурь загвар болон өгөгдөл тус бүрийн өөрийн лицензийг мөрдөнө.
-
----
-
-**Project / Төсөл:** [ssboroo/rainy_llm](https://github.com/ssboroo/rainy_llm)  
-**Documentation snapshot / Баримтжуулалтын огноо:** 2026-09-29
-
----
-
-## Author and project ownership / Зохиогч ба төслийн эзэмшил
-
-**Founded, directed, and developed by [ssboroo](https://github.com/ssboroo).**
-
-RAINY LLM is an independent project created and maintained by ssboroo. Development uses AI-assisted research and coding tools under the project owner's direction.
-
-**Copyright © 2026 ssboroo. All rights reserved, except where a file explicitly specifies otherwise.**
-
-This notice applies to original RAINY LLM project materials to the extent that copyright protection applies. No general license to use, modify, or redistribute those materials is granted by this notice. For permission or commercial licensing inquiries, contact the project owner through their [GitHub profile](https://github.com/ssboroo).
-
-Third-party models, weights, datasets, libraries, and other upstream materials remain subject to their respective owners' rights and licenses. RAINY LLM does not claim authorship or ownership of those upstream materials. The explicitly designated CC0-1.0 format example retains its stated terms. This notice does not assert that every AI-assisted output is independently copyrightable.
+## Зохиогч, эрх ба лиценз
 
 **Төслийг үүсгэн байгуулж, чиглүүлэн хөгжүүлэгч: [ssboroo](https://github.com/ssboroo).**
 
 RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүлж буй бие даасан төсөл. Судалгаа, код боловсруулах ажилд төслийн эзэмшигчийн чиглүүлгээр AI туслах хэрэгсэл ашигладаг.
 
-**Зохиогчийн эрх © 2026 ssboroo. Тухайн файлд өөрөөр заагаагүй бол бүх эрхийг хадгална.**
+**Copyright © 2026 ssboroo. All rights reserved, except where a file explicitly specifies otherwise.**
 
-Энэ тэмдэглэгээ нь зохиогчийн эрхээр хамгаалагдах хэмжээнд RAINY LLM төслийн өөрийн бүтээсэн материалд хамаарна. Энэ мэдэгдлээр тэдгээр материалыг ашиглах, өөрчлөх, дахин түгээх нийтлэг лиценз олгохгүй. Ашиглах зөвшөөрөл болон арилжааны лицензийн асуудлаар төслийн эзэмшигчийн [GitHub профайлаар](https://github.com/ssboroo) холбогдоно уу.
+Төслийн өөрийн бүтээсэн материалд нийтлэг open-source лиценз олгоогүй. Тухайн файлд тусгайлан заасан нөхцөл хэвээр үйлчилнэ. `data/examples.jsonl` дахь форматын нэг жишээ CC0-1.0; энэ нь код, бусад dataset эсвэл модель жинд хамаарахгүй. Ашиглах зөвшөөрөл, арилжааны лицензийн асуудлаар эзэмшигчтэй GitHub профайлаар холбогдоно уу.
 
-Гуравдагч талын суурь загвар, модель жин, өгөгдөл, сан болон бусад эх материалын эрх нь холбогдох эзэмшигчиддээ хэвээр үлдэнэ. Тэдгээрийн лицензийг тусад нь мөрдөнө. RAINY LLM тэдгээр эх материалыг өөрөө бүтээсэн, эзэмшдэг гэж мэдэгдэхгүй. CC0-1.0 гэж тусгайлан заасан форматын жишээний нөхцөл хэвээр байна. AI-ийн оролцоотой бүх үр дүн автоматаар зохиогчийн эрхтэй гэж энэ мэдэгдлээр батлахгүй.
+Гуравдагч талын суурь загвар, жин, өгөгдөл, сангийн эрх холбогдох эзэмшигчиддээ үлдэнэ. Тэдгээрийн лицензийг тусад нь мөрдөнө; RAINY LLM тэдгээрийг өөрөө бүтээсэн гэж мэдэгдэхгүй. AI-ийн оролцоотой бүх үр дүн автоматаар зохиогчийн эрхтэй гэж энэ мэдэгдлээр батлахгүй.
 
-### Evaluation expansion — 2026-10-11
+---
 
-**Model-first direction (2026-10-13):** [Standalone Mongolian model](docs/STANDALONE_MODEL.md). Үндсэн зорилго нь гаднын API-гүй ажиллах олон зориулалтын Монгол загвар; сургагдсан RAINY жин хараахан гараагүй. Experimental `scripts/ask_offline.py` loads a checksummed local GGUF without Hub calls; real-weight validation of this new entry point is still pending.
-
-Local document search is available: [English/Монгол usage](docs/DOCUMENT_SEARCH.md). Run `python scripts/search_documents.py --documents examples/knowledge --query "Хүргэлт"` to retrieve source excerpts with file, line and hash references. Баримтын хайлт ажиллана; generated answer, PDF/OCR болон web chat дараагийн шатанд.
-
-A separate [100-case Mongolian development draft](evaluation/MN_V2_REVIEW.md) and content-bound pending review packet are ready. Ten categories have ten cases each. No human review or v2 model inference has occurred. The existing 24-case results remain unchanged.
-
-Монгол үнэлгээний шинэ 100 асуулт, 10 ангилалтай ноорог болон хүн хянах packet бэлэн. Бүгд draft; хүний review болон шинэ багцын модель хэмжилт хийгдээгүй. Өмнөх 24 асуултын үр дүн хэвээр.
-
-Review progress summary нь prompt задруулахгүйгээр төлөвийг ангилал тус бүрээр тоолно. 2026-10-13-ны бодит тайлан: **100/100 pending, 0 ready-accept, ready_to_apply=false**. Энэ нь хүний хяналт хийгдсэн гэсэн үг биш.
+**Баримтжуулалтын огноо:** 2026-10-28 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
