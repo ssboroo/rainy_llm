@@ -9,6 +9,22 @@ from unittest.mock import patch
 from scripts import collect_wikipedia_bulk as bulk
 
 class BulkTests(unittest.TestCase):
+    def test_completed_page_survives_later_network_failure(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            response = {'query': {'allpages': [{'title': 'one'}]}, 'continue': {'apcontinue': 'retry-here'}}
+            with patch('sys.argv', ['bulk', '--root', str(root), '--limit', '20', '--max-requests', '10']), patch.object(bulk, 'request', side_effect=[response, OSError('network')]), patch.object(bulk, 'fetch_pages', return_value=[self.page(12345, 'Монгол эх баримтыг хадгална. '*20)]), patch.object(bulk.time, 'sleep'), contextlib.redirect_stdout(io.StringIO()):
+                bulk.main()
+            report = json.loads(next(root.glob('*.manifest.json')).read_text())
+            self.assertEqual(report['accepted'], 1)
+            self.assertEqual(report['status'], 'partial')
+            self.assertEqual(report['state']['cursor'], 'retry-here')
+    def test_first_page_network_failure_is_not_success(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch('sys.argv', ['bulk', '--root', tmp]), patch.object(bulk, 'request', side_effect=OSError('network')), contextlib.redirect_stdout(io.StringIO()):
+                with self.assertRaises(RuntimeError):
+                    bulk.main()
+            self.assertFalse((Path(tmp)/'state.json').exists())
     def test_unicode_line_separator_is_not_jsonl_boundary(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
