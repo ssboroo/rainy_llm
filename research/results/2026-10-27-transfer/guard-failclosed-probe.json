@@ -1,0 +1,9 @@
+{
+  "returncode": -9,
+  "stop_reason": "monitor_error",
+  "error_type": "RuntimeError",
+  "elapsed_seconds": 0.004664499000000433,
+  "peak_sampled_rss_bytes": 0,
+  "rss_sampling_seconds": 0.1,
+  "completed": false
+}

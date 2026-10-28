@@ -1,0 +1,80 @@
+{
+  "reloaded_checkpoint": 16,
+  "matching_predictions": 12,
+  "checkpoint_hashes_verified": true,
+  "training_resume_tested": false,
+  "evaluation_sha256": "a13b3e9879547ae42b1cb84d62d85f961a67b9d091c18d1443baa7fa004828ae",
+  "run_identity_sha256": "484f19bbb94b445ce98b56c9625fdc165d7b856c79e150b5bf9d5b3ef25b06c7",
+  "elapsed_seconds": 27.763928954999983,
+  "peak_rss_native": 4822560,
+  "peak_rss_unit": "KiB on Linux; bytes on macOS",
+  "network_isolation": "Python socket guards and HF offline flags; not OS isolation",
+  "runtime": {
+    "torch": "2.6.0+cpu",
+    "transformers": "4.51.3",
+    "peft": "0.15.2",
+    "accelerate": "1.6.0"
+  },
+  "predictions": [
+    {
+      "id": "transfer-01",
+      "output": "3",
+      "elapsed_seconds": 0.7981689380000034
+    },
+    {
+      "id": "transfer-02",
+      "output": "6-өөр",
+      "elapsed_seconds": 1.6274476529999902
+    },
+    {
+      "id": "transfer-03",
+      "output": "Бат мягмар гарагт Дархан хотод очив",
+      "elapsed_seconds": 4.525309981000078
+    },
+    {
+      "id": "transfer-04",
+      "output": "8000",
+      "elapsed_seconds": 1.5362045680000165
+    },
+    {
+      "id": "transfer-05",
+      "output": "мөнгол",
+      "elapsed_seconds": 1.446051118000014
+    },
+    {
+      "id": "transfer-06",
+      "output": "Ганц",
+      "elapsed_seconds": 1.219045498000014
+    },
+    {
+      "id": "transfer-07",
+      "output": "Монгол",
+      "elapsed_seconds": 1.445040113999994
+    },
+    {
+      "id": "transfer-08",
+      "output": "Bayarlalaa",
+      "elapsed_seconds": 1.368282190000059
+    },
+    {
+      "id": "transfer-09",
+      "output": "ТИЙМ",
+      "elapsed_seconds": 1.2541114390000985
+    },
+    {
+      "id": "transfer-10",
+      "output": "алим",
+      "elapsed_seconds": 0.9437931960000014
+    },
+    {
+      "id": "transfer-11",
+      "output": "Хамгийн намхан",
+      "elapsed_seconds": 2.103699091000067
+    },
+    {
+      "id": "transfer-12",
+      "output": "Гараг",
+      "elapsed_seconds": 1.1042943720000267
+    }
+  ]
+}

@@ -1,5 +1,41 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-28 checkpoint restoration
+
+- [x] Executable no-model child-RSS preflight and zero-sample-exit safety fix;
+  real host probe fails closed. No guarded training or quality gain claimed.
+- [x] Batches03–04:40 additional sources; day80/100,20missing,reviewed/ready0/0.
+- [ ] On a host passing preflight, complete retained seed43 comparison; if this
+  host remains incompatible, pursue offline artifact packaging without weakening
+  training guards. Do not repeatedly download weights before preflight.
+
+- [x] Batch02:20 additional licensed sources,48,392characters; day40/100,
+  human-reviewed/training-ready0/0. No backdated collection.
+
+- [x] Batch01:20 new licensed sources,11,779characters; day20/100,
+  human-reviewed/training-ready0/0. Global dedup includes all six bulk files.
+
+- [x] Trusted-archive restore CLI: bounded safe extraction outside Git, exclusive
+  destination, checkpoint identity/hash verification; real seed42 archive restored.
+- [x] Restore pinned base/runtime and perform fresh-process inference reload:
+  12/12 retained predictions match,27.76s,4.60GiB peak RSS; Python network guards only.
+- [ ] Complete seed43 with immediate durable retention. RSS guard remains intact;
+  host child-process RSS visibility is still required for bounded training.
+- [ ] Full offline export and quantization follow retained repeat-seed evidence;
+  reviewed-corpus training remains separately gated.
+
+## 2026-10-27 bounded experiment execution
+
+- [x] Batches02–04:60 additional unique licensed sources; day80/100,63,323characters, human-reviewed/training-ready0/0. One20-source batch remains missing; no fabricated backfill.
+
+- [x] Retained seed42 transfer experiment:16 real CPU LoRA steps, draft0/12→3/12; private final checkpoint preserved. Detected and fixed unobservable-RSS fail-open bug.
+- [ ] Seed43 complete raw artifacts were lost after execution; repeat-seed evidence remains incomplete. Next: restore retained checkpoint and verify offline reload, then rerun seed43 only after immediate artifact retention is ready. Do not retrain seed42 unnecessarily.
+
+- [x] Whole-process wall/RSS supervisor, retained logs and explicit failure reports; actual subprocess fault tests. Model execution under this wrapper remains pending.
+- [x] Batch01: 20 new licensed sources, 15,888 characters; today 20/100, human-reviewed/training-ready 0/0.
+- [ ] Next: restore pinned runtime and private durable checkpoint retention, then complete seed-42/43 transfer comparisons under the supervisor. Do not repeat public-smoke tuning or promote a base from one seed.
+- [ ] Offline merged/base-plus-adapter export and quantization comparisons follow retained evidence; human corpus review is a separate gate.
+
 ## 2026-10-26 checkpoint continuation
 
 - [x] 17:15 corpus batch01:20 new sources,21,400 characters; today20/100, human-reviewed/training-ready0/0. Remaining80 are not backdated or counted as completed.
