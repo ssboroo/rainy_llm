@@ -1,5 +1,17 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-28 checkpoint restoration
+
+- [x] Batch01:20 new licensed sources,11,779characters; day20/100,
+  human-reviewed/training-ready0/0. Global dedup includes all six bulk files.
+
+- [x] Trusted-archive restore CLI: bounded safe extraction outside Git, exclusive
+  destination, checkpoint identity/hash verification; real seed42 archive restored.
+- [ ] Restore pinned base/runtime and perform fresh-process inference reload;
+  then complete seed43 with immediate durable retention. RSS guard remains intact.
+- [ ] Full offline export and quantization follow retained repeat-seed evidence;
+  reviewed-corpus training remains separately gated.
+
 ## 2026-10-27 bounded experiment execution
 
 - [x] Batches02–04:60 additional unique licensed sources; day80/100,63,323characters, human-reviewed/training-ready0/0. One20-source batch remains missing; no fabricated backfill.

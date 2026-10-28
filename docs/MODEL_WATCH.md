@@ -1,5 +1,17 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-28: restoration, no base promotion
+
+Rechecked official Qwen3-0.6B card/report, Gemma release log, DeepSeek and Meta
+repositories, Mistral inference and PEFT releases. Retain Qwen/Qwen3-0.6B at
+`c1899de289a04d12100db370d81485cdf75e47ca`, Apache-2.0 open weights;
+fully open training data is not established. No new release date, immutable
+candidate, runtime upgrade or Mongolian advantage was established today.
+The existing official tokenizer/template and tested runtime pins are unchanged.
+Actual work restores the retained adapter archive, not new model inference.
+No API-only service was used as a local base. See today's research and
+[restore usage](CHECKPOINT_RESTORE.md).
+
 ## 2026-10-27 21:00 — retained transfer result, no promotion
 
 Same `Qwen/Qwen3-0.6B` immutable revision

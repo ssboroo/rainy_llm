@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "date": "2026-10-28",
+  "timezone": "Asia/Ulaanbaatar",
+  "target": 100,
+  "batch_size": 20,
+  "completed_batches": 1,
+  "unique_added": 20,
+  "rejected_candidates": 18,
+  "duplicate_rejections": 1,
+  "short_rejections": 3,
+  "batch_limit_deferrals": 14,
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "batches": [
+    {"id": "batch-01", "articles": 20, "characters": 11779, "corpus_sha256": "dd10a1e8fd2a0141bc6245d107f33de04d66f86e4c4e8b931b9749a9590017a5"}
+  ]
+}

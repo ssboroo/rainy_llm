@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "archive_sha256": "2c0b61ef66ca3eeaf12b59d073e33c9118c62f91aaef1e2586aa098a329b04a1",
+  "restored_files": 13,
+  "restored_bytes": 7023160,
+  "checkpoint_steps": [16],
+  "run_identity_sha256": "484f19bbb94b445ce98b56c9625fdc165d7b856c79e150b5bf9d5b3ef25b06c7",
+  "pickle_deserialized": false,
+  "inference_executed": false
+}
