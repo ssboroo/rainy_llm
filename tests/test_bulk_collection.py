@@ -9,6 +9,13 @@ from unittest.mock import patch
 from scripts import collect_wikipedia_bulk as bulk
 
 class BulkTests(unittest.TestCase):
+    def test_unicode_line_separator_is_not_jsonl_boundary(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            row = {'id': 'mnwiki-99999999-1', 'text': 'Монгол\u2028өгөгдөл\u0085эх\u2029баримт'}
+            (root / 'batch-prior.jsonl').write_text(json.dumps(row, ensure_ascii=False)+'\n', encoding='utf-8')
+            self.run_batch(root, {'query': {'allpages': []}}, [])
+            self.assertTrue(json.loads((root/'state.json').read_text())['exhausted'])
     def run_batch(self, root, response, pages, limit=1):
         with patch('sys.argv', ['bulk','--root',str(root),'--limit',str(limit),'--max-requests','4']), \
              patch.object(bulk,'request',return_value=response), \
@@ -52,3 +59,4 @@ class BulkTests(unittest.TestCase):
             with patch.object(bulk,'request') as req:
                 self.run_batch(root,{},[])
                 req.assert_not_called()
+
