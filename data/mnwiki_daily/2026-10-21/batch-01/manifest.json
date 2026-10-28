@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-21T00:59:42.565694+00:00",
+  "requested_titles": 47,
+  "articles": 20,
+  "characters": 19976,
+  "rejected": 27,
+  "rejected_by_reason": {
+    "missing": 18,
+    "short": 2,
+    "batch-limit": 7
+  },
+  "rejected_items": [
+    {
+      "title": "Амьсгалын тогтолцоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Антибиотик",
+      "reason": "short"
+    },
+    {
+      "title": "Бамбай булчирхай",
+      "reason": "missing"
+    },
+    {
+      "title": "Витамин",
+      "reason": "missing"
+    },
+    {
+      "title": "Гормон",
+      "reason": "missing"
+    },
+    {
+      "title": "Дархлаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Дархлаажуулалт",
+      "reason": "short"
+    },
+    {
+      "title": "Дархлааны тогтолцоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Дотоод шүүрлийн тогтолцоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Зүрх судасны тогтолцоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Микробиологи",
+      "reason": "missing"
+    },
+    {
+      "title": "Мэдрэл",
+      "reason": "missing"
+    },
+    {
+      "title": "Мэдрэлийн тогтолцоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Мэдрэхүйн эрхтэн",
+      "reason": "missing"
+    },
+    {
+      "title": "Халдварт өвчин",
+      "reason": "missing"
+    },
+    {
+      "title": "Хоол боловсруулах тогтолцоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Чих",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эволюци",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Экосистем",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Элэг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эм (салаа утга)",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эмнэлэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Эпидемиологи",
+      "reason": "missing"
+    },
+    {
+      "title": "Эрүүл мэнд",
+      "reason": "missing"
+    },
+    {
+      "title": "Эс судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Яс",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өвчин",
+      "reason": "batch-limit"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl"
+  ],
+  "sha256": "06abee892bb2842513d1e248966a484b12c8306d569fcc08f88877194f78c68a",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}

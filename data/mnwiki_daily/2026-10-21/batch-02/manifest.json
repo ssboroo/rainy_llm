@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "retrieved_at": "2026-10-21T05:06:12.206577+00:00",
+  "requested_titles": 50,
+  "articles": 20,
+  "characters": 19837,
+  "rejected": 30,
+  "rejected_by_reason": {
+    "missing": 16,
+    "short": 3,
+    "batch-limit": 11
+  },
+  "rejected_items": [
+    {
+      "title": "Аж ахуйн нэгж",
+      "reason": "missing"
+    },
+    {
+      "title": "Гэмт хэрэг",
+      "reason": "missing"
+    },
+    {
+      "title": "Захиргааны эрх зүй",
+      "reason": "short"
+    },
+    {
+      "title": "Иргэн",
+      "reason": "missing"
+    },
+    {
+      "title": "Иргэний эрх зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Компани",
+      "reason": "missing"
+    },
+    {
+      "title": "Нийгэм судлал",
+      "reason": "missing"
+    },
+    {
+      "title": "Парламент",
+      "reason": "missing"
+    },
+    {
+      "title": "Прокурор",
+      "reason": "missing"
+    },
+    {
+      "title": "Төв банк",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Төсөв",
+      "reason": "missing"
+    },
+    {
+      "title": "Улс төр",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Улс төрийн нам",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Улсын Их Хурал",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Холбооны улс",
+      "reason": "short"
+    },
+    {
+      "title": "Хоршоо",
+      "reason": "missing"
+    },
+    {
+      "title": "Хууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хууль тогтоомж",
+      "reason": "missing"
+    },
+    {
+      "title": "Хүний эрх",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Хөдөлмөр",
+      "reason": "missing"
+    },
+    {
+      "title": "Хөрөнгийн бирж",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Цагдаа",
+      "reason": "missing"
+    },
+    {
+      "title": "Шүүх",
+      "reason": "missing"
+    },
+    {
+      "title": "Шүүх засаглал",
+      "reason": "missing"
+    },
+    {
+      "title": "Эрх зүй",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Эрүүгийн эрх зүй",
+      "reason": "missing"
+    },
+    {
+      "title": "Үндсэн хууль",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Үндсэн хуульт хаант засаг",
+      "reason": "batch-limit"
+    },
+    {
+      "title": "Өмч",
+      "reason": "short"
+    }
+  ],
+  "existing_corpora": [
+    "data/mnwiki_pilot/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-15/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-16/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-17/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-18/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-19/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-01/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-02/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-03/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-04/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-20/batch-05/corpus.jsonl",
+    "data/mnwiki_daily/2026-10-21/batch-01/corpus.jsonl",
+    "git:refs/heads/data/bulk-wikipedia:data/mnwiki_bulk/batch-20261020T163830359922Z.jsonl"
+  ],
+  "sha256": "1be0e4dcaedf0225ec69488283580631fec22658ac3c89aaabc7a14e4ee5eac3",
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "source_terms": "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use",
+  "license": "CC-BY-SA-4.0",
+  "human_reviewed": 0,
+  "privacy_reviewed": 0,
+  "quality_reviewed": 0,
+  "near_duplicate_reviewed": 0,
+  "training_ready": 0,
+  "automated_screening": {
+    "version": 1,
+    "quality": "template markers",
+    "privacy": "email pattern only; not comprehensive PII detection",
+    "near_duplicate": "casefolded NFC whitespace-normalized character 5-gram multiset Jaccard >= 0.80"
+  },
+  "purpose": "unreviewed real-text batch; not instruction data"
+}
