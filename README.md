@@ -49,9 +49,9 @@ Wikipedia-ийн **оршил текст** цуглуулдаг; бүтэн өг
 
 ### Автомат цуглуулалт
 
-[Bulk workflow](.github/workflows/bulk-corpus.yml) Улаанбаатарын цагаар **09:15, 13:15, 17:15, 21:15** ажиллах хуваарьтай. Нэг удаагийн зорилт 250 орчим эх; API-ийн хуудсыг бүтнээр дуусгах үед 39 хүртэл нэмэлт эх орж болно. Cursor-оос үргэлжилж, амжилттай татсан өгөгдөл болон төлөвийг тусдаа салбарт хамт commit хийнэ.
+[Bulk workflow](.github/workflows/bulk-corpus.yml) Улаанбаатарын цагаар **01:17, 05:17, 09:17, 13:17, 17:17, 21:17** ажиллах хуваарьтай. Нэг удаагийн зорилт 1,000 орчим эх; API-ийн хуудсыг бүтнээр дуусгах үед 39 хүртэл нэмэлт эх орж болно. Cursor-оос үргэлжилж, амжилттай татсан өгөгдөл болон төлөвийг тусдаа салбарт хамт commit хийнэ.
 
-**Одоогийн доголдол:** шалгасан сүүлийн таван scheduled run алдаатай дууссан. [2026-10-28-ны run](https://github.com/ssboroo/rainy_llm/actions/runs/40646536975)-д тестүүд тэнцсэн боловч `Collect bounded batch` алхам унаж, өгөгдөл хадгалах алхам алгасагдсан. Өдөрт 1,000 эх нь зорилт; баталгаатай бодит гарц биш. GitHub хуваарийг хойшлуулах эсвэл алгасах боломжтой.
+**2026-10-28-ны засвар:** өмнөх таталтыг зогсоосон Unicode JSONL мөр хуваалтын алдааг давтаж тестлээд зассан. Одоогийн main corpus-ийг давхардлын шалгалтад оруулж, түр алдааны bounded retry, maxlag=5 болон дууссан discovery хуудсын ахицыг хадгалах хамгаалалт нэмсэн. [Эхний нэмэгдүүлсэн ажиллуулалт](https://github.com/ssboroo/rainy_llm/actions/runs/40697296744). Өдөрт 6,000 орчим эх нь зорилт; баталгаатай гарц биш. GitHub хуваарийг хойшлуулах эсвэл алгасах боломжтой.
 
 [Цуглуулалтын ажиллагаа, хадгалалт, хязгаар](docs/BULK_CORPUS.md)
 
@@ -176,7 +176,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-28**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration and fresh-process inference replay. It has **not** released a production Mongolian model trained on a human-reviewed corpus.
 
-The inspected main and bulk branch snapshots contain **2,670 raw Wikipedia lead records / 2,666 exact-unique records**. All remain unapproved for corpus training. Bulk collection is scheduled four times daily, but recent scheduled runs failed during acquisition; the daily target is not a delivery guarantee.
+The inspected main and bulk branch snapshots contain **2,670 raw Wikipedia lead records / 2,666 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
 Synthetic Qwen3-0.6B experiments measured **0/24 → 6/24** and, in a separate 12-case draft diagnostic, **0/12 → 3/12**. Reload reproduced **12/12 retained predictions**, which measures reproducibility rather than correctness. These results do not establish general Mongolian fluency or production readiness.
 
