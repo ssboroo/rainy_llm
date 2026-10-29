@@ -22,7 +22,7 @@
 
 Added a local offline bundle packager for an existing full/merged safetensors directory or base-plus-adapter directory. It records exact upstream revision, separately declared weight/code licenses, URLs, runtime pins, tokenizer-template identity and per-file SHA-256; verification performs no network calls and loads no tensors. The tool does not merge adapters, quantize weights, verify legal rights, execute inference or establish OS-level network isolation.
 
-No model download, inference, training, held-out score or latency/RAM/cost comparison was run on 2026-10-29. No candidate or runtime was promoted. The 14 tests are fixture-based packaging tests, not actual model validation; remote CPU CI run #169 passed 170 tests in 2.543 s with one optional Torch skip; fixture tests still do not validate a real model. No new RAINY weights were created or committed.
+No model download, inference, training, held-out score or latency/RAM/cost comparison was run on 2026-10-29. No candidate or runtime was promoted. The 15 tests are fixture-based packaging tests, not actual model validation; remote CPU CI run #169 passed 170 tests in 2.543 s with one optional Torch skip; fixture tests still do not validate a real model. No new RAINY weights were created or committed.
 
 ## 2026-10-28: restoration, no base promotion
 
