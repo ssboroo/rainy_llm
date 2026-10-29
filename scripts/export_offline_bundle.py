@@ -71,6 +71,8 @@ def _chat_template_info(model_root):
             config = json.loads(config_path.read_text(encoding="utf-8"))
         except (OSError, UnicodeError, json.JSONDecodeError) as exc:
             raise ValueError("tokenizer_config.json is not valid UTF-8 JSON") from exc
+        if not isinstance(config, dict):
+            raise ValueError("tokenizer_config.json must contain a JSON object")
         template = config.get("chat_template")
         if template:
             canonical = json.dumps(
@@ -126,6 +128,8 @@ def _validate_model_layout(root, mode):
 
 
 def _validate_url(value, field):
+    if not isinstance(value, str):
+        raise ValueError(f"{field} must be an explicit HTTP(S) URL")
     parsed = urlparse(value)
     if parsed.scheme not in ("https", "http") or not parsed.netloc:
         raise ValueError(f"{field} must be an explicit HTTP(S) URL")
@@ -156,12 +160,15 @@ def _validate_metadata(model_id, revision, weights_license, code_license,
         raise ValueError("model ID must be an exact namespace/name identifier")
     if not isinstance(revision, str) or not REVISION_RE.fullmatch(revision):
         raise ValueError("revision must be an immutable 40-character Git commit SHA")
-    if not weights_license.strip() or not code_license.strip():
+    if (not isinstance(weights_license, str) or not weights_license.strip()
+            or not isinstance(code_license, str) or not code_license.strip()):
         raise ValueError("weights and code licenses must be stated separately")
     _validate_url(model_card_url, "model card URL")
     _validate_url(license_url, "license URL")
     pins = _parse_runtime_pins(runtime)
-    if training_run_sha256 is not None and not SHA256_RE.fullmatch(training_run_sha256):
+    if training_run_sha256 is not None and (
+            not isinstance(training_run_sha256, str)
+            or not SHA256_RE.fullmatch(training_run_sha256)):
         raise ValueError("training-run identity must be a 64-character SHA-256")
     return pins
 
@@ -216,10 +223,16 @@ def _verify_bundle_root(bundle):
         raise ValueError("unsupported bundle manifest schema")
     if manifest["bundle_id"] != _bundle_id(manifest):
         raise ValueError("bundle manifest identity hash mismatch")
+    pins = manifest["runtime_pins"]
+    if not isinstance(pins, list) or any(
+            not isinstance(pin, dict)
+            or not isinstance(pin.get("package"), str)
+            or not isinstance(pin.get("version"), str) for pin in pins):
+        raise ValueError("bundle runtime pins must be a list of exact package/version objects")
     _validate_metadata(
         manifest["model_id"], manifest["base_revision"], manifest["weights_license"],
         manifest["code_license"], manifest["model_card_url"], manifest["license_url"],
-        [f'{pin["package"]}=={pin["version"]}' for pin in manifest["runtime_pins"]],
+        [f'{pin["package"]}=={pin["version"]}' for pin in pins],
         manifest.get("training_run_sha256"),
     )
     model_root = bundle / "model"
