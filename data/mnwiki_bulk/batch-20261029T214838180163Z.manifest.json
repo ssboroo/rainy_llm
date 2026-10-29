@@ -1,0 +1,24 @@
+{
+  "accepted": 1010,
+  "examined": 1553,
+  "api_requests": 138,
+  "rejected": {
+    "short": 496,
+    "exact-duplicate": 34,
+    "quality-artifact": 10,
+    "low-cyrillic": 2,
+    "contact-pattern": 1
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 7721,
+  "corpus_sha256": "2afd94b308045fed0247bc9b65018f0c28cee95ac278ae3b303b0a1da966bcdc",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Драган_Бендер",
+    "exhausted": false
+  }
+}
