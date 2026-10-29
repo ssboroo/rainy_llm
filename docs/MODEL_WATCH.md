@@ -1,5 +1,29 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-29 — offline packaging capability; no base promotion
+
+### Retained baseline
+
+- Exact model ID: Qwen/Qwen3-0.6B.
+- Immutable Hub revision: c1899de289a04d12100db370d81485cdf75e47ca.
+- Weight license: Apache-2.0, confirmed by the model card and LICENSE at that revision. The base model is open-weight; this does not establish that its full training data is open-source.
+- Tokenizer/chat template: pinned tokenizer files at the same revision; the official card demonstrates apply_chat_template. The packaging tool now requires a discoverable explicit chat template in tokenizer_config.json or tokenizer.chat_template.jinja rather than silently selecting a fallback.
+- Previously tested CPU runtime: Torch 2.6.0+cpu, Transformers 4.51.3, PEFT 0.15.2, Accelerate 1.6.0; CPU float32, four threads. The pinned upstream model files total approximately 1.52 GB. On 2026-10-28, a fresh-process adapter reload reproduced 12/12 retained predictions in 27.7639 s at 4,822,560 KiB peak RSS; this is reproducibility, not correctness or general Mongolian quality.
+
+### Upstream release check
+
+- Official Qwen3-0.6B card and exact revision: https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca. The Qwen3 report is https://arxiv.org/abs/2505.09388 (submitted 2025-05-14). No new exact small-model revision with measured Mongolian advantage was selected.
+- PEFT release page lists v0.21.2 as latest, released 2026-10-01 at commit eaa35c7: https://github.com/huggingface/peft/releases. This release is not installed in the pinned experiment.
+- Transformers v5.20.2 was released 2026-10-19: https://github.com/huggingface/transformers/releases. It is not substituted for the tested Transformers 4.51.3 stack without a compatibility and same-evaluation rerun.
+- Google's release log lists EmbeddingGemma 2 (740M) on 2026-10-06 and Gemma 4 releases in 2026: https://ai.google.dev/gemma/docs/releases. EmbeddingGemma is an embedding model, not a causal chat-model replacement. A generative Gemma candidate remains unpromoted until exact model ID/revision, license terms, tokenizer/template, runtime support, CPU/RAM and same-hash Mongolian evaluation are all established.
+- DeepSeek-V3 reports 671B total parameters / 37B active per token: https://github.com/deepseek-ai/DeepSeek-V3; it is outside this CPU host's resource budget. Meta's model list records model-specific license/use-policy gates: https://github.com/meta-llama/llama-models. The Mistral inference repository is archived and read-only since 2026-06-16: https://github.com/mistralai/mistral-inference.
+
+### Change and decision
+
+Added a local offline bundle packager for an existing full/merged safetensors directory or base-plus-adapter directory. It records exact upstream revision, separately declared weight/code licenses, URLs, runtime pins, tokenizer-template identity and per-file SHA-256; verification performs no network calls and loads no tensors. The tool does not merge adapters, quantize weights, verify legal rights, execute inference or establish OS-level network isolation.
+
+No model download, inference, training, held-out score or latency/RAM/cost comparison was run on 2026-10-29. No candidate or runtime was promoted. The 12 tests are fixture-based packaging tests, not actual model validation; remote CI is the next check. No new RAINY weights were created or committed.
+
 ## 2026-10-28: restoration, no base promotion
 
 Rechecked official Qwen3-0.6B card/report, Gemma release log, DeepSeek and Meta
