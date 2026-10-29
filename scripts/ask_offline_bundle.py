@@ -14,7 +14,10 @@ import time
 from contextlib import contextmanager
 from pathlib import Path
 
-from scripts.export_offline_bundle import MANIFEST_NAME, verify_bundle
+try:
+    from .export_offline_bundle import MANIFEST_NAME, verify_bundle
+except ImportError:  # Direct execution: scripts/ is sys.path[0].
+    from export_offline_bundle import MANIFEST_NAME, verify_bundle
 
 HEX64 = re.compile(r"^[0-9a-fA-F]{64}$")
 GIB = 1024 ** 3
