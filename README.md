@@ -7,7 +7,7 @@
 
 [Өгөгдөл](#өгөгдлийн-сан) · [Туршилтын үр дүн](#бодитоор-хийсэн-туршилтууд) · [Эхлэх](#ажиллуулж-эхлэх) · [Дараагийн ажил](#дараагийн-ажил) · [English](#english-summary)
 
-> **2026-10-28-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бэлэн чат үйлчилгээ, API/Docker release гараагүй.**
+> **2026-10-29-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бэлэн чат үйлчилгээ, API/Docker release гараагүй.**
 
 ## Одоогийн боломж
 
@@ -20,7 +20,7 @@
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
 | Сургалт | Qwen3-0.6B дээр бодит CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй |
 | Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; 4 алхмыг 2+2 сэргээхтэй тулгасан туршилт бий |
-| Offline | Local-only model loading, HF offline flags, Python socket guards; OS түвшний сүлжээ тусгаарлалтыг баталгаажуулаагүй |
+| Offline | Local GGUF CLI remains experimental; offline bundle packager added with hash manifest, but no real RAINY bundle or OS-level egress test yet |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
 | Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
 
@@ -108,6 +108,17 @@ python scripts/search_documents.py --documents examples/knowledge --query "Хү�
 
 Файл, мөр, hash-тай эхийн хэсгийг хайна. Энэ нь LLM-ээр хариулт үүсгэх web chatbot биш. [Заавар](docs/DOCUMENT_SEARCH.md)
 
+### Offline model bundle packaging (experimental)
+
+The new offline bundle tool copies a model artifact that already exists locally; it does not download weights, merge adapters, run inference, or make an artifact a RAINY release. It supports a full/merged safetensors model directory and a base-plus-adapter directory. It requires an immutable 40-character base revision, separate weights/code license labels, explicit upstream URLs, exact runtime pins, tokenizer vocabulary and a chat template. It rejects symlinks, mutable revisions, unpinned dependencies, existing destinations, and source artifacts above the default 16 GiB cap. The output is kept outside Git and includes per-file SHA-256, size and a manifest identity hash.
+
+Example for a local full model directory (replace paths and metadata only after verifying the real artifact and license):
+
+    python scripts/export_offline_bundle.py create --source /private/model-artifact --destination /private/rainy-bundle --mode merged --model-id Qwen/Qwen3-0.6B --revision c1899de289a04d12100db370d81485cdf75e47ca --weights-license Apache-2.0 --code-license Apache-2.0 --model-card-url https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca --license-url https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE --runtime torch==2.6.0+cpu --runtime transformers==4.51.3 --runtime peft==0.15.2 --runtime accelerate==1.6.0
+    python scripts/export_offline_bundle.py verify --bundle /private/rainy-bundle
+
+This is a packaging and byte-integrity check only. It does not prove legal permission, tensor/runtime compatibility, model output quality, or operating-system-level network isolation. The current run did not create a real bundle because no local model artifact was available; no weights or checkpoint were added to Git.
+
 ### Local GGUF CLI — туршилтын боломж
 
 Тохирох runtime, өөрийн хууль ёсоор авсан GGUF файл болон итгэмжлэгдсэн SHA-256 хэрэгтэй.
@@ -174,7 +185,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## English summary
 
-RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-28**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration and fresh-process inference replay. It has **not** released a production Mongolian model trained on a human-reviewed corpus.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-29**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay and an experimental offline-bundle packaging tool. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
 
 The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
@@ -194,4 +205,4 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 
 ---
 
-**Баримтжуулалтын огноо:** 2026-10-28 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
+**Баримтжуулалтын огноо:** 2026-10-29 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
