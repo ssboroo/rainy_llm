@@ -4,7 +4,7 @@
 
 - [x] Added `--stream` to the existing hash-checked local GGUF CLI. It emits one NDJSON `delta` event per text fragment and a final `done` event with finish reason, optional usage, model hash, template hash and an explicit `trained_rainy_model=false` marker.
 - [x] Preserved the single-response JSON path and `--check-only`; the two modes cannot be combined. The streaming generator closes the model on normal completion and exceptions.
-- [x] Added four focused tests for delta/final metadata, missing-template refusal/cleanup, NDJSON CLI output and incompatible flags. The local isolated test module passes 7/7, but the repository-wide suite remains delegated to remote CI because this container cannot resolve GitHub.
+- [x] Added four focused tests for delta/final metadata, missing-template refusal/cleanup, NDJSON CLI output and incompatible flags. Remote CPU CI run #198 passed 182 tests in 2.550 s (181 passed, one optional Torch skip); the local isolated module also passed 7/7. These are code/mock checks, not real model inference.
 - [ ] Run the stream path against a legally acquired, hash-verified GGUF with the compatible `llama-cpp-python` runtime; record real latency/RAM and verify OS-level egress isolation. Mock tests are not model inference.
 - [ ] Build a local HTTP streaming API only after real GGUF inference and cancellation/timeout behavior are measured.
 
