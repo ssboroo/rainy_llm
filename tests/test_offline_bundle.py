@@ -154,6 +154,14 @@ class OfflineBundleTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "outside every Git checkout"):
                 create(source, root / "bundle")
 
+    def test_source_and_destination_must_be_disjoint(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_merged(root / "source")
+            with self.assertRaisesRegex(ValueError, "must be disjoint"):
+                create(source, source / "bundle")
+            self.assertEqual(len(list(source.rglob("*"))), 4)
+
     def test_size_cap_is_enforced(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
