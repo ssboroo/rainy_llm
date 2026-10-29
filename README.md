@@ -98,7 +98,7 @@ python -m unittest discover -s tests -v
 python scripts/validate_source_registry.py
 ```
 
-Жишээ өгөгдлийн шалгалт: `records=1, errors=0`. Системээс хамаарч `python3` эсвэл `py -3` ашиглаж болно. Torch шаарддаг optional тест runtime байхгүй үед skip болно. 2026-10-29-ний remote CPU CI run #187-д **171 тест: 170 passed, 1 optional Torch skip** (2.535 s) болсон. [CI run](https://github.com/ssboroo/rainy_llm/actions/runs/40799259514). Энэ нь код/өгөгдлийн шалгалт болохоос модель сурсан эсвэл Монгол чанар сайжирсан гэсэн баталгаа биш.
+Жишээ өгөгдлийн шалгалт: `records=1, errors=0`. Системээс хамаарч `python3` эсвэл `py -3` ашиглаж болно. Torch шаарддаг optional тест runtime байхгүй үед skip болно. 2026-10-29-ний remote CPU CI run #194-д **178 тест: 177 passed, 1 optional Torch skip** (2.337 s) болсон. [CI run](https://github.com/ssboroo/rainy_llm/actions/runs/40821093118). Энэ нь код/өгөгдлийн шалгалт болохоос модель сурсан эсвэл Монгол чанар сайжирсан гэсэн баталгаа биш.
 
 ### Local document search
 
