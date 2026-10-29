@@ -269,6 +269,9 @@ def create_bundle(source, destination, *, mode, model_id, revision, weights_lice
     )
 
     destination_path = Path(destination).resolve()
+    if (source_root == destination_path or source_root in destination_path.parents
+            or destination_path in source_root.parents):
+        raise ValueError("source and destination must be disjoint")
     if destination_path.exists():
         raise FileExistsError(f"destination already exists: {destination_path}")
     if not destination_path.parent.is_dir() or _inside_git(destination_path):
