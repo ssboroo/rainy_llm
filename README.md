@@ -114,8 +114,10 @@ The new offline bundle tool copies a model artifact that already exists locally;
 
 Example for a local full model directory (replace paths and metadata only after verifying the real artifact and license):
 
-    python scripts/export_offline_bundle.py create --source /private/model-artifact --destination /private/rainy-bundle --mode merged --model-id Qwen/Qwen3-0.6B --revision c1899de289a04d12100db370d81485cdf75e47ca --weights-license Apache-2.0 --code-license Apache-2.0 --model-card-url https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca --license-url https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE --runtime torch==2.6.0+cpu --runtime transformers==4.51.3 --runtime peft==0.15.2 --runtime accelerate==1.6.0
+    python scripts/export_offline_bundle.py create --source /private/model-artifact --destination /private/rainy-bundle --mode merged --model-id Qwen/Qwen3-0.6B --revision c1899de289a04d12100db370d81485cdf75e47ca --weights-license Apache-2.0 --code-license Apache-2.0 --model-card-url https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca --license-url https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE --runtime torch==2.6.0+cpu --runtime transformers==4.51.3 --runtime accelerate==1.6.0 --runtime safetensors==YOUR_VERIFIED_VERSION --runtime tokenizers==YOUR_VERIFIED_VERSION
     python scripts/export_offline_bundle.py verify --bundle /private/rainy-bundle
+
+For a tested runnable bundle, replace both YOUR_VERIFIED_VERSION placeholders with the exact installed versions of safetensors and the tokenizer backend used by the artifact. Include PEFT only for a base-plus-adapter runtime. The manifest records the pins supplied by the operator; it does not generate a complete transitive dependency lock.
 
 This is a packaging and byte-integrity check only. It does not prove legal permission, tensor/runtime compatibility, model output quality, or operating-system-level network isolation. The current run did not create a real bundle because no local model artifact was available; no weights or checkpoint were added to Git.
 
