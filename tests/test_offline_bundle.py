@@ -29,13 +29,14 @@ def make_merged(root, *, template=True):
     return root
 
 
-def make_base_plus_adapter(root):
+def make_base_plus_adapter(root, *, base_name=MODEL_ID):
     base = root / "base"
     adapter = root / "adapter"
     make_merged(base)
-    write(adapter / "adapter_config.json", json.dumps({
-        "base_model_name_or_path": MODEL_ID, "peft_type": "LORA"
-    }))
+    config = {"peft_type": "LORA"}
+    if base_name is not None:
+        config["base_model_name_or_path"] = base_name
+    write(adapter / "adapter_config.json", json.dumps(config))
     write(adapter / "adapter_model.safetensors", b"not-real-adapter-fixture")
     return root
 
@@ -47,6 +48,8 @@ def create(source, destination, *, mode="merged", **overrides):
         model_card_url=MODEL_CARD, license_url=LICENSE_URL,
         runtime=RUNTIME, max_bytes=1024 * 1024,
     )
+    if mode == "base-plus-adapter":
+        values["adapter_base_revision"] = REVISION
     values.update(overrides)
     return create_bundle(source, destination, **values)
 
@@ -75,6 +78,9 @@ class OfflineBundleTests(unittest.TestCase):
             result = verify_bundle(bundle)
             self.assertEqual(result["artifact_mode"], "base-plus-adapter")
             self.assertEqual(result["files"], 6)
+            self.assertEqual(result["adapter_base_model_identity"],
+                             "model-id-matched-revision-operator-attested")
+            self.assertEqual(result["adapter_base_revision"], REVISION)
 
     def test_tampered_weight_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -177,6 +183,74 @@ class OfflineBundleTests(unittest.TestCase):
             source = make_merged(root / "source")
             with self.assertRaisesRegex(ValueError, "exceeds the configured byte cap"):
                 create(source, root / "bundle", max_bytes=1)
+
+    def test_adapter_base_model_id_mismatch_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_base_plus_adapter(root / "source", base_name="Qwen/Qwen3-1.7B")
+            with self.assertRaisesRegex(ValueError, "does not match --model-id"):
+                create(source, root / "bundle", mode="base-plus-adapter")
+            self.assertFalse((root / "bundle").exists())
+
+    def test_adapter_base_model_id_is_required(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_base_plus_adapter(root / "source", base_name=None)
+            with self.assertRaisesRegex(ValueError, "non-empty base_model_name_or_path"):
+                create(source, root / "bundle", mode="base-plus-adapter")
+
+    def test_adapter_revision_mismatch_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_base_plus_adapter(root / "source")
+            with self.assertRaisesRegex(ValueError, "must match --revision"):
+                create(source, root / "bundle", mode="base-plus-adapter",
+                       adapter_base_revision="0" * 40)
+
+    def test_huggingface_cache_identity_requires_exact_revision(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cache_path = (
+                "/private/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/"
+                "snapshots/" + ("0" * 40)
+            )
+            source = make_base_plus_adapter(root / "source", base_name=cache_path)
+            with self.assertRaisesRegex(ValueError, "snapshot revision does not match"):
+                create(source, root / "bundle", mode="base-plus-adapter")
+
+    def test_huggingface_cache_identity_records_exact_revision(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            cache_path = (
+                "/private/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/"
+                "snapshots/" + REVISION
+            )
+            source = make_base_plus_adapter(root / "source", base_name=cache_path)
+            manifest = create(source, root / "bundle", mode="base-plus-adapter")
+            self.assertEqual(manifest["adapter_base_model_identity"],
+                             "hub-cache-id-and-revision-matched")
+            self.assertEqual(verify_bundle(root / "bundle")["adapter_base_revision"], REVISION)
+
+    def test_opaque_local_adapter_base_requires_identity_and_revision_attestation(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_base_plus_adapter(root / "source", base_name="/private/Qwen3-0.6B")
+            with self.assertRaisesRegex(ValueError, "requires --adapter-base-model-id"):
+                create(source, root / "bundle", mode="base-plus-adapter")
+            self.assertFalse((root / "bundle").exists())
+
+    def test_opaque_local_adapter_base_attestation_is_recorded(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_base_plus_adapter(root / "source", base_name="/private/Qwen3-0.6B")
+            manifest = create(
+                source, root / "bundle", mode="base-plus-adapter",
+                adapter_base_model_id=MODEL_ID, adapter_base_revision=REVISION,
+            )
+            self.assertEqual(manifest["adapter_base_model_identity"], "operator-attested-local-base")
+            self.assertEqual(manifest["adapter_base_model_id"], MODEL_ID)
+            self.assertEqual(manifest["adapter_base_revision"], REVISION)
+            self.assertTrue(verify_bundle(root / "bundle")["verified"])
 
     def test_incomplete_bundle_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:

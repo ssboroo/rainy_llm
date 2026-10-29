@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 MANIFEST_NAME = "bundle-manifest.json"
 INCOMPLETE_NAME = "BUNDLE_INCOMPLETE"
 REVISION_RE = re.compile(r"^[0-9a-fA-F]{40}$")
@@ -93,9 +93,74 @@ def _chat_template_info(model_root):
     raise ValueError("explicit chat template is required; implicit runtime fallback is refused")
 
 
-def _validate_model_layout(root, mode):
+def _adapter_base_identity(base_name, model_id, revision, adapter_base_model_id=None,
+                          adapter_base_revision=None):
+    if not isinstance(base_name, str) or not base_name.strip():
+        raise ValueError("adapter config must declare a non-empty base_model_name_or_path")
+    if adapter_base_model_id is not None and adapter_base_model_id != model_id:
+        raise ValueError("--adapter-base-model-id must exactly match --model-id")
+    if adapter_base_revision is not None:
+        if not isinstance(adapter_base_revision, str) or not REVISION_RE.fullmatch(adapter_base_revision):
+            raise ValueError("--adapter-base-revision must be an immutable 40-character Git commit SHA")
+        if adapter_base_revision.lower() != revision.lower():
+            raise ValueError("--adapter-base-revision must match --revision")
+
+    candidate = base_name.strip().replace("\\", "/").rstrip("/")
+    if candidate == model_id:
+        if adapter_base_revision is None:
+            raise ValueError(
+                "adapter config does not pin a base revision; pass --adapter-base-revision "
+                "matching --revision only after verifying the adapter's training base"
+            )
+        return "model-id-matched-revision-operator-attested", None, revision.lower()
+
+    # Hugging Face cache paths encode the repository ID and, under
+    # snapshots/<sha>, the immutable revision. Check both when available.
+    parts = candidate.split("/")
+    for index, part in enumerate(parts):
+        if not part.startswith("models--"):
+            continue
+        cache_model_id = part[len("models--"):].replace("--", "/", 1)
+        if cache_model_id != model_id:
+            raise ValueError("adapter base Hugging Face cache model ID does not match --model-id")
+        if index + 2 < len(parts) and parts[index + 1] == "snapshots":
+            snapshot_revision = parts[index + 2]
+            if not REVISION_RE.fullmatch(snapshot_revision) or snapshot_revision.lower() != revision.lower():
+                raise ValueError("adapter base snapshot revision does not match --revision")
+            return "hub-cache-id-and-revision-matched", None, snapshot_revision.lower()
+        if adapter_base_revision is not None:
+            return "hub-cache-id-revision-operator-attested", None, revision.lower()
+        raise ValueError(
+            "adapter base cache path has no immutable snapshots/<revision>; pass "
+            "--adapter-base-revision matching --revision after verifying the training base"
+        )
+
+    # A plain namespace/name that differs from the declared model is a clear
+    # mismatch, not an opaque local path that may be overridden.
+    if candidate.count("/") == 1 and not candidate.startswith(("/", "./", "../")):
+        raise ValueError("adapter base model ID does not match --model-id")
+
+    # Local paths do not prove which Hub snapshot they contain. Require both
+    # explicit identity and revision attestations and preserve them in manifest.
+    if adapter_base_model_id != model_id:
+        raise ValueError(
+            "opaque local adapter base path requires --adapter-base-model-id exactly matching "
+            "--model-id after independent verification"
+        )
+    if adapter_base_revision is None:
+        raise ValueError(
+            "opaque local adapter base path requires --adapter-base-revision matching "
+            "--revision after independent verification"
+        )
+    return "operator-attested-local-base", model_id, revision.lower()
+
+
+def _validate_model_layout(root, mode, model_id, revision,
+                           adapter_base_model_id=None, adapter_base_revision=None):
     root = Path(root)
     if mode == "merged":
+        if adapter_base_model_id is not None or adapter_base_revision is not None:
+            raise ValueError("adapter base identity options apply only to base-plus-adapter bundles")
         model_root = root
         _require_file(model_root / "config.json", "model config")
         if not list(model_root.rglob("*.safetensors")):
@@ -103,7 +168,13 @@ def _validate_model_layout(root, mode):
         if not any((model_root / name).is_file() for name in ("tokenizer.json", "tokenizer.model", "vocab.json")):
             raise ValueError("merged model is missing tokenizer vocabulary files")
         template = _chat_template_info(model_root)
-        return {"chat_template": template, "adapter_base_model_name_or_path": None}
+        return {
+            "chat_template": template,
+            "adapter_base_model_name_or_path": None,
+            "adapter_base_model_identity": None,
+            "adapter_base_model_id": None,
+            "adapter_base_revision": None,
+        }
 
     if mode == "base-plus-adapter":
         base = root / "base"
@@ -119,15 +190,22 @@ def _validate_model_layout(root, mode):
             adapter_config = json.loads((adapter / "adapter_config.json").read_text(encoding="utf-8"))
         except (OSError, UnicodeError, json.JSONDecodeError) as exc:
             raise ValueError("adapter_config.json is not valid UTF-8 JSON") from exc
-        template = _chat_template_info(base)
+        if not isinstance(adapter_config, dict):
+            raise ValueError("adapter_config.json must contain a JSON object")
         base_name = adapter_config.get("base_model_name_or_path")
+        identity, attested_model_id, attested_revision = _adapter_base_identity(
+            base_name, model_id, revision, adapter_base_model_id, adapter_base_revision
+        )
+        template = _chat_template_info(base)
         return {
             "chat_template": {"source": "base/" + template["source"], "sha256": template["sha256"]},
-            "adapter_base_model_name_or_path": base_name if isinstance(base_name, str) else None,
+            "adapter_base_model_name_or_path": base_name,
+            "adapter_base_model_identity": identity,
+            "adapter_base_model_id": attested_model_id,
+            "adapter_base_revision": attested_revision,
         }
 
     raise ValueError("unsupported artifact mode")
-
 
 def _validate_url(value, field):
     if not isinstance(value, str):
@@ -217,7 +295,8 @@ def _verify_bundle_root(bundle):
         "schema_version", "artifact_mode", "model_id", "base_revision",
         "weights_license", "code_license", "model_card_url", "license_url",
         "runtime_pins", "chat_template", "files", "created_at_utc", "bundle_id",
-        "license_evidence_status",
+        "license_evidence_status", "adapter_base_model_name_or_path",
+        "adapter_base_model_identity", "adapter_base_model_id", "adapter_base_revision",
     }
     if not isinstance(manifest, dict) or not required.issubset(manifest):
         raise ValueError("bundle manifest is missing required fields")
@@ -245,15 +324,23 @@ def _verify_bundle_root(bundle):
     for relative, metadata in expected.items():
         if metadata != actual[relative]:
             raise ValueError(f"bundle file hash/size mismatch: {relative}")
-    layout = _validate_model_layout(model_root, manifest["artifact_mode"])
+    layout = _validate_model_layout(
+        model_root, manifest["artifact_mode"], manifest["model_id"], manifest["base_revision"],
+        manifest["adapter_base_model_id"], manifest["adapter_base_revision"],
+    )
     if layout["chat_template"] != manifest["chat_template"]:
         raise ValueError("chat-template identity mismatch")
+    for key in ("adapter_base_model_name_or_path", "adapter_base_model_identity",
+                "adapter_base_model_id", "adapter_base_revision"):
+        if layout[key] != manifest.get(key):
+            raise ValueError(f"adapter base identity/revision mismatch: {key}")
     return manifest
 
 
 def create_bundle(source, destination, *, mode, model_id, revision, weights_license,
                   code_license, model_card_url, license_url, runtime,
-                  max_bytes=16 * 1024**3, training_run_sha256=None):
+                  max_bytes=16 * 1024**3, training_run_sha256=None,
+                  adapter_base_model_id=None, adapter_base_revision=None):
     source_input = Path(source)
     if source_input.is_symlink():
         raise ValueError("source directory symlink is refused")
@@ -264,10 +351,13 @@ def create_bundle(source, destination, *, mode, model_id, revision, weights_lice
     total_bytes = sum(item["bytes"] for item in source_files.values())
     if type(max_bytes) is not int or max_bytes <= 0 or total_bytes > max_bytes:
         raise ValueError(f"source size {total_bytes} exceeds the configured byte cap {max_bytes}")
-    layout = _validate_model_layout(source_root, mode)
     pins = _validate_metadata(
         model_id, revision, weights_license, code_license,
         model_card_url, license_url, runtime, training_run_sha256,
+    )
+    layout = _validate_model_layout(
+        source_root, mode, model_id, revision,
+        adapter_base_model_id, adapter_base_revision,
     )
 
     destination_path = Path(destination).resolve()
@@ -297,6 +387,9 @@ def create_bundle(source, destination, *, mode, model_id, revision, weights_lice
             "runtime_pins": pins,
             "chat_template": layout["chat_template"],
             "adapter_base_model_name_or_path": layout["adapter_base_model_name_or_path"],
+            "adapter_base_model_identity": layout["adapter_base_model_identity"],
+            "adapter_base_model_id": layout["adapter_base_model_id"],
+            "adapter_base_revision": layout["adapter_base_revision"],
             "training_run_sha256": training_run_sha256,
             "source_file_count": len(copied_files),
             "source_bytes": total_bytes,
@@ -345,6 +438,8 @@ def verify_bundle(bundle):
         "files": len(manifest["files"]),
         "bytes": manifest["source_bytes"],
         "chat_template_sha256": manifest["chat_template"]["sha256"],
+        "adapter_base_model_identity": manifest["adapter_base_model_identity"],
+        "adapter_base_revision": manifest["adapter_base_revision"],
         "network_access": "none",
         "inference_performed": False,
     }
@@ -366,6 +461,14 @@ def main():
     create.add_argument("--runtime", action="append", default=[], metavar="PACKAGE==VERSION")
     create.add_argument("--max-bytes", type=int, default=16 * 1024**3)
     create.add_argument("--training-run-sha256")
+    create.add_argument(
+        "--adapter-base-model-id",
+        help="exact model ID attestation required for an opaque local adapter base path",
+    )
+    create.add_argument(
+        "--adapter-base-revision",
+        help="exact base revision attestation; required unless adapter config points to snapshots/<revision>",
+    )
     verify = commands.add_parser("verify", help="re-hash a previously created bundle without loading weights")
     verify.add_argument("--bundle", required=True)
     args = parser.parse_args()
@@ -377,6 +480,8 @@ def main():
                 code_license=args.code_license, model_card_url=args.model_card_url,
                 license_url=args.license_url, runtime=args.runtime,
                 max_bytes=args.max_bytes, training_run_sha256=args.training_run_sha256,
+                adapter_base_model_id=args.adapter_base_model_id,
+                adapter_base_revision=args.adapter_base_revision,
             )
             print(json.dumps({"created": True, "bundle_id": manifest["bundle_id"],
                               "path": str(Path(args.destination).resolve()),
