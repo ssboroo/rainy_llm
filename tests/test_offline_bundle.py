@@ -138,6 +138,15 @@ class OfflineBundleTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "symlink"):
                 create(link, root / "bundle")
 
+    def test_pickle_style_weight_or_state_file_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = make_merged(root / "source")
+            write(source / "pytorch_model.bin", b"unsafe-pickle-fixture")
+            with self.assertRaisesRegex(ValueError, "pickle-style"):
+                create(source, root / "bundle")
+            self.assertFalse((root / "bundle").exists())
+
     def test_nested_symlink_is_rejected(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
