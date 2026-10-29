@@ -13,6 +13,8 @@
 
 Sources: https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca ; https://arxiv.org/abs/2505.09388 ; https://github.com/huggingface/peft/releases/tag/v0.21.2 ; https://github.com/huggingface/transformers/releases ; https://github.com/ggml-org/llama.cpp/releases/tag/b11906 ; https://github.com/abetlen/llama-cpp-python/releases ; https://ai.google.dev/gemma/docs/releases ; https://www.deepseek.com/en/news/deepseek-v4-1-flash/ ; https://mistral.ai/news/mistral-large-4/ ; https://github.com/QwenLM/Qwen3.8 ; https://github.com/meta-llama/llama-models
 
+- Safetensors official PyPI history lists stable 0.8.0 on 2026-06-09 and pre-release 0.9.0rc1 on 2026-09-24. Because the real bundle/runtime pair was not available for compatibility testing, neither version is silently selected; bundle creators must declare the exact tested safetensors and tokenizer-backend pins. The manifest records operator-supplied pins, not a generated full dependency lock. Source: https://pypi.org/project/safetensors/
+
 The new safetensors runner is a local execution path, not a model/base upgrade. It does not establish legal redistribution, real inference, offline OS isolation, or quality. No weights, tokenizer, or runtime packages were downloaded in this run.
 
 ## 2026-10-29 16:55 — official release recheck; no base promotion
