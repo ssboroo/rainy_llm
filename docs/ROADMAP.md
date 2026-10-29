@@ -1,5 +1,15 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-29 offline bundle packaging
+
+- [x] Added an executable offline bundle packager for existing full/merged safetensors artifacts and base-plus-adapter layouts. It requires an immutable upstream revision, separate weight/code license labels, explicit upstream URLs, exact runtime pins and an explicit tokenizer chat template.
+- [x] Added byte/hash manifest, template identity, exclusive destination, outside-Git guard, 16 GiB default source cap, symlink/pickle-weight refusal and incomplete-publication marker. This is not adapter merging, model inference, a release or proof of legal permission.
+- [x] Added 12 focused unit tests for valid layouts, file/manifest tampering, template absence, mutable revisions, dependency ranges, overwrite refusal, symlinks, Git-path refusal, byte caps and incomplete bundles.
+- [ ] Confirm the new test suite on remote CPU CI; local execution was blocked because the container could not resolve github.com.
+- [ ] Package a real model only after its local artifact and redistribution rights are confirmed. Verify actual inference with OS-level egress disabled; the current run created no model bundle and measured no model quality.
+- [ ] Complete repeat-seed seed43 evidence only on a host whose child-RSS preflight returns valid samples. Do not weaken the existing training guard.
+- [ ] Resume the 20-source daily collection only with a complete cross-branch source/text-hash audit; no sources were counted in this run because a trustworthy global dedup audit was unavailable.
+
 ## 2026-10-28 checkpoint restoration
 
 - [x] Executable no-model child-RSS preflight and zero-sample-exit safety fix;
