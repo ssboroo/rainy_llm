@@ -1,5 +1,20 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-29 21:04 — official upstream/runtime recheck; no base promotion
+
+- Retain Qwen/Qwen3-0.6B at immutable revision c1899de289a04d12100db370d81485cdf75e47ca. Its weights are Apache-2.0; this does not prove its training corpus is fully open-source. No alternative received a matched frozen Mongolian evaluation or resource comparison in this run.
+- PEFT v0.21.2 was released 2026-10-01 at commit eaa35c777c7ba554a2a3639ac9c79bb690f39a57. Its release note fixes encoder-decoder use with Transformers >=5.18.0; it is not evidence of better Qwen3 Mongolian generation. Keep the previously tested PEFT 0.15.2 pin.
+- Transformers v5.20.2 release commit 18329f1065382e54db698e242cf98bd3f3e5a766 is dated 2026-10-19. It is not substituted for the tested Transformers 4.51.3 stack without compatibility and same-hash evaluation.
+- llama.cpp prerelease b11906 identifies commit 4d71b42fd87db24b8b7c808c151b713aa4459cfd (2026-10-26); the note describes a CPU concat-kernel rewrite. This is an upstream runtime change, not a model-quality result or proof that a llama-cpp-python wheel is compatible. llama-cpp-python v0.3.36 platform builds point to commit 1652066e0af45f2313b339670ef9555e8a54e545 (2026-10-01). Neither runtime was installed here.
+- Google's release log dates EmbeddingGemma 2 (740M) to 2026-10-06; it is an embedding model, not a causal text-generation replacement. Gemma 4 release dates in the official log are 2026-03-31 and 2026-06-03 for the listed variants.
+- DeepSeek-V4.1-Flash was announced 2026-09-10 with API identifier deepseek-flash and 552B total parameters (8B input-active, 16B output-active). The reviewed announcement does not establish a resource-feasible local weight artifact/revision for this host; treat it as API availability, not a local model.
+- Mistral Large 4 was announced 2026-10-06 as a public-preview API with weights planned for the end of October. As of this 2026-10-29 check, an exact downloadable weight revision, weight/code licenses, tokenizer/template and local runtime contract were not verified. Its stated roughly 1T total / 52B active scale is outside this 5.8 GiB RAM host.
+- Qwen's official producer index surfaces larger Qwen3.5/3.6/3.8 families, but no newly pinned small candidate was benchmarked here. Meta model terms remain model-specific; no license was inferred across the family.
+
+Sources: https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca ; https://arxiv.org/abs/2505.09388 ; https://github.com/huggingface/peft/releases/tag/v0.21.2 ; https://github.com/huggingface/transformers/releases ; https://github.com/ggml-org/llama.cpp/releases/tag/b11906 ; https://github.com/abetlen/llama-cpp-python/releases ; https://ai.google.dev/gemma/docs/releases ; https://www.deepseek.com/en/news/deepseek-v4-1-flash/ ; https://mistral.ai/news/mistral-large-4/ ; https://github.com/QwenLM/Qwen3.8 ; https://github.com/meta-llama/llama-models
+
+The new safetensors runner is a local execution path, not a model/base upgrade. It does not establish legal redistribution, real inference, offline OS isolation, or quality. No weights, tokenizer, or runtime packages were downloaded in this run.
+
 ## 2026-10-29 16:55 — official release recheck; no base promotion
 
 | Candidate / exact identifier observed | Verified release date and distribution | Immutable weight revision / licenses / tokenizer-template / runtime | Resource decision |

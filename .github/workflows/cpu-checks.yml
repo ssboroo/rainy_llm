@@ -40,8 +40,10 @@ jobs:
           assert result["results"][0]["path"] == "delivery.md"
           print("Source-cited Mongolian search smoke passed")
           PY
-      - name: Offline CLI interface
-        run: python3 scripts/ask_offline.py --help
+      - name: Offline CLI interfaces
+        run: |
+          python3 scripts/ask_offline.py --help
+          python3 scripts/ask_offline_bundle.py --help
       - name: Validation scope
         if: always()
         run: |

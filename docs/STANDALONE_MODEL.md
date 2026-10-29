@@ -27,6 +27,15 @@ The backend is llama-cpp-python (previous experiments used 0.3.36); this new ent
 
 The current execution environment lacks `llama_cpp`; the unit tests use synthetic bytes and a mock backend. They verify integrity rejection, local-path wiring, stream event/NDJSON shape and template refusal/cleanup, not inference, offline networking behavior or model quality. The project still has no trained RAINY weights.
 
+## Packaged safetensors inference runner (experimental)
+
+scripts/ask_offline_bundle.py executes a bundle produced by scripts/export_offline_bundle.py. It supports a merged safetensors model or a base-plus-adapter layout. It requires a trusted expected bundle SHA-256, verifies the bundle manifest and all files, requires exact installed versions for every declared runtime pin, reads the explicit template from the verified bundle, uses local_files_only=True and trust_remote_code=False, and refuses to load if available RAM cannot be measured or is below a conservative threshold. Generation is greedy/deterministic with a bounded output budget; JSON reports model identity, runtime pins, prompt hash, token counts, latency, throughput and peak RSS when supported.
+
+    python scripts/export_offline_bundle.py verify --bundle /private/rainy-bundle
+    python scripts/ask_offline_bundle.py --bundle /private/rainy-bundle --expected-bundle-id TRUSTED_BUNDLE_SHA256 --prompt "Монгол хэлээр товч хариул."
+
+The loader does not merge adapters, quantize, download files, or establish redistribution rights. The Python socket guard and Hugging Face offline flags are not a substitute for OS/container egress isolation. The current environment has no Transformers/PEFT packages or real bundle, so real safetensors inference remains unverified; mock tests are not a model-quality benchmark.
+
 ## Official references checked 2026-10-13
 - https://llama-cpp-python.readthedocs.io/en/latest/ — local model_path and chat-template precedence.
 - https://huggingface.co/docs/trl/v0.27.0/en/sft_trainer — SFT training interfaces, reference only; no training executed.

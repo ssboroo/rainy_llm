@@ -1,3 +1,11 @@
+## 2026-10-29 21:04 — local safetensors offline inference runner
+
+- [x] Added scripts/ask_offline_bundle.py to run an existing verified merged safetensors bundle or base-plus-adapter bundle with exact runtime-pin checks, explicit chat-template hash verification, local-only loading, disabled remote code, deterministic bounded generation and JSON timing/token/RSS metadata.
+- [x] Added a conservative available-RAM preflight and Python socket guard. The estimate is a safety threshold, not measured peak memory; Python guards are not OS-level network isolation.
+- [x] Added six focused mock/unit tests covering merged inference wiring, base-plus-adapter loading, trusted bundle ID mismatch, runtime pin mismatch, insufficient RAM and socket-guard restoration.
+- [ ] Run against a legally acquired real bundle and its exact runtime; validate output, tensor compatibility, memory and latency with OS-level egress disabled. Current host has no Transformers/PEFT or model artifact.
+- [ ] Only after real local inference and cancellation/timeout measurement, add a local HTTP streaming API. No model-quality gain or RAINY release is implied by the mock tests.
+
 # Хөгжүүлэлтийн дараалал
 
 ## 2026-10-29 16:55 — local GGUF streaming CLI

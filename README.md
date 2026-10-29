@@ -20,7 +20,7 @@
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
 | Сургалт | Qwen3-0.6B дээр бодит CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй |
 | Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; 4 алхмыг 2+2 сэргээхтэй тулгасан туршилт бий |
-| Offline | Local GGUF CLI remains experimental; offline bundle packager added with hash manifest, but no real RAINY bundle or OS-level egress test yet |
+| Offline | Local GGUF CLI and safetensors bundle runner remain experimental; no real RAINY bundle or OS-level egress test yet |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
 | Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
 
@@ -119,6 +119,17 @@ Example for a local full model directory (replace paths and metadata only after 
 
 This is a packaging and byte-integrity check only. It does not prove legal permission, tensor/runtime compatibility, model output quality, or operating-system-level network isolation. The current run did not create a real bundle because no local model artifact was available; no weights or checkpoint were added to Git.
 
+### Offline safetensors bundle inference (experimental)
+
+A new local runner can execute an already-packaged merged safetensors model or a base-plus-adapter bundle. It verifies the bundle against a trusted expected bundle ID, checks every declared runtime pin, refuses a conservative low-RAM preflight, loads only local files with remote code disabled, and records artifact identity, token counts, generation time, throughput and peak RSS where the platform exposes it.
+
+Монгол: энэ runner нь өөрөө жин татахгүй. Эхлээд bundle-ийн ID-г шалгаад, итгэмжлэгдсэн ID-г ажиллуулах үед зааж өгнө.
+
+    python scripts/export_offline_bundle.py verify --bundle /private/rainy-bundle
+    python scripts/ask_offline_bundle.py --bundle /private/rainy-bundle --expected-bundle-id TRUSTED_BUNDLE_SHA256 --prompt "Монгол хэлээр товч хариул." --max-new-tokens 128 --threads 4
+
+The expected bundle ID must be copied from a trusted verification result or other trusted channel. Runtime package versions must exactly match the manifest. The memory estimate is deliberately conservative and is not a measured peak-RSS prediction. The runner's offline environment flags and Python socket guard are defense in depth, not OS-level network isolation. No real safetensors bundle/runtime was available for this run; mock tests do not prove model compatibility or Mongolian quality. Use OS/container egress isolation before claiming fully standalone operation.
+
 ### Local GGUF CLI — туршилтын боломж
 
 Тохирох runtime, өөрийн хууль ёсоор авсан GGUF файл болон итгэмжлэгдсэн SHA-256 хэрэгтэй.
@@ -186,7 +197,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## English summary
 
-RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-29**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay and an experimental offline-bundle packaging tool. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-29**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay an experimental offline-bundle packaging tool, and a mock-tested safetensors offline runner. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
 
 The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
