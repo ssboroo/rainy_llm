@@ -47,6 +47,8 @@ def _collect_files(root):
             continue
         if not path.is_file():
             raise ValueError("bundle may contain only regular files")
+        if path.suffix.lower() in {".bin", ".pt", ".pth", ".pkl", ".pickle"}:
+            raise ValueError("pickle-style model/state files are refused; use safetensors")
         relative = path.relative_to(root).as_posix()
         if ".git" in Path(relative).parts:
             raise ValueError("Git metadata must not be packaged")
