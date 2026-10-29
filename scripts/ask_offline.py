@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Run a local GGUF text model without Hub/API downloads. Experimental."""
 import argparse
 import hashlib
@@ -24,22 +25,35 @@ def verify_model(path, expected_sha256):
     return path
 
 
-def generate(model_path, expected_sha256, prompt, context=2048, max_tokens=256, threads=4):
+def _validate_generation(prompt, context, max_tokens, threads):
     if not isinstance(prompt, str) or not prompt.strip():
         raise ValueError('prompt must not be empty')
     if any(type(x) is not int or x < 1 for x in (context, max_tokens, threads)):
         raise ValueError('context, max_tokens and threads must be positive integers')
     if max_tokens >= context:
         raise ValueError('output budget must be smaller than context')
-    path = verify_model(model_path, expected_sha256)
+
+
+def _open_model(path, context, threads):
     # Only a local path is passed. Never invoke from_pretrained or a remote API.
     from llama_cpp import Llama
-    model = Llama(model_path=str(path), n_ctx=context, n_threads=threads,
-                  n_threads_batch=threads, n_gpu_layers=0, seed=42, verbose=False)
+    return Llama(model_path=str(path), n_ctx=context, n_threads=threads,
+                 n_threads_batch=threads, n_gpu_layers=0, seed=42, verbose=False)
+
+
+def _require_template(model):
+    template = model.metadata.get('tokenizer.chat_template')
+    if not isinstance(template, str) or not template.strip():
+        raise ValueError('embedded chat template required; implicit fallback refused')
+    return template
+
+
+def generate(model_path, expected_sha256, prompt, context=2048, max_tokens=256, threads=4):
+    _validate_generation(prompt, context, max_tokens, threads)
+    path = verify_model(model_path, expected_sha256)
+    model = _open_model(path, context, threads)
     try:
-        template = model.metadata.get('tokenizer.chat_template')
-        if not isinstance(template, str) or not template.strip():
-            raise ValueError('embedded chat template required; implicit fallback refused')
+        template = _require_template(model)
         output = model.create_chat_completion(
             messages=[{'role': 'user', 'content': prompt}],
             max_tokens=max_tokens, temperature=0.0, stream=False)
@@ -53,6 +67,46 @@ def generate(model_path, expected_sha256, prompt, context=2048, max_tokens=256, 
         model.close()
 
 
+def generate_stream(model_path, expected_sha256, prompt, context=2048, max_tokens=256, threads=4):
+    """Yield NDJSON-ready text deltas, then one terminal metadata event."""
+    _validate_generation(prompt, context, max_tokens, threads)
+    path = verify_model(model_path, expected_sha256)
+    model = _open_model(path, context, threads)
+    try:
+        template = _require_template(model)
+        finish_reason = None
+        usage = None
+        chunks = model.create_chat_completion(
+            messages=[{'role': 'user', 'content': prompt}],
+            max_tokens=max_tokens, temperature=0.0, stream=True)
+        for chunk in chunks:
+            if not isinstance(chunk, dict):
+                raise ValueError('backend returned a malformed stream chunk')
+            if chunk.get('usage') is not None:
+                usage = chunk['usage']
+            choices = chunk.get('choices') or []
+            if not choices:
+                continue
+            choice = choices[0]
+            if not isinstance(choice, dict):
+                raise ValueError('backend returned a malformed stream choice')
+            delta = choice.get('delta') or {}
+            content = delta.get('content')
+            if content is not None:
+                if not isinstance(content, str):
+                    raise ValueError('backend returned non-text delta content')
+                if content:
+                    yield {'type': 'delta', 'text': content}
+            if choice.get('finish_reason') is not None:
+                finish_reason = choice['finish_reason']
+        yield {'type': 'done', 'finish_reason': finish_reason, 'usage': usage,
+               'model_sha256': expected_sha256,
+               'chat_template_sha256': hashlib.sha256(template.encode()).hexdigest(),
+               'trained_rainy_model': False}
+    finally:
+        model.close()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', required=True)
@@ -62,12 +116,21 @@ def main():
     parser.add_argument('--max-tokens', type=int, default=256)
     parser.add_argument('--threads', type=int, default=4)
     parser.add_argument('--check-only', action='store_true')
+    parser.add_argument('--stream', action='store_true',
+                        help='emit newline-delimited JSON delta/done events')
     args = parser.parse_args()
+    if args.check_only and args.stream:
+        parser.error('--stream cannot be combined with --check-only')
     try:
         if args.check_only:
             verify_model(args.model, args.sha256)
             result = {'artifact_integrity': True, 'runtime_compatibility': 'not tested',
                       'inference_executed': False}
+        elif args.stream:
+            for event in generate_stream(args.model, args.sha256, args.prompt,
+                                          args.context, args.max_tokens, args.threads):
+                print(json.dumps(event, ensure_ascii=False, separators=(',', ':')), flush=True)
+            return
         else:
             result = generate(args.model, args.sha256, args.prompt,
                               args.context, args.max_tokens, args.threads)

@@ -1,5 +1,18 @@
 # Шинэ загварын бүртгэл
 
+## 2026-10-29 16:55 — official release recheck; no base promotion
+
+| Candidate / exact identifier observed | Verified release date and distribution | Immutable weight revision / licenses / tokenizer-template / runtime | Resource decision |
+| --- | --- | --- | --- |
+| Mistral Large 4; official model-page identifier `mistral-large-4` | Mistral's official announcement is dated 2026-10-06 and describes a public-preview API; it says weights are planned for the end of October. As of this check (2026-10-29), a downloadable official weight revision was not established from the reviewed official page. | Exact weight repository/revision, weight license, code license, tokenizer/chat template and local runtime compatibility: **not verified**. Do not infer an Apache license or treat the API preview as a local model. | Official page reports about 1,050B total / 52B active parameters. Not feasible on this host (5.8 GiB RAM); watch-only. |
+| DeepSeek-V4.1-Flash; official announcement's API identifier `deepseek-flash` | Official notice dated 2026-09-10 confirms API availability and describes 552B total / 8B active parameters. | Exact downloadable weight ID/revision, weight license, code license, tokenizer/chat template and local runtime compatibility were not established by the reviewed notice. The API alias is not a local weight ID. | Far outside the current host budget; no local integration. |
+| EmbeddingGemma 2; exact generation-model ID not applicable | Google's official release log dates the 740M embedding model to 2026-10-06. | Exact model revision/license/runtime were not re-established in this run; it is an embedding model, not a causal text-generation replacement. | Not a standalone chat base. |
+| Qwen/Qwen3-0.6B retained baseline | Existing tested candidate; no new base revision selected. | Keep immutable revision `c1899de289a04d12100db370d81485cdf75e47ca`, Apache-2.0 weights and previously tested tokenizer/template/runtime pins; see the retained-baseline entry below. | No candidate promotion without a matched frozen Mongolian evaluation and resource comparison. |
+
+Sources: [Mistral Large 4 announcement](https://mistral.ai/news/mistral-large-4/), [Mistral model documentation](https://docs.mistral.ai/models/mistral-large-4-0), [DeepSeek V4.1-Flash announcement](https://www.deepseek.com/en/news/deepseek-v4-1-flash/), [Google Gemma release log](https://ai.google.dev/gemma/docs/releases), [Qwen3-0.6B pinned card](https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca), [PEFT releases](https://github.com/huggingface/peft/releases), [Transformers releases](https://github.com/huggingface/transformers/releases), [llama-cpp-python releases](https://github.com/abetlen/llama-cpp-python/releases).
+
+No new candidate is promoted. PEFT v0.21.2 (2026-10-01, commit eaa35c7) and Transformers v5.20.2 (2026-10-19) remain untested against the retained Qwen runtime; the current experiment pins are not changed. The upstream llama-cpp-python page lists platform-specific 0.3.36 builds, but this environment has no `llama_cpp` installation and no local GGUF artifact. Release novelty alone does not justify a runtime or base switch.
+
 ## 2026-10-29 — offline packaging capability; no base promotion
 
 ### Retained baseline

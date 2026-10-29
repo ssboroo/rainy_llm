@@ -127,9 +127,10 @@ This is a packaging and byte-integrity check only. It does not prove legal permi
 python scripts/ask_offline.py --help
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --check-only
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул."
+python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул." --stream
 ```
 
-`--check-only` нь модель inference шалгахгүй. Энэ CLI-ийн бодит GGUF validation дутуу хэвээр; дээрх PEFT checkpoint reload нь өөр кодын зам. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
+`--check-only` нь зөвхөн файлын hash/header шалгана. `--stream` нь текстийн хэсэг бүрийг `delta`, төгсгөлийн мэдээллийг `done` төрөлтэй тус тусын JSON мөрөөр гаргана (NDJSON); token-уудыг дуусахыг хүлээлгүй хэрэглэж болно. Энэ нь локал CLI бөгөөд HTTP API биш. Бодит GGUF жинтэй inference/offline network isolation хараахан баталгаажаагүй. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
 
 ### CPU сургалт ба checkpoint
 

@@ -1,5 +1,13 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-29 16:55 — local GGUF streaming CLI
+
+- [x] Added `--stream` to the existing hash-checked local GGUF CLI. It emits one NDJSON `delta` event per text fragment and a final `done` event with finish reason, optional usage, model hash, template hash and an explicit `trained_rainy_model=false` marker.
+- [x] Preserved the single-response JSON path and `--check-only`; the two modes cannot be combined. The streaming generator closes the model on normal completion and exceptions.
+- [x] Added four focused tests for delta/final metadata, missing-template refusal/cleanup, NDJSON CLI output and incompatible flags. The local isolated test module passes 7/7, but the repository-wide suite remains delegated to remote CI because this container cannot resolve GitHub.
+- [ ] Run the stream path against a legally acquired, hash-verified GGUF with the compatible `llama-cpp-python` runtime; record real latency/RAM and verify OS-level egress isolation. Mock tests are not model inference.
+- [ ] Build a local HTTP streaming API only after real GGUF inference and cancellation/timeout behavior are measured.
+
 ## 2026-10-29 offline bundle packaging
 
 - [x] Added an executable offline bundle packager for existing full/merged safetensors artifacts and base-plus-adapter layouts. It requires an immutable upstream revision, separate weight/code license labels, explicit upstream URLs, exact runtime pins and an explicit tokenizer chat template.
