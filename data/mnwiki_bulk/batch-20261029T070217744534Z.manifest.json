@@ -1,0 +1,23 @@
+{
+  "accepted": 1000,
+  "examined": 1531,
+  "api_requests": 142,
+  "rejected": {
+    "short": 452,
+    "exact-duplicate": 63,
+    "quality-artifact": 14,
+    "low-cyrillic": 2
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 5691,
+  "corpus_sha256": "ba77b40337527e074732d473c8673c20139c9887c8682dbdd2f68f2c3ab58552",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Вагит_Алекперов",
+    "exhausted": false
+  }
+}
