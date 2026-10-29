@@ -3,6 +3,7 @@
 - [x] Added scripts/ask_offline_bundle.py to run an existing verified merged safetensors bundle or base-plus-adapter bundle with exact runtime-pin checks, explicit chat-template hash verification, local-only loading, disabled remote code, deterministic bounded generation and JSON timing/token/RSS metadata.
 - [x] Added a conservative available-RAM preflight and Python socket guard. The estimate is a safety threshold, not measured peak memory; Python guards are not OS-level network isolation.
 - [x] Fixed the direct-execution import path after remote CI run #202 exposed a ModuleNotFoundError in the CLI help step; package imports and direct script execution are both supported.
+- [x] Post-fix remote CPU CI run #204 (40880161938) passed 188 tests in 2.528 s (187 passed, one optional Torch skip); PR check run #205 also passed on the same commit. This verifies code/data checks and CLI help only, not real model inference.
 - [x] Added six focused mock/unit tests covering merged inference wiring, base-plus-adapter loading, trusted bundle ID mismatch, runtime pin mismatch, insufficient RAM and socket-guard restoration.
 - [ ] Run against a legally acquired real bundle and its exact runtime; validate output, tensor compatibility, memory and latency with OS-level egress disabled. Current host has no Transformers/PEFT or model artifact.
 - [ ] Only after real local inference and cancellation/timeout measurement, add a local HTTP streaming API. No model-quality gain or RAINY release is implied by the mock tests.
