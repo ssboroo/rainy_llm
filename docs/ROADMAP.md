@@ -4,6 +4,7 @@
 - [x] Added nine focused tests covering identity, template hashing, revision/ID/license/URL validation, missing tokenizer/template, malformed hashes and path traversal.
 - [ ] This is provenance/integrity hardening, not training or inference. Declarations are operator-supplied and not independently authenticated. Old schema-1 checkpoints are not migrated.
 - [ ] Next: restore exact Qwen3-0.6B base bytes and the pinned training runtime in durable private storage, then run real Trainer uninterrupted-versus-resumed equivalence. The retained adapter archive omits base weights.
+- [ ] P2 model comparison candidate: `google/gemma-4-E2B-it` (2026-03-31, Apache-2.0, snapshot `c3cdbdc9e7fd33008f19e1e1d8d46382b1349cac`, 2.3B effective / 5.1B total, 10.2 GB BF16). Revisit only with a larger host or a validated supported low-bit artifact; compare on the frozen Mongolian evaluation hash and identical decoding. No current inference or base promotion.
 
 - [ ] Qwen3.8-27B (55.6 GB) and Qwen3.8-2.4T-A95B (separate qwen3.8-max license) are watch-only; no local resource fit. Compare Qwen3.5-0.8B only after runtime pin and same-hash evaluation.
 ## 2026-10-30 13:18 — legacy base fingerprint verified; explicit provenance still needed
