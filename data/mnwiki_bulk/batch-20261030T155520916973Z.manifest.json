@@ -1,0 +1,23 @@
+{
+  "accepted": 1018,
+  "examined": 1444,
+  "api_requests": 140,
+  "rejected": {
+    "short": 352,
+    "quality-artifact": 17,
+    "exact-duplicate": 55,
+    "low-cyrillic": 2
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 9747,
+  "corpus_sha256": "c50692ed13cc73e6dacbd5d544c25843cfaea162d00595416ff6bf7d7d73f08e",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Калининградын_төмөр_замын_музей",
+    "exhausted": false
+  }
+}
