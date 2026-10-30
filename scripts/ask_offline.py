@@ -107,6 +107,88 @@ def generate_stream(model_path, expected_sha256, prompt, context=2048, max_token
         model.close()
 
 
+def chat_session(model_path, expected_sha256, context=2048, max_tokens=256, threads=4,
+                 stream=False, max_history_turns=8):
+    """Run a bounded, in-memory interactive chat against one local GGUF process."""
+    _validate_generation('interactive chat', context, max_tokens, threads)
+    if type(max_history_turns) is not int or not 1 <= max_history_turns <= 64:
+        raise ValueError('max_history_turns must be between 1 and 64')
+    path = verify_model(model_path, expected_sha256)
+    model = _open_model(path, context, threads)
+    try:
+        template = _require_template(model)
+        messages = []
+        turns = 0
+        print('RAINY offline chat — /help, /clear, /exit')
+        while True:
+            try:
+                prompt = input('Та: ')
+            except EOFError:
+                break
+            prompt = prompt.strip()
+            if not prompt:
+                continue
+            command = prompt.casefold()
+            if command in ('/exit', '/quit'):
+                break
+            if command == '/help':
+                print('/clear — ярианы түүх арилгах; /exit — гарах')
+                continue
+            if command == '/clear':
+                messages.clear()
+                print('Ярианы түүх ариллаа.')
+                continue
+
+            # Keep at most N-1 previous user/assistant pairs plus this new user turn.
+            previous_message_limit = 2 * (max_history_turns - 1)
+            prior_messages = messages[-previous_message_limit:] if previous_message_limit else []
+            request_messages = [dict(message) for message in prior_messages]
+            request_messages.append({'role': 'user', 'content': prompt})
+            try:
+                print('RAINY: ', end='', flush=True)
+                if stream:
+                    chunks = model.create_chat_completion(
+                        messages=request_messages, max_tokens=max_tokens,
+                        temperature=0.0, stream=True)
+                    pieces = []
+                    for chunk in chunks:
+                        if not isinstance(chunk, dict):
+                            raise ValueError('backend returned a malformed stream chunk')
+                        choices = chunk.get('choices') or []
+                        if not choices:
+                            continue
+                        choice = choices[0]
+                        if not isinstance(choice, dict):
+                            raise ValueError('backend returned a malformed stream choice')
+                        delta = choice.get('delta') or {}
+                        content = delta.get('content')
+                        if content is not None:
+                            if not isinstance(content, str):
+                                raise ValueError('backend returned non-text delta content')
+                            if content:
+                                print(content, end='', flush=True)
+                                pieces.append(content)
+                    answer = ''.join(pieces)
+                    print()
+                else:
+                    output = model.create_chat_completion(
+                        messages=request_messages, max_tokens=max_tokens,
+                        temperature=0.0, stream=False)
+                    answer = output['choices'][0]['message']['content']
+                    if not isinstance(answer, str):
+                        raise ValueError('backend returned non-text assistant content')
+                    print(answer)
+            except Exception:
+                raise
+            messages = request_messages + [{'role': 'assistant', 'content': answer}]
+            turns += 1
+        return {'turns': turns, 'model_sha256': expected_sha256,
+                'chat_template_sha256': hashlib.sha256(template.encode()).hexdigest(),
+                'trained_rainy_model': False, 'history_persisted': False}
+    finally:
+        model.close()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', required=True)
@@ -116,16 +198,29 @@ def main():
     parser.add_argument('--max-tokens', type=int, default=256)
     parser.add_argument('--threads', type=int, default=4)
     parser.add_argument('--check-only', action='store_true')
+    parser.add_argument('--chat', action='store_true',
+                        help='start a bounded interactive chat; history stays in memory only')
+    parser.add_argument('--max-history-turns', type=int, default=8,
+                        help='maximum user/assistant turns retained in RAM (1..64)')
     parser.add_argument('--stream', action='store_true',
-                        help='emit newline-delimited JSON delta/done events')
+                        help='emit NDJSON deltas for one prompt; stream plain text in --chat mode')
     args = parser.parse_args()
-    if args.check_only and args.stream:
-        parser.error('--stream cannot be combined with --check-only')
+    if args.check_only and (args.stream or args.chat):
+        parser.error('--stream/--chat cannot be combined with --check-only')
+    if args.chat and args.prompt:
+        parser.error('--prompt cannot be combined with --chat')
+    if not args.chat and not args.check_only and not args.prompt:
+        parser.error('--prompt is required unless --chat or --check-only is used')
+    if not args.chat and args.max_history_turns != 8:
+        parser.error('--max-history-turns is only valid with --chat')
     try:
         if args.check_only:
             verify_model(args.model, args.sha256)
             result = {'artifact_integrity': True, 'runtime_compatibility': 'not tested',
                       'inference_executed': False}
+        elif args.chat:
+            result = chat_session(args.model, args.sha256, args.context, args.max_tokens,
+                                  args.threads, args.stream, args.max_history_turns)
         elif args.stream:
             for event in generate_stream(args.model, args.sha256, args.prompt,
                                           args.context, args.max_tokens, args.threads):

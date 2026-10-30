@@ -1,3 +1,18 @@
+## 2026-10-30 20:57 — latest runtime release recheck
+
+### Transformers v5.22.1
+- Official patch release published **2026-10-30 09:36:03 UTC (17:36:03 Ulaanbaatar)**; immutable commit `446a570e62b04a89ea001604ada7366baac2ea67`.
+- Release notes say the change is documentation-only: remove the WIP ML4 document. It adds no relevant Qwen CPU, GGUF, LoRA or QLoRA capability. Keep the tested RAINY training pin unchanged.
+
+### llama.cpp b12005
+- Official release published **2026-10-30 12:45:08 UTC (20:45:08 Ulaanbaatar)**; immutable commit `e0f142d5ddc1461ce721644d92af33db23545105`.
+- Adds initial OpenCL q2_0 kernels/optimizations for Adreno. This is relevant to a future Android/Qualcomm low-bit deployment, not the current x86 CPU-only host; it does not provide a new Qwen3-0.6B artifact or establish compatibility with the project's unpinned llama-cpp-python runtime.
+- PEFT v0.21.2 (2026-10-01) and TRL v1.17.0 (2026-10-29) remain the latest inspected releases; their newer features do not fit the current CPU-only Qwen training stack.
+
+Decision: no model/runtime pin change. The 5.8 GiB host has no Adreno/OpenCL target, no `llama_cpp` package and no GGUF weights. No inference, quantization or training was attempted. No newer resource-feasible Qwen/Gemma/DeepSeek/Meta/Mistral model with a verified same-hash Mongolian advantage was established.
+
+Sources: [Transformers v5.22.1 release](https://github.com/huggingface/transformers/releases/tag/v5.22.1), [Transformers commit](https://github.com/huggingface/transformers/commit/446a570e62b04a89ea001604ada7366baac2ea67), [llama.cpp b12005 release](https://github.com/ggml-org/llama.cpp/releases/tag/b12005), [llama.cpp commit](https://github.com/ggml-org/llama.cpp/commit/e0f142d5ddc1461ce721644d92af33db23545105).
+
 ## 2026-10-30 16:56 — official model and runtime recheck
 
 ### Meta Muse Glimmer 30B

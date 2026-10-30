@@ -1,3 +1,12 @@
+## 2026-10-30 20:57 — bounded interactive offline GGUF chat
+
+- [x] Added `--chat` to `scripts/ask_offline.py`: one hash-verified local GGUF process is reused across turns; optional terminal streaming prints text deltas; `/help`, `/clear` and `/exit` are supported.
+- [x] Conversation history is RAM-only and bounded to 1–64 user/assistant turns (default 8). Model SHA-256 and embedded-template hash are returned; the result explicitly says `trained_rainy_model=false` and `history_persisted=false`.
+- [x] Added nine focused interactive-session tests; together with the existing seven GGUF CLI tests, **16/16 passed locally** (Python 3.13.5, 0.015 s). Bytecode compilation and direct CLI help passed. These tests use a mock backend and synthetic GGUF fixtures, not real model inference.
+- [ ] Real GGUF inference remains blocked: no local model artifact or `llama_cpp` runtime is installed, and container DNS cannot resolve GitHub. No model download, training, latency, RSS or Mongolian quality measurement occurred.
+- [ ] Next model-first gate remains real Qwen3-0.6B Trainer resume equivalence: reacquire the exact base bytes and the recorded Torch 2.6.0 / Transformers 4.51.3 / PEFT 0.15.2 / Accelerate 1.6.0 stack in durable private storage. The retained adapter archive omits base weights; do not substitute the generic synthetic resume smoke.
+- [ ] Do not add the HTTP API until real local inference, OS-level egress isolation, cancellation and timeout are measured. No model promotion.
+
 ## 2026-10-30 16:56 — explicit model provenance in new training identities
 
 - [x] Added `scripts/model_provenance.py` and schema-2 identities for both reviewed-corpus CPU LoRA and the separate synthetic technical runner. New runs require exact model ID, immutable 40-character revision, separate weights/code license declarations, HTTPS source URLs, tokenizer-file hashes and the loaded chat-template hash. The helper hash is part of the run identity.
