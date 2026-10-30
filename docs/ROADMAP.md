@@ -1,3 +1,12 @@
+## 2026-10-30 13:04 — fresh-process checkpoint resume equivalence (technical track)
+
+- [x] Added `scripts/checkpoint_resume_equivalence.py`: a bounded four-step deterministic CPU network experiment, split after step two and resumed in a fresh Python process using the existing checkpoint seal and RNG restore helpers.
+- [x] Added optional-backend tests for CLI help, output symlink refusal and exact fresh-process comparison. Five state families are compared: model tensors, optimizer, scheduler, Python/NumPy/Torch RNG and trainer history.
+- [x] Local CPU result: **5/5 exact**; Python 3.13.5, Torch 2.10.0+cpu, NumPy 2.3.5, safetensors 0.7.0, one thread; 4 steps, 8 synthetic numeric rows; parent/child peak RSS 328,832 / 330,240 KiB. The child training itself took 0.0040 s; fresh-process wall time including interpreter startup was 7.1075 s.
+- [ ] This does not establish Qwen/PEFT Trainer resume equivalence: the retained Qwen adapter archive has no base weights, and the host lacks Transformers/PEFT/Accelerate. Restore the exact base snapshot and pinned runtime to run the real uninterrupted-versus-resumed experiment.
+- [ ] Next compare Qwen3.5-0.8B against the retained Qwen3-0.6B baseline only after real weights/runtime are available, with identical frozen evaluation hash, decoding and hardware. No base promotion from a release announcement or this tiny smoke.
+
+
 # Хөгжүүлэлтийн дараалал
 
 ## 2026-10-30 09:05 — legacy NumPy RNG checkpoint compatibility

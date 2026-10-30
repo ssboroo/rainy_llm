@@ -220,3 +220,10 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 ---
 
 **Баримтжуулалтын огноо:** 2026-10-30 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
+
+
+## 2026-10-30: fresh-process checkpoint equivalence (technical smoke)
+
+A new optional CPU experiment validates that the repository's sealed checkpoint helpers can resume a tiny deterministic PyTorch network in a fresh Python process. The four-step run is split after step two. Model tensors, optimizer, scheduler, Python/NumPy/Torch RNG and trainer history matched **exactly (5/5)**. Measured on Python 3.13.5, Torch 2.10.0+cpu, NumPy 2.3.5 and safetensors 0.7.0, one CPU thread; fresh-process wall time 7.1075 s including interpreter startup; resume training itself 0.0040 s; parent/child peak RSS 328,832 / 330,240 KiB.
+
+This is a technical state-restore test with eight synthetic numeric rows. It is **not Qwen/PEFT LoRA training, a Mongolian benchmark, or a model-quality improvement**. The actual Qwen Trainer resume still requires the missing base weights and the exact pinned training runtime. See [checkpoint equivalence instructions](docs/CHECKPOINT_RESUME_EQUIVALENCE.md) and [the 2026-10-30 research log](research/2026-10-30.md).

@@ -1,3 +1,47 @@
+## 2026-10-30 13:04 — resource-feasible Qwen candidate and upstream runtime scan
+
+### Candidate: Qwen3.5-0.8B (watch-only; no promotion)
+
+- Exact model ID: `Qwen/Qwen3.5-0.8B`.
+- Release date: **2026-03-02** — the official Qwen model-family repository lists the 0.8B release on this date.
+- Immutable model snapshot inspected: `2b48083dfa97c3cbf0220cf1a5e6cffe0a511157`.
+- Model repository reports **Apache-2.0**. This is an open-weight model with published model code, not evidence that all pretraining data is open or that every derivative/quantized artifact has the same provenance.
+- Files at that revision include `tokenizer.json` (12.8 MB), `tokenizer_config.json`, and explicit `chat_template.jinja` (6.67 kB). The model card uses `AutoProcessor` + `AutoModelForMultimodalLM`; it is an image-text-to-text model, not a text-only checkpoint.
+- `config.json`: `Qwen3_5ForConditionalGeneration`, `model_type=qwen3_5`, 24 layers, hidden size 1,024, hybrid linear/full attention, and `transformers_version=4.57.0.dev0`. This field is build metadata, not a guaranteed minimum stable runtime version. The model card does not specify a tested minimum stable Transformers version.
+- Model repository size is about 1.77 GB, including a 1.75 GB safetensors weight file. This is a disk-size observation, not a peak-RAM measurement; activations, KV/cache state, processor and runtime add overhead. It may be a candidate for the current 5.81 GiB CPU host, but fit is unverified.
+- Transformers' Qwen3.5 integration documentation says support was contributed on 2026-02-09. The Qwen3.5 architecture support was merged into `llama.cpp` in February 2026 (`models: support qwen3.5 series`, commit `fc0fe40`); no compatible local GGUF artifact/runtime was acquired in this run.
+- No dedicated technical report for this exact dense 0.8B checkpoint was identified. The Qwen3.5-Omni report (arXiv:2604.15804, 2026-04-17) describes a separate hundreds-of-billions-parameter Omni model and must not be cited as a report for this 0.8B checkpoint.
+- Decision: retain Qwen3-0.6B as the existing baseline. Compare this candidate only after a compatible pinned runtime and legally acquired immutable weights are available, using the same frozen evaluation hash, decoding, CPU/thread settings and memory measurement. No download, inference, training, Mongolian score, latency or base promotion occurred in this run.
+
+### Other official releases checked
+
+- Google: the official release log dates EmbeddingGemma 2 (740M) to 2026-10-06; it is an embedding encoder, not a causal chat generator. Gemma 4 12B Unified is dated 2026-06-03; E2B/E4B and larger Gemma 4 variants are dated 2026-03-31. The inspected `google/gemma-4-E2B-it` repository snapshot is about 10.3 GB, above this host's total RAM before runtime overhead.
+- DeepSeek: DeepSeek-V4.1-Flash remains an API service in the reviewed official material; no immutable local weight snapshot/license/runtime contract suitable for this host was verified. Treat it as API-only, not open-weight.
+- Meta: no newer resource-feasible downloadable Llama candidate was verified; Llama 4 access/license requirements remain separate from open-source code.
+- Mistral: `mistralai/Mistral-Large-4-1T-A52B` remains open-weight under the Mistral Ecosystem Open-Weight License, not fully open-source; its FP8 weights are about 1.06 TB and it is not feasible here.
+
+### Training/inference library release notes
+
+- Transformers **v5.22.0**, published 2026-10-29, commit `0f01f27e9c939328b69e9057bfa0d0b25544915b`: adds Mistral Large 4 support and related FP8 adapter-training changes. The project remains on its tested 4.51.3 pin; no broad runtime upgrade was made.
+- PEFT **v0.21.2**, published 2026-10-01, commit `eaa35c777c7ba554a2a3639ac9c79bb690f39a57`: fixes encoder-decoder compatibility with Transformers >=5.18.0. No direct need to upgrade the current Qwen CPU stack was established.
+- TRL **v1.17.0**, published 2026-10-29, commit `e257382de9e046b8181a5d1f91586f9bce324126`: includes Mistral Large 4 LoRA SFT on 8×B300, reporting about 142 GiB/GPU. This is not a resource-feasible Qwen CPU recipe.
+- `llama.cpp` **b12000**, a pre-release published 2026-10-30 04:25 UTC (12:25 Ulaanbaatar), commit `68d20b884c3878217de79eade0a249efde96ab38`: adds OCP FP8 E4M3 conversion/runtime support and fixes Qwen3.8-27B-NVFP4 conversion paths. This is useful upstream quantization work but does not justify adopting an unpinned pre-release for the current 0.6B baseline.
+
+### Sources
+
+- https://github.com/QwenLM/Qwen3.8
+- https://huggingface.co/Qwen/Qwen3.5-0.8B/tree/2b48083dfa97c3cbf0220cf1a5e6cffe0a511157
+- https://huggingface.co/Qwen/Qwen3.5-0.8B/blob/2b48083dfa97c3cbf0220cf1a5e6cffe0a511157/config.json
+- https://huggingface.co/Qwen/Qwen3.5-0.8B/blob/2b48083dfa97c3cbf0220cf1a5e6cffe0a511157/chat_template.jinja
+- https://github.com/huggingface/transformers/blob/main/docs/source/en/model_doc/qwen3_5.md
+- https://github.com/ggml-org/llama.cpp/commit/fc0fe40
+- https://ai.google.dev/gemma/docs/releases
+- https://huggingface.co/google/gemma-4-E2B-it
+- https://github.com/huggingface/transformers/releases/tag/v5.22.0
+- https://github.com/huggingface/peft/releases/tag/v0.21.2
+- https://github.com/huggingface/trl/releases/tag/v1.17.0
+- https://github.com/ggml-org/llama.cpp/releases/tag/b12000
+
 # Шинэ загварын бүртгэл
 
 ## 2026-10-30 09:05 — Mistral Large 4 weights released; watch-only
