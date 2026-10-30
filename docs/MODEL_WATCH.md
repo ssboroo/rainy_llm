@@ -13,7 +13,12 @@
 - Exact immutable revision SHA not captured; do not invent or use main as pin. No Jinja chat template: official card points to `encoding/` and `deepseek-recipe`. `deepseek-flash` is hosted API alias, distinct from downloadable weights. Far beyond host memory.
 
 ### Qwen, Google/Gemma, Mistral
-- Qwen cloud changelog: `qwen3.8-flash` and `qwen-audio-3.1-realtime-flash` expanded to EU/HK API regions on 2026-10-27; API-only, not verified local weight IDs. Google release log: EmbeddingGemma 2 (740M encoder) 2026-10-06; Gemma 4 12B Unified 2026-06-03; no newer resource-fit chat checkpoint verified. Mistral Large 4 remains watch-only under its separate Mistral Ecosystem Open-Weight License and is too large.
+- Qwen cloud changelog: `qwen3.8-flash` and `qwen-audio-3.1-realtime-flash` expanded to EU/HK API regions on 2026-10-27; API-only, not verified local weight IDs.
+- Google exact model IDs and inspected revisions:
+  - `google/embeddinggemma-2` — official release **2026-10-06**; inspected file snapshot `c3f2237ce16fe33d1bb9dab8692c29c79865bdeb`; Apache-2.0; 740M multimodal embedding encoder, 1.49 GB safetensors file, feature-extraction/AutoModel + AutoProcessor; no chat template or text-generation interface. It may be relevant to a future retrieval integration, but Mongolian retrieval quality was not tested.
+  - `google/gemma-4-12B-it` — Gemma 4 12B Unified instruction model, official family release **2026-06-03**; inspected snapshot `707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7`; Apache-2.0; 11,959,730,224 BF16 parameters; tokenizer.json, tokenizer_config.json and chat_template.jinja present; Transformers metadata uses AutoProcessor + AutoModelForMultimodalLM. BF16 requires far more than the 5.8 GiB host; no official quantized artifact was verified here. No download/inference.
+  - These are not newer than the October Meta/DeepSeek updates above; no newer resource-feasible Gemma chat base was verified.
+- Mistral Large 4 remains watch-only under its separate Mistral Ecosystem Open-Weight License and is too large.
 
 ### Runtime and training releases
 - Transformers v5.22.0 (2026-10-29, commit `0f01f27e9c939328b69e9057bfa0d0b25544915b`) adds Mistral Large 4 and FP8 adapter-training backward support; upstream reports chunked expert dequant lowering one 8k-token FP8 backward peak 28.9→2.8 GiB. Not a RAINY measurement; do not replace tested 4.51.3 CPU pin.
