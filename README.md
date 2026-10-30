@@ -18,7 +18,7 @@
 | Чанарын хяналт | Автомат шүүлт болон хүний review хэрэгслүүд бий; түүхий корпусын human-reviewed/training-ready төлөв 0 |
 | Асуулт–хариулт | Эхэд тулгуурласан 10 ноорог; сургалтад баталсан багц биш |
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
-| Сургалт | Qwen3-0.6B дээр бодит CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй |
+| Сургалт | Qwen3-0.6B дээр хиймэл жишээтэй CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй. Шинэ training identity нь upstream model/revision, тусдаа weights/code license, tokenizer/template hash шаарддаг |
 | Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; legacy NumPy RNG state-ийг safe weights-only loader-оор сэргээх боломж нэмэгдсэн; бодит Trainer resume equivalence хүлээгдэнэ |
 | Offline | Local GGUF CLI and safetensors bundle runner remain experimental; no real RAINY bundle or OS-level egress test yet |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
@@ -37,7 +37,7 @@
 | Хоёр салбарын нийлбэр | 62 | 3,685 |
 | Давхардсан 4 мөрийг хассан нийт | — | **3,681** |
 
-ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 3,681. Энэ тоо нь утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
+ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 3,681 байсан 2026-10-28 snapshot нь түүхэн суурь хэвээр. **2026-10-30 15:04 Ulaanbaatar bulk workflow run #23** тусдаа `data/bulk-wikipedia` салбарт 1,008 шинэ оршил хүлээн авч, 1,466-г шалган, 132 API хүсэлт хийсэн; нийт unique index 8,729 болсон. 458 мөр богино/давхардсан/чанарын шүүлтээр хасагдсан. Энэ нь Wikipedia оршил түүхий өгөгдөл бөгөөд утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш; run тайлангийн human-reviewed/training-ready тоо 0/0. Энэ 1,008-ын bulk workflow нь тусгай 5×20-source manifest зорилттой адил биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
 
 - [Pilot корпус](data/mnwiki_pilot)
 - [Өдөр тутмын корпус](data/mnwiki_daily)

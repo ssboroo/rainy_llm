@@ -1,3 +1,30 @@
+## 2026-10-30 16:56 — official model and runtime recheck
+
+### Meta Muse Glimmer 30B
+- Exact ID: `meta-models/Muse-Glimmer-30B`; official research publication 2026-10-19; paper [Muse Glimmer 30B](https://ai.meta.com/research/publications/muse-glimmer-30b-an-on-device-agentic-model/), arXiv 2610.24628.
+- Inspected immutable snapshot `cec94fcfd6512f2cfe708138c32533b346ea4f69`; Apache-2.0 artifacts; tokenizer.json, tokenizer_config.json and chat_template.jinja present; Transformers metadata uses AutoModelForMultimodalLM + AutoProcessor. BF16 metadata reports 29,776,626,688 parameters. Official card lists 4-bit artifacts for 24/32GB hardware. Open-weight with Apache-licensed artifacts; not proof of open pretraining data. Not feasible on 5.8GiB host; no download/inference.
+
+### Meta Muse Spark Open 816B
+- Exact ID: `meta-models/Muse-Spark-Open-816B-A42B`; model-card release date 2026-10-15; inspected snapshot `0fb02478b02565b2ce7fc57e6051c91172774ac9`.
+- Separate Muse Model License (`license:other`), manually gated; not OSI open-source. Requires visible “Built with Muse Spark Open” notice and separate Model-as-a-Service agreement above stated revenue threshold. Tokenizer and chat_template.jinja exist; 65 BF16 shards, 822,036,529,664 bytes tensor data. No access requested/download/inference.
+
+### DeepSeek-V4.1-Flash-1017
+- Exact ID: `deepseek-ai/DeepSeek-V4.1-Flash-1017`; official update 2026-10-17; card states MIT for repo and weights, 763B parameters, Transformers/vLLM/SGLang examples.
+- Exact immutable revision SHA not captured; do not invent or use main as pin. No Jinja chat template: official card points to `encoding/` and `deepseek-recipe`. `deepseek-flash` is hosted API alias, distinct from downloadable weights. Far beyond host memory.
+
+### Qwen, Google/Gemma, Mistral
+- Qwen cloud changelog: `qwen3.8-flash` and `qwen-audio-3.1-realtime-flash` expanded to EU/HK API regions on 2026-10-27; API-only, not verified local weight IDs. Google release log: EmbeddingGemma 2 (740M encoder) 2026-10-06; Gemma 4 12B Unified 2026-06-03; no newer resource-fit chat checkpoint verified. Mistral Large 4 remains watch-only under its separate Mistral Ecosystem Open-Weight License and is too large.
+
+### Runtime and training releases
+- Transformers v5.22.0 (2026-10-29, commit `0f01f27e9c939328b69e9057bfa0d0b25544915b`) adds Mistral Large 4 and FP8 adapter-training backward support; upstream reports chunked expert dequant lowering one 8k-token FP8 backward peak 28.9→2.8 GiB. Not a RAINY measurement; do not replace tested 4.51.3 CPU pin.
+- PEFT v0.21.2 (2026-10-01, commit `eaa35c777c7ba554a2a3639ac9c79bb690f39a57`) remains latest; fixes encoder-decoder compatibility with Transformers >=5.18.0.
+- TRL v1.17.0 (2026-10-29, commit `e257382de9e046b8181a5d1f91586f9bce324126`) supports Mistral Large 4 SFT LoRA on 8×B300 (~142 GiB/GPU reported), requiring Transformers >=5.22.0, PEFT >=0.21.0, Accelerate >=1.15.0; not feasible here.
+- llama.cpp b12001 (2026-10-30 07:41 UTC / 15:41 Ulaanbaatar, commit `eb4e244be77a906a183cd4a00fd51d9ad3200955`) adds RDNA4_M. b12000 adds OCP FP8 E4M3 conversion and Qwen3.8 NVFP4 fixes; no impact on current Qwen CPU path.
+
+Decision: keep Qwen3-0.6B as rollback baseline. No candidate fits the 5.8GiB host with a verified compatible runtime and the same frozen Mongolian evaluation. No pin change, base promotion, download, training or inference.
+
+Sources: [Muse Glimmer paper](https://ai.meta.com/research/publications/muse-glimmer-30b-an-on-device-agentic-model/), [Muse Glimmer card](https://huggingface.co/meta-models/Muse-Glimmer-30B/tree/cec94fcfd6512f2cfe708138c32533b346ea4f69), [Muse Spark metadata](https://huggingface.co/api/models/meta-models/Muse-Spark-Open-816B-A42B), [DeepSeek card](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017), [DeepSeek release](https://api-docs.deepseek.com/news/news261017/), [Qwen changelog](https://docs.qwencloud.com/changelog/models), [Gemma releases](https://ai.google.dev/gemma/docs/releases), [Transformers v5.22.0](https://github.com/huggingface/transformers/releases/tag/v5.22.0), [PEFT v0.21.2](https://github.com/huggingface/peft/releases/tag/v0.21.2), [TRL v1.17.0](https://github.com/huggingface/trl/releases/tag/v1.17.0), [llama.cpp b12001](https://github.com/ggml-org/llama.cpp/releases/tag/b12001).
+
 ## 2026-10-30 13:25 — latest official Qwen3.8 release scan
 
 ### Qwen3.8-27B (open-weight; not resource-feasible here)

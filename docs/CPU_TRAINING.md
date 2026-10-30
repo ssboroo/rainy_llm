@@ -26,9 +26,17 @@ This is a format illustration, **not approval of any current data**. Do not copy
 ## Small sessions and recovery
 Install a compatible, reviewed PyTorch/Transformers/PEFT/Accelerate environment separately. No training dependency lock is claimed yet. PEFT v0.21.2 was researched but not installed/tested; blindly mixing it with the old inference lock is unsupported. Runtime versions, script hash, model file hashes, data/review/eval hashes and training settings are recorded and must match on resume.
 
+New training-run identities use schema 2 and require an exact `namespace/name` model ID, a 40-character immutable upstream commit revision, separate weights/code license declarations, and HTTPS model-card/license URLs. If upstream does not separately specify a code license, state `not separately specified`; never copy the weights license by assumption. The runner hashes every local model file, recognized tokenizer files, and the actual loaded tokenizer chat template (string or named-template map). These declarations are operator-supplied: the runner is offline and does not independently authenticate URLs, licenses, or the claimed Hub revision. Hashes bind the local bytes. The provenance helper's own hash is part of the run identity. Old schema-1 checkpoints are not migrated; a changed runner/identity must start a new run.
+
 ```bash
 python scripts/train_lora_cpu.py \
   --model /private/models/pinned-small-model \
+  --model-id Qwen/Qwen3-0.6B \
+  --model-revision c1899de289a04d12100db370d81485cdf75e47ca \
+  --weights-license Apache-2.0 \
+  --code-license "not separately specified" \
+  --model-card-url https://huggingface.co/Qwen/Qwen3-0.6B \
+  --license-url https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE \
   --data /private/corpus/train.jsonl \
   --evaluation evaluation/mn_v2_draft.jsonl \
   --review /private/corpus/review.json \

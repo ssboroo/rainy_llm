@@ -1,3 +1,10 @@
+## 2026-10-30 16:56 — explicit model provenance in new training identities
+
+- [x] Added `scripts/model_provenance.py` and schema-2 identities for both reviewed-corpus CPU LoRA and the separate synthetic technical runner. New runs require exact model ID, immutable 40-character revision, separate weights/code license declarations, HTTPS source URLs, tokenizer-file hashes and the loaded chat-template hash. The helper hash is part of the run identity.
+- [x] Added nine focused tests covering identity, template hashing, revision/ID/license/URL validation, missing tokenizer/template, malformed hashes and path traversal.
+- [ ] This is provenance/integrity hardening, not training or inference. Declarations are operator-supplied and not independently authenticated. Old schema-1 checkpoints are not migrated.
+- [ ] Next: restore exact Qwen3-0.6B base bytes and the pinned training runtime in durable private storage, then run real Trainer uninterrupted-versus-resumed equivalence. The retained adapter archive omits base weights.
+
 - [ ] Qwen3.8-27B (55.6 GB) and Qwen3.8-2.4T-A95B (separate qwen3.8-max license) are watch-only; no local resource fit. Compare Qwen3.5-0.8B only after runtime pin and same-hash evaluation.
 ## 2026-10-30 13:18 — legacy base fingerprint verified; explicit provenance still needed
 
