@@ -1,0 +1,23 @@
+{
+  "accepted": 1000,
+  "examined": 1347,
+  "api_requests": 128,
+  "rejected": {
+    "short": 303,
+    "exact-duplicate": 36,
+    "quality-artifact": 5,
+    "low-cyrillic": 3
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 10747,
+  "corpus_sha256": "5e978a99527422421a6b6d8d36ad487fcfb345c35be88019246d7cdd88237fc0",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Күүкийн_арлууд",
+    "exhausted": false
+  }
+}
