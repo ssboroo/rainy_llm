@@ -1,3 +1,32 @@
+## 2026-10-30 13:25 — latest official Qwen3.8 release scan
+
+### Qwen3.8-27B (open-weight; not resource-feasible here)
+
+- Exact model ID: \`Qwen/Qwen3.8-27B\`.
+- Official Qwen family release date: **2026-08-14**.
+- Immutable inspected Hugging Face snapshot: \`72a217afab8029b39e4af1c7273a829995a3dbaf\` (a snapshot revision, not claimed to be the initial release commit).
+- Model card license: **Apache-2.0**. Downloadable open weights and Apache-licensed repository files do not establish fully open training data or a fully reproducible open pretraining recipe; classify as open-weight, not fully open-source.
+- Model card tags it as \`qwen3_5\` / Image-Text-to-Text and gives the local loading path \`AutoProcessor\` + \`AutoModelForMultimodalLM\`. The pinned snapshot contains \`tokenizer.json\` (12.8 MB), \`tokenizer_config.json\` (16.8 kB), \`vocab.json\`, \`merges.txt\` and \`chat_template.jinja\` (9.42 kB).
+- The model repository is **55.6 GB** across 18 safetensors shards. This exceeds the current host's 5.81 GiB total RAM by a wide margin before runtime/cache overhead. It is not a candidate for local CPU inference or training here.
+- Official model card lists Transformers, vLLM, SGLang and Docker Model Runner examples. It does not state a minimum stable Transformers version. The current RAINY Transformers 4.51.3 pin is not accepted as compatible without an isolated load test; no package upgrade or download was attempted.
+
+### Qwen3.8-2.4T-A95B (separate license; not resource-feasible)
+
+- Exact model ID: \`Qwen/Qwen3.8-2.4T-A95B\`; official Qwen family release date **2026-08-12**.
+- Immutable inspected config snapshot: \`912e40d903bfc891be8fe3c51faa0a09d182ce95\`.
+- Hugging Face metadata reports license \`qwen3.8-max\`, not Apache-2.0. Treat it as downloadable open-weight under a separate model license, not fully open-source; review the actual terms before any commercial use.
+- The repository is sharded into 213 safetensors files; individual inspected shards are 17.2 GB. No total-RAM or local runtime benchmark was attempted because it is far beyond this host's budget.
+
+### Decision
+
+Qwen3.8 is the newest Qwen family release verified in this scan, but its 27B and 2.4T variants are not feasible on this host. Keep Qwen3-0.6B as the rollback baseline and Qwen3.5-0.8B as a smaller watch-only comparison candidate. Do not infer that a newer model is better for Mongolian; no Qwen3.8 weights were downloaded, no inference/training/evaluation was run, and no base was promoted.
+
+### Official sources
+
+- https://github.com/QwenLM/Qwen3.8 (release dates and official runtime matrix)
+- https://huggingface.co/Qwen/Qwen3.8-27B/tree/72a217afab8029b39e4af1c7273a829995a3dbaf
+- https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B/blob/912e40d903bfc891be8fe3c51faa0a09d182ce95/config.json
+
 ## 2026-10-30 13:18 — retained Qwen3-0.6B archive fingerprint
 
 - Private archive: `rainy-qwen3-lora-smoke-20261025.tar.gz`, 6,552,224 bytes, SHA-256 `e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`. Its sealed step-16 checkpoint has seven required files; all seven byte counts and SHA-256 values matched `rainy-checkpoint.json`.

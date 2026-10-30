@@ -1,3 +1,4 @@
+- [ ] Qwen3.8-27B (55.6 GB) and Qwen3.8-2.4T-A95B (separate qwen3.8-max license) are watch-only; no local resource fit. Compare Qwen3.5-0.8B only after runtime pin and same-hash evaluation.
 ## 2026-10-30 13:18 — legacy base fingerprint verified; explicit provenance still needed
 
 - [x] Audited the private step-16 archive SHA `e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`; all seven sealed checkpoint file sizes and SHA-256 values match the manifest.

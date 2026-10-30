@@ -234,3 +234,6 @@ Remote GitHub Actions PR run [#223](https://github.com/ssboroo/rainy_llm/actions
 ## 2026-10-30: legacy checkpoint base fingerprint
 
 The private step-16 archive was re-audited: its archive SHA-256 is `e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`; all seven sealed checkpoint files match their manifest. The recorded base-model weight SHA-256 `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b` matches the official [Qwen/Qwen3-0.6B file at immutable revision c1899de289a04d12100db370d81485cdf75e47ca](https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/model.safetensors), and its config hash also matches. This identifies the legacy adapter's base snapshot even though the old identity metadata omitted explicit model ID/revision fields. The archive does not contain the base weights, and no actual Qwen resume occurred. Future training identities must store model ID, revision, tokenizer/template hashes and license explicitly.
+
+
+**Latest Qwen watch (2026-10-30):** Qwen3.8-27B (55.6 GB, Apache-2.0 weights) and Qwen3.8-2.4T-A95B (separate `qwen3.8-max` license) are too large for the current 5.81 GiB host. Qwen3.5-0.8B remains a smaller watch-only candidate; Qwen3-0.6B stays the rollback baseline. No Qwen3.8 download or inference was run.
