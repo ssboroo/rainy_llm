@@ -1,3 +1,11 @@
+## 2026-10-30 13:18 — retained Qwen3-0.6B archive fingerprint
+
+- Private archive: \`rainy-qwen3-lora-smoke-20261025.tar.gz\`, 6,552,224 bytes, SHA-256 \`e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063\`. Its sealed step-16 checkpoint has seven required files; all seven byte counts and SHA-256 values matched \`rainy-checkpoint.json\`.
+- The archive's \`identity.json\` records the base \`model.safetensors\` hash \`f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b\`. This exactly matches the official Hugging Face [Qwen/Qwen3-0.6B file](https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/model.safetensors) at immutable revision \`c1899de289a04d12100db370d81485cdf75e47ca\` (the Hub page reports the same SHA-256). The recorded \`config.json\` hash \`660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd\` also matches the official 726-byte config at that revision.
+- Therefore the legacy adapter's base snapshot is identified as \`Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca\`, even though its old \`identity.json\` and \`adapter_config.json\` have null revision fields and the adapter config contains only a local path. The archive contains no base weights, so this is a fingerprint match, not a restored model.
+- Keep Qwen3-0.6B as the rollback baseline. Before any new training, improve future identity metadata to explicitly record model ID, immutable revision, tokenizer/template hashes and license; do not rewrite the old identity or pretend it already contained those fields.
+- Official reference: https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/model.safetensors and https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/config.json
+
 ## 2026-10-30 13:04 — resource-feasible Qwen candidate and upstream runtime scan
 
 ### Candidate: Qwen3.5-0.8B (watch-only; no promotion)

@@ -230,3 +230,10 @@ This is a technical state-restore test with eight synthetic numeric rows. It is 
 
 
 Remote GitHub Actions PR run [#223](https://github.com/ssboroo/rainy_llm/actions/runs/41007166769) passed after this push: **193 tests, 189 passed, 4 optional skips**. All validation, source-policy, draft-evaluation, review-progress, document-search and offline-CLI steps succeeded. This CI run did not perform model training or model inference.
+
+## 2026-10-30: legacy checkpoint base fingerprint
+
+The private step-16 archive was re-audited: its archive SHA-256 is \`e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063\`; all seven sealed checkpoint files match their manifest. The recorded base-model weight SHA-256 \`f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b\` matches the official [Qwen/Qwen3-0.6B file at immutable revision c1899de289a04d12100db370d81485cdf75e47ca](https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/model.safetensors), and its config hash also matches. This identifies the legacy adapter's base snapshot even though the old identity metadata omitted explicit model ID/revision fields. The archive does not contain the base weights, and no actual Qwen resume occurred. Future training identities must store model ID, revision, tokenizer/template hashes and license explicitly.
+
+
+Final documentation commit CI is pending; see the current PR checks. The previous code-bearing commit passed [run #228](https://github.com/ssboroo/rainy_llm/actions/runs/41007316114) with 193 tests (189 passed, 4 optional skips).
