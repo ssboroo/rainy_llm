@@ -2,7 +2,7 @@
 
 - [x] Added `--chat` to `scripts/ask_offline.py`: one hash-verified local GGUF process is reused across turns; optional terminal streaming prints text deltas; `/help`, `/clear` and `/exit` are supported.
 - [x] Conversation history is RAM-only and bounded to 1–64 user/assistant turns (default 8). Model SHA-256 and embedded-template hash are returned; the result explicitly says `trained_rainy_model=false` and `history_persisted=false`.
-- [x] Added nine focused interactive-session tests; together with the existing seven GGUF CLI tests, **16/16 passed locally** (Python 3.13.5, 0.015 s). Bytecode compilation and direct CLI help passed. These tests use a mock backend and synthetic GGUF fixtures, not real model inference.
+- [x] Added ten focused interactive-session tests; together with the existing seven GGUF CLI tests, **17/17 passed locally** (Python 3.13.5, 0.017 s). Bytecode compilation, direct CLI help and synthetic-fixture integrity/error-path probes passed. These tests use a mock backend, not real model inference.
 - [ ] Real GGUF inference remains blocked: no local model artifact or `llama_cpp` runtime is installed, and container DNS cannot resolve GitHub. No model download, training, latency, RSS or Mongolian quality measurement occurred.
 - [ ] Next model-first gate remains real Qwen3-0.6B Trainer resume equivalence: reacquire the exact base bytes and the recorded Torch 2.6.0 / Transformers 4.51.3 / PEFT 0.15.2 / Accelerate 1.6.0 stack in durable private storage. The retained adapter archive omits base weights; do not substitute the generic synthetic resume smoke.
 - [ ] Do not add the HTTP API until real local inference, OS-level egress isolation, cancellation and timeout are measured. No model promotion.

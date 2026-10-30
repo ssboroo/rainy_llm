@@ -1,12 +1,13 @@
 import io
 import json
+import tempfile
 import types
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from scripts.ask_offline import chat_session, main
+from scripts.ask_offline import chat_session, main, verify_model
 
 
 class OfflineChatSessionTests(unittest.TestCase):
@@ -83,6 +84,15 @@ class OfflineChatSessionTests(unittest.TestCase):
         second_messages = self.model.create_chat_completion.call_args_list[1].kwargs['messages']
         self.assertEqual(second_messages[1], {'role': 'assistant', 'content': 'Урсгал хариу'})
         self.assertTrue(self.model.create_chat_completion.call_args_list[1].kwargs['stream'])
+
+    def test_bad_hash_refuses_before_opening_chat_runtime(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'fixture.gguf'
+            path.write_bytes(b'GGUFtest-fixture-not-real-weights')
+            with patch('scripts.ask_offline.verify_model', wraps=verify_model):
+                with self.assertRaisesRegex(ValueError, 'mismatch'):
+                    chat_session(path, '0' * 64)
+        self.factory.assert_not_called()
 
     def test_invalid_history_limit_refuses_before_loading_model(self):
         with self.assertRaisesRegex(ValueError, 'between 1 and 64'):
