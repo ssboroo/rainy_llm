@@ -52,9 +52,22 @@ class CheckpointResumeEquivalenceTests(unittest.TestCase):
             target = root / "target"
             target.mkdir()
             link = root / "link"
-            link.symlink_to(target, target_is_directory=True)
+            try:
+                link.symlink_to(target, target_is_directory=True)
+            except (OSError, NotImplementedError):
+                self.skipTest("symlink creation is unavailable on this platform")
             with self.assertRaisesRegex(ValueError, "symlinks"):
                 experiment.run_experiment(link)
+
+
+    def test_peak_rss_is_nullable_without_resource_module(self):
+        from scripts import checkpoint_resume_equivalence as experiment
+        previous = experiment.resource
+        try:
+            experiment.resource = None
+            self.assertIsNone(experiment._peak_rss_platform_units())
+        finally:
+            experiment.resource = previous
 
 
 if __name__ == "__main__":

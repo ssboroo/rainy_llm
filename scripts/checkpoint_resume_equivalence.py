@@ -13,7 +13,10 @@ import os
 from pathlib import Path
 import platform
 import random
-import resource
+try:
+    import resource
+except ImportError:  # Windows has no stdlib resource module.
+    resource = None
 import subprocess
 import sys
 import time
@@ -29,6 +32,12 @@ SEED = 20261030
 TOTAL_STEPS = 4
 SPLIT_STEP = 2
 ROW_COUNT = 8
+
+
+def _peak_rss_platform_units():
+    if resource is None:
+        return None
+    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
 
 
 def _rows():
@@ -197,7 +206,7 @@ def _resume_worker(run_dir, checkpoint):
     result = {
         "steps_resumed": TOTAL_STEPS - state["global_step"],
         "elapsed_seconds": elapsed,
-        "peak_rss_platform_units": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_rss_platform_units": _peak_rss_platform_units(),
         "final_checkpoint": str(final),
     }
     (run_dir / "worker-result.json").write_text(

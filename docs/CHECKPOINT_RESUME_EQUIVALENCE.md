@@ -15,7 +15,7 @@ python scripts/checkpoint_resume_equivalence.py --help
 python scripts/checkpoint_resume_equivalence.py --output /private/rainy-resume-equivalence-20261030
 ```
 
-The output path must not exist and must be outside every Git checkout. It contains the run identity, a four-step uninterrupted reference checkpoint, a two-step checkpoint, a fresh Python subprocess that resumes steps 3–4, exact state comparisons and `summary.json`. Keep output private if it is retained; do not commit it or any checkpoint bytes.
+The output path must not exist and must be outside every Git checkout. It contains the run identity, a four-step uninterrupted reference checkpoint, a two-step checkpoint, a fresh Python subprocess that resumes steps 3–4, exact state comparisons and `summary.json`. Keep output private if it is retained; do not commit it or any checkpoint bytes. Peak RSS uses `resource.getrusage` where available; on Windows the report records `null` rather than inventing a value.
 
 The test compares five independent pieces exactly: model tensors, optimizer state, scheduler state, Python/NumPy/Torch RNG state, and trainer step/order/loss history. It exits non-zero on any mismatch. The CLI help remains usable when the optional ML runtime is absent; the actual experiment test is skipped unless Torch and safetensors are installed.
 

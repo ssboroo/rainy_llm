@@ -237,3 +237,6 @@ The private step-16 archive was re-audited: its archive SHA-256 is `e9036fdea289
 
 
 **Latest Qwen watch (2026-10-30):** Qwen3.8-27B (55.6 GB, Apache-2.0 weights) and Qwen3.8-2.4T-A95B (separate `qwen3.8-max` license) are too large for the current 5.81 GiB host. Qwen3.5-0.8B remains a smaller watch-only candidate; Qwen3-0.6B stays the rollback baseline. No Qwen3.8 download or inference was run.
+
+
+The checkpoint-resume smoke is portable to Windows when optional ML packages are installed: platforms without Python's `resource` module report peak RSS as `null`, and the symlink-specific test skips if symlink creation is unavailable.
