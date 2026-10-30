@@ -9,7 +9,7 @@
 - Separate Muse Model License (`license:other`), manually gated; not OSI open-source. Requires visible “Built with Muse Spark Open” notice and separate Model-as-a-Service agreement above stated revenue threshold. Tokenizer and chat_template.jinja exist; 65 BF16 shards, 822,036,529,664 bytes tensor data. No access requested/download/inference.
 
 ### DeepSeek-V4.1-Flash-1017
-- Exact ID: `deepseek-ai/DeepSeek-V4.1-Flash-1017`; official update 2026-10-17; card states MIT for repo and weights, 763B parameters, Transformers/vLLM/SGLang examples.
+- Exact ID: `deepseek-ai/DeepSeek-V4.1-Flash-1017`; official update 2026-10-17; card states MIT for repo and weights, 763B parameters, Transformers/vLLM/SGLang examples. Classify as downloadable open-weight; the card does not establish fully open pretraining data/recipe.
 - Exact immutable revision SHA not captured; do not invent or use main as pin. No Jinja chat template: official card points to `encoding/` and `deepseek-recipe`. `deepseek-flash` is hosted API alias, distinct from downloadable weights. Far beyond host memory.
 
 ### Qwen, Google/Gemma, Mistral
