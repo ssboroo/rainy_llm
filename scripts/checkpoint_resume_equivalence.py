@@ -319,7 +319,7 @@ def run_experiment(output):
         "fresh_process_resume_training_seconds": json.loads(
             (resumed_dir / "worker-result.json").read_text()
         )["elapsed_seconds"],
-        "peak_rss_platform_units_parent": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
+        "peak_rss_platform_units_parent": _peak_rss_platform_units(),
         "peak_rss_platform_units_resume_child": json.loads(
             (resumed_dir / "worker-result.json").read_text()
         )["peak_rss_platform_units"],
