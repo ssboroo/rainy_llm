@@ -53,3 +53,26 @@ The retained seed42 checkpoint matched all 12 saved predictions in 27.7639s,
 peak RSS 4,822,560 KiB. See `research/results/2026-10-28-restore/reload.json`.
 This checks inference reproducibility, not optimizer resume or quality gains.
 HF offline flags and Python socket guards do not certify OS-level isolation.
+
+
+## Safe legacy RNG-state restoration (2026-10-30)
+
+The retained 2026-10-25 step-16 archive stores NumPy MT19937 keys as a
+`uint32` ndarray. On the current CPU runtime, a plain
+`torch.load(..., weights_only=True)` rejected that historical file because
+`numpy._core.multiarray._reconstruct` and NumPy dtype classes were not in the
+default safe-global set. The resume helper now allowlists only the NumPy
+ndarray/dtype/reconstruction symbols needed for this format, still uses
+`weights_only=True`, then validates the exact Python, NumPy MT19937 and CPU
+Torch RNG structures before restoring them. New checkpoints store NumPy keys
+as primitive integers and do not require those NumPy globals. Unknown pickle
+globals remain rejected; there is no `weights_only=False` fallback.
+
+The inspected archive SHA-256 was
+`e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`.
+The legacy RNG payload loaded successfully in an isolated CPU probe, while a
+custom untrusted pickle global was rejected. This compatibility fix does not
+complete a real Trainer resume: the archive contains the adapter/optimizer/
+scheduler/RNG state but not the base model weights. Exact uninterrupted versus
+resumed equivalence remains pending until the same pinned base snapshot and
+runtime are available.

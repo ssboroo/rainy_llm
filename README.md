@@ -7,7 +7,7 @@
 
 [Өгөгдөл](#өгөгдлийн-сан) · [Туршилтын үр дүн](#бодитоор-хийсэн-туршилтууд) · [Эхлэх](#ажиллуулж-эхлэх) · [Дараагийн ажил](#дараагийн-ажил) · [English](#english-summary)
 
-> **2026-10-29-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бэлэн чат үйлчилгээ, API/Docker release гараагүй.**
+> **2026-10-30-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бэлэн чат үйлчилгээ, API/Docker release гараагүй.**
 
 ## Одоогийн боломж
 
@@ -19,7 +19,7 @@
 | Асуулт–хариулт | Эхэд тулгуурласан 10 ноорог; сургалтад баталсан багц биш |
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
 | Сургалт | Qwen3-0.6B дээр бодит CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй |
-| Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; 4 алхмыг 2+2 сэргээхтэй тулгасан туршилт бий |
+| Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; legacy NumPy RNG state-ийг safe weights-only loader-оор сэргээх боломж нэмэгдсэн; бодит Trainer resume equivalence хүлээгдэнэ |
 | Offline | Local GGUF CLI and safetensors bundle runner remain experimental; no real RAINY bundle or OS-level egress test yet |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
 | Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
@@ -154,7 +154,7 @@ Runtime шаардлага нь стандарт сангийн тестээс �
 - [Модель татахаас өмнөх resource preflight](docs/BOUNDED_EXPERIMENT.md)
 - [Хадгалсан checkpoint сэргээх](docs/CHECKPOINT_RESTORE.md)
 
-Энэ repository-д нийтийн model weights, хувийн checkpoint архив багтаахгүй. Adapter дангаараа суурь загварыг орлохгүй. OS түвшний интернэтгүй ажиллагааны баталгаажуулалт, GGUF export болон бүрэн installation package үлдсэн.
+2026-10-25-ны хувийн step-16 checkpoint-ийн хуучин NumPy RNG ndarray state-ийг зөвхөн тодорхой NumPy reconstruction globals-оор, `weights_only=True` горимд сэргээх compatibility fix нэмэгдсэн. Танихгүй pickle global-ийг зөвшөөрөхгүй. Гэхдээ архивт base model weights байхгүй тул энэ нь бодит training resume эсвэл uninterrupted/resumed equivalence биш. Энэ repository-д нийтийн model weights, хувийн checkpoint архив багтаахгүй. Adapter дангаараа суурь загварыг орлохгүй. OS түвшний интернэтгүй ажиллагааны баталгаажуулалт, GGUF export болон бүрэн installation package үлдсэн.
 
 ## Өгөгдөл бэлтгэх ба үнэлэх
 
@@ -199,7 +199,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## English summary
 
-RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-29**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay an experimental offline-bundle packaging tool, and a mock-tested safetensors offline runner. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-30**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay, experimental offline-bundle packaging and a mock-tested safetensors offline runner, plus a safe legacy NumPy RNG-state loader. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
 
 The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
@@ -219,4 +219,4 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 
 ---
 
-**Баримтжуулалтын огноо:** 2026-10-29 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
+**Баримтжуулалтын огноо:** 2026-10-30 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.

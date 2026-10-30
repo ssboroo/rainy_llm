@@ -1,5 +1,14 @@
 # Хөгжүүлэлтийн дараалал
 
+## 2026-10-30 09:05 — legacy NumPy RNG checkpoint compatibility
+
+- [x] Inspected the retained private 2026-10-25 step-16 archive. Its optimizer and scheduler files load with PyTorch's weights-only loader, but its legacy NumPy MT19937 ndarray in rng_state.pth was rejected because NumPy reconstruction symbols were not allowlisted.
+- [x] Added a narrow, weights-only RNG loader for the exact NumPy ndarray/dtype reconstruction symbols required by that legacy payload, followed by strict Python/NumPy/Torch RNG structure validation. New checkpoints continue storing NumPy keys as primitive integers. Unknown pickle globals remain rejected.
+- [x] Verified the real archived RNG state in an isolated CPU probe; also checked current list-form payloads and rejection of an untrusted custom global. This is a checkpoint-compatibility fix, not a completed training resume.
+- [ ] Run uninterrupted-versus-resumed Trainer equivalence on the same pinned Torch/Transformers/PEFT stack, base snapshot, optimizer, scheduler, RNG, data and config. The inspected archive does not include base model weights, and the current host lacks Transformers/PEFT.
+- [ ] Re-run a fresh multi-capability held-out draft evaluation and multiple seeds only after the training/evaluation split and model artifact are available.
+
+
 ## 2026-10-29 21:04 — local safetensors offline inference runner
 
 - [x] Added scripts/ask_offline_bundle.py to run an existing verified merged safetensors bundle or base-plus-adapter bundle with exact runtime-pin checks, explicit chat-template hash verification, local-only loading, disabled remote code, deterministic bounded generation and JSON timing/token/RSS metadata.
@@ -174,7 +183,7 @@
 - [ ] GPU нэр, VRAM, төсөв тогтоох
 - [x] Dataset normalization, source-based split, exact dedup болон evaluation/training character n-gram near-overlap audit (semantic detection үргэлжилнэ)
 - [x] Experimental local CPU LoRA runner with assistant-only masking and resume guards; [limits](CPU_TRAINING.md). Guard tests only, no backend training yet.
-- [x] Checkpoint completion manifest, SHA-256 integrity and interrupted-save fault tests; real Trainer save/resume still pending.
+- [x] Checkpoint completion manifest, SHA-256 integrity, interrupted-save fault tests and safe legacy NumPy RNG restoration; exact uninterrupted-versus-resumed Trainer equivalence still pending.
 - [ ] Баталгаажуулсан хувилбартай сургалтын dependencies, бодит CPU LoRA resume equivalence test ба QLoRA script
 - [ ] GPU smoke run, loss ба held-out evaluation; baseline-тай харьцуулах
 - [ ] Model card, adapter artifact, inference API, Docker
