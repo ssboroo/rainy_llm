@@ -1,7 +1,7 @@
 ## 2026-10-30 13:18 — legacy base fingerprint verified; explicit provenance still needed
 
-- [x] Audited the private step-16 archive SHA \`e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063\`; all seven sealed checkpoint file sizes and SHA-256 values match the manifest.
-- [x] Matched the archive's base \`model.safetensors\` hash \`f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b\` and config hash \`660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd\` to official \`Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca\`. This identifies the legacy adapter's base snapshot; the archive still excludes the base weights.
+- [x] Audited the private step-16 archive SHA `e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`; all seven sealed checkpoint file sizes and SHA-256 values match the manifest.
+- [x] Matched the archive's base `model.safetensors` hash `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b` and config hash `660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd` to official `Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca`. This identifies the legacy adapter's base snapshot; the archive still excludes the base weights.
 - [ ] Update new training-run identities to require explicit model ID, immutable revision, tokenizer/chat-template hashes and license metadata. Preserve legacy checkpoint identity without rewriting it.
 - [ ] Reacquire the exact base bytes and pinned training runtime in private storage before real uninterrupted-versus-resumed Qwen Trainer equivalence. No actual Qwen resume was run here.
 
