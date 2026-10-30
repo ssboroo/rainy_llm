@@ -1,0 +1,23 @@
+{
+  "accepted": 1008,
+  "examined": 1466,
+  "api_requests": 132,
+  "rejected": {
+    "short": 408,
+    "exact-duplicate": 36,
+    "quality-artifact": 11,
+    "low-cyrillic": 3
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 8729,
+  "corpus_sha256": "31d5d3afc4d32b021fb07280d5cebc095c309c8f292ec9433d762c321cd378f0",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Жыжөн",
+    "exhausted": false
+  }
+}
