@@ -9,7 +9,7 @@
 - Files at that revision include `tokenizer.json` (12.8 MB), `tokenizer_config.json`, and explicit `chat_template.jinja` (6.67 kB). The model card uses `AutoProcessor` + `AutoModelForMultimodalLM`; it is an image-text-to-text model, not a text-only checkpoint.
 - `config.json`: `Qwen3_5ForConditionalGeneration`, `model_type=qwen3_5`, 24 layers, hidden size 1,024, hybrid linear/full attention, and `transformers_version=4.57.0.dev0`. This field is build metadata, not a guaranteed minimum stable runtime version. The model card does not specify a tested minimum stable Transformers version.
 - Model repository size is about 1.77 GB, including a 1.75 GB safetensors weight file. This is a disk-size observation, not a peak-RAM measurement; activations, KV/cache state, processor and runtime add overhead. It may be a candidate for the current 5.81 GiB CPU host, but fit is unverified.
-- Transformers' Qwen3.5 integration documentation says support was contributed on 2026-02-09. The Qwen3.5 architecture support was merged into `llama.cpp` in February 2026 (`models: support qwen3.5 series`, commit `fc0fe40`); no compatible local GGUF artifact/runtime was acquired in this run.
+- Transformers' Qwen3.5 integration documentation says support was contributed on 2026-02-09. The Qwen3.5 architecture support was merged into `llama.cpp` in February 2026 (`models: support qwen3.5 series`, commit `fc0fe4004985d6749a7a05e250d161f9dbe41d65`); no compatible local GGUF artifact/runtime was acquired in this run.
 - No dedicated technical report for this exact dense 0.8B checkpoint was identified. The Qwen3.5-Omni report (arXiv:2604.15804, 2026-04-17) describes a separate hundreds-of-billions-parameter Omni model and must not be cited as a report for this 0.8B checkpoint.
 - Decision: retain Qwen3-0.6B as the existing baseline. Compare this candidate only after a compatible pinned runtime and legally acquired immutable weights are available, using the same frozen evaluation hash, decoding, CPU/thread settings and memory measurement. No download, inference, training, Mongolian score, latency or base promotion occurred in this run.
 
@@ -34,7 +34,7 @@
 - https://huggingface.co/Qwen/Qwen3.5-0.8B/blob/2b48083dfa97c3cbf0220cf1a5e6cffe0a511157/config.json
 - https://huggingface.co/Qwen/Qwen3.5-0.8B/blob/2b48083dfa97c3cbf0220cf1a5e6cffe0a511157/chat_template.jinja
 - https://github.com/huggingface/transformers/blob/main/docs/source/en/model_doc/qwen3_5.md
-- https://github.com/ggml-org/llama.cpp/commit/fc0fe40
+- https://github.com/ggml-org/llama.cpp/commit/fc0fe4004985d6749a7a05e250d161f9dbe41d65
 - https://ai.google.dev/gemma/docs/releases
 - https://huggingface.co/google/gemma-4-E2B-it
 - https://github.com/huggingface/transformers/releases/tag/v5.22.0
