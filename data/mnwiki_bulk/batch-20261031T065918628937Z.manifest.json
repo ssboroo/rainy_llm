@@ -1,0 +1,22 @@
+{
+  "accepted": 1014,
+  "examined": 1496,
+  "api_requests": 138,
+  "rejected": {
+    "short": 428,
+    "exact-duplicate": 45,
+    "quality-artifact": 9
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 11761,
+  "corpus_sha256": "5fa1852c4c6b07d37ccc13f3e46fc4d678271a0602cdbac53e7f1a29289a26b7",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Математикийн_тэмдэглэгээний_тайлбар_толь",
+    "exhausted": false
+  }
+}
