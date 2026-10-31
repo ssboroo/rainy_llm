@@ -107,18 +107,73 @@ def generate_stream(model_path, expected_sha256, prompt, context=2048, max_token
         model.close()
 
 
+CHAT_MESSAGE_OVERHEAD_TOKENS = 8
+
+
+def _message_token_cost(model, content):
+    tokenizer = getattr(model, 'tokenize', None)
+    if not callable(tokenizer):
+        raise ValueError('runtime tokenizer is required for token-bounded chat history')
+    try:
+        tokens = tokenizer(content.encode('utf-8'), add_bos=False, special=True)
+    except Exception as exc:
+        raise ValueError(f'could not tokenize chat message: {exc}') from exc
+    if not isinstance(tokens, (list, tuple)):
+        raise ValueError('runtime tokenizer returned an invalid token sequence')
+    return len(tokens) + CHAT_MESSAGE_OVERHEAD_TOKENS
+
+
+def _fit_chat_messages(model, history, prompt, context, max_tokens,
+                       max_history_turns, max_history_tokens):
+    # Reserve space for chat-template/control tokens and small tokenizer/template
+    # differences. The backend still remains authoritative about its real context.
+    reserve = max(64, min(256, context // 16))
+    input_budget = context - max_tokens - reserve
+    prompt_cost = _message_token_cost(model, prompt)
+    if prompt_cost > input_budget:
+        return None, prompt_cost, input_budget, reserve
+
+    prior_limit = 2 * max(0, max_history_turns - 1)
+    prior = history[-prior_limit:] if prior_limit else []
+    if len(prior) % 2:
+        prior = prior[1:]
+
+    remaining = min(max_history_tokens, input_budget - prompt_cost)
+    selected = []
+    selected_cost = 0
+    # Keep a contiguous suffix of complete user/assistant pairs. If the newest
+    # pair cannot fit, older pairs are not cherry-picked out of order.
+    for index in range(len(prior) - 2, -1, -2):
+        pair = prior[index:index + 2]
+        pair_cost = sum(_message_token_cost(model, item['content']) for item in pair)
+        if pair_cost > remaining:
+            break
+        selected = pair + selected
+        selected_cost += pair_cost
+        remaining -= pair_cost
+
+    request_messages = selected + [{'role': 'user', 'content': prompt}]
+    return request_messages, prompt_cost + selected_cost, input_budget, reserve
+
+
 def chat_session(model_path, expected_sha256, context=2048, max_tokens=256, threads=4,
-                 stream=False, max_history_turns=8):
-    """Run a bounded, in-memory interactive chat against one local GGUF process."""
+                 stream=False, max_history_turns=8, max_history_tokens=1024):
+    """Run a local chat with bounded turn count and tokenizer-estimated history tokens."""
     _validate_generation('interactive chat', context, max_tokens, threads)
     if type(max_history_turns) is not int or not 1 <= max_history_turns <= 64:
         raise ValueError('max_history_turns must be between 1 and 64')
+    if type(max_history_tokens) is not int or not 0 <= max_history_tokens <= 1000000:
+        raise ValueError('max_history_tokens must be between 0 and 1000000')
     path = verify_model(model_path, expected_sha256)
     model = _open_model(path, context, threads)
     try:
+        if not callable(getattr(model, 'tokenize', None)):
+            raise ValueError('runtime tokenizer is required for token-bounded chat history')
         template = _require_template(model)
         messages = []
         turns = 0
+        last_input_tokens_estimate = 0
+        last_context_reserve = max(64, min(256, context // 16))
         print('RAINY offline chat — /help, /clear, /exit')
         while True:
             try:
@@ -139,11 +194,18 @@ def chat_session(model_path, expected_sha256, context=2048, max_tokens=256, thre
                 print('Ярианы түүх ариллаа.')
                 continue
 
-            # Keep at most N-1 previous user/assistant pairs plus this new user turn.
-            previous_message_limit = 2 * (max_history_turns - 1)
-            prior_messages = messages[-previous_message_limit:] if previous_message_limit else []
-            request_messages = [dict(message) for message in prior_messages]
-            request_messages.append({'role': 'user', 'content': prompt})
+            try:
+                request_messages, input_estimate, input_budget, reserve = _fit_chat_messages(
+                    model, messages, prompt, context, max_tokens,
+                    max_history_turns, max_history_tokens)
+            except (RuntimeError, ValueError) as exc:
+                print(f'RAINY: Токен тоолол амжилтгүй; энэ асуултыг илгээсэнгүй: {exc}')
+                continue
+            if request_messages is None:
+                print(f'RAINY: Асуулт хэт урт байна (ойролцоогоор {input_estimate} токен; '
+                      f'оролтын төсөв {input_budget}). Товчилж дахин илгээнэ үү.')
+                continue
+
             try:
                 print('RAINY: ', end='', flush=True)
                 if stream:
@@ -164,7 +226,7 @@ def chat_session(model_path, expected_sha256, context=2048, max_tokens=256, thre
                         content = delta.get('content')
                         if content is not None:
                             if not isinstance(content, str):
-                                raise ValueError('backend returned non-text delta content')
+                                raise ValueError('backend returned non-text assistant content')
                             if content:
                                 print(content, end='', flush=True)
                                 pieces.append(content)
@@ -182,13 +244,15 @@ def chat_session(model_path, expected_sha256, context=2048, max_tokens=256, thre
                 raise
             messages = request_messages + [{'role': 'assistant', 'content': answer}]
             turns += 1
+            last_input_tokens_estimate = input_estimate
+            last_context_reserve = reserve
         return {'turns': turns, 'model_sha256': expected_sha256,
                 'chat_template_sha256': hashlib.sha256(template.encode()).hexdigest(),
-                'trained_rainy_model': False, 'history_persisted': False}
-    finally:
-        model.close()
-
-
+                'trained_rainy_model': False, 'history_persisted': False,
+                'max_history_turns': max_history_turns,
+                'max_history_tokens': max_history_tokens,
+                'last_input_tokens_estimate': last_input_tokens_estimate,
+                'context_safety_reserve_tokens': last_context_reserve}
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', required=True)
@@ -202,6 +266,8 @@ def main():
                         help='start a bounded interactive chat; history stays in memory only')
     parser.add_argument('--max-history-turns', type=int, default=8,
                         help='maximum user/assistant turns retained in RAM (1..64)')
+    parser.add_argument('--max-history-tokens', type=int, default=1024,
+                        help='tokenizer-estimated budget for prior turns; current prompt has a separate context budget')
     parser.add_argument('--stream', action='store_true',
                         help='emit NDJSON deltas for one prompt; stream plain text in --chat mode')
     args = parser.parse_args()
@@ -213,6 +279,8 @@ def main():
         parser.error('--prompt is required unless --chat or --check-only is used')
     if not args.chat and args.max_history_turns != 8:
         parser.error('--max-history-turns is only valid with --chat')
+    if not args.chat and args.max_history_tokens != 1024:
+        parser.error('--max-history-tokens is only valid with --chat')
     try:
         if args.check_only:
             verify_model(args.model, args.sha256)
@@ -220,7 +288,8 @@ def main():
                       'inference_executed': False}
         elif args.chat:
             result = chat_session(args.model, args.sha256, args.context, args.max_tokens,
-                                  args.threads, args.stream, args.max_history_turns)
+                                  args.threads, args.stream, args.max_history_turns,
+                                  args.max_history_tokens)
         elif args.stream:
             for event in generate_stream(args.model, args.sha256, args.prompt,
                                           args.context, args.max_tokens, args.threads):

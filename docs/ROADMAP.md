@@ -1,3 +1,11 @@
+## 2026-10-31 08:56 — tokenizer-budgeted offline chat history
+
+- [x] Added a tokenizer-estimated prior-history token budget to `scripts/ask_offline.py`; the current prompt has a separate safe input budget after reserving output and 64–256 context tokens for chat-template/control overhead.
+- [x] Preserve the newest contiguous complete user/assistant pairs first, subject to both the 1–64 turn ceiling and `--max-history-tokens` (default 1024). Refuse an overlong current prompt before generation instead of silently truncating or repeatedly sending a context-overflow request.
+- [x] Added mock tests for newest-pair retention, overlong-prompt refusal, missing-tokenizer fail-closed behavior and invalid budgets. These tests do not establish real GGUF inference or exact rendered-template token counts.
+- [ ] Real GGUF inference remains blocked by the missing local model artifact/runtime and unavailable outbound DNS. Validate with a legally acquired pinned artifact before adding HTTP API, cancellation or Docker serving.
+- [ ] Watch-only candidate: official `google/gemma-4-E2B-it-qat-q4_0-gguf` at immutable revision `675cff42a74c774d6cb76f76d8eacb49b48c9b93`; text GGUF is 3.35 GB, with a separate 987 MB multimodal projector. No RAINY-host inference or Mongolian comparison has been run; do not promote the baseline.
+
 ## 2026-10-30 20:57 — bounded interactive offline GGUF chat
 
 - [x] Added `--chat` to `scripts/ask_offline.py`: one hash-verified local GGUF process is reused across turns; optional terminal streaming prints text deltas; `/help`, `/clear` and `/exit` are supported.

@@ -1,3 +1,37 @@
+## 2026-10-31 08:56 — official Gemma QAT GGUF and runtime release recheck
+
+### Resource-feasible candidate to verify (watch-only)
+
+- Exact model ID: `google/gemma-4-E2B-it-qat-q4_0-gguf`.
+- Upstream family release: Gemma 4 E2B/E4B/31B/26B A4B was released **2026-03-31**; the official QAT Q4_0 GGUF repository's validated GGUF upload is dated **2026-07-17**.
+- Immutable Hugging Face repository revision: `675cff42a74c774d6cb76f76d8eacb49b48c9b93`.
+- Weights license: **Apache-2.0** as declared by the official model repository. This is downloadable open-weight, not evidence that all pretraining data/recipe are fully open-source. No separate executable code is shipped in the GGUF repository; the llama.cpp runtime has its own MIT license.
+- GGUF contains tokenizer/chat-template metadata; the repository does not provide a separate tokenizer package version in the inspected card. The text model file `gemma-4-E2B_q4_0-it.gguf` is **3.35 GB**; the optional multimodal projector `gemma-4-E2B-it-mmproj.gguf` is **987 MB**. Text-only CLI testing does not require the projector.
+- Runtime: official model card provides llama.cpp CLI/server instructions and the GGUF is tagged for llama.cpp. The exact runtime build used for a RAINY test remains unpinned/unverified.
+- Resource note: this host has 5.81 GiB total RAM and 4.7 GiB available at preflight. A 3.35 GB file alone does not establish that model + KV cache + runtime will fit. No download, load, inference or peak-RSS measurement was possible here; keep watch-only.
+- Do not confuse the official Q4_0 artifact with the separate llama.cpp b12008 CPU memory note below: that upstream measurement is for **Q4_K_M** and cannot be transferred to this Q4_0 file.
+
+### Runtime and training libraries
+
+- `llama.cpp` **b12008**, published 2026-10-30 14:06 UTC (22:06 Ulaanbaatar), immutable commit `344846b4fc6fff5988f215e7cf839f880d04decf`: fixes tied `token_embd` creation order; upstream reports Gemma 4 E2B-it Q4_K_M CPU model buffer (no mmap) reduced from 3163.73 MiB to 2947.73 MiB. This is an upstream memory result for that Q4_K_M configuration, not a RAINY measurement.
+- Latest `llama.cpp` **b12017**, published 2026-10-30 20:19:54 UTC (2026-10-31 04:19:54 Ulaanbaatar), immutable commit `5047748f114564fcf271e6a648f60e2d2eae6264`: removes an RPC path helper; no model-quality or relevant memory change.
+- `Transformers v5.22.1`, published 2026-10-30 09:36:03 UTC, commit `446a570e62b04a89ea001604ada7366baac2ea67`, remains a documentation-only patch.
+- `PEFT v0.21.2` (2026-10-01, commit `eaa35c777c7ba554a2a3639ac9c79bb690f39a57`) remains the latest inspected PEFT release.
+- `TRL v1.17.1`, published 2026-10-30 14:15:28 UTC (22:15:28 Ulaanbaatar), tag object `eee64790d58f2d560cc7219c7e6d9e8b8922c83b`, commit `44809ba3f3a136f3d62859ee981fee2506bce5c9`: a narrow LFM2.5 tool-call parenthesis fix; no relevant SFT/LoRA capability change. TRL v1.17.0's Mistral Large 4 recipe still requires Transformers >=5.22.0, PEFT >=0.21.0 and Accelerate >=1.15.0 and reports ~142 GiB/GPU on 8×B300, outside this host budget.
+
+Decision: keep `Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca` as rollback baseline. Gemma 4 QAT Q4_0 is a candidate for a later same-hash Mongolian CPU comparison, not a promoted base. No dependency pins changed.
+
+Sources:
+- [Gemma family release dates](https://ai.google.dev/gemma/docs/releases)
+- [Official Gemma 4 QAT Q4_0 GGUF](https://huggingface.co/google/gemma-4-E2B-it-qat-q4_0-gguf/tree/675cff42a74c774d6cb76f76d8eacb49b48c9b93)
+- [Gemma 4 model card](https://ai.google.dev/gemma/docs/core/model_card_4)
+- [llama.cpp b12008 release](https://github.com/ggml-org/llama.cpp/releases/tag/b12008)
+- [llama.cpp b12017 release](https://github.com/ggml-org/llama.cpp/releases/tag/b12017)
+- [Transformers v5.22.1](https://github.com/huggingface/transformers/releases/tag/v5.22.1)
+- [PEFT v0.21.2](https://github.com/huggingface/peft/releases/tag/v0.21.2)
+- [TRL v1.17.1](https://github.com/huggingface/trl/releases/tag/v1.17.1)
+- [llama-cpp-python tokenizer API](https://llama-cpp-python.readthedocs.io/en/latest/api-reference/)
+
 ## 2026-10-30 20:57 — latest runtime release recheck
 
 ### Transformers v5.22.1

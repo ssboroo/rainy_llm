@@ -7,7 +7,7 @@
 
 [Өгөгдөл](#өгөгдлийн-сан) · [Туршилтын үр дүн](#бодитоор-хийсэн-туршилтууд) · [Эхлэх](#ажиллуулж-эхлэх) · [Дараагийн ажил](#дараагийн-ажил) · [English](#english-summary)
 
-> **2026-10-30-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. GGUF CLI-д нэг процессоор ажиллах, RAM-д хязгаарлагдсан интерактив chat mode нэмэгдсэн; энэ нь mock тесттэй интерфейсийн ажил бөгөөд бодит GGUF жинтэй inference биш. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бодит inference-ээр баталсан чат үйлчилгээ, API/Docker release гараагүй.**
+> **2026-10-31-ний төлөв:** GGUF CLI-ийн интерактив chat history-г turn-ийн тооноос гадна runtime tokenizer-оор тооцсон токены төсвөөр хязгаарлаж, хамгийн сүүлийн бүтэн ярианы хосыг хадгалдаг болгосон; хэт урт шинэ асуултыг inference рүү явуулахгүй. Энэ өөрчлөлт mock тесттэй, бодит GGUF inference биш. Өмнөх CPU LoRA/checkpoint туршилтууд нь жижиг техникийн smoke хэвээр. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бодит inference-ээр баталсан чат үйлчилгээ, API/Docker release гараагүй.**
 
 ## Одоогийн боломж
 
@@ -20,7 +20,7 @@
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
 | Сургалт | Qwen3-0.6B дээр хиймэл жишээтэй CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй. Шинэ training identity нь upstream model/revision, тусдаа weights/code license, tokenizer/template hash шаарддаг |
 | Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; legacy NumPy RNG state-ийг safe weights-only loader-оор сэргээх боломж нэмэгдсэн; бодит Trainer resume equivalence хүлээгдэнэ |
-| Offline | Local GGUF CLI supports single-turn NDJSON streaming and a bounded in-memory interactive session; real weights and OS-level egress are still unverified |
+| Offline | Local GGUF CLI supports single-turn NDJSON streaming and interactive chat with turn + tokenizer-estimated history-token budgets; real weights and OS-level egress are still unverified |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
 | Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
 
@@ -141,10 +141,10 @@ python scripts/ask_offline.py --help
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --check-only
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул."
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул." --stream
-python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --chat --stream --max-history-turns 8
+python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --chat --stream --max-history-turns 8 --max-history-tokens 1024
 ```
 
-`--check-only` нь зөвхөн файлын hash/header шалгана. Нэг prompt-ийн `--stream` нь `delta`/`done` JSON мөр (NDJSON) гаргана. `--chat` нэг локал model process-ийг олон turn-д дахин ашиглаж, хамгийн ихдээ 1–64 user/assistant turn-ийг RAM-д барина; `/help`, `/clear`, `/exit` командтай бөгөөд түүхийг дискэнд хадгалахгүй. Chat mode-д `--stream` нь plain-text хэсгүүдийг шууд хэвлэнэ. Энэ нь локал CLI болохоос HTTP API биш. Бодит GGUF жинтэй inference/offline network isolation хараахан баталгаажаагүй. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
+`--check-only` нь зөвхөн файлын hash/header шалгана. Нэг prompt-ийн `--stream` нь `delta`/`done` JSON мөр (NDJSON) гаргана. `--chat` нэг локал model process-ийг дахин ашиглаж, 1–64 turn болон өмнөх түүхийн tokenizer-оор тооцсон `--max-history-tokens` (default 1024) төсвийг мөрдөнө. Хамгийн сүүлийн бүтэн user/assistant хосыг эхэлж хадгалж, төсөв хүрэхгүй үед хуучин хосыг хасна; одоогийн асуулт оролтын боломжит хэмжээнээс урт бол inference хийхгүй, товчлохыг хүснэ. Токены тоо нь message content + тогтмол overhead дээр суурилсан conservative estimate бөгөөд chat-template-ийн яг token count биш; backend-ийн context алдаа мөн ил тод гарна. `/help`, `/clear`, `/exit` командтай, түүхийг дискэнд хадгалахгүй. Chat mode-д `--stream` нь plain-text хэсгүүдийг шууд хэвлэнэ. Энэ нь локал CLI болохоос HTTP API биш. Бодит GGUF жинтэй inference/offline network isolation хараахан баталгаажаагүй. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
 
 ### CPU сургалт ба checkpoint
 
@@ -200,7 +200,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## English summary
 
-RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-30**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay, experimental offline-bundle packaging and mock-tested offline runners. The GGUF CLI now includes a bounded interactive session, but no real GGUF inference has been verified. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-31**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay, experimental offline-bundle packaging and mock-tested offline runners. The GGUF CLI now includes a bounded interactive session with a tokenizer-estimated prior-history token budget and overlong-prompt refusal, but no real GGUF inference has been verified. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
 
 The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
@@ -220,7 +220,7 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 
 ---
 
-**Баримтжуулалтын огноо:** 2026-10-30 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
+**Баримтжуулалтын огноо:** 2026-10-31 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
 
 
 ## 2026-10-30: fresh-process checkpoint equivalence (technical smoke)
