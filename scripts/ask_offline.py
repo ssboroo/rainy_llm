@@ -54,6 +54,8 @@ def generate(model_path, expected_sha256, prompt, context=2048, max_tokens=256, 
     model = _open_model(path, context, threads)
     try:
         template = _require_template(model)
+        prompt_tokens_estimate, input_token_budget, context_safety_reserve = (
+            _check_prompt_budget(model, prompt, context, max_tokens))
         output = model.create_chat_completion(
             messages=[{'role': 'user', 'content': prompt}],
             max_tokens=max_tokens, temperature=0.0, stream=False)
@@ -62,6 +64,9 @@ def generate(model_path, expected_sha256, prompt, context=2048, max_tokens=256, 
                 'finish_reason': choice['finish_reason'], 'usage': output.get('usage'),
                 'model_sha256': expected_sha256,
                 'chat_template_sha256': hashlib.sha256(template.encode()).hexdigest(),
+                'prompt_tokens_estimate': prompt_tokens_estimate,
+                'input_token_budget': input_token_budget,
+                'context_safety_reserve_tokens': context_safety_reserve,
                 'trained_rainy_model': False}
     finally:
         model.close()
@@ -74,6 +79,8 @@ def generate_stream(model_path, expected_sha256, prompt, context=2048, max_token
     model = _open_model(path, context, threads)
     try:
         template = _require_template(model)
+        prompt_tokens_estimate, input_token_budget, context_safety_reserve = (
+            _check_prompt_budget(model, prompt, context, max_tokens))
         finish_reason = None
         usage = None
         chunks = model.create_chat_completion(
@@ -102,6 +109,9 @@ def generate_stream(model_path, expected_sha256, prompt, context=2048, max_token
         yield {'type': 'done', 'finish_reason': finish_reason, 'usage': usage,
                'model_sha256': expected_sha256,
                'chat_template_sha256': hashlib.sha256(template.encode()).hexdigest(),
+               'prompt_tokens_estimate': prompt_tokens_estimate,
+               'input_token_budget': input_token_budget,
+               'context_safety_reserve_tokens': context_safety_reserve,
                'trained_rainy_model': False}
     finally:
         model.close()
@@ -121,6 +131,19 @@ def _message_token_cost(model, content):
     if not isinstance(tokens, (list, tuple)):
         raise ValueError('runtime tokenizer returned an invalid token sequence')
     return len(tokens) + CHAT_MESSAGE_OVERHEAD_TOKENS
+
+
+def _check_prompt_budget(model, prompt, context, max_tokens):
+    """Fail closed before generation when a single prompt exceeds safe context."""
+    reserve = max(64, min(256, context // 16))
+    input_budget = context - max_tokens - reserve
+    if input_budget < 1:
+        raise ValueError('context leaves no safe input budget after output and template reserve')
+    prompt_tokens = _message_token_cost(model, prompt)
+    if prompt_tokens > input_budget:
+        raise ValueError(
+            f'prompt is too long ({prompt_tokens} estimated tokens; safe input budget {input_budget})')
+    return prompt_tokens, input_budget, reserve
 
 
 def _fit_chat_messages(model, history, prompt, context, max_tokens,
