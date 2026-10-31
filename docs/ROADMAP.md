@@ -1,4 +1,91 @@
+## 2026-10-31 09:11 — single-turn offline prompt context guard
+
+- [x] Extend the runtime-tokenizer preflight from interactive chat to single-turn JSON and NDJSON streaming. Refuse over-budget prompts before backend generation; include the estimated prompt tokens, safe input budget and context reserve in terminal metadata.
+- [x] Add focused mock tests for JSON/stream budget metadata, oversized prompts, missing tokenizer and a context with no safe input capacity. These validate control flow only, not a real GGUF template's exact token count.
+- [ ] Validate against a legally acquired, hash-verified GGUF with its pinned runtime and OS-level egress isolation; record actual rendered-template behavior, latency and peak RSS. No model artifact/runtime is available on the current host.
+- [ ] Keep the HTTP API, cancellation and Docker serving behind real local inference and timeout/cancellation evidence.
+
+## 2026-10-31 08:56 — tokenizer-budgeted offline chat history
+
+- [x] Added a tokenizer-estimated prior-history token budget to `scripts/ask_offline.py`; the current prompt has a separate safe input budget after reserving output and 64–256 context tokens for chat-template/control overhead.
+- [x] Preserve the newest contiguous complete user/assistant pairs first, subject to both the 1–64 turn ceiling and `--max-history-tokens` (default 1024). Refuse an overlong current prompt before generation instead of silently truncating or repeatedly sending a context-overflow request.
+- [x] Added mock tests for newest-pair retention, overlong-prompt refusal, missing-tokenizer fail-closed behavior and invalid budgets. These tests do not establish real GGUF inference or exact rendered-template token counts.
+- [ ] Real GGUF inference remains blocked by the missing local model artifact/runtime and unavailable outbound DNS. Validate with a legally acquired pinned artifact before adding HTTP API, cancellation or Docker serving.
+- [ ] Watch-only candidate: official `google/gemma-4-E2B-it-qat-q4_0-gguf` at immutable revision `675cff42a74c774d6cb76f76d8eacb49b48c9b93`; text GGUF is 3.35 GB, with a separate 987 MB multimodal projector. No RAINY-host inference or Mongolian comparison has been run; do not promote the baseline.
+
+## 2026-10-30 20:57 — bounded interactive offline GGUF chat
+
+- [x] Added `--chat` to `scripts/ask_offline.py`: one hash-verified local GGUF process is reused across turns; optional terminal streaming prints text deltas; `/help`, `/clear` and `/exit` are supported.
+- [x] Conversation history is RAM-only and bounded to 1–64 user/assistant turns (default 8). Model SHA-256 and embedded-template hash are returned; the result explicitly says `trained_rainy_model=false` and `history_persisted=false`.
+- [x] Added ten focused interactive-session tests; together with the existing seven GGUF CLI tests, **17/17 passed locally** (Python 3.13.5, 0.017 s). Bytecode compilation, direct CLI help and synthetic-fixture integrity/error-path probes passed. These tests use a mock backend, not real model inference.
+- [ ] Real GGUF inference remains blocked: no local model artifact or `llama_cpp` runtime is installed, and container DNS cannot resolve GitHub. No model download, training, latency, RSS or Mongolian quality measurement occurred.
+- [ ] Next model-first gate remains real Qwen3-0.6B Trainer resume equivalence: reacquire the exact base bytes and the recorded Torch 2.6.0 / Transformers 4.51.3 / PEFT 0.15.2 / Accelerate 1.6.0 stack in durable private storage. The retained adapter archive omits base weights; do not substitute the generic synthetic resume smoke.
+- [ ] Do not add the HTTP API until real local inference, OS-level egress isolation, cancellation and timeout are measured. No model promotion.
+
+## 2026-10-30 16:56 — explicit model provenance in new training identities
+
+- [x] Added `scripts/model_provenance.py` and schema-2 identities for both reviewed-corpus CPU LoRA and the separate synthetic technical runner. New runs require exact model ID, immutable 40-character revision, separate weights/code license declarations, HTTPS source URLs, tokenizer-file hashes and the loaded chat-template hash. The helper hash is part of the run identity.
+- [x] Added nine focused tests covering identity, template hashing, revision/ID/license/URL validation, missing tokenizer/template, malformed hashes and path traversal.
+- [ ] This is provenance/integrity hardening, not training or inference. Declarations are operator-supplied and not independently authenticated. Old schema-1 checkpoints are not migrated.
+- [ ] Next: restore exact Qwen3-0.6B base bytes and the pinned training runtime in durable private storage, then run real Trainer uninterrupted-versus-resumed equivalence. The retained adapter archive omits base weights.
+- [ ] P2 model comparison candidate: `google/gemma-4-E2B-it` (2026-03-31, Apache-2.0, snapshot `c3cdbdc9e7fd33008f19e1e1d8d46382b1349cac`, 2.3B effective / 5.1B total, 10.2 GB BF16). Revisit only with a larger host or a validated supported low-bit artifact; compare on the frozen Mongolian evaluation hash and identical decoding. No current inference or base promotion.
+
+- [ ] Qwen3.8-27B (55.6 GB) and Qwen3.8-2.4T-A95B (separate qwen3.8-max license) are watch-only; no local resource fit. Compare Qwen3.5-0.8B only after runtime pin and same-hash evaluation.
+## 2026-10-30 13:18 — legacy base fingerprint verified; explicit provenance still needed
+
+- [x] Audited the private step-16 archive SHA `e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`; all seven sealed checkpoint file sizes and SHA-256 values match the manifest.
+- [x] Matched the archive's base `model.safetensors` hash `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b` and config hash `660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd` to official `Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca`. This identifies the legacy adapter's base snapshot; the archive still excludes the base weights.
+- [ ] Update new training-run identities to require explicit model ID, immutable revision, tokenizer/chat-template hashes and license metadata. Preserve legacy checkpoint identity without rewriting it.
+- [ ] Reacquire the exact base bytes and pinned training runtime in private storage before real uninterrupted-versus-resumed Qwen Trainer equivalence. No actual Qwen resume was run here.
+
+## 2026-10-30 13:04 — fresh-process checkpoint resume equivalence (technical track)
+
+- [x] Added `scripts/checkpoint_resume_equivalence.py`: a bounded four-step deterministic CPU network experiment, split after step two and resumed in a fresh Python process using the existing checkpoint seal and RNG restore helpers.
+- [x] Added optional-backend tests for CLI help, output symlink refusal and exact fresh-process comparison. Five state families are compared: model tensors, optimizer, scheduler, Python/NumPy/Torch RNG and trainer history.
+- [x] Local CPU result: **5/5 exact**; Python 3.13.5, Torch 2.10.0+cpu, NumPy 2.3.5, safetensors 0.7.0, one thread; 4 steps, 8 synthetic numeric rows; parent/child peak RSS 328,832 / 330,240 KiB. The child training itself took 0.0040 s; fresh-process wall time including interpreter startup was 7.1075 s.
+- [ ] This does not establish Qwen/PEFT Trainer resume equivalence: the retained Qwen adapter archive has no base weights, and the host lacks Transformers/PEFT/Accelerate. Restore the exact base snapshot and pinned runtime to run the real uninterrupted-versus-resumed experiment.
+- [ ] Next compare Qwen3.5-0.8B against the retained Qwen3-0.6B baseline only after real weights/runtime are available, with identical frozen evaluation hash, decoding and hardware. No base promotion from a release announcement or this tiny smoke.
+
+
 # Хөгжүүлэлтийн дараалал
+
+## 2026-10-30 09:05 — legacy NumPy RNG checkpoint compatibility
+
+- [x] Inspected the retained private 2026-10-25 step-16 archive. Its optimizer and scheduler files load with PyTorch's weights-only loader, but its legacy NumPy MT19937 ndarray in rng_state.pth was rejected because NumPy reconstruction symbols were not allowlisted.
+- [x] Added a narrow, weights-only RNG loader for the exact NumPy ndarray/dtype reconstruction symbols required by that legacy payload, followed by strict Python/NumPy/Torch RNG structure validation. New checkpoints continue storing NumPy keys as primitive integers. Unknown pickle globals remain rejected.
+- [x] Verified the real archived RNG state in an isolated CPU probe; also checked current list-form payloads and rejection of an untrusted custom global. This is a checkpoint-compatibility fix, not a completed training resume.
+- [ ] Run uninterrupted-versus-resumed Trainer equivalence on the same pinned Torch/Transformers/PEFT stack, base snapshot, optimizer, scheduler, RNG, data and config. The inspected archive does not include base model weights, and the current host lacks Transformers/PEFT.
+- [ ] Re-run a fresh multi-capability held-out draft evaluation and multiple seeds only after the training/evaluation split and model artifact are available.
+
+
+## 2026-10-29 21:04 — local safetensors offline inference runner
+
+- [x] Added scripts/ask_offline_bundle.py to run an existing verified merged safetensors bundle or base-plus-adapter bundle with exact runtime-pin checks, explicit chat-template hash verification, local-only loading, disabled remote code, deterministic bounded generation and JSON timing/token/RSS metadata.
+- [x] Added a conservative available-RAM preflight and Python socket guard. The estimate is a safety threshold, not measured peak memory; Python guards are not OS-level network isolation.
+- [x] Fixed the direct-execution import path after remote CI run #202 exposed a ModuleNotFoundError in the CLI help step; package imports and direct script execution are both supported.
+- [x] Post-fix remote CPU CI run #204 (40880161938) passed 188 tests in 2.528 s (187 passed, one optional Torch skip); PR check run #205 also passed on the same commit. This verifies code/data checks and CLI help only, not real model inference.
+- [x] Added six focused mock/unit tests covering merged inference wiring, base-plus-adapter loading, trusted bundle ID mismatch, runtime pin mismatch, insufficient RAM and socket-guard restoration.
+- [ ] Run against a legally acquired real bundle and its exact runtime; validate output, tensor compatibility, memory and latency with OS-level egress disabled. Current host has no Transformers/PEFT or model artifact.
+- [ ] Only after real local inference and cancellation/timeout measurement, add a local HTTP streaming API. No model-quality gain or RAINY release is implied by the mock tests.
+
+## 2026-10-29 16:55 — local GGUF streaming CLI
+
+- [x] Added `--stream` to the existing hash-checked local GGUF CLI. It emits one NDJSON `delta` event per text fragment and a final `done` event with finish reason, optional usage, model hash, template hash and an explicit `trained_rainy_model=false` marker.
+- [x] Preserved the single-response JSON path and `--check-only`; the two modes cannot be combined. The streaming generator closes the model on normal completion and exceptions.
+- [x] Added four focused tests for delta/final metadata, missing-template refusal/cleanup, NDJSON CLI output and incompatible flags. Remote CPU CI run #198 passed 182 tests in 2.550 s (181 passed, one optional Torch skip); the local isolated module also passed 7/7. These are code/mock checks, not real model inference.
+- [ ] Run the stream path against a legally acquired, hash-verified GGUF with the compatible `llama-cpp-python` runtime; record real latency/RAM and verify OS-level egress isolation. Mock tests are not model inference.
+- [ ] Build a local HTTP streaming API only after real GGUF inference and cancellation/timeout behavior are measured.
+
+## 2026-10-29 offline bundle packaging
+
+- [x] Added an executable offline bundle packager for existing full/merged safetensors artifacts and base-plus-adapter layouts. It requires an immutable upstream revision, separate weight/code license labels, explicit upstream URLs, exact runtime pins and an explicit tokenizer chat template.
+- [x] Added byte/hash manifest, template identity, exclusive destination, outside-Git guard, 16 GiB default source cap, symlink/pickle-weight refusal and incomplete-publication marker. This is not adapter merging, model inference, a release or proof of legal permission.
+- [x] Added 15 focused unit tests for valid layouts, file/manifest tampering, template absence, mutable revisions, dependency ranges, overwrite refusal, symlinks, pickle-style state-file refusal, Git-path refusal, source/destination overlap, byte caps and incomplete bundles.
+- [x] Hardened base-plus-adapter identity: require a non-empty adapter base ID, match Hub/cache identity and immutable snapshot revision where encoded, and require explicit recorded attestations for opaque local paths. Added seven mismatch/attestation tests; this is metadata integrity, not tensor compatibility or inference.
+- [x] Remote CPU CI run #187 (40799259514) passed 171 tests in 2.535 s (170 passed, one optional Torch test skipped); source-policy, draft-evaluation integrity, review-progress, document-search smoke and offline CLI interface steps passed. Local execution remains blocked by container DNS.
+- [ ] Package a real model only after its local artifact and redistribution rights are confirmed. Verify actual inference with OS-level egress disabled; the current run created no model bundle and measured no model quality.
+- [ ] Complete repeat-seed seed43 evidence only on a host whose child-RSS preflight returns valid samples. Do not weaken the existing training guard.
+- [ ] Resume the 20-source daily collection only with a complete cross-branch source/text-hash audit; no sources were counted in this run because a trustworthy global dedup audit was unavailable.
 
 ## 2026-10-28 checkpoint restoration
 
@@ -145,7 +232,7 @@
 - [ ] GPU нэр, VRAM, төсөв тогтоох
 - [x] Dataset normalization, source-based split, exact dedup болон evaluation/training character n-gram near-overlap audit (semantic detection үргэлжилнэ)
 - [x] Experimental local CPU LoRA runner with assistant-only masking and resume guards; [limits](CPU_TRAINING.md). Guard tests only, no backend training yet.
-- [x] Checkpoint completion manifest, SHA-256 integrity and interrupted-save fault tests; real Trainer save/resume still pending.
+- [x] Checkpoint completion manifest, SHA-256 integrity, interrupted-save fault tests and safe legacy NumPy RNG restoration; exact uninterrupted-versus-resumed Trainer equivalence still pending.
 - [ ] Баталгаажуулсан хувилбартай сургалтын dependencies, бодит CPU LoRA resume equivalence test ба QLoRA script
 - [ ] GPU smoke run, loss ба held-out evaluation; baseline-тай харьцуулах
 - [ ] Model card, adapter artifact, inference API, Docker

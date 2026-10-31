@@ -38,14 +38,22 @@ else:
 
     def test_budget_rejected_before_loading(self):
         result = subprocess.run([sys.executable, 'scripts/synthetic_lora_experiment.py',
-            '--model', 'absent', '--evaluation', 'absent', '--output', '/tmp/unused', '--steps', '33'],
+            '--model', 'absent', '--model-id', 'Qwen/Qwen3-0.6B', '--model-revision', 'c1899de289a04d12100db370d81485cdf75e47ca',
+            '--weights-license', 'Apache-2.0', '--code-license', 'not separately specified',
+            '--model-card-url', 'https://huggingface.co/Qwen/Qwen3-0.6B',
+            '--license-url', 'https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE',
+            '--evaluation', 'absent', '--output', '/tmp/unused', '--steps', '33'],
             capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('limited to 32', result.stderr)
 
     def test_seed_rejected_before_loading(self):
         result = subprocess.run([sys.executable, 'scripts/synthetic_lora_experiment.py',
-            '--model', 'absent', '--evaluation', 'absent', '--output', '/tmp/unused', '--seed', '-1'],
+            '--model', 'absent', '--model-id', 'Qwen/Qwen3-0.6B', '--model-revision', 'c1899de289a04d12100db370d81485cdf75e47ca',
+            '--weights-license', 'Apache-2.0', '--code-license', 'not separately specified',
+            '--model-card-url', 'https://huggingface.co/Qwen/Qwen3-0.6B',
+            '--license-url', 'https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE',
+            '--evaluation', 'absent', '--output', '/tmp/unused', '--seed', '-1'],
             capture_output=True, text=True)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('seed must be', result.stderr)

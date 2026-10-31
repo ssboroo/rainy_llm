@@ -18,6 +18,12 @@ except ImportError:
     from export_chat import convert
 
 
+try:
+    from .model_provenance import build_model_provenance
+except ImportError:
+    from model_provenance import build_model_provenance
+
+
 def digest(path):
     h = hashlib.sha256()
     with Path(path).open('rb') as stream:
@@ -181,6 +187,8 @@ def parser():
     p = argparse.ArgumentParser(description=__doc__)
     for name in ('model', 'data', 'evaluation', 'review', 'output'):
         p.add_argument('--' + name, required=True)
+    for name in ('model-id', 'model-revision', 'weights-license', 'code-license', 'model-card-url', 'license-url'):
+        p.add_argument('--' + name, required=True)
     p.add_argument('--total-steps', type=int, default=20)
     p.add_argument('--session-steps', type=int, default=2)
     p.add_argument('--seconds', type=int, default=120)
@@ -218,18 +226,25 @@ def main():
         from peft import LoraConfig, get_peft_model
         versions = {name: importlib.metadata.version(name)
                     for name in ('torch', 'transformers', 'peft', 'accelerate')}
-        identity = dict(schema=1, runner_sha256=digest(__file__), model_files=model_files, data_sha256=digest(args.data),
-                        evaluation_sha256=digest(args.evaluation), review_sha256=digest(args.review),
-                        versions=versions, seed=args.seed, total_steps=args.total_steps,
-                        max_length=args.max_length, threads=args.threads,
+        torch.set_num_threads(args.threads)
+        set_seed(args.seed)
+        tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True, trust_remote_code=False)
+        model_provenance = build_model_provenance(
+            model_id=args.model_id, revision=args.model_revision,
+            weights_license=args.weights_license, code_license=args.code_license,
+            model_card_url=args.model_card_url, license_url=args.license_url,
+            model_files=model_files, chat_template=tokenizer.chat_template)
+        identity = dict(schema=2, runner_sha256=digest(__file__),
+                        provenance_runner_sha256=digest(Path(__file__).with_name('model_provenance.py')),
+                        model_files=model_files, model_provenance=model_provenance,
+                        data_sha256=digest(args.data), evaluation_sha256=digest(args.evaluation),
+                        review_sha256=digest(args.review), versions=versions, seed=args.seed,
+                        total_steps=args.total_steps, max_length=args.max_length, threads=args.threads,
                         lora=dict(r=8, lora_alpha=16, lora_dropout=0.0, target_modules='all-linear'),
                         learning_rate=0.0001, loss='assistant-only', device='cpu-float32')
         resume = check_resume(output, args.resume, identity) if args.resume else None
         if not resume and output.exists():
             raise ValueError('new run output already exists; use a new directory or explicit resume')
-        torch.set_num_threads(args.threads)
-        set_seed(args.seed)
-        tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True, trust_remote_code=False)
         dataset = tokenize(rows, tokenizer, args.max_length)
         model = AutoModelForCausalLM.from_pretrained(str(model_dir), local_files_only=True,
                     trust_remote_code=False, use_safetensors=True, torch_dtype=torch.float32)

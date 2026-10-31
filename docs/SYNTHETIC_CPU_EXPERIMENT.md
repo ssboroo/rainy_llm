@@ -22,6 +22,12 @@ https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e
 ```bash
 timeout 1200 python scripts/synthetic_lora_experiment.py \
   --model /private/models/qwen3-0.6b \
+  --model-id Qwen/Qwen3-0.6B \
+  --model-revision c1899de289a04d12100db370d81485cdf75e47ca \
+  --weights-license Apache-2.0 \
+  --code-license "not separately specified" \
+  --model-card-url https://huggingface.co/Qwen/Qwen3-0.6B \
+  --license-url https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE \
   --evaluation evaluation/mn_smoke.jsonl \
   --output /private/experiments/new-run \
   --steps 16 --seconds 600
@@ -41,10 +47,7 @@ socket connections are blocked. This is not an OS network-namespace isolation
 test. Each completed step saves adapter, optimizer, scheduler, RNG, ordered
 sample indices and hash-sealed state. Use `--session-steps 2` to stop after two
 steps of a `--steps 4` experiment; resume with `--resume /private/run/checkpoint-2`
-and a NEW `--output` directory, preserving all other arguments. Runner/config,
-data, model and runtime identities must match. Earlier runner checkpoints are
-not silently migrated. `--skip-evaluation` runs mechanics only and emits null
-quality scores; use it consistently in both sessions.
+and a NEW `--output` directory, preserving all other arguments. Runner/config, data, model and runtime identities must match. New schema-2 identities record the explicit upstream model ID/revision, separate weights/code license labels, model-card/license URLs, tokenizer-file hash and actual chat-template hash. These declarations are operator-supplied, not independent legal verification. The provenance helper hash is included. Earlier schema-1 checkpoints are not silently migrated. `--skip-evaluation` runs mechanics only and emits null quality scores; use it consistently in both sessions.
 
 Real CPU Qwen3 validation on 2026-10-26 compared uninterrupted four steps with
 two steps plus a fresh-process two-step resume: adapter, optimizer, scheduler,

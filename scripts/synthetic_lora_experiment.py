@@ -16,6 +16,10 @@ import time
 from evaluate import score, normalized
 from train_lora_cpu import outside_git, snapshot, seal_checkpoint
 from synthetic_resume import validate_resume, save_rng, restore_state
+try:
+    from .model_provenance import build_model_provenance
+except ImportError:
+    from model_provenance import build_model_provenance
 
 
 def synthetic_rows():
@@ -46,6 +50,8 @@ def write_json(path, data):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--model', required=True)
+    for name in ('model-id', 'model-revision', 'weights-license', 'code-license', 'model-card-url', 'license-url'):
+        p.add_argument('--' + name, required=True)
     p.add_argument('--evaluation', required=True)
     p.add_argument('--output', required=True)
     p.add_argument('--steps', type=int, default=16)
@@ -83,9 +89,18 @@ def main():
     from peft import LoraConfig, get_peft_model
     torch.set_num_threads(4)
     set_seed(args.seed)
-    identity = dict(kind='synthetic-technical-smoke-not-rainy-release',
+    tok = AutoTokenizer.from_pretrained(model_path, local_files_only=True, trust_remote_code=False)
+    model_provenance = build_model_provenance(
+        model_id=args.model_id, revision=args.model_revision,
+        weights_license=args.weights_license, code_license=args.code_license,
+        model_card_url=args.model_card_url, license_url=args.license_url,
+        model_files=model_files, chat_template=tok.chat_template)
+    identity = dict(schema=2, kind='synthetic-technical-smoke-not-rainy-release',
         human_reviewed=False, training_sources_added=0,
-        model_files=model_files, evaluation_sha256=hashlib.sha256(cases_bytes).hexdigest(),
+        model_files=model_files, model_provenance=model_provenance,
+        provenance_runner_sha256=hashlib.sha256(
+            Path(__file__).with_name('model_provenance.py').read_bytes()).hexdigest(),
+        evaluation_sha256=hashlib.sha256(cases_bytes).hexdigest(),
         training_sha256=hashlib.sha256(json.dumps(rows, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
         runner_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         versions={n: importlib.metadata.version(n) for n in ['torch','transformers','peft','accelerate']},
@@ -99,7 +114,6 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     write_json(out/'identity.json', identity)
     write_json(out/'synthetic_train.json', rows)
-    tok = AutoTokenizer.from_pretrained(model_path, local_files_only=True, trust_remote_code=False)
     model = AutoModelForCausalLM.from_pretrained(model_path, local_files_only=True,
         trust_remote_code=False, torch_dtype=torch.float32, low_cpu_mem_usage=True,
         use_safetensors=True)

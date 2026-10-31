@@ -7,7 +7,7 @@
 
 [Өгөгдөл](#өгөгдлийн-сан) · [Туршилтын үр дүн](#бодитоор-хийсэн-туршилтууд) · [Эхлэх](#ажиллуулж-эхлэх) · [Дараагийн ажил](#дараагийн-ажил) · [English](#english-summary)
 
-> **2026-10-28-ны төлөв:** бодит CPU LoRA сургалт, checkpoint сэргээх болон шинэ процессоор inference дахин шалгах туршилт хийгдсэн. Эдгээр нь хиймэл жишээтэй, жижиг оношлох туршилтууд. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бэлэн чат үйлчилгээ, API/Docker release гараагүй.**
+> **2026-10-31-ний төлөв:** GGUF CLI-ийн интерактив chat history-г turn-ийн тооноос гадна runtime tokenizer-оор тооцсон токены төсвөөр хязгаарлаж, хамгийн сүүлийн бүтэн ярианы хосыг хадгалдаг болгосон. Мөн single-turn JSON/NDJSON prompt-ийг runtime tokenizer-оор тооцож, safe input budget хэтэрвэл generation эхлэхээс өмнө татгалзана. Эдгээр нь mock тесттэй, бодит GGUF inference биш. Өмнөх CPU LoRA/checkpoint туршилтууд нь жижиг техникийн smoke хэвээр. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бодит inference-ээр баталсан чат үйлчилгээ, API/Docker release гараагүй.**
 
 ## Одоогийн боломж
 
@@ -18,13 +18,13 @@
 | Чанарын хяналт | Автомат шүүлт болон хүний review хэрэгслүүд бий; түүхий корпусын human-reviewed/training-ready төлөв 0 |
 | Асуулт–хариулт | Эхэд тулгуурласан 10 ноорог; сургалтад баталсан багц биш |
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
-| Сургалт | Qwen3-0.6B дээр бодит CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй |
-| Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; 4 алхмыг 2+2 сэргээхтэй тулгасан туршилт бий |
-| Offline | Local-only model loading, HF offline flags, Python socket guards; OS түвшний сүлжээ тусгаарлалтыг баталгаажуулаагүй |
+| Сургалт | Qwen3-0.6B дээр хиймэл жишээтэй CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй. Шинэ training identity нь upstream model/revision, тусдаа weights/code license, tokenizer/template hash шаарддаг |
+| Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; legacy NumPy RNG state-ийг safe weights-only loader-оор сэргээх боломж нэмэгдсэн; бодит Trainer resume equivalence хүлээгдэнэ |
+| Offline | Local GGUF CLI supports single-turn JSON/NDJSON prompt budgeting plus interactive chat with turn and tokenizer-estimated history budgets; real weights and OS-level egress are still unverified |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
 | Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
 
-Эцсийн суурь загвар сонгоогүй. Нээлттэй жинтэй загварыг Монгол хэлэнд тохируулан сургах чиглэлтэй; эхнээс нь foundation model сургасан гэж мэдэгдэхгүй.
+Эцсийн суурь загвар сонгоогүй. Нээлттэй жинтэй загварыг Монгол хэлэнд тохируулан сургах чиглэлтэй; эхнээс нь foundation model сургасан гэж мэдэгдэхгүй. Google `google/gemma-4-E2B-it` (5.1B нийт / 2.3B effective, 10.2 GB BF16) нь ирээдүйн low-bit харьцуулалтын watch candidate; албан ёсны quantized artifact болон энэ орчинд inference хараахан баталгаажаагүй.
 
 ## Өгөгдлийн сан
 
@@ -37,7 +37,7 @@
 | Хоёр салбарын нийлбэр | 62 | 3,685 |
 | Давхардсан 4 мөрийг хассан нийт | — | **3,681** |
 
-ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 3,681. Энэ тоо нь утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
+ID болон Unicode NFC/хоосон зайг нормчилсон текстийн давтагдахгүй тоо хоёулаа 3,681 байсан 2026-10-28 snapshot нь түүхэн суурь хэвээр. **2026-10-30 15:04 Ulaanbaatar bulk workflow run #23** тусдаа `data/bulk-wikipedia` салбарт 1,008 шинэ оршил хүлээн авч, 1,466-г шалган, 132 API хүсэлт хийсэн; нийт unique index 8,729 болсон. 458 мөр богино/давхардсан/чанарын шүүлтээр хасагдсан. Энэ нь Wikipedia оршил түүхий өгөгдөл бөгөөд утгын давхардалгүй, баримтын алдаагүй эсвэл хүний хянасан гэсэн баталгаа биш; run тайлангийн human-reviewed/training-ready тоо 0/0. Энэ 1,008-ын bulk workflow нь тусгай 5×20-source manifest зорилттой адил биш. Асуулт–хариултын ноорог болон хиймэл сургалтын жишээг эх баримтын тоонд оруулаагүй.
 
 - [Pilot корпус](data/mnwiki_pilot)
 - [Өдөр тутмын корпус](data/mnwiki_daily)
@@ -98,7 +98,7 @@ python -m unittest discover -s tests -v
 python scripts/validate_source_registry.py
 ```
 
-Жишээ өгөгдлийн шалгалт: `records=1, errors=0`. Системээс хамаарч `python3` эсвэл `py -3` ашиглаж болно. Torch шаарддаг optional тест runtime байхгүй үед skip болно. Сүүлийн судалгааны бүртгэлд **149 тест: 148 passed, 1 optional Torch skip** гэж тэмдэглэсэн; одоогийн төлөвийг дээрх CI холбоосоор шалгана.
+Жишээ өгөгдлийн шалгалт: `records=1, errors=0`. Системээс хамаарч `python3` эсвэл `py -3` ашиглаж болно. Torch шаарддаг optional тест runtime байхгүй үед skip болно. 2026-10-29-ний шинэ runner-ийн remote CPU CI run #204-д **188 тест: 187 passed, 1 optional Torch skip** (2.528 s) болсон. [CI run](https://github.com/ssboroo/rainy_llm/actions/runs/40880161938). Шууд CLI ажиллуулах import алдааг зассаны дараах шалгалт; бодит модель inference биш. Энэ нь код/өгөгдлийн шалгалт болохоос модель сурсан эсвэл Монгол чанар сайжирсан гэсэн баталгаа биш.
 
 ### Local document search
 
@@ -108,6 +108,30 @@ python scripts/search_documents.py --documents examples/knowledge --query "Хү�
 
 Файл, мөр, hash-тай эхийн хэсгийг хайна. Энэ нь LLM-ээр хариулт үүсгэх web chatbot биш. [Заавар](docs/DOCUMENT_SEARCH.md)
 
+### Offline model bundle packaging (experimental)
+
+The new offline bundle tool copies a model artifact that already exists locally; it does not download weights, merge adapters, run inference, or make an artifact a RAINY release. It supports a full/merged safetensors model directory and a base-plus-adapter directory. It requires an immutable 40-character base revision, separate weights/code license labels, explicit upstream URLs, exact runtime pins, tokenizer vocabulary and a chat template. It rejects symlinks, mutable revisions, unpinned dependencies, existing destinations, and source artifacts above the default 16 GiB cap. The output is kept outside Git and includes per-file SHA-256, size and a manifest identity hash. For base-plus-adapter bundles, the tool also checks `adapter_config.json` against the declared base ID and revision. A Hugging Face cache path must identify the exact `snapshots/<revision>`; a config containing only a Hub model ID requires `--adapter-base-revision` after independent verification; an opaque local path requires both `--adapter-base-model-id` and `--adapter-base-revision`. These attestations are recorded but do not independently prove local weight provenance.
+
+Example for a local full model directory (replace paths and metadata only after verifying the real artifact and license):
+
+    python scripts/export_offline_bundle.py create --source /private/model-artifact --destination /private/rainy-bundle --mode merged --model-id Qwen/Qwen3-0.6B --revision c1899de289a04d12100db370d81485cdf75e47ca --weights-license Apache-2.0 --code-license Apache-2.0 --model-card-url https://huggingface.co/Qwen/Qwen3-0.6B/tree/c1899de289a04d12100db370d81485cdf75e47ca --license-url https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/LICENSE --runtime torch==2.6.0+cpu --runtime transformers==4.51.3 --runtime accelerate==1.6.0 --runtime safetensors==YOUR_VERIFIED_VERSION --runtime tokenizers==YOUR_VERIFIED_VERSION
+    python scripts/export_offline_bundle.py verify --bundle /private/rainy-bundle
+
+For a tested runnable bundle, replace both YOUR_VERIFIED_VERSION placeholders with the exact installed versions of safetensors and the tokenizer backend used by the artifact. Include PEFT only for a base-plus-adapter runtime. The manifest records the pins supplied by the operator; it does not generate a complete transitive dependency lock.
+
+This is a packaging and byte-integrity check only. It does not prove legal permission, tensor/runtime compatibility, model output quality, or operating-system-level network isolation. The current run did not create a real bundle because no local model artifact was available; no weights or checkpoint were added to Git.
+
+### Offline safetensors bundle inference (experimental)
+
+A new local runner can execute an already-packaged merged safetensors model or a base-plus-adapter bundle. It verifies the bundle against a trusted expected bundle ID, checks every declared runtime pin, refuses a conservative low-RAM preflight, loads only local files with remote code disabled, and records artifact identity, token counts, generation time, throughput and peak RSS where the platform exposes it.
+
+Монгол: энэ runner нь өөрөө жин татахгүй. Эхлээд bundle-ийн ID-г шалгаад, итгэмжлэгдсэн ID-г ажиллуулах үед зааж өгнө.
+
+    python scripts/export_offline_bundle.py verify --bundle /private/rainy-bundle
+    python scripts/ask_offline_bundle.py --bundle /private/rainy-bundle --expected-bundle-id TRUSTED_BUNDLE_SHA256 --prompt "Монгол хэлээр товч хариул." --max-new-tokens 128 --threads 4
+
+The expected bundle ID must be copied from a trusted verification result or other trusted channel. Runtime package versions must exactly match the manifest. The memory estimate is deliberately conservative and is not a measured peak-RSS prediction. The runner's offline environment flags and Python socket guard are defense in depth, not OS-level network isolation. No real safetensors bundle/runtime was available for this run; mock tests do not prove model compatibility or Mongolian quality. Use OS/container egress isolation before claiming fully standalone operation.
+
 ### Local GGUF CLI — туршилтын боломж
 
 Тохирох runtime, өөрийн хууль ёсоор авсан GGUF файл болон итгэмжлэгдсэн SHA-256 хэрэгтэй.
@@ -116,9 +140,11 @@ python scripts/search_documents.py --documents examples/knowledge --query "Хү�
 python scripts/ask_offline.py --help
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --check-only
 python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул."
+python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --prompt "Монгол хэлээр өөрийгөө товч танилцуул." --stream
+python scripts/ask_offline.py --model /path/to/model.gguf --sha256 YOUR_TRUSTED_SHA256 --chat --stream --max-history-turns 8 --max-history-tokens 1024
 ```
 
-`--check-only` нь модель inference шалгахгүй. Энэ CLI-ийн бодит GGUF validation дутуу хэвээр; дээрх PEFT checkpoint reload нь өөр кодын зам. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
+`--check-only` нь зөвхөн файлын hash/header шалгана. Нэг prompt-ийн JSON болон NDJSON `--stream` горим хоёулаа runtime tokenizer-оор prompt-ийн токеныг тооцож, гаралтын төсөв ба 64–256 token-ийн template reserve-ийн дараах safe input budget хэтэрвэл generation эхлэхээс өмнө татгалзана; JSON/NDJSON үр дүнд estimate, budget, reserve гарна. `--chat` нэг локал model process-ийг дахин ашиглаж, 1–64 turn болон өмнөх түүхийн tokenizer-оор тооцсон `--max-history-tokens` (default 1024) төсвийг мөрдөнө. Хамгийн сүүлийн бүтэн user/assistant хосыг эхэлж хадгалж, төсөв хүрэхгүй үед хуучин хосыг хасна; одоогийн асуулт оролтын боломжит хэмжээнээс урт бол inference хийхгүй, товчлохыг хүснэ. Токены тоо нь message content + тогтмол overhead дээр суурилсан conservative estimate бөгөөд chat-template-ийн яг token count биш; backend-ийн context алдаа мөн ил тод гарна. `/help`, `/clear`, `/exit` командтай, түүхийг дискэнд хадгалахгүй. Chat mode-д `--stream` нь plain-text хэсгүүдийг шууд хэвлэнэ. Энэ нь локал CLI болохоос HTTP API биш. Бодит GGUF жинтэй inference/offline network isolation хараахан баталгаажаагүй. [Бие даасан загварын шаардлага](docs/STANDALONE_MODEL.md)
 
 ### CPU сургалт ба checkpoint
 
@@ -129,7 +155,7 @@ Runtime шаардлага нь стандарт сангийн тестээс �
 - [Модель татахаас өмнөх resource preflight](docs/BOUNDED_EXPERIMENT.md)
 - [Хадгалсан checkpoint сэргээх](docs/CHECKPOINT_RESTORE.md)
 
-Энэ repository-д нийтийн model weights, хувийн checkpoint архив багтаахгүй. Adapter дангаараа суурь загварыг орлохгүй. OS түвшний интернэтгүй ажиллагааны баталгаажуулалт, GGUF export болон бүрэн installation package үлдсэн.
+2026-10-25-ны хувийн step-16 checkpoint-ийн хуучин NumPy RNG ndarray state-ийг зөвхөн тодорхой NumPy reconstruction globals-оор, `weights_only=True` горимд сэргээх compatibility fix нэмэгдсэн. Танихгүй pickle global-ийг зөвшөөрөхгүй. Гэхдээ архивт base model weights байхгүй тул энэ нь бодит training resume эсвэл uninterrupted/resumed equivalence биш. Энэ repository-д нийтийн model weights, хувийн checkpoint архив багтаахгүй. Adapter дангаараа суурь загварыг орлохгүй. OS түвшний интернэтгүй ажиллагааны баталгаажуулалт, GGUF export болон бүрэн installation package үлдсэн.
 
 ## Өгөгдөл бэлтгэх ба үнэлэх
 
@@ -154,7 +180,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 - [ ] Child RSS хэмждэг орчинд seed43 туршилт хийж, хадгалсан хоёр-seed үр дүнг харьцуулах.
 - [ ] Reviewed corpus дээр LoRA сургаж, held-out чанар болон regression хэмжих.
 - [ ] Хувилбартай adapter/model card, export, offline package ба OS сүлжээ тусгаарлах туршилт гаргах.
-- [ ] Баталгаажсан загварт local chat/API, дараа нь Docker ба хэрэглэгчийн интерфейс бэлтгэх.
+- [ ] Бодит GGUF inference, OS түвшний egress isolation, cancellation/timeout-ийг хэмжсэний дараа local HTTP API; дараа нь Docker ба хэрэглэгчийн интерфейс бэлтгэх.
 
 [Дэлгэрэнгүй roadmap](docs/ROADMAP.md) · [Загварын судалгаа](docs/MODEL_WATCH.md)
 
@@ -174,7 +200,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## English summary
 
-RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-28**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration and fresh-process inference replay. It has **not** released a production Mongolian model trained on a human-reviewed corpus.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-31**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay, experimental offline-bundle packaging and mock-tested offline runners. The GGUF CLI now includes bounded interactive history and tokenizer-estimated prompt budgets for single-turn JSON/NDJSON and chat, refusing overlong prompts before generation; no real GGUF inference has been verified. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
 
 The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
@@ -194,4 +220,24 @@ RAINY LLM нь ssboroo-ийн санаачилж, удирдан хөгжүүл�
 
 ---
 
-**Баримтжуулалтын огноо:** 2026-10-28 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
+**Баримтжуулалтын огноо:** 2026-10-31 (Asia/Ulaanbaatar). Тоон үзүүлэлтүүд нь шалгасан snapshot; бодит шинэчлэлтийг manifest, огноотой судалгааны тайлан болон Actions-оос харна.
+
+
+## 2026-10-30: fresh-process checkpoint equivalence (technical smoke)
+
+A new optional CPU experiment validates that the repository's sealed checkpoint helpers can resume a tiny deterministic PyTorch network in a fresh Python process. The four-step run is split after step two. Model tensors, optimizer, scheduler, Python/NumPy/Torch RNG and trainer history matched **exactly (5/5)**. Measured on Python 3.13.5, Torch 2.10.0+cpu, NumPy 2.3.5 and safetensors 0.7.0, one CPU thread; fresh-process wall time 7.1075 s including interpreter startup; resume training itself 0.0040 s; parent/child peak RSS 328,832 / 330,240 KiB.
+
+This is a technical state-restore test with eight synthetic numeric rows. It is **not Qwen/PEFT LoRA training, a Mongolian benchmark, or a model-quality improvement**. The actual Qwen Trainer resume still requires the missing base weights and the exact pinned training runtime. See [checkpoint equivalence instructions](docs/CHECKPOINT_RESUME_EQUIVALENCE.md) and [the 2026-10-30 research log](research/2026-10-30.md).
+
+
+Remote GitHub Actions PR run [#223](https://github.com/ssboroo/rainy_llm/actions/runs/41007166769) passed after this push: **193 tests, 189 passed, 4 optional skips**. All validation, source-policy, draft-evaluation, review-progress, document-search and offline-CLI steps succeeded. This CI run did not perform model training or model inference.
+
+## 2026-10-30: legacy checkpoint base fingerprint
+
+The private step-16 archive was re-audited: its archive SHA-256 is `e9036fdea2892609ae73785c64ae9a6887df3df23e760dffe0a464e3c5194063`; all seven sealed checkpoint files match their manifest. The recorded base-model weight SHA-256 `f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b` matches the official [Qwen/Qwen3-0.6B file at immutable revision c1899de289a04d12100db370d81485cdf75e47ca](https://huggingface.co/Qwen/Qwen3-0.6B/blob/c1899de289a04d12100db370d81485cdf75e47ca/model.safetensors), and its config hash also matches. This identifies the legacy adapter's base snapshot even though the old identity metadata omitted explicit model ID/revision fields. The archive does not contain the base weights, and no actual Qwen resume occurred. Future training identities must store model ID, revision, tokenizer/template hashes and license explicitly.
+
+
+**Latest Qwen watch (2026-10-30):** Qwen3.8-27B (55.6 GB, Apache-2.0 weights) and Qwen3.8-2.4T-A95B (separate `qwen3.8-max` license) are too large for the current 5.81 GiB host. Qwen3.5-0.8B remains a smaller watch-only candidate; Qwen3-0.6B stays the rollback baseline. No Qwen3.8 download or inference was run.
+
+
+The checkpoint-resume smoke is portable to Windows when optional ML packages are installed: platforms without Python's `resource` module report peak RSS as `null`, and the symlink-specific test skips if symlink creation is unavailable.
