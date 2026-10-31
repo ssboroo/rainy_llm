@@ -253,6 +253,10 @@ def chat_session(model_path, expected_sha256, context=2048, max_tokens=256, thre
                 'max_history_tokens': max_history_tokens,
                 'last_input_tokens_estimate': last_input_tokens_estimate,
                 'context_safety_reserve_tokens': last_context_reserve}
+    finally:
+        model.close()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model', required=True)
