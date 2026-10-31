@@ -1,0 +1,23 @@
+{
+  "accepted": 1020,
+  "examined": 1434,
+  "api_requests": 137,
+  "rejected": {
+    "short": 349,
+    "exact-duplicate": 55,
+    "quality-artifact": 7,
+    "low-cyrillic": 3
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 12781,
+  "corpus_sha256": "64ff42a8c68be0f9adccc3273bcafa4eda4b5fd91629059f9eec17be10fe8b20",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Мюнхен",
+    "exhausted": false
+  }
+}
