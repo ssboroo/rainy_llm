@@ -1,3 +1,10 @@
+## 2026-10-31 09:11 — single-turn offline prompt context guard
+
+- [x] Extend the runtime-tokenizer preflight from interactive chat to single-turn JSON and NDJSON streaming. Refuse over-budget prompts before backend generation; include the estimated prompt tokens, safe input budget and context reserve in terminal metadata.
+- [x] Add focused mock tests for JSON/stream budget metadata, oversized prompts, missing tokenizer and a context with no safe input capacity. These validate control flow only, not a real GGUF template's exact token count.
+- [ ] Validate against a legally acquired, hash-verified GGUF with its pinned runtime and OS-level egress isolation; record actual rendered-template behavior, latency and peak RSS. No model artifact/runtime is available on the current host.
+- [ ] Keep the HTTP API, cancellation and Docker serving behind real local inference and timeout/cancellation evidence.
+
 ## 2026-10-31 08:56 — tokenizer-budgeted offline chat history
 
 - [x] Added a tokenizer-estimated prior-history token budget to `scripts/ask_offline.py`; the current prompt has a separate safe input budget after reserving output and 64–256 context tokens for chat-template/control overhead.
