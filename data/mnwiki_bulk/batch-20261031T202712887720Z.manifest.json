@@ -1,0 +1,22 @@
+{
+  "accepted": 1021,
+  "examined": 1538,
+  "api_requests": 138,
+  "rejected": {
+    "short": 444,
+    "exact-duplicate": 66,
+    "quality-artifact": 7
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 13802,
+  "corpus_sha256": "8f943e39a9a791d203db9d64c9d0b54df6dc64f86a7efa847bf457630590593f",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Оксфордын_англи_хэлний_толь_бичиг",
+    "exhausted": false
+  }
+}
