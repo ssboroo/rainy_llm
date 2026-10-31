@@ -26,6 +26,7 @@ class OfflineModelTests(unittest.TestCase):
     def test_local_model_call_and_cleanup(self):
         model = MagicMock()
         model.metadata = {'tokenizer.chat_template': 'fixture-template'}
+        model.tokenize.side_effect = lambda text, add_bos=False, special=True: [1] * len(text.decode('utf-8'))
         model.create_chat_completion.return_value = {
             'choices': [{'message': {'content': 'mock хариу'}, 'finish_reason': 'stop'}]}
         factory = MagicMock(return_value=model)
@@ -34,6 +35,9 @@ class OfflineModelTests(unittest.TestCase):
         self.assertEqual(factory.call_args.kwargs['model_path'], '/local/model.gguf')
         self.assertEqual(factory.call_args.kwargs['n_gpu_layers'], 0)
         self.assertEqual(result['output'], 'mock хариу')
+        self.assertEqual(result['prompt_tokens_estimate'], len('Сайн уу') + 8)
+        self.assertGreater(result['input_token_budget'], result['prompt_tokens_estimate'])
+        self.assertEqual(result['context_safety_reserve_tokens'], 128)
         model.close.assert_called_once()
 
     def test_missing_template_refuses_generation(self):
@@ -49,6 +53,7 @@ class OfflineModelTests(unittest.TestCase):
     def test_stream_emits_text_deltas_and_terminal_metadata(self):
         model = MagicMock()
         model.metadata = {'tokenizer.chat_template': 'fixture-template'}
+        model.tokenize.side_effect = lambda text, add_bos=False, special=True: [1] * len(text.decode('utf-8'))
         model.create_chat_completion.return_value = iter([
             {'choices': [{'delta': {'content': 'Монгол '}, 'finish_reason': None}]},
             {'choices': [{'delta': {'content': 'хариу'}, 'finish_reason': None}]},
@@ -63,6 +68,9 @@ class OfflineModelTests(unittest.TestCase):
         self.assertEqual(events[-1]['finish_reason'], 'stop')
         self.assertEqual(events[-1]['usage'], {'completion_tokens': 2})
         self.assertFalse(events[-1]['trained_rainy_model'])
+        self.assertEqual(events[-1]['prompt_tokens_estimate'], len('Сайн уу') + 8)
+        self.assertGreater(events[-1]['input_token_budget'], events[-1]['prompt_tokens_estimate'])
+        self.assertEqual(events[-1]['context_safety_reserve_tokens'], 128)
         model.create_chat_completion.assert_called_once()
         self.assertTrue(model.create_chat_completion.call_args.kwargs['stream'])
         model.close.assert_called_once()
@@ -90,6 +98,45 @@ class OfflineModelTests(unittest.TestCase):
         self.assertEqual([json.loads(line) for line in lines], events)
         self.assertEqual(len(lines), 3)
 
+    def test_single_turn_refuses_overlong_prompt_before_generation(self):
+        model = MagicMock()
+        model.metadata = {'tokenizer.chat_template': 'fixture-template'}
+        model.tokenize.side_effect = lambda text, add_bos=False, special=True: [1] * len(text.decode('utf-8'))
+        with patch('scripts.ask_offline.verify_model', return_value=Path('/local/model.gguf')), patch.dict('sys.modules', {'llama_cpp': types.SimpleNamespace(Llama=lambda **kw: model)}):
+            with self.assertRaisesRegex(ValueError, 'prompt is too long'):
+                generate('/local/model.gguf', 'a' * 64, 'x' * 193, context=512, max_tokens=256)
+        model.create_chat_completion.assert_not_called()
+        model.close.assert_called_once()
+
+    def test_single_turn_requires_runtime_tokenizer(self):
+        model = MagicMock()
+        model.metadata = {'tokenizer.chat_template': 'fixture-template'}
+        model.tokenize = None
+        with patch('scripts.ask_offline.verify_model', return_value=Path('/local/model.gguf')), patch.dict('sys.modules', {'llama_cpp': types.SimpleNamespace(Llama=lambda **kw: model)}):
+            with self.assertRaisesRegex(ValueError, 'tokenizer is required'):
+                generate('/local/model.gguf', 'a' * 64, 'Сайн уу')
+        model.create_chat_completion.assert_not_called()
+        model.close.assert_called_once()
+
+    def test_stream_refuses_overlong_prompt_before_generation(self):
+        model = MagicMock()
+        model.metadata = {'tokenizer.chat_template': 'fixture-template'}
+        model.tokenize.side_effect = lambda text, add_bos=False, special=True: [1] * len(text.decode('utf-8'))
+        with patch('scripts.ask_offline.verify_model', return_value=Path('/local/model.gguf')), patch.dict('sys.modules', {'llama_cpp': types.SimpleNamespace(Llama=lambda **kw: model)}):
+            with self.assertRaisesRegex(ValueError, 'prompt is too long'):
+                list(generate_stream('/local/model.gguf', 'a' * 64, 'x' * 193, context=512, max_tokens=256))
+        model.create_chat_completion.assert_not_called()
+        model.close.assert_called_once()
+
+    def test_single_turn_refuses_context_without_safe_input_budget(self):
+        model = MagicMock()
+        model.metadata = {'tokenizer.chat_template': 'fixture-template'}
+        with patch('scripts.ask_offline.verify_model', return_value=Path('/local/model.gguf')), patch.dict('sys.modules', {'llama_cpp': types.SimpleNamespace(Llama=lambda **kw: model)}):
+            with self.assertRaisesRegex(ValueError, 'no safe input budget'):
+                generate('/local/model.gguf', 'a' * 64, 'Сайн уу', context=128, max_tokens=64)
+        model.tokenize.assert_not_called()
+        model.create_chat_completion.assert_not_called()
+        model.close.assert_called_once()
     def test_stream_and_check_only_are_mutually_exclusive(self):
         argv = ['ask_offline.py', '--model', '/local/model.gguf', '--sha256', 'a' * 64,
                 '--check-only', '--stream']
