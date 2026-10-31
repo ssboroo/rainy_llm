@@ -7,7 +7,7 @@
 
 [Өгөгдөл](#өгөгдлийн-сан) · [Туршилтын үр дүн](#бодитоор-хийсэн-туршилтууд) · [Эхлэх](#ажиллуулж-эхлэх) · [Дараагийн ажил](#дараагийн-ажил) · [English](#english-summary)
 
-> **2026-10-31-ний төлөв:** GGUF CLI-ийн интерактив chat history-г turn-ийн тооноос гадна runtime tokenizer-оор тооцсон токены төсвөөр хязгаарлаж, хамгийн сүүлийн бүтэн ярианы хосыг хадгалдаг болгосон; хэт урт шинэ асуултыг inference рүү явуулахгүй. Энэ өөрчлөлт mock тесттэй, бодит GGUF inference биш. Өмнөх CPU LoRA/checkpoint туршилтууд нь жижиг техникийн smoke хэвээр. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бодит inference-ээр баталсан чат үйлчилгээ, API/Docker release гараагүй.**
+> **2026-10-31-ний төлөв:** GGUF CLI-ийн интерактив chat history-г turn-ийн тооноос гадна runtime tokenizer-оор тооцсон токены төсвөөр хязгаарлаж, хамгийн сүүлийн бүтэн ярианы хосыг хадгалдаг болгосон. Мөн single-turn JSON/NDJSON prompt-ийг runtime tokenizer-оор тооцож, safe input budget хэтэрвэл generation эхлэхээс өмнө татгалзана. Эдгээр нь mock тесттэй, бодит GGUF inference биш. Өмнөх CPU LoRA/checkpoint туршилтууд нь жижиг техникийн smoke хэвээр. **Хүний хянасан Монгол корпус дээр сургасан нийтэд ашиглуулах RAINY загвар, бодит inference-ээр баталсан чат үйлчилгээ, API/Docker release гараагүй.**
 
 ## Одоогийн боломж
 
@@ -20,7 +20,7 @@
 | Үнэлгээ | 24 smoke асуулт, 100 асуулттай v2 ноорог, 12 transfer асуулттай тусдаа ноорог |
 | Сургалт | Qwen3-0.6B дээр хиймэл жишээтэй CPU LoRA technical smoke; reviewed-corpus сургалт ба QLoRA туршаагүй. Шинэ training identity нь upstream model/revision, тусдаа weights/code license, tokenizer/template hash шаарддаг |
 | Checkpoint | Hash шалгалт, архив сэргээх, fresh-process reload; legacy NumPy RNG state-ийг safe weights-only loader-оор сэргээх боломж нэмэгдсэн; бодит Trainer resume equivalence хүлээгдэнэ |
-| Offline | Local GGUF CLI supports single-turn NDJSON streaming and interactive chat with turn + tokenizer-estimated history-token budgets; real weights and OS-level egress are still unverified |
+| Offline | Local GGUF CLI supports single-turn JSON/NDJSON prompt budgeting plus interactive chat with turn and tokenizer-estimated history budgets; real weights and OS-level egress are still unverified |
 | CI | CPU код/өгөгдлийн шалгалт амжилттай; энэ нь model release-ийн баталгаа биш |
 | Хэрэглэгчийн бүтээгдэхүүн | Local document search ба туршилтын CLI бий; бэлэн web chat/API/Docker байхгүй |
 
@@ -200,7 +200,7 @@ AI-аар хийсэн шалгалтыг хүний review гэж тэмдэг�
 
 ## English summary
 
-RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-31**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay, experimental offline-bundle packaging and mock-tested offline runners. The GGUF CLI now includes a bounded interactive session with a tokenizer-estimated prior-history token budget and overlong-prompt refusal, but no real GGUF inference has been verified. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
+RAINY LLM is a Mongolian model-adaptation research project directed by **ssboroo**. As of **2026-10-31**, the repository contains real CPU LoRA experiments on synthetic fixtures, exact checkpoint-resume comparisons, archive restoration, fresh-process inference replay, experimental offline-bundle packaging and mock-tested offline runners. The GGUF CLI now includes bounded interactive history and tokenizer-estimated prompt budgets for single-turn JSON/NDJSON and chat, refusing overlong prompts before generation; no real GGUF inference has been verified. It has **not** released a production Mongolian model trained on a human-reviewed corpus or a real RAINY model bundle.
 
 The inspected main and bulk branch snapshots contain **3,685 raw Wikipedia lead records / 3,681 exact-unique records**. All remain unapproved for corpus training. Bulk collection now targets 1,000 records six times daily. The Unicode JSONL parsing failure was reproduced and fixed, with bounded retries and current-main deduplication added. The daily target is not a delivery guarantee.
 
