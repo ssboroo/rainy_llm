@@ -1,0 +1,24 @@
+{
+  "accepted": 1002,
+  "examined": 1429,
+  "api_requests": 129,
+  "rejected": {
+    "exact-duplicate": 32,
+    "short": 387,
+    "contact-pattern": 1,
+    "quality-artifact": 6,
+    "low-cyrillic": 1
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 15821,
+  "corpus_sha256": "2aa33c206ae77f341f78690639fa71c23385f116939d28bf06d0abf2e1348754",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Сезар_Балдаччини",
+    "exhausted": false
+  }
+}
