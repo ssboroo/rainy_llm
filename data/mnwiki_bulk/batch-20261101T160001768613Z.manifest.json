@@ -1,0 +1,23 @@
+{
+  "accepted": 1001,
+  "examined": 1444,
+  "api_requests": 132,
+  "rejected": {
+    "short": 376,
+    "quality-artifact": 12,
+    "exact-duplicate": 52,
+    "low-cyrillic": 3
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 16822,
+  "corpus_sha256": "d123e081b25c6ed6fe24b48045a1989d6676d563ecb05d0a7c71f8125b4f0802",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Талст",
+    "exhausted": false
+  }
+}
