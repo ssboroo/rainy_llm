@@ -1,0 +1,23 @@
+{
+  "accepted": 1002,
+  "examined": 1382,
+  "api_requests": 131,
+  "rejected": {
+    "short": 320,
+    "exact-duplicate": 51,
+    "quality-artifact": 8,
+    "low-cyrillic": 1
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 18843,
+  "corpus_sha256": "71a75af612fcd903d69e7d847f94db3ce260725537a88b62fd7d7ac45e7a9d01",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Халтарын_Билэгжаргал",
+    "exhausted": false
+  }
+}
