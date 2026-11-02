@@ -1,0 +1,24 @@
+{
+  "accepted": 1011,
+  "examined": 1530,
+  "api_requests": 138,
+  "rejected": {
+    "short": 424,
+    "exact-duplicate": 75,
+    "quality-artifact": 17,
+    "low-cyrillic": 2,
+    "contact-pattern": 1
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 20866,
+  "corpus_sha256": "9c64f11692507e051998e4047627147e637d90698f385ce51b39f7e9babe3abd",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Читкара_Их_Сургууль,_Пунжаб",
+    "exhausted": false
+  }
+}
