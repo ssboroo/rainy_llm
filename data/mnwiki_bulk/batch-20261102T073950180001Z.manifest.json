@@ -1,0 +1,23 @@
+{
+  "accepted": 1012,
+  "examined": 1422,
+  "api_requests": 134,
+  "rejected": {
+    "short": 337,
+    "exact-duplicate": 64,
+    "quality-artifact": 8,
+    "low-cyrillic": 1
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 19855,
+  "corpus_sha256": "4baa5140d949d76e7ab19b09229c4d2b7cb6e0dcc17f57894fa551eb543b6831",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Хэшилэ_Жижун",
+    "exhausted": false
+  }
+}
