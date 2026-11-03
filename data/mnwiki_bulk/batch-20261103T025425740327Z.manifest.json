@@ -1,0 +1,24 @@
+{
+  "accepted": 1016,
+  "examined": 1512,
+  "api_requests": 138,
+  "rejected": {
+    "short": 451,
+    "exact-duplicate": 30,
+    "quality-artifact": 8,
+    "low-cyrillic": 6,
+    "contact-pattern": 1
+  },
+  "network_error": null,
+  "status": "completed",
+  "total_unique_indexed": 21882,
+  "corpus_sha256": "1a3d1ccab8dcc6317660b8d8f85e9ce7595c42effd0d1e0bf07ed1f011211d22",
+  "human_reviewed": 0,
+  "training_ready": 0,
+  "source_api": "https://mn.wikipedia.org/w/api.php",
+  "scope": "Wikipedia introductions only; no semantic deduplication, comprehensive PII or factual review",
+  "state": {
+    "cursor": "Энэтхэг-Хятадын_нэгдүгээр_дайн",
+    "exhausted": false
+  }
+}
